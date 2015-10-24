@@ -35,21 +35,20 @@
                 android:layout_gravity="center_horizontal|top" />
         </FrameLayout>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Press me!"
+            android:id="@+id/button"
+            android:layout_gravity="center_horizontal|bottom"
+            android:onClick="closeNotifications"
+            />
     </FrameLayout>
 
-    <FrameLayout
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="293dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/subFrame">
+        android:id="@+id/tab"></TableLayout>
 
-        <FrameLayout
-            android:layout_width="165dp"
-            android:layout_height="150dp"
-            android:layout_gravity="right|center_vertical"
-            android:paddingRight="15dp">
-
-
-        </FrameLayout>
-    </FrameLayout>
 </LinearLayout>

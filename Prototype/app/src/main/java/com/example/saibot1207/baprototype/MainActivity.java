@@ -15,14 +15,22 @@
  */
 package com.example.saibot1207.baprototype;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.example.saibot1207.baprototype.R;
 import com.google.android.gms.common.ConnectionResult;
@@ -76,7 +84,10 @@ public class MainActivity extends AppCompatActivity {
     // Need to hold a reference to this listener, as it's passed into the "unregister"
     // method in order to stop all sensors from sending data to this listener.
     private OnDataPointListener mListener;
+
+    TableLayout tab;
     // [END mListener_variable_reference]
+
 
 
     // [START auth_oncreate_setup_beginning]
@@ -95,11 +106,13 @@ public class MainActivity extends AppCompatActivity {
 
         // [START auth_oncreate_setup_ending]
 
-        if (savedInstanceState != null) {
-            authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
-        }
-
-        buildFitnessClient();
+//        if (savedInstanceState != null) {
+//            authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
+//        }
+//
+//        buildFitnessClient();
+        tab = (TableLayout)findViewById(R.id.tab);
+        LocalBroadcastManager.getInstance(this).registerReceiver(onNotice, new IntentFilter("Msg"));
     }
     // [END auth_oncreate_setup_ending]
 
@@ -177,22 +190,56 @@ public class MainActivity extends AppCompatActivity {
     }
     // [END auth_build_googleapiclient_ending]
 
+    private BroadcastReceiver onNotice= new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String pack = intent.getStringExtra("package");
+            String title = intent.getStringExtra("title");
+            String text = intent.getStringExtra("text");
+
+
+
+            TableRow tr = new TableRow(getApplicationContext());
+            tr.setLayoutParams(new TableRow.LayoutParams( TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+            TextView textview = new TextView(getApplicationContext());
+            textview.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT,1.0f));
+            textview.setTextSize(20);
+            textview.setTextColor(Color.parseColor("#0B0719"));
+            textview.setText(Html.fromHtml(pack + "<br><b>" + title + " : </b>" + text));
+            tr.addView(textview);
+            tab.addView(tr);
+
+
+
+
+        }
+    };
+
     // [START auth_connection_flow_in_activity_lifecycle_methods]
     @Override
     protected void onStart() {
         super.onStart();
         // Connect to the Fitness API
-        Log.i(TAG, "Connecting...");
-        mClient.connect();
+
+
+        //Log.i(TAG, "Connecting...");
+        //mClient.connect();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        if (mClient.isConnected()) {
-            mClient.disconnect();
-        }
+
+//        if (mClient.isConnected()) {
+//            mClient.disconnect();
+//        }
     }
+
+//    @Override
+//    public void closeNotifications() {
+//
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
