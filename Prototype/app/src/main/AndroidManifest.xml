@@ -4,28 +4,62 @@
 
 
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+
+    <application android:allowBackup="true"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <!--android:icon="@drawable/ic_launcher"-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <service android:name=".NotificationService"
-            android:label="@string/service_name"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
-            <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService" />
-            </intent-filter>
-        </service>
+            <activity
+                        android:name=".MainActivity"
+                        android:label="@string/app_name" >
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+     
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+            </activity>
+            <service
+                    android:name=".NotificationService"
+                    android:label="@string/app_name"
+                    android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+     
+            <intent-filter>
+ 
+            <action android:name="android.service.notification.NotificationListenerService" />
+ 
+        </intent-filter>
+     
+        </service>
+
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
 
     </application>
+
+
+    <!--<application-->
+        <!--android:allowBackup="true"-->
+        <!--android:icon="@mipmap/ic_launcher"-->
+        <!--android:label="@string/app_name"-->
+        <!--android:theme="@style/AppTheme" >-->
+        <!--<activity-->
+            <!--android:name=".MainActivity"-->
+            <!--android:label="@string/app_name" >-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+        <!--<service android:name=".NotificationService"-->
+            <!--android:label="@string/service_name"-->
+            <!--android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.service.notification.NotificationListenerService" />-->
+            <!--</intent-filter>-->
+        <!--</service>-->
+
+    <!--</application>-->
 
 </manifest>

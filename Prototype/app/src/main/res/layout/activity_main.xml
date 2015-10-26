@@ -43,6 +43,31 @@
             android:layout_gravity="center_horizontal|bottom"
             android:onClick="closeNotifications"
             />
+
+        <Button
+            android:layout_width="97dp"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/button2"
+            android:paddingRight="20pt"
+            android:layout_gravity="left|bottom"
+            android:onClick="checkPermissions" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="c.N."
+            android:id="@+id/button3"
+            android:layout_gravity="right|bottom"
+            android:onClick="createNotification" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="To Be filled"
+            android:id="@+id/textView3"
+            android:layout_gravity="right|center_vertical" />
     </FrameLayout>
 
     <TableLayout

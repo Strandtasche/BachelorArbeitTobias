@@ -15,19 +15,24 @@
  */
 package com.example.saibot1207.baprototype;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.graphics.Color;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -55,6 +60,7 @@ import com.google.android.gms.fitness.request.DataSourcesRequest;
 import com.google.android.gms.fitness.request.OnDataPointListener;
 import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataSourcesResult;
+import com.google.android.gms.location.LocationServices;
 
 import java.util.concurrent.TimeUnit;
 
@@ -64,20 +70,22 @@ import java.util.concurrent.TimeUnit;
  * available data sources and to register/unregister listeners to those sources. It also
  * demonstrates how to authenticate a user with Google Play Services.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ConnectionCallbacks {
     public static final String TAG = "BasicSensorsApi";
     // [START auth_variable_references]
     private static final int REQUEST_OAUTH = 1;
 
     /**
-     *  Track whether an authorization activity is stacking over the current activity, i.e. when
-     *  a known auth error is being resolved, such as showing the account chooser or presenting a
-     *  consent dialog. This avoids common duplications as might happen on screen rotations, etc.
+     * Track whether an authorization activity is stacking over the current activity, i.e. when
+     * a known auth error is being resolved, such as showing the account chooser or presenting a
+     * consent dialog. This avoids common duplications as might happen on screen rotations, etc.
      */
     private static final String AUTH_PENDING = "auth_state_pending";
     private boolean authInProgress = false;
 
     private GoogleApiClient mClient = null;
+    private GoogleApiClient mGoogleApiClient = null; //hoffentlich interacten die nicht schlecht
+
     // [END auth_variable_references]
 
     // [START mListener_variable_reference]
@@ -86,8 +94,11 @@ public class MainActivity extends AppCompatActivity {
     private OnDataPointListener mListener;
 
     TableLayout tab;
+    TextView textView;
+    NotificationService notificationService;
+    NotificationManager mNotifyMgr;
+    Location mLastLocation;
     // [END mListener_variable_reference]
-
 
 
     // [START auth_oncreate_setup_beginning]
@@ -111,19 +122,26 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //
 //        buildFitnessClient();
-        tab = (TableLayout)findViewById(R.id.tab);
+
+        notificationService = new NotificationService();
+        tab = (TableLayout) findViewById(R.id.tab);
+        textView = (TextView) findViewById(R.id.textView3);
         LocalBroadcastManager.getInstance(this).registerReceiver(onNotice, new IntentFilter("Msg"));
+        mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        buildGoogleApiClient();
     }
     // [END auth_oncreate_setup_ending]
 
     // [START auth_build_googleapiclient_beginning]
+
     /**
-     *  Build a {@link GoogleApiClient} that will authenticate the user and allow the application
-     *  to connect to Fitness APIs. The scopes included should match the scopes your app needs
-     *  (see documentation for details). Authentication will occasionally fail intentionally,
-     *  and in those cases, there will be a known resolution, which the OnConnectionFailedListener()
-     *  can address. Examples of this include the user never having signed in before, or having
-     *  multiple accounts on the device and needing to specify which account to use, etc.
+     * Build a {@link GoogleApiClient} that will authenticate the user and allow the application
+     * to connect to Fitness APIs. The scopes included should match the scopes your app needs
+     * (see documentation for details). Authentication will occasionally fail intentionally,
+     * and in those cases, there will be a known resolution, which the OnConnectionFailedListener()
+     * can address. Examples of this include the user never having signed in before, or having
+     * multiple accounts on the device and needing to specify which account to use, etc.
      */
     private void buildFitnessClient() {
         // Create the Google API Client
@@ -190,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
     }
     // [END auth_build_googleapiclient_ending]
 
-    private BroadcastReceiver onNotice= new BroadcastReceiver() {
+    private BroadcastReceiver onNotice = new BroadcastReceiver() {
 
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -199,18 +217,15 @@ public class MainActivity extends AppCompatActivity {
             String text = intent.getStringExtra("text");
 
 
-
             TableRow tr = new TableRow(getApplicationContext());
-            tr.setLayoutParams(new TableRow.LayoutParams( TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+            tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
             TextView textview = new TextView(getApplicationContext());
-            textview.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT,1.0f));
+            textview.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1.0f));
             textview.setTextSize(20);
             textview.setTextColor(Color.parseColor("#0B0719"));
             textview.setText(Html.fromHtml(pack + "<br><b>" + title + " : </b>" + text));
             tr.addView(textview);
             tab.addView(tr);
-
-
 
 
         }
@@ -222,7 +237,13 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         // Connect to the Fitness API
 
+        // Schau dir https://developers.google.com/android/guides/api-client#Starting an.
+//        if (!mResolvingError) {
+//            mGoogleApiClient.connect();
+//        }
 
+
+        mGoogleApiClient.connect();
         //Log.i(TAG, "Connecting...");
         //mClient.connect();
     }
@@ -231,15 +252,38 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
+        mGoogleApiClient.disconnect();
 //        if (mClient.isConnected()) {
 //            mClient.disconnect();
 //        }
     }
 
-//    @Override
-//    public void closeNotifications() {
-//
-//    }
+
+    public void closeNotifications(View v) {
+        mNotifyMgr.cancelAll();
+    }
+
+    public void checkPermissions(View v) {
+        Intent intent = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
+        startActivity(intent);
+    }
+
+    public void createNotification(View v) {
+        Notification notification = new Notification();
+        NotificationCompat.Builder mBuilder =
+                (NotificationCompat.Builder) new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.notification_icon)
+                        .setContentTitle("My notification")
+                        .setContentText("Hello World!")
+                        .setTicker("Ticker Text");
+        notification.defaults |= Notification.DEFAULT_SOUND;
+        notification.defaults |= Notification.DEFAULT_VIBRATE;
+
+        mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        int notificationID = 0;
+        mNotifyMgr.notify(notificationID, mBuilder.build());
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -265,8 +309,8 @@ public class MainActivity extends AppCompatActivity {
      * Find available data sources and attempt to register on a specific {@link DataType}.
      * If the application cares about a data type but doesn't care about the source of the data,
      * this can be skipped entirely, instead calling
-     *     {@link com.google.android.gms.fitness.SensorsApi
-     *     #register(GoogleApiClient, SensorRequest, DataSourceListener)},
+     * {@link com.google.android.gms.fitness.SensorsApi
+     * #register(GoogleApiClient, SensorRequest, DataSourceListener)},
      * where the {@link SensorRequest} contains the desired data type.
      */
     private void findFitnessDataSources() {
@@ -274,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
         Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
                 // At least one datatype must be specified.
                 .setDataTypes(DataType.TYPE_LOCATION_SAMPLE)
-                // Can specify whether data type is raw or derived.
+                        // Can specify whether data type is raw or derived.
                 .setDataSourceTypes(DataSource.TYPE_RAW)
                 .build())
                 .setResultCallback(new ResultCallback<DataSourcesResult>() {
@@ -366,6 +410,29 @@ public class MainActivity extends AppCompatActivity {
         // [END unregister_data_listener]
     }
 
+    protected synchronized void buildGoogleApiClient() {
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+    }
+
+    @Override
+    public void onConnected(Bundle connectionHint) {
+        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                mGoogleApiClient);
+        if (mLastLocation != null) {
+            textView.setText(String.valueOf(mLastLocation.getLatitude()) + " and " + String.valueOf(mLastLocation.getLongitude()));
+        }
+    }
+
+
+    @Override
+    public void onConnectionSuspended(int i) {
+        textView.setText("Connection suspended");
+    }
+
     //AUSKOMMENTIERT!!!! TODO: einkommentieren
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
@@ -373,7 +440,7 @@ public class MainActivity extends AppCompatActivity {
 //        getMenuInflater().inflate(R.menu.main, menu);
 //        return true;
 //    }
-
+//
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        int id = item.getItemId();
