@@ -41,7 +41,7 @@
             android:text="Press me!"
             android:id="@+id/button"
             android:layout_gravity="center_horizontal|bottom"
-            android:onClick="closeNotifications"
+            android:onClick="createNewActivity"
             />
 
         <Button
@@ -68,6 +68,14 @@
             android:text="To Be filled"
             android:id="@+id/textView3"
             android:layout_gravity="right|center_vertical" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connect!"
+            android:id="@+id/button4"
+            android:layout_gravity="left|center_vertical"
+            android:onClick="lookingForConnection" />
     </FrameLayout>
 
     <TableLayout

@@ -26,7 +26,7 @@ public class NotificationService extends NotificationListenerService {
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
         super.onNotificationPosted(sbn);
-        Log.d("Notification", "Notification posted");
+        Log.d("NotificationEntry", "NotificationEntry posted");
 
         String pack = sbn.getPackageName();
         String ticker = sbn.getNotification().tickerText.toString();
@@ -50,7 +50,7 @@ public class NotificationService extends NotificationListenerService {
 
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn) {
-        Log.d("Msg", "Notification Removed");
+        Log.d("Msg", "NotificationEntry Removed");
     }
 
 }
