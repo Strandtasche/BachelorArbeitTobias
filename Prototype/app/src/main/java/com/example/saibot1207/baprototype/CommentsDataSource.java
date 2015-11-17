@@ -12,7 +12,8 @@ import java.util.List;
 /**
  * Created by saibot1207 on 07.11.15.
  */
-public class CommentsDataSource {
+//@SuppressWarnings("serial") //with this annotation we are going to hide compiler warning
+public final class CommentsDataSource {
 
     // Database fields
     private SQLiteDatabase database;

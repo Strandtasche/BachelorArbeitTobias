@@ -1,6 +1,7 @@
 package com.example.saibot1207.baprototype;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
@@ -11,6 +12,7 @@ import com.example.saibot1207.baprototype.R;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Random;
+
 
 public class TestDatabaseActivity extends ListActivity {
     private CommentsDataSource datasource;

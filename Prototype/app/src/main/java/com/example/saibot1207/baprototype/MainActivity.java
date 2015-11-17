@@ -18,10 +18,13 @@ package com.example.saibot1207.baprototype;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
@@ -62,6 +65,7 @@ import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 import com.google.android.gms.location.LocationServices;
 
+import java.sql.SQLException;
 import java.util.concurrent.TimeUnit;
 
 
@@ -97,6 +101,10 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
     Location mLastLocation;
     boolean mResolvingError = false;
 
+    private MySQLiteHelper dbHelper;
+    private SQLiteDatabase database;
+    private String[] allColumns = { MySQLiteHelper.COLUMN_ID,
+            MySQLiteHelper.COLUMN_NOTIFICATIONENTRY};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,13 +113,18 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
         setContentView(R.layout.activity_main);
 
 
-        notificationService = new NotificationService();
+        Intent i = new Intent(this, NotificationService.class);
+        startService(i);
+
         tab = (TableLayout) findViewById(R.id.tab);
-        textView = (TextView) findViewById(R.id.textView3);
         LocalBroadcastManager.getInstance(this).registerReceiver(onNotice, new IntentFilter("Msg"));
         mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
         buildGoogleApiClient();
+
+        dbHelper = new MySQLiteHelper(this);
+
+
     }
 
 
@@ -276,5 +289,45 @@ Log.d("BuildGoogleAPIClient", "build Google API client was successful... maybe?"
         Log.d("connection", "Connection Failed!");
     }
 
+    public void open() throws SQLException {
+        database = dbHelper.getWritableDatabase();
+    }
+
+    public void close() {
+        dbHelper.close();
+    }
+
+
+    public void addStuff(View v) {
+        NotificationEntry notificationEntry;
+        ContentValues values = new ContentValues();
+        values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, "this is a test");
+        long insertId = database.insert(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES, null,
+                values);
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,
+                allColumns, MySQLiteHelper.COLUMN_ID + " = " + insertId, null,
+                null, null, null);
+        cursor.moveToFirst();
+        //NotificationEntry newNotificationEntry = cursorToNotificationEntry(cursor);
+        cursor.close();
+        //adapter.add(notificationEntry); n
+    }
+
+
+    @Override
+    public void onPause() {
+        close();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        try {
+            open();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        super.onResume();
+    }
 
 }

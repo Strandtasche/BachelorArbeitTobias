@@ -1,5 +1,8 @@
 package com.example.saibot1207.baprototype;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.service.notification.NotificationListenerService;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +12,8 @@ import android.service.notification.StatusBarNotification;
 import android.util.Log;
 import android.support.v4.content.LocalBroadcastManager;
 
+import java.sql.SQLException;
+
 
 /**
  * Created by saibot1207 on 23.10.15.
@@ -16,11 +21,18 @@ import android.support.v4.content.LocalBroadcastManager;
 public class NotificationService extends NotificationListenerService {
 
     Context context;
+    private MySQLiteHelper dbHelper;
+    private SQLiteDatabase database;
+    private String[] allColumns = { MySQLiteHelper.COLUMN_ID,
+            MySQLiteHelper.COLUMN_NOTIFICATIONENTRY};
 
     @Override
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
+
+        dbHelper = new MySQLiteHelper(context);
+        database = dbHelper.getWritableDatabase();
     }
 
     @Override
@@ -45,12 +57,40 @@ public class NotificationService extends NotificationListenerService {
         msgrcv.putExtra("title", title);
         msgrcv.putExtra("text", text);
 
+
+
+        ContentValues values = new ContentValues();
+        values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, "notification recieved");
+        long insertId = database.insert(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES, null,
+                values);
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,
+                allColumns, MySQLiteHelper.COLUMN_ID + " = " + insertId, null,
+                null, null, null);
+        cursor.moveToFirst();
+        cursor.close();
+        Log.d("db not", "Updated database");
+
+
         LocalBroadcastManager.getInstance(context).sendBroadcast(msgrcv);
     }
 
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn) {
         Log.d("Msg", "NotificationEntry Removed");
+    }
+
+    public void open() throws SQLException {
+        database = dbHelper.getWritableDatabase();
+    }
+
+    public void close() {
+        dbHelper.close();
+    }
+
+    @Override
+    public void onDestroy() {
+        close();
+        super.onDestroy();
     }
 
 }
