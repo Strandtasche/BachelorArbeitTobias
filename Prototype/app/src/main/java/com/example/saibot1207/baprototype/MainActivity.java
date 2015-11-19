@@ -22,51 +22,36 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.IntentSender;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
 import android.text.Html;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.example.saibot1207.baprototype.R;
+import com.example.saibot1207.baprototype.logger.Log;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Scope;
-import com.google.android.gms.common.api.Status;
-import com.example.saibot1207.baprototype.logger.Log;
-import com.example.saibot1207.baprototype.logger.LogView;
-import com.example.saibot1207.baprototype.logger.LogWrapper;
-import com.example.saibot1207.baprototype.logger.MessageOnlyLogFilter;
-import com.google.android.gms.fitness.Fitness;
-import com.google.android.gms.fitness.data.DataPoint;
-import com.google.android.gms.fitness.data.DataSource;
-import com.google.android.gms.fitness.data.DataType;
-import com.google.android.gms.fitness.data.Field;
-import com.google.android.gms.fitness.data.Value;
-import com.google.android.gms.fitness.request.DataSourcesRequest;
 import com.google.android.gms.fitness.request.OnDataPointListener;
-import com.google.android.gms.fitness.request.SensorRequest;
-import com.google.android.gms.fitness.result.DataSourcesResult;
 import com.google.android.gms.location.LocationServices;
+import com.opencsv.CSVWriter;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.SQLException;
-import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -92,19 +77,18 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
 
 
 
-    private OnDataPointListener mListener;
 
     TableLayout tab;
     TextView textView;
-    NotificationService notificationService;
     NotificationManager mNotifyMgr;
     Location mLastLocation;
-    boolean mResolvingError = false;
 
     private MySQLiteHelper dbHelper;
     private SQLiteDatabase database;
     private String[] allColumns = { MySQLiteHelper.COLUMN_ID,
             MySQLiteHelper.COLUMN_NOTIFICATIONENTRY};
+
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +99,8 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
 
         Intent i = new Intent(this, NotificationService.class);
         startService(i);
+
+        context = getApplicationContext();
 
         tab = (TableLayout) findViewById(R.id.tab);
         LocalBroadcastManager.getInstance(this).registerReceiver(onNotice, new IntentFilter("Msg"));
@@ -328,6 +314,87 @@ Log.d("BuildGoogleAPIClient", "build Google API client was successful... maybe?"
             e.printStackTrace();
         }
         super.onResume();
+    }
+
+    public void exportDb(View view) {
+        try {
+            backupDatabase();
+            Log.d("backup!", "success!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void backupDatabaseMail() throws IOException {
+        String columnString =   "\"PersonName\",\"Gender\",\"Street1\",\"postOffice\",\"Age\"";
+        String dataString   =   "\"" + "username" +"\",\"" + "usergender" + "\",\"" + "useradress" + "\",\"" + "userpostoffice" + "\",\"" + "userage" + "\"";
+        String combinedString = columnString + "\n" + dataString;
+
+        File file   = null;
+        File root   = Environment.getExternalStorageDirectory();
+        if (root.canWrite()){
+            File dir    =   new File (root.getAbsolutePath() + "/PersonData");
+            dir.mkdirs();
+            file   =   new File(dir, "Data.csv");
+            FileOutputStream out   =   null;
+            try {
+                out = new FileOutputStream(file);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            try {
+                out.write(combinedString.getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        Uri u1 = null;
+        u1  =   Uri.fromFile(file);
+
+        Intent sendIntent = new Intent(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Person Details");
+        sendIntent.putExtra(Intent.EXTRA_STREAM, u1);
+        sendIntent.setType("text/html");
+        startActivity(sendIntent);
+    }
+
+    public void backupDatabase() throws IOException {
+        //File dbFile = getDatabasePath(dbHelper.getDatabaseName());
+        File exportDir = new File(Environment.getExternalStorageDirectory(), "");
+        if (!exportDir.exists())
+        {
+            exportDir.mkdirs();
+        }
+
+        File file = new File(exportDir, "csvname.csv");
+        try
+        {
+            file.createNewFile();
+            CSVWriter csvWrite = new CSVWriter(new FileWriter(file));
+            SQLiteDatabase db = dbHelper.getReadableDatabase();
+            Cursor curCSV = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_NOTIFICATIONENTRIES ,null);
+            csvWrite.writeNext(curCSV.getColumnNames());
+            //Log.d("how far did we get?", "this far!");
+            while(curCSV.moveToNext())
+            {
+                //Which column you want to exprort
+                String arrStr[] ={curCSV.getString(0), curCSV.getString(1)};
+                csvWrite.writeNext(arrStr);
+            }
+            //Log.d("how far did we get?", "no, even further");
+            csvWrite.close();
+            curCSV.close();
+        }
+        catch(Exception sqlEx)
+        {
+            Log.e("MainActivity", sqlEx.getMessage(), sqlEx);
+        }
     }
 
 }

@@ -60,7 +60,7 @@ public class NotificationService extends NotificationListenerService {
 
 
         ContentValues values = new ContentValues();
-        values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, "notification recieved");
+        values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, "notification recieved: " + pack);
         long insertId = database.insert(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES, null,
                 values);
         Cursor cursor = database.query(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,

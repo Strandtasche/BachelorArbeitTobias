@@ -4,11 +4,17 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.os.Environment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
 import com.example.saibot1207.baprototype.R;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Random;
@@ -59,6 +65,12 @@ public class TestDatabaseActivity extends ListActivity {
                     adapter.remove(notificationEntry);
                 }
                 break;
+            case R.id.deleteAll:
+                while(getListAdapter().getCount() > 0) {
+                    notificationEntry = (NotificationEntry) getListAdapter().getItem(0);
+                    datasource.deleteNotificationEntry(notificationEntry);
+                    adapter.remove(notificationEntry);
+                }
         }
         adapter.notifyDataSetChanged();
     }
@@ -78,5 +90,4 @@ public class TestDatabaseActivity extends ListActivity {
         datasource.close();
         super.onPause();
     }
-
 }

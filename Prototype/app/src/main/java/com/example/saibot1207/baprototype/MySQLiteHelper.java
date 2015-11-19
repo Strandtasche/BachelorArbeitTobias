@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.io.File;
+
 /**
  * Created by saibot1207 on 03.11.15.
  */
@@ -16,6 +18,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "notificationEntries.db";
     private static final int DATABASE_VERSION = 1;
+    private String databasePath = "";
 
     // Database creation sql statement
     private static final String DATABASE_CREATE = "create table "
@@ -25,6 +28,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
+        databasePath = context.getDatabasePath(DATABASE_NAME).getPath();
     }
 
     @Override

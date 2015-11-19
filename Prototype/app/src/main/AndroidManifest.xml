@@ -69,10 +69,11 @@
         </service>
 
         <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
         <activity
             android:name=".TestDatabaseActivity"
-            android:label="@string/title_activity_test_database"></activity>
+            android:label="@string/title_activity_test_database"/>
     </application>
 
 </manifest>
