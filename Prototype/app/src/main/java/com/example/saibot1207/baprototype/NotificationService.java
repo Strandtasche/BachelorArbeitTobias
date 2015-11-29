@@ -57,11 +57,15 @@ public class NotificationService extends NotificationListenerService {
         msgrcv.putExtra("title", title);
         msgrcv.putExtra("text", text);
 
+        int hashedTitle = hashString(title);
+        int textSize = text.length();
+
 
 
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, pack);
-        values.put(MySQLiteHelper.COLUMN_TITLEHASHED, title);
+        values.put(MySQLiteHelper.COLUMN_TITLEHASHED, Integer.toString(hashedTitle));
+        values.put(MySQLiteHelper.COLUMN_TEXTLENGTH, Integer.toString(textSize));
         long insertId = database.insert(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES, null,
                 values);
         Cursor cursor = database.query(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,

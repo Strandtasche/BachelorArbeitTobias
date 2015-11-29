@@ -272,7 +272,8 @@ public class MainActivity extends AppCompatActivity {
             while(curCSV.moveToNext())
             {
                 //Which column you want to exprort
-                String arrStr[] ={curCSV.getString(0), curCSV.getString(1), curCSV.getString(2)};
+
+                String arrStr[] ={curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3)};
                 csvWrite.writeNext(arrStr);
             }
             //Log.d("how far did we get?", "no, even further");
