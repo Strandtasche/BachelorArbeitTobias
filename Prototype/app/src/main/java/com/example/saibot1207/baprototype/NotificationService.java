@@ -60,7 +60,8 @@ public class NotificationService extends NotificationListenerService {
 
 
         ContentValues values = new ContentValues();
-        values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, "notification recieved: " + pack);
+        values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, pack);
+        values.put(MySQLiteHelper.COLUMN_TITLEHASHED, title);
         long insertId = database.insert(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES, null,
                 values);
         Cursor cursor = database.query(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,
@@ -91,6 +92,19 @@ public class NotificationService extends NotificationListenerService {
     public void onDestroy() {
         close();
         super.onDestroy();
+    }
+
+    private int hashString (String str) {
+        int i = 1;
+        int sum = 1;
+        for( char s : str.toCharArray()) {
+            sum += i * (int) s;
+            i++;
+            if (i > 20) {
+                break;
+            }
+        }
+        return sum;
     }
 
 }

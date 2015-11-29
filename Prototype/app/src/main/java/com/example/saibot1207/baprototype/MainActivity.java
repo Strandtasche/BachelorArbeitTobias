@@ -39,11 +39,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.saibot1207.baprototype.logger.Log;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
-import com.google.android.gms.fitness.request.OnDataPointListener;
-import com.google.android.gms.location.LocationServices;
 import com.opencsv.CSVWriter;
 
 import java.io.File;
@@ -54,29 +49,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 
-/**
- * This sample demonstrates how to use the Sensors API of the Google Fit platform to find
- * available data sources and to register/unregister listeners to those sources. It also
- * demonstrates how to authenticate a user with Google Play Services.
- */
-public class MainActivity extends AppCompatActivity implements ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
-    public static final String TAG = "BasicSensorsApi";
-    // [START auth_variable_references]
-    private static final int REQUEST_OAUTH = 1;
-
-    /**
-     * Track whether an authorization activity is stacking over the current activity, i.e. when
-     * a known auth error is being resolved, such as showing the account chooser or presenting a
-     * consent dialog. This avoids common duplications as might happen on screen rotations, etc.
-     */
-    private static final String AUTH_PENDING = "auth_state_pending";
-    private boolean authInProgress = false;
-
-    private GoogleApiClient mClient = null;
-    private GoogleApiClient mGoogleApiClient = null; //hoffentlich interacten die nicht schlecht
-
-
-
+public class MainActivity extends AppCompatActivity {
 
     TableLayout tab;
     TextView textView;
@@ -90,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
 
     private Context context;
 
+    private Intent intentService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,8 +72,8 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
         setContentView(R.layout.activity_main);
 
 
-        Intent i = new Intent(this, NotificationService.class);
-        startService(i);
+        intentService = new Intent(this, NotificationService.class);
+        startService(intentService);
 
         context = getApplicationContext();
 
@@ -106,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
         LocalBroadcastManager.getInstance(this).registerReceiver(onNotice, new IntentFilter("Msg"));
         mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-        buildGoogleApiClient();
 
         dbHelper = new MySQLiteHelper(this);
 
@@ -143,40 +117,37 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
     @Override
     protected void onStart() {
         super.onStart();
-        // Connect to the Fitness API
-
-        // Schau dir https://developers.google.com/android/guides/api-client#Starting an.
-//        if (!mResolvingError) {
-//            mGoogleApiClient.connect();
-//        }
 
 
-        mGoogleApiClient.connect();
-        Log.i(TAG, "Connecting...");
-        //mClient.connect();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-
-        mGoogleApiClient.disconnect();
-//        if (mClient.isConnected()) {
-//            mClient.disconnect();
-//        }
     }
 
-    public void lookingForConnection(View v) {
-        mGoogleApiClient.connect();
-
-        Log.d("lookingForConnection", "called looking for connection");
-
+    @Override
+    public void onPause() {
+        close();
+        super.onPause();
     }
 
-
-    public void closeNotifications(View v) {
-        mNotifyMgr.cancelAll();
+    @Override
+    protected void onResume() {
+        try {
+            open();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        super.onResume();
     }
+
+    @Override
+    public void onDestroy() {
+        stopService(intentService);
+        super.onDestroy();
+    }
+
 
     public void checkPermissions(View v) {
         Intent intent = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
@@ -205,75 +176,6 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
     }
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_OAUTH) {
-            authInProgress = false;
-            if (resultCode == RESULT_OK) {
-                // Make sure the app is not already connected or attempting to connect
-                if (!mClient.isConnecting() && !mClient.isConnected()) {
-                    mClient.connect();
-                }
-            }
-        }
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(AUTH_PENDING, authInProgress);
-    }
-
-
-
-    protected synchronized void buildGoogleApiClient() {
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-
-Log.d("BuildGoogleAPIClient", "build Google API client was successful... maybe?");
-    }
-
-    @Override
-    public void onConnected(Bundle connectionHint) {
-        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
-                mGoogleApiClient);
-        if (mLastLocation != null) {
-            textView.setText(String.valueOf(mLastLocation.getLatitude()) + " and " + String.valueOf(mLastLocation.getLongitude()));
-        }
-    }
-
-
-
-
-    @Override
-    public void onConnectionSuspended(int i) {
-        textView.setText("Connection suspended");
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult result) {
-//        if (mResolvingError) {
-//            // Already attempting to resolve an error.
-//            return;
-//        } else if (result.hasResolution()) {
-//            try {
-//                mResolvingError = true;
-//                result.startResolutionForResult(this, 1001);
-//            } catch (IntentSender.SendIntentException e) {
-//                // There was an error with the resolution intent. Try again.
-//                mGoogleApiClient.connect();
-//            }
-//        } else {
-//            // Show dialog using GoogleApiAvailability.getErrorDialog()
-//
-//            //showErrorDialog(result.getErrorCode());
-//            mResolvingError = true;
-//        }
-        Log.d("connection", "Connection Failed!");
-    }
 
     public void open() throws SQLException {
         database = dbHelper.getWritableDatabase();
@@ -288,6 +190,7 @@ Log.d("BuildGoogleAPIClient", "build Google API client was successful... maybe?"
         NotificationEntry notificationEntry;
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, "this is a test");
+        values.put(MySQLiteHelper.COLUMN_TITLEHASHED, "titlehashed");
         long insertId = database.insert(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES, null,
                 values);
         Cursor cursor = database.query(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,
@@ -300,21 +203,6 @@ Log.d("BuildGoogleAPIClient", "build Google API client was successful... maybe?"
     }
 
 
-    @Override
-    public void onPause() {
-        close();
-        super.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        try {
-            open();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        super.onResume();
-    }
 
     public void exportDb(View view) {
         try {
@@ -376,15 +264,15 @@ Log.d("BuildGoogleAPIClient", "build Google API client was successful... maybe?"
         try
         {
             file.createNewFile();
-            CSVWriter csvWrite = new CSVWriter(new FileWriter(file));
+            CSVWriter csvWrite = new CSVWriter(new FileWriter(file), '\t');
             SQLiteDatabase db = dbHelper.getReadableDatabase();
-            Cursor curCSV = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_NOTIFICATIONENTRIES ,null);
+            Cursor curCSV = db.rawQuery("SELECT * FROM " + MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,null);
             csvWrite.writeNext(curCSV.getColumnNames());
             //Log.d("how far did we get?", "this far!");
             while(curCSV.moveToNext())
             {
                 //Which column you want to exprort
-                String arrStr[] ={curCSV.getString(0), curCSV.getString(1)};
+                String arrStr[] ={curCSV.getString(0), curCSV.getString(1), curCSV.getString(2)};
                 csvWrite.writeNext(arrStr);
             }
             //Log.d("how far did we get?", "no, even further");

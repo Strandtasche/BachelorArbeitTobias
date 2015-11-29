@@ -18,8 +18,9 @@ public final class CommentsDataSource {
     // Database fields
     private SQLiteDatabase database;
     private MySQLiteHelper dbHelper;
-    private String[] allColumns = { MySQLiteHelper.COLUMN_ID,
-            MySQLiteHelper.COLUMN_NOTIFICATIONENTRY};
+    //private String[] allColumns = { MySQLiteHelper.COLUMN_ID, MySQLiteHelper.COLUMN_NOTIFICATIONENTRY};
+    private String[] allColumns = { MySQLiteHelper.COLUMN_ID, MySQLiteHelper.COLUMN_TITLEHASHED, MySQLiteHelper.COLUMN_NOTIFICATIONENTRY};
+
 
     public CommentsDataSource(Context context) {
         dbHelper = new MySQLiteHelper(context);
@@ -33,9 +34,10 @@ public final class CommentsDataSource {
         dbHelper.close();
     }
 
-    public NotificationEntry createNotificationEntry(String notificationEntry) {
+    public NotificationEntry createNotificationEntry(String notificationEntry, String title) {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, notificationEntry);
+        values.put(MySQLiteHelper.COLUMN_TITLEHASHED, title);
         long insertId = database.insert(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES, null,
                 values);
         Cursor cursor = database.query(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,

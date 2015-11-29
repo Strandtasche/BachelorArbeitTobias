@@ -55,7 +55,7 @@ public class TestDatabaseActivity extends ListActivity {
                 String[] notificationEntries = new String[] { "Cool", "Very nice", "Hate it" };
                 int nextInt = new Random().nextInt(3);
                 // save the new NotificationEntry to the database
-                notificationEntry = datasource.createNotificationEntry(notificationEntries[nextInt]);
+                notificationEntry = datasource.createNotificationEntry(notificationEntries[nextInt], "test123");
                 adapter.add(notificationEntry);
                 break;
             case R.id.delete:
