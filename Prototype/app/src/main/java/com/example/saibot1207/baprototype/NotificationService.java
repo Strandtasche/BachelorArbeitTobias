@@ -12,7 +12,10 @@ import android.service.notification.StatusBarNotification;
 import android.util.Log;
 import android.support.v4.content.LocalBroadcastManager;
 
+import java.lang.reflect.Array;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.HashSet;
 
 
 /**
@@ -26,6 +29,8 @@ public class NotificationService extends NotificationListenerService {
     private String[] allColumns = { MySQLiteHelper.COLUMN_ID,
             MySQLiteHelper.COLUMN_NOTIFICATIONENTRY};
 
+    private HashSet<String> validPackages;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -33,6 +38,10 @@ public class NotificationService extends NotificationListenerService {
 
         dbHelper = new MySQLiteHelper(context);
         database = dbHelper.getWritableDatabase();
+
+        String[] temp = context.getResources().getStringArray(R.array.package_array);
+        validPackages = new HashSet<>(Arrays.asList(temp));
+        Log.d("did that word?", temp[0]);
     }
 
     @Override
@@ -60,21 +69,20 @@ public class NotificationService extends NotificationListenerService {
         int hashedTitle = hashString(title);
         int textSize = text.length();
 
-
-
-        ContentValues values = new ContentValues();
-        values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, pack);
-        values.put(MySQLiteHelper.COLUMN_TITLEHASHED, Integer.toString(hashedTitle));
-        values.put(MySQLiteHelper.COLUMN_TEXTLENGTH, Integer.toString(textSize));
-        long insertId = database.insert(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES, null,
-                values);
-        Cursor cursor = database.query(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,
-                allColumns, MySQLiteHelper.COLUMN_ID + " = " + insertId, null,
-                null, null, null);
-        cursor.moveToFirst();
-        cursor.close();
-        Log.d("db not", "Updated database");
-
+        if (validPackages.contains(pack)) {
+            ContentValues values = new ContentValues();
+            values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, pack);
+            values.put(MySQLiteHelper.COLUMN_TITLEHASHED, Integer.toString(hashedTitle));
+            values.put(MySQLiteHelper.COLUMN_TEXTLENGTH, Integer.toString(textSize));
+            long insertId = database.insert(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES, null,
+                    values);
+            Cursor cursor = database.query(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,
+                    allColumns, MySQLiteHelper.COLUMN_ID + " = " + insertId, null,
+                    null, null, null);
+            cursor.moveToFirst();
+            cursor.close();
+            Log.d("db not", "Updated database");
+        }
 
         LocalBroadcastManager.getInstance(context).sendBroadcast(msgrcv);
     }

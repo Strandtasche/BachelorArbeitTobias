@@ -7,6 +7,7 @@ import android.util.Log;
 
 import java.io.File;
 import java.sql.SQLException;
+import java.util.HashSet;
 
 /**
  * Created by saibot1207 on 03.11.15.
@@ -22,7 +23,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "notificationEntries.db";
     private static final int DATABASE_VERSION = 1;
     private String databasePath = "";
-
 
     // Database creation sql statement
     private static final String DATABASE_CREATE = "create table "
@@ -49,8 +49,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addRow(String notificationPackage, String notificationTitle) throws SQLException{
 
-    }
 
 }

@@ -7,6 +7,24 @@ public class NotificationEntry {
 
     private long id;
     private String notificationEntry;
+    private int titleHashed;
+    private int textLength;
+
+    public int getTitleHashed() {
+        return titleHashed;
+    }
+
+    public void setTitleHashed(int titleHashed) {
+        this.titleHashed = titleHashed;
+    }
+
+    public int getTextLength() {
+        return textLength;
+    }
+
+    public void setTextLength(int textLength) {
+        this.textLength = textLength;
+    }
 
     public long getId() {
         return id;

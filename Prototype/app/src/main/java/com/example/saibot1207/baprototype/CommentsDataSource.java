@@ -19,7 +19,7 @@ public final class CommentsDataSource {
     private SQLiteDatabase database;
     private MySQLiteHelper dbHelper;
     //private String[] allColumns = { MySQLiteHelper.COLUMN_ID, MySQLiteHelper.COLUMN_NOTIFICATIONENTRY};
-    private String[] allColumns = { MySQLiteHelper.COLUMN_ID, MySQLiteHelper.COLUMN_TITLEHASHED, MySQLiteHelper.COLUMN_NOTIFICATIONENTRY};
+    private String[] allColumns = { MySQLiteHelper.COLUMN_ID,  MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, MySQLiteHelper.COLUMN_TITLEHASHED, MySQLiteHelper.COLUMN_TEXTLENGTH};
 
 
     public CommentsDataSource(Context context) {
