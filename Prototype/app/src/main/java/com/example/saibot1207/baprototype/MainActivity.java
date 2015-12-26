@@ -191,6 +191,8 @@ public class MainActivity extends AppCompatActivity {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, "this is a test");
         values.put(MySQLiteHelper.COLUMN_TITLEHASHED, "titlehashed");
+        values.put(MySQLiteHelper.COLUMN_TEXTLENGTH, "not a number");
+        values.put(MySQLiteHelper.COLUMN_DATE, System.currentTimeMillis());
         long insertId = database.insert(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES, null,
                 values);
         Cursor cursor = database.query(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,
@@ -273,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 //Which column you want to exprort
 
-                String arrStr[] ={curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3)};
+                String arrStr[] ={curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3), curCSV.getString(4) };
                 csvWrite.writeNext(arrStr);
             }
             //Log.d("how far did we get?", "no, even further");

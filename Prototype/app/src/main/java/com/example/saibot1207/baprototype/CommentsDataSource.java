@@ -38,6 +38,8 @@ public final class CommentsDataSource {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, notificationEntry);
         values.put(MySQLiteHelper.COLUMN_TITLEHASHED, title);
+        values.put(MySQLiteHelper.COLUMN_TEXTLENGTH, Integer.toString(title.length()));
+        values.put(MySQLiteHelper.COLUMN_DATE, System.currentTimeMillis());
         long insertId = database.insert(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES, null,
                 values);
         Cursor cursor = database.query(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,

@@ -41,7 +41,7 @@ public class NotificationService extends NotificationListenerService {
 
         String[] temp = context.getResources().getStringArray(R.array.package_array);
         validPackages = new HashSet<>(Arrays.asList(temp));
-        Log.d("did that word?", temp[0]);
+        //Log.d("did that word?", temp[0]);
     }
 
     @Override
@@ -74,6 +74,7 @@ public class NotificationService extends NotificationListenerService {
             values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, pack);
             values.put(MySQLiteHelper.COLUMN_TITLEHASHED, Integer.toString(hashedTitle));
             values.put(MySQLiteHelper.COLUMN_TEXTLENGTH, Integer.toString(textSize));
+            values.put(MySQLiteHelper.COLUMN_DATE, System.currentTimeMillis());
             long insertId = database.insert(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES, null,
                     values);
             Cursor cursor = database.query(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,
