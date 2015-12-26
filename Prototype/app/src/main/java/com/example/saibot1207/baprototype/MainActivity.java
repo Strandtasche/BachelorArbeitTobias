@@ -29,6 +29,7 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.CallLog;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
@@ -37,6 +38,7 @@ import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.saibot1207.baprototype.logger.Log;
 import com.opencsv.CSVWriter;
@@ -47,6 +49,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -204,12 +207,62 @@ public class MainActivity extends AppCompatActivity {
         //adapter.add(notificationEntry); n
     }
 
+    private String getCallDetails() {
+
+        StringBuffer sb = new StringBuffer();
+        Cursor managedCursor = getContentResolver().query(CallLog.Calls.CONTENT_URI, null,
+                null, null, null);
+        int number = managedCursor.getColumnIndex(CallLog.Calls.NUMBER);
+        int type = managedCursor.getColumnIndex(CallLog.Calls.TYPE);
+        int date = managedCursor.getColumnIndex(CallLog.Calls.DATE);
+        int duration = managedCursor.getColumnIndex(CallLog.Calls.DURATION);
+        sb.append("Call Details :");
+        for (int i = 0; i < 2; i++) {
+            managedCursor.moveToNext();
+        //while (managedCursor.moveToNext()) {
+            String phNumber = managedCursor.getString(number);
+            String callType = managedCursor.getString(type);
+            String callDate = managedCursor.getString(date);
+            Date callDayTime = new Date(Long.valueOf(callDate));
+            String callDuration = managedCursor.getString(duration);
+            String dir = null;
+            int dircode = Integer.parseInt(callType);
+            switch (dircode) {
+                case CallLog.Calls.OUTGOING_TYPE:
+                    dir = "OUTGOING";
+                    break;
+
+                case CallLog.Calls.INCOMING_TYPE:
+                    dir = "INCOMING";
+                    break;
+
+                case CallLog.Calls.MISSED_TYPE:
+                    dir = "MISSED";
+                    break;
+            }
+            sb.append("\nPhone Number:--- " + phNumber + " \nCall Type:--- "
+                    + dir + " \nCall Date:--- " + callDayTime
+                    + " \nCall duration in sec :--- " + callDuration);
+            sb.append("\n----------------------------------");
+        }
+        managedCursor.close();
+        return sb.toString();
+
+    }
+
+    public void gatherLogs(View view) {
+        String toast = getCallDetails();
+        Toast.makeText(context, toast, Toast.LENGTH_SHORT).show();
+
+    }
+
 
 
     public void exportDb(View view) {
         try {
             backupDatabase();
             Log.d("backup!", "success!");
+            Toast.makeText(context, "exported database", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             e.printStackTrace();
         }

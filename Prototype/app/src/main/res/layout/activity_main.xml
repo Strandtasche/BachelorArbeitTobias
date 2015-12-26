@@ -67,7 +67,7 @@
             android:text="Connect!"
             android:id="@+id/button4"
             android:layout_gravity="left|center_vertical"
-            android:onClick="lookingForConnection" />
+            android:onClick="gatherLogs" />
 
         <Button
             android:layout_width="wrap_content"
