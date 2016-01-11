@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Intent intentService;
 
+    private CallData callData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +89,9 @@ public class MainActivity extends AppCompatActivity {
 
         dbHelper = new MySQLiteHelper(this);
 
+        callData = new CallData();
 
+        Log.d("onCreate", "starting up!");
     }
 
 
@@ -207,51 +211,81 @@ public class MainActivity extends AppCompatActivity {
         //adapter.add(notificationEntry); n
     }
 
-    private String getCallDetails() {
+    private void getCallDetails() {
 
-        StringBuffer sb = new StringBuffer();
+        //StringBuffer sb = new StringBuffer();
         Cursor managedCursor = getContentResolver().query(CallLog.Calls.CONTENT_URI, null,
                 null, null, null);
+
+        int amount = 0;
+        int amountOutgoing = 0;
+        int amountIncoming = 0;
+        int amountMissed = 0;
+
+
+
         int number = managedCursor.getColumnIndex(CallLog.Calls.NUMBER);
         int type = managedCursor.getColumnIndex(CallLog.Calls.TYPE);
-        int date = managedCursor.getColumnIndex(CallLog.Calls.DATE);
+        int date = managedCursor.getColumnIndex(CallLog.Calls.DATE); // Milliseconds since epoch.
         int duration = managedCursor.getColumnIndex(CallLog.Calls.DURATION);
-        sb.append("Call Details :");
-        for (int i = 0; i < 2; i++) {
+
+        int totalDuration = 0;
+
+        for (int i = 0; i < 3; i++) {
             managedCursor.moveToNext();
-        //while (managedCursor.moveToNext()) {
+        //while (managedCursor.moveToNext()) { // && ungetestet! TODO!
+            amount++;
             String phNumber = managedCursor.getString(number);
             String callType = managedCursor.getString(type);
             String callDate = managedCursor.getString(date);
             Date callDayTime = new Date(Long.valueOf(callDate));
             String callDuration = managedCursor.getString(duration);
+            //Log.d("getCallDetails", "test!");
+            System.out.println("is this working?");
+            totalDuration += Integer.parseInt(callDuration);
             String dir = null;
             int dircode = Integer.parseInt(callType);
             switch (dircode) {
                 case CallLog.Calls.OUTGOING_TYPE:
                     dir = "OUTGOING";
+                    amountOutgoing++;
                     break;
 
                 case CallLog.Calls.INCOMING_TYPE:
                     dir = "INCOMING";
+                    amountIncoming++;
                     break;
 
                 case CallLog.Calls.MISSED_TYPE:
                     dir = "MISSED";
+                    amountMissed++;
                     break;
             }
-            sb.append("\nPhone Number:--- " + phNumber + " \nCall Type:--- "
-                    + dir + " \nCall Date:--- " + callDayTime
-                    + " \nCall duration in sec :--- " + callDuration);
-            sb.append("\n----------------------------------");
         }
+        //Log.d("getCalldetails", "before close");
         managedCursor.close();
-        return sb.toString();
+        callData.setAmountIncoming(amountIncoming);
+        callData.setAmountMissed(amountMissed);
+        callData.setAmountOutgoing(amountOutgoing);
+        callData.setTotalDuration(totalDuration);
+        //Log.d("getCalldetail", "data set");
+        return;
 
     }
 
+    private void getMessageDetails() {
+
+        //Cursor managedCursor = getContentResolver().query("content://sms", null,null, null, null);
+
+
+        return;
+    }
+
     public void gatherLogs(View view) {
-        String toast = getCallDetails();
+        //Log.d("gatherLogs", "first");
+        getCallDetails();
+        //Log.d("gatherLogs", "second");
+        String toast = Integer.toString(callData.getAmountCalls()) + " " + Integer.toString(callData.getAverageDuration());
         Toast.makeText(context, toast, Toast.LENGTH_SHORT).show();
 
     }
