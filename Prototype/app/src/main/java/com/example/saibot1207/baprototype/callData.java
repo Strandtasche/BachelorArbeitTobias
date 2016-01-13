@@ -5,18 +5,25 @@ package com.example.saibot1207.baprototype;
  */
 public class CallData {
 
-    int amountCalls;
-    int amountMissed;
-    int amountIncoming;
-    int amountOutgoing;
+    private int amountCalls;
+    private int amountMissed;
+    private int amountIncoming;
+    private int amountOutgoing;
 
+    private int totalDuration;
+    private int averageDuration;
 
-
-    int totalDuration;
-    int averageDuration;
-
+    int messagesAmount;
     int messagesSend;
     int messagesReceived;
+
+    int totalMessageLength;
+    int sentMessageLength;
+    int receivedMessageLength;
+
+    int averageMessageLength;
+    int averageSentMessageLength;
+    int averageReceivedMessageLength;
 
 
 
@@ -30,6 +37,7 @@ public class CallData {
         this.averageDuration = 0;
 
 
+        this.messagesAmount = 0;
         this.messagesSend = 0;
         this.messagesReceived = 0;
     }
@@ -94,6 +102,67 @@ public class CallData {
     }
 
     public int getAverageDuration() {
-        return totalDuration / (getAmountCalls() - amountMissed);
+        if (getAmountCalls() != amountMissed) {
+            return totalDuration / (getAmountCalls() - amountMissed);
+        }
+        else return 0;
+    }
+
+    public int getMessagesAmount() {
+        return messagesAmount;
+    }
+
+    public void setMessagesAmount(int messagesAmount) {
+        this.messagesAmount = messagesAmount;
+    }
+
+    public int getTotalMessageLength() {
+        return totalMessageLength;
+    }
+
+    public void setTotalMessageLength(int totalMessageLength) {
+        this.totalMessageLength = totalMessageLength;
+    }
+
+    public int getSentMessageLength() {
+        return sentMessageLength;
+    }
+
+    public void setSentMessageLength(int sentMessageLength) {
+        this.sentMessageLength = sentMessageLength;
+    }
+
+    public int getReceivedMessageLength() {
+        return receivedMessageLength;
+    }
+
+    public void setReceivedMessageLength( int receivedMessageLength) {
+        this.receivedMessageLength = receivedMessageLength;
+    }
+
+    public int getAverageMessageLength() {
+        if (messagesAmount != 0){
+            return totalMessageLength/messagesAmount;
+        }
+        else return 0;
+
+    }
+
+    public int getAverageSentMessageLength() {
+        if (messagesSend != 0) {
+            return sentMessageLength/messagesSend;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    public int getAverageReceivedMessageLength() {
+        if (messagesReceived != 0) {
+            return receivedMessageLength/messagesReceived;
+        }
+
+        else return 0;
+
     }
 }

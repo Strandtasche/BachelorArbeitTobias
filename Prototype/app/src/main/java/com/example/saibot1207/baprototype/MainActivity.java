@@ -30,6 +30,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.CallLog;
+import android.provider.Telephony;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
@@ -221,6 +222,11 @@ public class MainActivity extends AppCompatActivity {
         Cursor managedCursor = getContentResolver().query(CallLog.Calls.CONTENT_URI, new String[] { CallLog.Calls.DATE, CallLog.Calls.DURATION, CallLog.Calls.TYPE }, CallLog.Calls.DATE + ">?", new String[] { String.valueOf(resetDate.getTime())}, null);
         //getContentResolver().query(CallLog.Calls.CONTENT_URI, null, null, null, null);
 
+        if (managedCursor.getCount() < 1) {
+            managedCursor.close();
+            return;
+        }
+
         int amount = 0;
         int amountOutgoing = 0;
         int amountIncoming = 0;
@@ -237,40 +243,48 @@ public class MainActivity extends AppCompatActivity {
 
         //for (int i = 0; i < 3; i++) {
         //    managedCursor.moveToNext();
+
+
+//        if (!managedCursor.moveToFirst()) {
+//            return;
+//        }
+
+
+
         while (managedCursor.moveToNext()) { // && ungetestet! TODO!
             amount++;
             //String phNumber = managedCursor.getString(number);
             String callType = managedCursor.getString(type);
             String callDate = managedCursor.getString(date);
-            Date callDayTime = new Date(Long.valueOf(callDate));
+            //Date callDayTime = new Date(Long.valueOf(callDate));
             String callDuration = managedCursor.getString(duration);
-            Log.d("getCallDetails", "duration: " + callDuration);
-            Log.d("getCallDetails", "callDate: " + callDate);
-            Log.d("getCallDetails", "Sysdate: " + Long.toString(System.currentTimeMillis() - Long.valueOf(callDate)));
-
-            long yourmilliseconds = System.currentTimeMillis();
-            SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
-            Date resultdate = new Date(yourmilliseconds);
-            Date resultdate2 = new Date(Long.valueOf(callDate));
-            System.out.println(sdf.format(resultdate));
-            System.out.println(sdf.format(resultdate2));
+//            Log.d("getCallDetails", "duration: " + callDuration);
+//            Log.d("getCallDetails", "callDate: " + callDate);
+//            Log.d("getCallDetails", "Sysdate: " + Long.toString(System.currentTimeMillis() - Long.valueOf(callDate)));
+//
+//            long yourmilliseconds = System.currentTimeMillis();
+//            SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+//            Date resultdate = new Date(yourmilliseconds);
+//            Date resultdate2 = new Date(Long.valueOf(callDate));
+//            System.out.println(sdf.format(resultdate));
+//            System.out.println(sdf.format(resultdate2));
 
             totalDuration += Integer.parseInt(callDuration);
-            String dir = null;
+            //String dir = null;
             int dircode = Integer.parseInt(callType);
             switch (dircode) {
                 case CallLog.Calls.OUTGOING_TYPE:
-                    dir = "OUTGOING";
+                    //dir = "OUTGOING";
                     amountOutgoing++;
                     break;
 
                 case CallLog.Calls.INCOMING_TYPE:
-                    dir = "INCOMING";
+                    //dir = "INCOMING";
                     amountIncoming++;
                     break;
 
                 case CallLog.Calls.MISSED_TYPE:
-                    dir = "MISSED";
+                    //dir = "MISSED";
                     amountMissed++;
                     break;
             }
@@ -286,17 +300,104 @@ public class MainActivity extends AppCompatActivity {
 
     private void getMessageDetails() {
 
-        //Cursor managedCursor = getContentResolver().query("content://sms", null,null, null, null);
+        Uri messages = Uri.parse("content://sms");
+        Date resetDate = new Date(1451602800000l);
+
+        //Log.d("getMessageDetails", "passed");
+        Cursor managedCursor = getContentResolver().query(messages, new String[] { Telephony.TextBasedSmsColumns.DATE, Telephony.TextBasedSmsColumns.BODY, Telephony.TextBasedSmsColumns.TYPE }, Telephony.TextBasedSmsColumns.DATE + ">?", new String[] { String.valueOf(resetDate.getTime())}, null);
+        //Cursor managedCursor = getContentResolver().query(messages, null, null, null, null);
+
+        Log.d("getMessageDetails", Integer.toString(managedCursor.getCount()));
+
+        if (managedCursor.getCount() < 1) {
+            //Log.d("getMessageDetails", "entered if condition!");
+            managedCursor.close();
+            //Log.d("getMessageDetails", "lastWayout");
+            return;
+        }
+        //Log.d("getMessageDetails", "passed2");
+
+        int amount = 0;
+        int amountSent = 0;
+        int amountReceived = 0;
+
+        int totalLength = 0;
+        int lengthSent = 0;
+        int lengthReceived = 0;
+
+        int type = managedCursor.getColumnIndex(Telephony.TextBasedSmsColumns.TYPE);
+        int date = managedCursor.getColumnIndex(Telephony.TextBasedSmsColumns.DATE); // Milliseconds since epoch.
+        int body = managedCursor.getColumnIndex(Telephony.TextBasedSmsColumns.BODY);
 
 
+        //for (int i = 0; i < 10; i++) {
+        //    managedCursor.moveToNext();
+
+//        if (!managedCursor.moveToFirst()) {
+//            return;
+//        }
+
+        Log.d("getMessageDetails", "moving next");
+        while (managedCursor.moveToNext()) {
+
+            String messageType = managedCursor.getString(type);
+            String messageDate = managedCursor.getString(date);
+            String messageBody = managedCursor.getString(body);
+
+            int bodyLength = messageBody.length();
+
+            totalLength += bodyLength;
+
+            SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+            Date messageDayTime = new Date(Long.valueOf(messageDate));
+            System.out.println(sdf.format(messageDayTime));
+
+            //Log.d("getSmsDetails", "body: " + messageBody);
+            Log.d("getSmsDetails", "bodyLength: " + bodyLength);
+            //Log.d("getSmsDetails", "messageDate: " + messageDate);
+            Log.d("getSmsDetails", "type: " + messageType);
+
+            //String dir = null;
+            int dircode = Integer.parseInt(messageType);
+            switch (dircode) {
+                case Telephony.TextBasedSmsColumns.MESSAGE_TYPE_SENT:
+                    //dir = "OUTGOING";
+                    amountSent++;
+                    amount++;
+                    lengthSent += bodyLength;
+                    break;
+
+                case Telephony.TextBasedSmsColumns.MESSAGE_TYPE_INBOX:
+                    //dir = "INCOMING";
+                    amountReceived++;
+                    amount++;
+                    lengthReceived += bodyLength;
+                    break;
+
+                default:
+                    amount++;
+                    break;
+            }
+
+        }
+        managedCursor.close();
+        //Log.d("getSmsDetails", Integer.toString(Telephony.TextBasedSmsColumns.MESSAGE_TYPE_INBOX));
+        //Log.d("getSmsDetails", Integer.toString(Telephony.TextBasedSmsColumns.MESSAGE_TYPE_SENT));
+        callData.setMessagesAmount(amount);
+        callData.setMessagesSend(amountSent);
+        callData.setMessagesReceived(amountReceived);
+        callData.setTotalMessageLength(totalLength);
+        callData.setSentMessageLength(lengthSent);
+        callData.setReceivedMessageLength(lengthReceived);
         return;
     }
 
     public void gatherLogs(View view) {
         //System.out.println("gatherLogs + first");
         getCallDetails();
+        getMessageDetails();
         //System.out.println("gatherLogs + second");
-        String toast = Integer.toString(callData.getAmountCalls()) + " " + Integer.toString(callData.getAverageDuration());
+        String toast = Integer.toString(callData.getMessagesAmount()) + " " + Integer.toString(callData.getAverageMessageLength());
         //System.out.println("gatherLogs + third");
         Toast.makeText(context, toast, Toast.LENGTH_SHORT).show();
         Log.d("test123", "test456");
