@@ -1,0 +1,3 @@
+TASK com.example.saibot1207.baprototype id=3614
+  ACTIVITY com.example.saibot1207.baprototype/.MainActivity 3c3e41e5 pid=31661
+    Failure while dumping the activity: java.io.IOException: Timeout

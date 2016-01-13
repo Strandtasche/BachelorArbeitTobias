@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
@@ -57,6 +58,7 @@ public class TestDatabaseActivity extends ListActivity {
                 // save the new NotificationEntry to the database
                 notificationEntry = datasource.createNotificationEntry(notificationEntries[nextInt], "test123");
                 adapter.add(notificationEntry);
+                Log.d("TDA", "test");
                 break;
             case R.id.delete:
                 if (getListAdapter().getCount() > 0) {

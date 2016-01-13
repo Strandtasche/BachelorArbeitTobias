@@ -39,8 +39,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
 
-import com.example.saibot1207.baprototype.logger.Log;
+//import com.example.saibot1207.baprototype.logger.Log;
 import com.opencsv.CSVWriter;
 
 import java.io.File;
@@ -49,6 +50,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -195,6 +197,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void addStuff(View v) {
         NotificationEntry notificationEntry;
+        Log.d("addStuff", "pressed");
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, "this is a test");
         values.put(MySQLiteHelper.COLUMN_TITLEHASHED, "titlehashed");
@@ -214,8 +217,9 @@ public class MainActivity extends AppCompatActivity {
     private void getCallDetails() {
 
         //StringBuffer sb = new StringBuffer();
-        Cursor managedCursor = getContentResolver().query(CallLog.Calls.CONTENT_URI, null,
-                null, null, null);
+        Date resetDate = new Date(1451602800000l); // Alle Anrufe Nach 1.1.2016!
+        Cursor managedCursor = getContentResolver().query(CallLog.Calls.CONTENT_URI, new String[] { CallLog.Calls.DATE, CallLog.Calls.DURATION, CallLog.Calls.TYPE }, CallLog.Calls.DATE + ">?", new String[] { String.valueOf(resetDate.getTime())}, null);
+        //getContentResolver().query(CallLog.Calls.CONTENT_URI, null, null, null, null);
 
         int amount = 0;
         int amountOutgoing = 0;
@@ -224,24 +228,33 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        int number = managedCursor.getColumnIndex(CallLog.Calls.NUMBER);
+        //int number = managedCursor.getColumnIndex(CallLog.Calls.NUMBER);
         int type = managedCursor.getColumnIndex(CallLog.Calls.TYPE);
         int date = managedCursor.getColumnIndex(CallLog.Calls.DATE); // Milliseconds since epoch.
         int duration = managedCursor.getColumnIndex(CallLog.Calls.DURATION);
 
         int totalDuration = 0;
 
-        for (int i = 0; i < 3; i++) {
-            managedCursor.moveToNext();
-        //while (managedCursor.moveToNext()) { // && ungetestet! TODO!
+        //for (int i = 0; i < 3; i++) {
+        //    managedCursor.moveToNext();
+        while (managedCursor.moveToNext()) { // && ungetestet! TODO!
             amount++;
-            String phNumber = managedCursor.getString(number);
+            //String phNumber = managedCursor.getString(number);
             String callType = managedCursor.getString(type);
             String callDate = managedCursor.getString(date);
             Date callDayTime = new Date(Long.valueOf(callDate));
             String callDuration = managedCursor.getString(duration);
-            //Log.d("getCallDetails", "test!");
-            System.out.println("is this working?");
+            Log.d("getCallDetails", "duration: " + callDuration);
+            Log.d("getCallDetails", "callDate: " + callDate);
+            Log.d("getCallDetails", "Sysdate: " + Long.toString(System.currentTimeMillis() - Long.valueOf(callDate)));
+
+            long yourmilliseconds = System.currentTimeMillis();
+            SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+            Date resultdate = new Date(yourmilliseconds);
+            Date resultdate2 = new Date(Long.valueOf(callDate));
+            System.out.println(sdf.format(resultdate));
+            System.out.println(sdf.format(resultdate2));
+
             totalDuration += Integer.parseInt(callDuration);
             String dir = null;
             int dircode = Integer.parseInt(callType);
@@ -262,13 +275,11 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }
-        //Log.d("getCalldetails", "before close");
         managedCursor.close();
         callData.setAmountIncoming(amountIncoming);
         callData.setAmountMissed(amountMissed);
         callData.setAmountOutgoing(amountOutgoing);
         callData.setTotalDuration(totalDuration);
-        //Log.d("getCalldetail", "data set");
         return;
 
     }
@@ -282,11 +293,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gatherLogs(View view) {
-        //Log.d("gatherLogs", "first");
+        //System.out.println("gatherLogs + first");
         getCallDetails();
-        //Log.d("gatherLogs", "second");
+        //System.out.println("gatherLogs + second");
         String toast = Integer.toString(callData.getAmountCalls()) + " " + Integer.toString(callData.getAverageDuration());
+        //System.out.println("gatherLogs + third");
         Toast.makeText(context, toast, Toast.LENGTH_SHORT).show();
+        Log.d("test123", "test456");
+        //System.out.println("gatherLogs + fourth");
 
     }
 

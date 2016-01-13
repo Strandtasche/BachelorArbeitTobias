@@ -1,0 +1,62 @@
+Activity Resolver Table:
+  Non-Data Actions:
+      android.intent.action.MAIN:
+        2cd118af com.example.saibot1207.baprototype/.MainActivity
+
+Receiver Resolver Table:
+  Non-Data Actions:
+      com.google.android.gms.measurement.UPLOAD:
+        10e704bc com.example.saibot1207.baprototype/com.google.android.gms.measurement.AppMeasurementReceiver
+
+Service Resolver Table:
+  Non-Data Actions:
+      android.service.notification.NotificationListenerService:
+        3b367c45 com.example.saibot1207.baprototype/.NotificationService
+
+Registered ContentProviders:
+  com.example.saibot1207.baprototype/com.google.android.gms.measurement.AppMeasurementContentProvider:
+    Provider{1c4797c1 com.example.saibot1207.baprototype/com.google.android.gms.measurement.AppMeasurementContentProvider}
+
+ContentProvider Authorities:
+  [com.example.saibot1207.baprototype.google_measurement_service]:
+    Provider{1c4797c1 com.example.saibot1207.baprototype/com.google.android.gms.measurement.AppMeasurementContentProvider}
+      applicationInfo=ApplicationInfo{3afe9b66 com.example.saibot1207.baprototype}
+
+Key Set Manager:
+  [com.example.saibot1207.baprototype]
+      Signing KeySets: 1173
+
+Packages:
+  Package [com.example.saibot1207.baprototype] (18d0e4e):
+    userId=10165 gids=[1028, 1015, 3003]
+    pkg=Package{8a56ea7 com.example.saibot1207.baprototype}
+    codePath=/data/app/com.example.saibot1207.baprototype-1
+    resourcePath=/data/app/com.example.saibot1207.baprototype-1
+    legacyNativeLibraryDir=/data/app/com.example.saibot1207.baprototype-1/lib
+    primaryCpuAbi=null
+    secondaryCpuAbi=null
+    versionCode=1 targetSdk=21
+    versionName=1.0
+    splits=[base]
+    applicationInfo=ApplicationInfo{3afe9b66 com.example.saibot1207.baprototype}
+    flags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    dataDir=/data/data/com.example.saibot1207.baprototype
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    timeStamp=2016-01-11 17:02:07
+    firstInstallTime=2015-12-26 15:44:29
+    lastUpdateTime=2016-01-11 17:02:07
+    signatures=PackageSignatures{3aade07c [12512f54]}
+    permissionsFixed=true haveGids=true installStatus=1
+    pkgFlags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    User 0:  installed=true hidden=false stopped=false notLaunched=false enabled=0
+    grantedPermissions:
+      android.permission.READ_SMS
+      android.permission.READ_CALL_LOG
+      com.google.android.c2dm.permission.RECEIVE
+      android.permission.USE_CREDENTIALS
+      android.permission.INTERNET
+      android.permission.READ_EXTERNAL_STORAGE
+      android.permission.ACCESS_NETWORK_STATE
+      android.permission.GET_ACCOUNTS
+      android.permission.WRITE_EXTERNAL_STORAGE
+      android.permission.WAKE_LOCK
