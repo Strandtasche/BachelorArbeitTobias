@@ -11,19 +11,18 @@ public class CallData {
     private int amountOutgoing;
 
     private int totalDuration;
-    private int averageDuration;
+    private int incomingDuration;
+    private int outgoingDuration;
 
-    int messagesAmount;
-    int messagesSend;
-    int messagesReceived;
+    private int messagesAmount;
+    private int messagesSend;
+    private int messagesReceived;
 
-    int totalMessageLength;
-    int sentMessageLength;
-    int receivedMessageLength;
+    private int totalMessageLength;
+    private int sentMessageLength;
+    private int receivedMessageLength;
 
-    int averageMessageLength;
-    int averageSentMessageLength;
-    int averageReceivedMessageLength;
+
 
 
 
@@ -34,12 +33,14 @@ public class CallData {
         this.amountOutgoing = 0;
 
         this.totalDuration = 0;
-        this.averageDuration = 0;
+        this.incomingDuration = 0;
+        this.outgoingDuration = 0;
 
 
         this.messagesAmount = 0;
         this.messagesSend = 0;
         this.messagesReceived = 0;
+
     }
 
     public int getAmountCalls() {
@@ -157,6 +158,24 @@ public class CallData {
         }
     }
 
+    public int getAverageIncomingDuration() {
+        if (amountIncoming != 0) {
+            return incomingDuration/amountIncoming;
+        }
+
+        else return 0;
+
+    }
+
+    public int getAverageOutgoingDuration() {
+        if (outgoingDuration != 0){
+            return outgoingDuration/amountOutgoing;
+        }
+        else return 0;
+
+    }
+
+
     public int getAverageReceivedMessageLength() {
         if (messagesReceived != 0) {
             return receivedMessageLength/messagesReceived;
@@ -164,5 +183,19 @@ public class CallData {
 
         else return 0;
 
+    }
+
+
+    // "AmountCalls", "AmountIncoming", "AmountOutgoing", "AmountMissed", "TotalDuration", "AverageDuration", "IncomingDuration", "OutgoingDuration"
+    // "AverageIncomingDuration", "AverageOutgoingDuration", "MessagesAmount", "MessagesSent", "MessagesReceived", "TotalMessageLength", "SentMessageLength",
+    // "ReceivedMessageLength", "AverageMessageLength", "AverageSentMessageLength", "AverageReceivedMessageLength"
+    public String getStringData() {
+        return Integer.toString(getAmountCalls()) + "#" + amountIncoming + "#" + amountOutgoing + "#" + amountMissed
+                + "#" + totalDuration + "#" + getAverageDuration()
+                + "#" + incomingDuration + "#" + outgoingDuration
+                + "#" + getAverageIncomingDuration() + "#" + getAverageOutgoingDuration()
+                + "#" + messagesAmount + "#" + messagesSend + "#" + messagesReceived
+                + "#" + totalMessageLength + "#" + sentMessageLength + "#" + receivedMessageLength
+                + "#" + getAverageMessageLength() + "#" + getAverageSentMessageLength() + "#" + getAverageReceivedMessageLength();
     }
 }

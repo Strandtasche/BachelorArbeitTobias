@@ -464,11 +464,12 @@ public class MainActivity extends AppCompatActivity {
             exportDir.mkdirs();
         }
 
-        File file = new File(exportDir, "csvname.csv");
+        File file1 = new File(exportDir, "csvname1.csv");
+        File file2 = new File(exportDir, "csvname2.csv");
         try
         {
-            file.createNewFile();
-            CSVWriter csvWrite = new CSVWriter(new FileWriter(file), '\t');
+            file1.createNewFile();
+            CSVWriter csvWrite = new CSVWriter(new FileWriter(file1), '\t');
             SQLiteDatabase db = dbHelper.getReadableDatabase();
             Cursor curCSV = db.rawQuery("SELECT * FROM " + MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,null);
             csvWrite.writeNext(curCSV.getColumnNames());
@@ -478,11 +479,26 @@ public class MainActivity extends AppCompatActivity {
                 //Which column you want to exprort
 
                 String arrStr[] ={curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3), curCSV.getString(4) };
+                for (String str : arrStr) {
+                    str = str + "\t";
+                }
                 csvWrite.writeNext(arrStr);
             }
+
+
             //Log.d("how far did we get?", "no, even further");
             csvWrite.close();
             curCSV.close();
+            csvWrite = new CSVWriter(new FileWriter(file2), '\t');
+            String columns[] = {"AmountCalls", "AmountIncoming", "AmountOutgoing", "AmountMissed", "TotalDuration", "AverageDuration", "IncomingDuration", "OutgoingDuration",
+                "AverageIncomingDuration", "AverageOutgoingDuration", "MessagesAmount", "MessagesSent", "MessagesReceived", "TotalMessageLength", "SentMessageLength",
+                "ReceivedMessageLength", "AverageMessageLength", "AverageSentMessageLength", "AverageReceivedMessageLength"};
+            getMessageDetails();
+            getCallDetails();
+            String callDataString[] = callData.getStringData().split("#");
+            csvWrite.writeNext(columns);
+            csvWrite.writeNext(callDataString);
+            csvWrite.close();
         }
         catch(Exception sqlEx)
         {
