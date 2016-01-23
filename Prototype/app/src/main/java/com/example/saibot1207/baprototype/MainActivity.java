@@ -15,13 +15,19 @@
  */
 package com.example.saibot1207.baprototype;
 
+import android.Manifest;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.usage.UsageStatsManager;
 import android.content.BroadcastReceiver;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -31,6 +37,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.CallLog;
 import android.provider.Telephony;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
@@ -50,6 +58,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.security.Permission;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -85,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
 
         context = getApplicationContext();
 
-        tab = (TableLayout) findViewById(R.id.tab);
-        LocalBroadcastManager.getInstance(this).registerReceiver(onNotice, new IntentFilter("Msg"));
+        //tab = (TableLayout) findViewById(R.id.tab);
+        //LocalBroadcastManager.getInstance(this).registerReceiver(onNotice, new IntentFilter("Msg"));
         mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
 
@@ -101,28 +110,28 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private BroadcastReceiver onNotice = new BroadcastReceiver() {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String pack = intent.getStringExtra("package");
-            String title = intent.getStringExtra("title");
-            String text = intent.getStringExtra("text");
-
-
-            TableRow tr = new TableRow(getApplicationContext());
-            tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-            TextView textview = new TextView(getApplicationContext());
-            textview.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1.0f));
-            textview.setTextSize(20);
-            textview.setTextColor(Color.parseColor("#0B0719"));
-            textview.setText(Html.fromHtml(pack + "<br><b>" + title + " : </b>" + text));
-            tr.addView(textview);
-            tab.addView(tr);
-
-
-        }
-    };
+//    private BroadcastReceiver onNotice = new BroadcastReceiver() {
+//
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            String pack = intent.getStringExtra("package");
+//            String title = intent.getStringExtra("title");
+//            String text = intent.getStringExtra("text");
+//
+//
+//            TableRow tr = new TableRow(getApplicationContext());
+//            tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+//            TextView textview = new TextView(getApplicationContext());
+//            textview.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1.0f));
+//            textview.setTextSize(20);
+//            textview.setTextColor(Color.parseColor("#0B0719"));
+//            textview.setText(Html.fromHtml(pack + "<br><b>" + title + " : </b>" + text));
+//            tr.addView(textview);
+//            tab.addView(tr);
+//
+//
+//        }
+//    };
 
     @Override
     protected void onStart() {
@@ -417,6 +426,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void info(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Look at this dialog!")
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //do things
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+
+    }
+
     public void backupDatabaseMail() throws IOException {
         String columnString =   "\"PersonName\",\"Gender\",\"Street1\",\"postOffice\",\"Age\"";
         String dataString   =   "\"" + "username" +"\",\"" + "usergender" + "\",\"" + "useradress" + "\",\"" + "userpostoffice" + "\",\"" + "userage" + "\"";
@@ -478,7 +501,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 //Which column you want to exprort
 
-                String arrStr[] ={curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3), curCSV.getString(4) };
+                String arrStr[] ={curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3), curCSV.getString(4)};
                 for (String str : arrStr) {
                     str = str + "\t";
                 }

@@ -1,95 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<TableLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff">
 
-    <FrameLayout
-        android:layout_width="388dp"
-        android:layout_height="281dp"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/Framelayout">
 
-        <FrameLayout
-            android:layout_width="343dp"
-            android:layout_height="93dp"
-            android:layout_gravity="center_horizontal|top">
+    <!-- Row 1 with single column -->
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
 
-            <TextView
-                android:layout_width="271dp"
-                android:layout_height="55dp"
-                android:text="trollolollllololololl"
-                android:id="@+id/textView"
-                android:layout_gravity="center_horizontal|bottom"
-                android:gravity="center"
-                />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:paddingTop="8dp"
-                android:text="trollolol"
-                android:id="@+id/textView2"
-                android:layout_gravity="center_horizontal|top" />
-        </FrameLayout>
+        <TextView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="18dp" android:text="@string/appHeader"  android:layout_span="3"
+            android:padding="18dip" android:background="#b0b0b0"
+            android:textColor="#000"/>
+
+
+    </TableRow>
+
+    <!-- Row 2 with 3 columns -->
+
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Press me!"
-            android:id="@+id/button"
-            android:layout_gravity="center_horizontal|bottom"
+            android:id="@+id/Button01" android:text="@string/button1"
+            android:layout_weight="1" android:background="#dcdcdc"
+            android:textColor="#000000"
+            android:textAllCaps="false"
+            android:padding="20dip" android:gravity="center"
             android:onClick="createNewActivity"
             />
 
         <Button
-            android:layout_width="97dp"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button2"
-            android:paddingRight="20pt"
-            android:layout_gravity="left|bottom"
-            android:onClick="checkPermissions" />
+            android:id="@+id/Button02" android:text="@string/button2"
+            android:layout_weight="1" android:background="#d3d3d3"
+            android:textColor="#000000"
+            android:textAllCaps="false"
+            android:padding="20dip" android:gravity="center"
+            android:onClick="createNotification"
+            />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="c.N."
-            android:id="@+id/button3"
-            android:layout_gravity="right|bottom"
-            android:onClick="createNotification" />
+            android:id="@+id/Button03" android:text="@string/button3"
+            android:layout_weight="1" android:background="#cac9c9"
+            android:textColor="#000000"
+            android:textAllCaps="false"
+            android:padding="20dip" android:gravity="center"
+            android:onClick="addStuff"
+            />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Connect!"
-            android:id="@+id/button4"
-            android:layout_gravity="left|center_vertical"
-            android:onClick="gatherLogs" />
+    </TableRow>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="add Db Entry"
-            android:id="@+id/button5"
-            android:layout_gravity="right|center_vertical"
-            android:onClick="addStuff" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Export Database"
-            android:id="@+id/button6"
-            android:layout_gravity="center"
-            android:onClick="exportDb" />
-    </FrameLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
+    <!-- Row 3 with 2 columns -->
+    <TableRow
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/tab"></TableLayout>
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
 
-</LinearLayout>
+        <Button
+            android:id="@+id/Button04" android:text="@string/button4"
+            android:layout_weight="1"  android:background="#b0b0b0"
+            android:textColor="#000000"
+            android:textAllCaps="false"
+            android:padding="18dip" android:gravity="center"
+            android:onClick="checkPermissions"
+            />
+
+        <TextView
+            android:id="@+id/Button05" android:text="@string/button5"
+            android:layout_weight="1" android:background="#a09f9f"
+            android:textColor="#000000"
+            android:textAllCaps="false"
+            android:padding="18dip" android:gravity="center"
+            android:onClick="gatherLogs"
+            />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/Button06" android:text="@string/button6"
+            android:layout_weight="1"  android:background="#b0b0b0"
+            android:textColor="#000000"
+            android:textAllCaps="false"
+            android:padding="18dip" android:gravity="center"
+            android:onClick="exportDb"
+            />
+
+    </TableRow>
+
+</TableLayout>

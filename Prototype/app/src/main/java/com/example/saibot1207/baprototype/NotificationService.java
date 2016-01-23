@@ -60,11 +60,11 @@ public class NotificationService extends NotificationListenerService {
         Log.i("Title", title);
         Log.i("Text", text);
 
-        Intent msgrcv = new Intent("Msg");
-        msgrcv.putExtra("package", pack);
-        msgrcv.putExtra("ticker", ticker);
-        msgrcv.putExtra("title", title);
-        msgrcv.putExtra("text", text);
+//        Intent msgrcv = new Intent("Msg");
+//        msgrcv.putExtra("package", pack);
+//        msgrcv.putExtra("ticker", ticker);
+//        msgrcv.putExtra("title", title);
+//        msgrcv.putExtra("text", text);
 
         int hashedTitle = hashString(title);
         int textSize = text.length();
@@ -85,7 +85,7 @@ public class NotificationService extends NotificationListenerService {
             Log.d("db not", "Updated database");
         }
 
-        LocalBroadcastManager.getInstance(context).sendBroadcast(msgrcv);
+        //LocalBroadcastManager.getInstance(context).sendBroadcast(msgrcv);
     }
 
     @Override
