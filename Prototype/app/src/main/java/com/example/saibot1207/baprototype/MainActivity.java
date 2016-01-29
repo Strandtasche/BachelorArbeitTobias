@@ -36,6 +36,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.CallLog;
+import android.provider.Settings;
 import android.provider.Telephony;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -88,6 +89,14 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        //Check Permissions:
+        if (UStats.getUsageStatsList(this).isEmpty()){
+            Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+            startActivity(intent);
+        }
+        //Log.d("onCreate", "after usageStat access");
+
+
 
         intentService = new Intent(this, NotificationService.class);
         startService(intentService);
@@ -104,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
         callData = new CallData();
 
         Log.d("onCreate", "starting up!");
+
+
     }
 
 
@@ -168,9 +179,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void checkPermissions(View v) {
+    public void checkPermissionsNotificationListener(View v) {
         Intent intent = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
         startActivity(intent);
+    }
+
+    public void checkPermissionsUsageStat(View v) {
+        Log.d("checkPermissions", "clicked");
+        Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+        startActivity(intent);
+
+    }
+
+    public void checkPermissionsSuper(View v) {
+        Log.d("checkPermissions", "clicked");
+        //int permissionCheck = ContextCompat.
+
     }
 
     public void createNotification(View v) {
@@ -406,12 +430,16 @@ public class MainActivity extends AppCompatActivity {
         getCallDetails();
         getMessageDetails();
         //System.out.println("gatherLogs + second");
-        String toast = Integer.toString(callData.getMessagesAmount()) + " " + Integer.toString(callData.getAverageMessageLength());
+        String toast = Integer.toString(callData.getMessagesAmount()) + " " + Integer.toString(callData.getAmountCalls());
         //System.out.println("gatherLogs + third");
         Toast.makeText(context, toast, Toast.LENGTH_SHORT).show();
         Log.d("test123", "test456");
         //System.out.println("gatherLogs + fourth");
 
+    }
+
+    public void usageStatTest(View v) {
+        UStats.printCurrentUsageStatus(MainActivity.this);
     }
 
 
