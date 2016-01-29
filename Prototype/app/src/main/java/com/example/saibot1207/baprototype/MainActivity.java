@@ -193,7 +193,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkPermissionsSuper(View v) {
         Log.d("checkPermissions", "clicked");
-        //int permissionCheck = ContextCompat.
+        int permissionCheck0 = ContextCompat.checkSelfPermission(context,
+                Manifest.permission.PACKAGE_USAGE_STATS);
+        int permissionCheck1 = ContextCompat.checkSelfPermission(context,
+                Manifest.permission.READ_CALL_LOG);
+        int permissionCheck2 = ContextCompat.checkSelfPermission(context,
+                Manifest.permission.READ_SMS);
+        int permissionCheck3 = ContextCompat.checkSelfPermission(context,
+                Manifest.permission.BIND_NOTIFICATION_LISTENER_SERVICE);
+
+        String toast = Integer.toString(permissionCheck0) + "\n" + Integer.toString(permissionCheck1) + "\n" + Integer.toString(permissionCheck2) + "\n" + Integer.toString(permissionCheck3);
+
+        Toast.makeText(context, toast, Toast.LENGTH_LONG).show();
 
     }
 
@@ -433,7 +444,7 @@ public class MainActivity extends AppCompatActivity {
         String toast = Integer.toString(callData.getMessagesAmount()) + " " + Integer.toString(callData.getAmountCalls());
         //System.out.println("gatherLogs + third");
         Toast.makeText(context, toast, Toast.LENGTH_SHORT).show();
-        Log.d("test123", "test456");
+        //Log.d("test123", "test456");
         //System.out.println("gatherLogs + fourth");
 
     }

@@ -50,15 +50,15 @@ public class NotificationService extends NotificationListenerService {
         Log.d("NotificationEntry", "NotificationEntry posted");
 
         String pack = sbn.getPackageName();
-        String ticker = sbn.getNotification().tickerText.toString();
+        //String ticker = sbn.getNotification().tickerText.toString();
         Bundle extras = sbn.getNotification().extras;
         String title = extras.getString("android.title");
         String text = extras.getCharSequence("android.text").toString();
 
-        Log.i("Package", pack);
-        Log.i("Ticker", ticker);
-        Log.i("Title", title);
-        Log.i("Text", text);
+//        Log.i("Package", pack);
+//        Log.i("Ticker", ticker);
+//        Log.i("Title", title);
+//        Log.i("Text", text);
 
 //        Intent msgrcv = new Intent("Msg");
 //        msgrcv.putExtra("package", pack);

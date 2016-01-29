@@ -11,6 +11,7 @@
     <string name="button6">DB Export</string>
     <string name="button7">UsageStat Output</string>
     <string name="button8">UsageStat Permission</string>
+    <string name="button9">Super Permission</string>
     <string name="action_settings">Settings</string>
     <string name="service_name">NotificationService</string>
     <string name="title_activity_test_database">TestDatabaseActivity</string>
