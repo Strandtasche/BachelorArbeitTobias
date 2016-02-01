@@ -63,6 +63,7 @@ import java.io.IOException;
 import java.security.Permission;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -535,6 +536,7 @@ public class MainActivity extends AppCompatActivity {
 
         File file1 = new File(exportDir, "csvname1.csv");
         File file2 = new File(exportDir, "csvname2.csv");
+        File file3 = new File(exportDir, "csvname3.csv");
         try
         {
             file1.createNewFile();
@@ -548,9 +550,9 @@ public class MainActivity extends AppCompatActivity {
                 //Which column you want to exprort
 
                 String arrStr[] ={curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3), curCSV.getString(4)};
-                for (String str : arrStr) {
-                    str = str + "\t";
-                }
+//                for (String str : arrStr) {
+//                    str = str + ";";
+//                }
                 csvWrite.writeNext(arrStr);
             }
 
@@ -558,6 +560,8 @@ public class MainActivity extends AppCompatActivity {
             //Log.d("how far did we get?", "no, even further");
             csvWrite.close();
             curCSV.close();
+
+
             csvWrite = new CSVWriter(new FileWriter(file2), '\t');
             String columns[] = {"AmountCalls", "AmountIncoming", "AmountOutgoing", "AmountMissed", "TotalDuration", "AverageDuration", "IncomingDuration", "OutgoingDuration",
                 "AverageIncomingDuration", "AverageOutgoingDuration", "MessagesAmount", "MessagesSent", "MessagesReceived", "TotalMessageLength", "SentMessageLength",
@@ -567,6 +571,18 @@ public class MainActivity extends AppCompatActivity {
             String callDataString[] = callData.getStringData().split("#");
             csvWrite.writeNext(columns);
             csvWrite.writeNext(callDataString);
+            csvWrite.close();
+
+            csvWrite = new CSVWriter(new FileWriter(file3), '\t');
+            Resources res = getResources();
+            String[] packages = res.getStringArray(R.array.package_array);
+            long[] stats = UStats.returnCurrentUsageStatus(MainActivity.this);
+            String[] stringArray = new String[stats.length];
+            for(int i = 0; i < stats.length; i++){
+                stringArray[i] = String.valueOf(stats[i]);
+            }
+            csvWrite.writeNext(packages);
+            csvWrite.writeNext(stringArray);
             csvWrite.close();
         }
         catch(Exception sqlEx)
