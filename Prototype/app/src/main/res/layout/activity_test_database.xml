@@ -13,21 +13,21 @@
             android:id="@+id/add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add New"
+            android:text="@string/addnew"
             android:onClick="onClick"/>
 
         <Button
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete First"
+            android:text="@string/deleteFirst"
             android:onClick="onClick"/>
 
         <Button
             android:id="@+id/deleteAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete All"
+            android:text="@string/deleteAll"
             android:onClick="onClick"/>
 
     </LinearLayout>

@@ -15,6 +15,9 @@
     <string name="action_settings">Settings</string>
     <string name="service_name">NotificationService</string>
     <string name="title_activity_test_database">TestDatabaseActivity</string>
+    <string name="addnew">Add New</string>
+    <string name="deleteFirst">Delete First</string>
+    <string name="deleteAll">Delete All</string>
     <string-array name="package_array">
         <item>com.google.android.talk</item>
         <item>com.whatsapp</item>
