@@ -28,6 +28,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -451,6 +452,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void usageStatTest(View v) {
         UStats.printCurrentUsageStatus(MainActivity.this);
+        Resources res = getResources();
+        String[] packages = res.getStringArray(R.array.package_array);
+        long[] stats = UStats.returnCurrentUsageStatus(MainActivity.this);
+        for (int i = 0; i < packages.length; i++) {
+            Log.d(packages[i], Long.toString(stats[i]));
+        }
     }
 
 
