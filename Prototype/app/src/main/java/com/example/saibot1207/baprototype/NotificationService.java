@@ -17,6 +17,9 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.HashSet;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by saibot1207 on 23.10.15.
@@ -50,11 +53,26 @@ public class NotificationService extends NotificationListenerService {
         Log.d("NotificationEntry", "NotificationEntry posted");
 
         String pack = sbn.getPackageName();
-        //String ticker = sbn.getNotification().tickerText.toString();
-        Bundle extras = sbn.getNotification().extras;
-        String title = extras.getString("android.title");
-        String text = extras.getCharSequence("android.text").toString();
 
+        //String ticker = sbn.getNotification().tickerText.toString();
+
+        Bundle extras = sbn.getNotification().extras;
+        String title;
+        if (extras.getString("android.title") != null) {
+            title = extras.getString("android.title");
+        }
+        else {
+            title = "";
+        }
+
+        int textSize;
+
+        if (extras.getCharSequence("android.text") != null){
+            textSize = extras.getCharSequence("android.text").toString().length();
+        }
+        else {
+            textSize = 0;
+        }
 //        Log.i("Package", pack);
 //        Log.i("Ticker", ticker);
 //        Log.i("Title", title);
@@ -66,13 +84,22 @@ public class NotificationService extends NotificationListenerService {
 //        msgrcv.putExtra("title", title);
 //        msgrcv.putExtra("text", text);
 
-        int hashedTitle = hashString(title);
-        int textSize = text.length();
+        String hashedTitle = "failed";
+
+        try {
+            hashedTitle = SHA1(title);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+
 
         if (validPackages.contains(pack)) {
             ContentValues values = new ContentValues();
             values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, pack);
-            values.put(MySQLiteHelper.COLUMN_TITLEHASHED, Integer.toString(hashedTitle));
+            values.put(MySQLiteHelper.COLUMN_TITLEHASHED, hashedTitle);
             values.put(MySQLiteHelper.COLUMN_TEXTLENGTH, Integer.toString(textSize));
             values.put(MySQLiteHelper.COLUMN_DATE, System.currentTimeMillis());
             long insertId = database.insert(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES, null,
@@ -107,17 +134,24 @@ public class NotificationService extends NotificationListenerService {
         super.onDestroy();
     }
 
-    private int hashString (String str) {
-        int i = 1;
-        int sum = 1;
-        for( char s : str.toCharArray()) {
-            sum += i * (int) s;
-            i++;
-            if (i > 20) {
-                break;
-            }
+    private static String convertToHex(byte[] data) {
+        StringBuilder buf = new StringBuilder();
+        for (byte b : data) {
+            int halfbyte = (b >>> 4) & 0x0F;
+            int two_halfs = 0;
+            do {
+                buf.append((0 <= halfbyte) && (halfbyte <= 9) ? (char) ('0' + halfbyte) : (char) ('a' + (halfbyte - 10)));
+                halfbyte = b & 0x0F;
+            } while (two_halfs++ < 1);
         }
-        return sum;
+        return buf.toString();
+    }
+
+    public static String SHA1(String text) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        MessageDigest md = MessageDigest.getInstance("SHA-1");
+        md.update(text.getBytes("iso-8859-1"), 0, text.length());
+        byte[] sha1hash = md.digest();
+        return convertToHex(sha1hash);
     }
 
 }

@@ -72,6 +72,7 @@ public class UStats {
         int i = 0;
         for (String key : keys){
             if (hmap.containsKey(key)) {
+                //Log.d("UsageStats", Integer.toString(i) + " " + key);
                 values[i] = hmap.get(key);
             }
             else {

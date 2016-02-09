@@ -92,10 +92,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Check Permissions:
-        if (UStats.getUsageStatsList(this).isEmpty()){
-            Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
-            startActivity(intent);
-        }
+//        if (UStats.getUsageStatsList(this).isEmpty()){
+//            Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+//            startActivity(intent);
+//        }
         //Log.d("onCreate", "after usageStat access");
 
 
