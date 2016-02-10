@@ -94,6 +94,22 @@ public class CallData {
         this.messagesReceived = messagesReceived;
     }
 
+    public int getOutgoingDuration() {
+        return outgoingDuration;
+    }
+
+    public void setOutgoingDuration(int outgoingDuration) {
+        this.outgoingDuration = outgoingDuration;
+    }
+
+    public int getIncomingDuration() {
+        return incomingDuration;
+    }
+
+    public void setIncomingDuration(int incomingDuration) {
+        this.incomingDuration = incomingDuration;
+    }
+
     public int getTotalDuration() {
         return totalDuration;
     }

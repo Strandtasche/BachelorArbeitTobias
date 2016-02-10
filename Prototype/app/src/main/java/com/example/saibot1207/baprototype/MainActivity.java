@@ -282,10 +282,12 @@ public class MainActivity extends AppCompatActivity {
 
         //int number = managedCursor.getColumnIndex(CallLog.Calls.NUMBER);
         int type = managedCursor.getColumnIndex(CallLog.Calls.TYPE);
-        int date = managedCursor.getColumnIndex(CallLog.Calls.DATE); // Milliseconds since epoch.
+        //int date = managedCursor.getColumnIndex(CallLog.Calls.DATE); // Milliseconds since epoch.
         int duration = managedCursor.getColumnIndex(CallLog.Calls.DURATION);
 
         int totalDuration = 0;
+        int incomingDuration = 0;
+        int outgoingDuration = 0;
 
         //for (int i = 0; i < 3; i++) {
         //    managedCursor.moveToNext();
@@ -301,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
             amount++;
             //String phNumber = managedCursor.getString(number);
             String callType = managedCursor.getString(type);
-            String callDate = managedCursor.getString(date);
+            //String callDate = managedCursor.getString(date);
             //Date callDayTime = new Date(Long.valueOf(callDate));
             String callDuration = managedCursor.getString(duration);
 //            Log.d("getCallDetails", "duration: " + callDuration);
@@ -315,18 +317,21 @@ public class MainActivity extends AppCompatActivity {
 //            System.out.println(sdf.format(resultdate));
 //            System.out.println(sdf.format(resultdate2));
 
-            totalDuration += Integer.parseInt(callDuration);
+            int durationPure = Integer.parseInt(callDuration);
+            totalDuration += durationPure;
             //String dir = null;
             int dircode = Integer.parseInt(callType);
             switch (dircode) {
                 case CallLog.Calls.OUTGOING_TYPE:
                     //dir = "OUTGOING";
                     amountOutgoing++;
+                    outgoingDuration += durationPure;
                     break;
 
                 case CallLog.Calls.INCOMING_TYPE:
                     //dir = "INCOMING";
                     amountIncoming++;
+                    incomingDuration += durationPure;
                     break;
 
                 case CallLog.Calls.MISSED_TYPE:
@@ -340,6 +345,8 @@ public class MainActivity extends AppCompatActivity {
         callData.setAmountMissed(amountMissed);
         callData.setAmountOutgoing(amountOutgoing);
         callData.setTotalDuration(totalDuration);
+        callData.setIncomingDuration(incomingDuration);
+        callData.setOutgoingDuration(outgoingDuration);
         return;
 
     }
