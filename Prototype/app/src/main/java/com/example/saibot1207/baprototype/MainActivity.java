@@ -494,48 +494,48 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void backupDatabaseMail() throws IOException {
-        String columnString =   "\"PersonName\",\"Gender\",\"Street1\",\"postOffice\",\"Age\"";
-        String dataString   =   "\"" + "username" +"\",\"" + "usergender" + "\",\"" + "useradress" + "\",\"" + "userpostoffice" + "\",\"" + "userage" + "\"";
-        String combinedString = columnString + "\n" + dataString;
-
-        File file   = null;
-        File root   = Environment.getExternalStorageDirectory();
-        if (root.canWrite()){
-            File dir    =   new File (root.getAbsolutePath() + "/PersonData");
-            dir.mkdirs();
-            file   =   new File(dir, "Data.csv");
-            FileOutputStream out   =   null;
-            try {
-                out = new FileOutputStream(file);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            try {
-                out.write(combinedString.getBytes());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                out.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        Uri u1 = null;
-        u1  =   Uri.fromFile(file);
-
-        Intent sendIntent = new Intent(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Person Details");
-        sendIntent.putExtra(Intent.EXTRA_STREAM, u1);
-        sendIntent.setType("text/html");
-        startActivity(sendIntent);
-    }
+//    public void backupDatabaseMail() throws IOException {
+//        String columnString =   "\"PersonName\",\"Gender\",\"Street1\",\"postOffice\",\"Age\"";
+//        String dataString   =   "\"" + "username" +"\",\"" + "usergender" + "\",\"" + "useradress" + "\",\"" + "userpostoffice" + "\",\"" + "userage" + "\"";
+//        String combinedString = columnString + "\n" + dataString;
+//
+//        File file   = null;
+//        File root   = Environment.getExternalStorageDirectory();
+//        if (root.canWrite()){
+//            File dir    =   new File (root.getAbsolutePath() + "/PersonData");
+//            dir.mkdirs();
+//            file   =   new File(dir, "Data.csv");
+//            FileOutputStream out   =   null;
+//            try {
+//                out = new FileOutputStream(file);
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            }
+//            try {
+//                out.write(combinedString.getBytes());
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            try {
+//                out.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//
+//        Uri u1 = null;
+//        u1  =   Uri.fromFile(file);
+//
+//        Intent sendIntent = new Intent(Intent.ACTION_SEND);
+//        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Person Details");
+//        sendIntent.putExtra(Intent.EXTRA_STREAM, u1);
+//        sendIntent.setType("text/html");
+//        startActivity(sendIntent);
+//    }
 
     public void backupDatabase() throws IOException {
         //File dbFile = getDatabasePath(dbHelper.getDatabaseName());
-        File exportDir = new File(Environment.getExternalStorageDirectory(), "");
+        File exportDir = new File(Environment.getExternalStorageDirectory() + File.separator + "BA_Tobi", "");
         if (!exportDir.exists())
         {
             exportDir.mkdirs();
@@ -551,7 +551,7 @@ public class MainActivity extends AppCompatActivity {
             SQLiteDatabase db = dbHelper.getReadableDatabase();
             Cursor curCSV = db.rawQuery("SELECT * FROM " + MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,null);
             csvWrite.writeNext(curCSV.getColumnNames());
-            //Log.d("how far did we get?", "this far!");
+            Log.d("how far did we get?", "this far!");
             while(curCSV.moveToNext())
             {
                 //Which column you want to exprort

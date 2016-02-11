@@ -1,172 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    style="?android:buttonBarStyle"
-    android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff">
-
-
-    <!-- Row 1 with single column -->
-    <TableRow
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:gravity="center_horizontal"
-        style="?android:buttonBarButtonStyle"
-        >
-
-
-        <TextView
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:textSize="18dp" android:text="@string/appHeader"  android:layout_span="3"
-            android:padding="18dip" android:background="#b0b0b0"
-            android:textColor="#000"/>
-
-
-    </TableRow>
-
-    <!-- Row 2 with 3 columns -->
-
-
-    <TableRow
-        android:id="@+id/tableRow1"
-        android:layout_height="wrap_content"
+    android:layout_height="match_parent">
+    <TableLayout
         android:layout_width="match_parent"
-        style="?android:buttonBarButtonStyle"
-        >
+        android:layout_height="match_parent"
+        style="?android:buttonBarStyle"
+        android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff">
 
-        <Button
-            android:id="@+id/Button01" android:text="@string/button1"
-            android:layout_weight="1" android:background="#dcdcdc"
-            android:textColor="#000000"
-            android:textAllCaps="false"
-            android:padding="20dip" android:gravity="center"
-            android:onClick="createNewActivity"
-            style="?android:attr/buttonBarButtonStyle"
-            />
 
-        <Button
-            android:id="@+id/Button02" android:text="@string/button2"
-            android:layout_weight="1" android:background="#d3d3d3"
-            android:textColor="#000000"
-            android:textAllCaps="false"
-            android:padding="20dip" android:gravity="center"
-            android:onClick="createNotification"
-            style="?android:attr/buttonBarButtonStyle"
-            />
+        <!-- Row 1 with single column -->
 
-        <Button
-            android:id="@+id/Button03" android:text="@string/button3"
-            android:layout_weight="1" android:background="#cac9c9"
-            android:textColor="#000000"
-            android:textAllCaps="false"
-            android:padding="20dip" android:gravity="center"
-            android:onClick="addStuff"
-            style="?android:attr/buttonBarButtonStyle"
-            />
+        <!-- Row 2 with 3 columns -->
 
-    </TableRow>
 
-    <!-- Row 3 with 2 columns -->
-    <TableRow
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:gravity="center_horizontal"
-        style="?android:buttonBarButtonStyle"
-        >
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            style="?android:buttonBarButtonStyle"
+            >
 
-        <Button
-            android:id="@+id/Button04" android:text="@string/button4"
-            android:layout_weight="1"  android:background="#b0b0b0"
-            android:textColor="#000000"
-            android:textAllCaps="false"
-            android:padding="18dip" android:gravity="center"
-            android:onClick="checkPermissionsNotificationListener"
-            style="?android:attr/buttonBarButtonStyle"
-            />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
 
-        <TextView
-            android:id="@+id/Button05" android:text="@string/button5"
-            android:layout_weight="1" android:background="#a09f9f"
-            android:textColor="#000000"
-            android:textAllCaps="false"
-            android:padding="18dip" android:gravity="center"
-            android:onClick="gatherLogs"
-            style="?android:attr/buttonBarButtonStyle"
-            />
+                <Button
+                    android:id="@+id/Button01" android:text="@string/button1"
+                    android:layout_weight="1" android:background="#dcdcdc"
+                    android:textColor="#000000"
+                    android:textAllCaps="false"
+                    android:padding="20dip" android:gravity="center"
+                    android:onClick="createNewActivity"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-    </TableRow>
+                <Button
+                    android:id="@+id/Button02" android:text="@string/button2"
+                    android:layout_weight="1" android:background="#d3d3d3"
+                    android:textColor="#000000"
+                    android:textAllCaps="false"
+                    android:padding="20dip" android:gravity="center"
+                    android:onClick="createNotification"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-    <TableRow
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:gravity="center_horizontal"
-        style="?android:buttonBarButtonStyle"
-        >
+                    <Button
+                    android:id="@+id/Button03" android:text="@string/button3"
+                    android:layout_weight="1" android:background="#cac9c9"
+                    android:textColor="#000000"
+                    android:textAllCaps="false"
+                    android:padding="20dip" android:gravity="center"
+                    android:onClick="addStuff"
+                    style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
 
-        <Button
-            android:id="@+id/Button06" android:text="@string/button6"
-            android:layout_weight="1"  android:background="#b0b0b0"
-            android:textColor="#000000"
-            android:textAllCaps="false"
-            android:padding="18dip" android:gravity="center"
-            android:onClick="exportDb"
-            style="?android:attr/buttonBarButtonStyle"
-            />
+            </LinearLayout>
 
-    </TableRow>
+        </TableRow>
 
-    <TableRow
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:gravity="center_horizontal"
-        style="?android:buttonBarButtonStyle"
-        >
+        <!-- Row 3 with 2 columns -->
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal"
+            style="?android:buttonBarButtonStyle"
+            >
 
-        <Button
-            android:id="@+id/Button08" android:text="@string/button8"
-            android:layout_weight="1"  android:background="#b0b0b0"
-            android:textColor="#000000"
-            android:textAllCaps="false"
-            android:padding="18dip" android:gravity="center"
-            android:onClick="checkPermissionsUsageStat"
-            style="?android:attr/buttonBarButtonStyle"
-            />
+            <LinearLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
 
-    </TableRow>
+                <Button
+                    android:id="@+id/Button04" android:text="@string/button4"
+                    android:layout_weight="1"  android:background="#b0b0b0"
+                    android:textColor="#000000"
+                    android:textAllCaps="false"
+                    android:padding="18dip" android:gravity="center"
+                    android:onClick="checkPermissionsNotificationListener"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-    <TableRow
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:gravity="center_horizontal">
+                <TextView
+                    android:id="@+id/Button05" android:text="@string/button5"
+                    android:layout_weight="1" android:background="#a09f9f"
+                    android:textColor="#000000"
+                    android:textAllCaps="false"
+                    android:padding="18dip" android:gravity="center"
+                    android:onClick="gatherLogs"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-        <Button
-            android:id="@+id/Button09" android:text="@string/button9"
-            android:layout_weight="1"  android:background="#b0b0b0"
-            android:textColor="#000000"
-            android:textAllCaps="false"
-            android:padding="18dip" android:gravity="center"
-            android:onClick="checkPermissionsSuper"
-            style="?android:attr/buttonBarButtonStyle"
-            />
+            </LinearLayout>
 
-    </TableRow>
+        </TableRow>
 
-    <TableRow
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:gravity="center_horizontal">
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal"
+            style="?android:buttonBarButtonStyle"
+            >
 
-        <Button
-            android:id="@+id/Button07" android:text="@string/button7"
-            android:layout_weight="1"  android:background="#b0b0b0"
-            android:textColor="#000000"
-            android:textAllCaps="false"
-            android:padding="18dip" android:gravity="center"
-            android:onClick="usageStatTest"
-            style="?android:attr/buttonBarButtonStyle"
-            />
+            <Button
+                android:id="@+id/Button06" android:text="@string/button6"
+                android:layout_weight="1"  android:background="#b0b0b0"
+                android:textColor="#000000"
+                android:textAllCaps="false"
+                android:padding="18dip" android:gravity="center"
+                android:onClick="exportDb"
+                style="?android:attr/buttonBarButtonStyle"
+                />
 
-    </TableRow>
+        </TableRow>
 
-</TableLayout>
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal"
+            style="?android:buttonBarButtonStyle"
+            >
+
+            <Button
+                android:id="@+id/Button08" android:text="@string/button8"
+                android:layout_weight="1"  android:background="#b0b0b0"
+                android:textColor="#000000"
+                android:textAllCaps="false"
+                android:padding="18dip" android:gravity="center"
+                android:onClick="checkPermissionsUsageStat"
+                style="?android:attr/buttonBarButtonStyle"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal"
+            style="?android:buttonBarButtonStyle"
+            >
+
+            <Button
+                android:id="@+id/Button09" android:text="@string/button9"
+                android:layout_weight="1"  android:background="#b0b0b0"
+                android:textColor="#000000"
+                android:textAllCaps="false"
+                android:padding="18dip" android:gravity="center"
+                android:onClick="checkPermissionsSuper"
+                style="?android:attr/buttonBarButtonStyle"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal"
+            style="?android:buttonBarButtonStyle"
+            >
+
+            <Button
+                android:id="@+id/Button07" android:text="@string/button7"
+                android:layout_weight="1"  android:background="#b0b0b0"
+                android:textColor="#000000"
+                android:textAllCaps="false"
+                android:padding="18dip" android:gravity="center"
+                android:onClick="usageStatTest"
+                style="?android:attr/buttonBarButtonStyle"
+                />
+
+        </TableRow>
+
+    </TableLayout>
+</ScrollView>
