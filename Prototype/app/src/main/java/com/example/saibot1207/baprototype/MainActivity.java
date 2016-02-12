@@ -85,6 +85,10 @@ public class MainActivity extends AppCompatActivity {
 
     private CallData callData;
 
+    private Resources res;
+
+    private boolean perm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 //        }
         //Log.d("onCreate", "after usageStat access");
 
-
+        res = getResources();
 
         intentService = new Intent(this, NotificationService.class);
         startService(intentService);
@@ -115,6 +119,8 @@ public class MainActivity extends AppCompatActivity {
         callData = new CallData();
 
         Log.d("onCreate", "starting up!");
+
+        perm = false;
 
 
     }
@@ -473,8 +479,15 @@ public class MainActivity extends AppCompatActivity {
     public void exportDb(View view) {
         try {
             backupDatabase();
-            Log.d("backup!", "success!");
-            Toast.makeText(context, "exported database", Toast.LENGTH_SHORT).show();
+            if (perm) {
+                Log.d("backup!", "success!");
+                Toast.makeText(context, "exported database", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Log.d("backup!", "denied!");
+                Toast.makeText(context, "Permission Denied\n \nBitte Berechtigung erteilen und erneut versuchen", Toast.LENGTH_SHORT).show();
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -482,11 +495,33 @@ public class MainActivity extends AppCompatActivity {
 
     public void info(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Look at this dialog!")
+        builder.setMessage(res.getString(R.string.info))
                 .setCancelable(false)
+                .setTitle(res.getString(R.string.infoTitle))
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //do things
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+
+    }
+
+    public void infoPermissions() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(res.getString(R.string.infoPerm))
+                .setCancelable(true)
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Toast.makeText(context, "Permission Request denied", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setTitle(res.getString(R.string.infoPermTitle))
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+                        startActivity(intent);
                     }
                 });
         AlertDialog alert = builder.create();
@@ -581,16 +616,28 @@ public class MainActivity extends AppCompatActivity {
             csvWrite.close();
 
             csvWrite = new CSVWriter(new FileWriter(file3), '\t');
-            Resources res = getResources();
+
             String[] packages = res.getStringArray(R.array.package_array);
+
+            //Check Permissions:
+            if (UStats.getUsageStatsList(this).isEmpty()){
+                perm = false;
+                infoPermissions();
+            }
+            else {
+                perm = true;
+            }
+
+
             long[] stats = UStats.returnCurrentUsageStatus(MainActivity.this);
             String[] stringArray = new String[stats.length];
-            for(int i = 0; i < stats.length; i++){
+            for (int i = 0; i < stats.length; i++) {
                 stringArray[i] = String.valueOf(stats[i]);
             }
             csvWrite.writeNext(packages);
             csvWrite.writeNext(stringArray);
             csvWrite.close();
+
         }
         catch(Exception sqlEx)
         {

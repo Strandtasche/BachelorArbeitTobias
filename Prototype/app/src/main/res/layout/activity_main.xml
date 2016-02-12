@@ -154,7 +154,7 @@
                 android:textColor="#000000"
                 android:textAllCaps="false"
                 android:padding="18dip" android:gravity="center"
-                android:onClick="checkPermissionsSuper"
+                android:onClick="info"
                 style="?android:attr/buttonBarButtonStyle"
                 />
 
