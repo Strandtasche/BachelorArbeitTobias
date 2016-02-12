@@ -64,7 +64,9 @@ import java.security.Permission;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -286,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //int number = managedCursor.getColumnIndex(CallLog.Calls.NUMBER);
+        int number = managedCursor.getColumnIndex(CallLog.Calls.NUMBER);
         int type = managedCursor.getColumnIndex(CallLog.Calls.TYPE);
         //int date = managedCursor.getColumnIndex(CallLog.Calls.DATE); // Milliseconds since epoch.
         int duration = managedCursor.getColumnIndex(CallLog.Calls.DURATION);
@@ -294,6 +296,10 @@ public class MainActivity extends AppCompatActivity {
         int totalDuration = 0;
         int incomingDuration = 0;
         int outgoingDuration = 0;
+
+
+        HashMap<String, Integer> hmap = new HashMap<String, Integer>();
+        int id = 0;
 
         //for (int i = 0; i < 3; i++) {
         //    managedCursor.moveToNext();
@@ -305,9 +311,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        while (managedCursor.moveToNext()) { // && ungetestet! TODO!
+        while (managedCursor.moveToNext()) { //
             amount++;
-            //String phNumber = managedCursor.getString(number);
+            String phNumber = managedCursor.getString(number);
             String callType = managedCursor.getString(type);
             //String callDate = managedCursor.getString(date);
             //Date callDayTime = new Date(Long.valueOf(callDate));
@@ -322,6 +328,15 @@ public class MainActivity extends AppCompatActivity {
 //            Date resultdate2 = new Date(Long.valueOf(callDate));
 //            System.out.println(sdf.format(resultdate));
 //            System.out.println(sdf.format(resultdate2));
+
+
+            if (!hmap.containsKey(phNumber)) {
+                hmap.put(phNumber, 1);
+            }
+            else {
+                hmap.put(phNumber, hmap.get(phNumber)+1);
+            }
+
 
             int durationPure = Integer.parseInt(callDuration);
             totalDuration += durationPure;
@@ -347,6 +362,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         managedCursor.close();
+
+
+        callData.setMaxNoCall(Collections.max(hmap.values()));
+        callData.setUniqueCaller(hmap.size());
         callData.setAmountIncoming(amountIncoming);
         callData.setAmountMissed(amountMissed);
         callData.setAmountOutgoing(amountOutgoing);
@@ -606,7 +625,7 @@ public class MainActivity extends AppCompatActivity {
 
             csvWrite = new CSVWriter(new FileWriter(file2), '\t');
             String columns[] = {"AmountCalls", "AmountIncoming", "AmountOutgoing", "AmountMissed", "TotalDuration", "AverageDuration", "IncomingDuration", "OutgoingDuration",
-                "AverageIncomingDuration", "AverageOutgoingDuration", "MessagesAmount", "MessagesSent", "MessagesReceived", "TotalMessageLength", "SentMessageLength",
+                "AverageIncomingDuration", "AverageOutgoingDuration", "UniqueCaller", "maxNoCall", "MessagesAmount", "MessagesSent", "MessagesReceived", "TotalMessageLength", "SentMessageLength",
                 "ReceivedMessageLength", "AverageMessageLength", "AverageSentMessageLength", "AverageReceivedMessageLength"};
             getMessageDetails();
             getCallDetails();

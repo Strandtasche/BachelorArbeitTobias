@@ -10,6 +10,9 @@ public class CallData {
     private int amountIncoming;
     private int amountOutgoing;
 
+    private int uniqueCaller;
+    private int maxNoCall;
+
     private int totalDuration;
     private int incomingDuration;
     private int outgoingDuration;
@@ -201,15 +204,31 @@ public class CallData {
 
     }
 
+    public int getUniqueCaller() {
+        return uniqueCaller;
+    }
+
+    public void setUniqueCaller(int uniqueCaller) {
+        this.uniqueCaller = uniqueCaller;
+    }
+
+    public int getMaxNoCall() {
+        return maxNoCall;
+    }
+
+    public void setMaxNoCall(int maxNoCall) {
+        this.maxNoCall = maxNoCall;
+    }
 
     // "AmountCalls", "AmountIncoming", "AmountOutgoing", "AmountMissed", "TotalDuration", "AverageDuration", "IncomingDuration", "OutgoingDuration"
-    // "AverageIncomingDuration", "AverageOutgoingDuration", "MessagesAmount", "MessagesSent", "MessagesReceived", "TotalMessageLength", "SentMessageLength",
+    // "AverageIncomingDuration", "AverageOutgoingDuration", "UniqueCaller", "maxNoCall", "MessagesAmount", "MessagesSent", "MessagesReceived", "TotalMessageLength", "SentMessageLength",
     // "ReceivedMessageLength", "AverageMessageLength", "AverageSentMessageLength", "AverageReceivedMessageLength"
     public String getStringData() {
         return Integer.toString(getAmountCalls()) + "#" + amountIncoming + "#" + amountOutgoing + "#" + amountMissed
                 + "#" + totalDuration + "#" + getAverageDuration()
                 + "#" + incomingDuration + "#" + outgoingDuration
                 + "#" + getAverageIncomingDuration() + "#" + getAverageOutgoingDuration()
+                + "#" + getUniqueCaller() + "#" + getMaxNoCall()
                 + "#" + messagesAmount + "#" + messagesSend + "#" + messagesReceived
                 + "#" + totalMessageLength + "#" + sentMessageLength + "#" + receivedMessageLength
                 + "#" + getAverageMessageLength() + "#" + getAverageSentMessageLength() + "#" + getAverageReceivedMessageLength();
