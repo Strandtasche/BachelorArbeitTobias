@@ -273,7 +273,7 @@ public class MainActivity extends AppCompatActivity {
 
         //StringBuffer sb = new StringBuffer();
         Date resetDate = new Date(1451602800000l); // Alle Anrufe Nach 1.1.2016!
-        Cursor managedCursor = getContentResolver().query(CallLog.Calls.CONTENT_URI, new String[] { CallLog.Calls.DATE, CallLog.Calls.DURATION, CallLog.Calls.TYPE }, CallLog.Calls.DATE + ">?", new String[] { String.valueOf(resetDate.getTime())}, null);
+        Cursor managedCursor = getContentResolver().query(CallLog.Calls.CONTENT_URI, new String[] { CallLog.Calls.NUMBER, CallLog.Calls.DATE, CallLog.Calls.DURATION, CallLog.Calls.TYPE }, CallLog.Calls.DATE + ">?", new String[] { String.valueOf(resetDate.getTime())}, null);
         //getContentResolver().query(CallLog.Calls.CONTENT_URI, null, null, null, null);
 
         if (managedCursor.getCount() < 1) {
@@ -488,9 +488,14 @@ public class MainActivity extends AppCompatActivity {
         Resources res = getResources();
         String[] packages = res.getStringArray(R.array.package_array);
         long[] stats = UStats.returnCurrentUsageStatus(MainActivity.this);
+        boolean test = false;
         for (int i = 0; i < packages.length; i++) {
             Log.d(packages[i], Long.toString(stats[i]));
+            if (stats[i] != 0) {
+                test = true;
+            }
         }
+        Toast.makeText(context, Integer.toString(stats.length) + " " + Boolean.toString(test), Toast.LENGTH_SHORT).show();
     }
 
 

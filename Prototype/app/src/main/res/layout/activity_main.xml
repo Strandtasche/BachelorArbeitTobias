@@ -79,7 +79,7 @@
 
                 <Button
                     android:id="@+id/Button04" android:text="@string/button4"
-                    android:layout_weight="1"  android:background="#b0b0b0"
+                    android:layout_weight="1"  android:background="#e8d25a"
                     android:textColor="#000000"
                     android:textAllCaps="false"
                     android:padding="18dip" android:gravity="center"
@@ -88,13 +88,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
-                <TextView
-                    android:id="@+id/Button05" android:text="@string/button5"
-                    android:layout_weight="1" android:background="#a09f9f"
+                <Button
+                    android:id="@+id/Button08" android:text="@string/button8"
+                    android:layout_weight="1"  android:background="#d96218"
                     android:textColor="#000000"
                     android:textAllCaps="false"
                     android:padding="18dip" android:gravity="center"
-                    android:onClick="gatherLogs"
+                    android:onClick="checkPermissionsUsageStat"
                     style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
@@ -112,7 +112,7 @@
 
             <Button
                 android:id="@+id/Button06" android:text="@string/button6"
-                android:layout_weight="1"  android:background="#b0b0b0"
+                android:layout_weight="1"  android:background="#61b241"
                 android:textColor="#000000"
                 android:textAllCaps="false"
                 android:padding="18dip" android:gravity="center"
@@ -129,15 +129,16 @@
             style="?android:buttonBarButtonStyle"
             >
 
-            <Button
-                android:id="@+id/Button08" android:text="@string/button8"
-                android:layout_weight="1"  android:background="#b0b0b0"
+            <TextView
+                android:id="@+id/Button05" android:text="@string/button5"
+                android:layout_weight="1" android:background="#a09f9f"
                 android:textColor="#000000"
                 android:textAllCaps="false"
                 android:padding="18dip" android:gravity="center"
-                android:onClick="checkPermissionsUsageStat"
+                android:onClick="gatherLogs"
                 style="?android:attr/buttonBarButtonStyle"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </TableRow>
 
