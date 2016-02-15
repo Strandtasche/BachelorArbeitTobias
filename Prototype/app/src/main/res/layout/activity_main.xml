@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -118,7 +119,8 @@
                 android:padding="18dip" android:gravity="center"
                 android:onClick="exportDb"
                 style="?android:attr/buttonBarButtonStyle"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </TableRow>
 
@@ -141,6 +143,11 @@
                 android:layout_height="match_parent" />
 
         </TableRow>
+
+
+
+
+
 
         <TableRow
             android:layout_height="wrap_content"
@@ -177,6 +184,61 @@
                 android:onClick="usageStatTest"
                 style="?android:attr/buttonBarButtonStyle"
                 />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:weightSum="2">
+            >
+
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true">
+
+                <View android:id="@+id/fakeView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_centerInParent="true"/>
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editText"
+                    android:hint="@string/userID"
+                    android:inputType="text"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="8dp"
+                    android:layout_alignRight="@id/fakeView"
+                    android:layout_alignParentLeft="true"
+                    />
+
+                <Button
+                    android:id="@+id/Button10" android:text="@string/button10"
+                    android:background="#b0b0b0"
+                    android:textColor="#000000"
+                    android:textAllCaps="false"
+                    android:gravity="center"
+                    android:onClick="setName"
+                    android:layout_alignLeft="@id/fakeView"
+                    android:layout_alignParentRight="true"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="20dp"
+                    />
+
+            </RelativeLayout>
+
 
         </TableRow>
 

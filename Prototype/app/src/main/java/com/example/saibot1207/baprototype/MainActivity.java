@@ -44,8 +44,10 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
+import android.text.Editable;
 import android.text.Html;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -91,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean perm;
 
+    private String userID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
         //Log.d("onCreate", "after usageStat access");
 
         res = getResources();
+
+        userID = "not yet set";
 
         intentService = new Intent(this, NotificationService.class);
         startService(intentService);
@@ -553,6 +559,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void setName(View v) {
+        Log.d("userID", userID);
+        EditText mEdit   = (EditText)findViewById(R.id.editText);
+        userID = mEdit.getText().toString();
+        Log.d("userID", userID);
+    }
+
 //    public void backupDatabaseMail() throws IOException {
 //        String columnString =   "\"PersonName\",\"Gender\",\"Street1\",\"postOffice\",\"Age\"";
 //        String dataString   =   "\"" + "username" +"\",\"" + "usergender" + "\",\"" + "useradress" + "\",\"" + "userpostoffice" + "\",\"" + "userage" + "\"";
@@ -600,9 +613,9 @@ public class MainActivity extends AppCompatActivity {
             exportDir.mkdirs();
         }
 
-        File file1 = new File(exportDir, "csvname1.csv");
-        File file2 = new File(exportDir, "csvname2.csv");
-        File file3 = new File(exportDir, "csvname3.csv");
+        File file1 = new File(exportDir, "csvname1_" + userID + ".csv");
+        File file2 = new File(exportDir, "csvname2_" + userID + ".csv");
+        File file3 = new File(exportDir, "csvname3_" + userID + ".csv");
         try
         {
             file1.createNewFile();

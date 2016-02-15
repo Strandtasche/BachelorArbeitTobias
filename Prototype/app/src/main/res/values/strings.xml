@@ -12,6 +12,8 @@
     <string name="button7">UsageStat Output</string>
     <string name="button8">UsageStat Permission</string>
     <string name="button9">Info</string>
+    <string name="button10">Set Name</string>
+    <string name="userID">userID</string>
     <string name="action_settings">Settings</string>
     <string name="service_name">NotificationService</string>
     <string name="title_activity_test_database">TestDatabaseActivity</string>
