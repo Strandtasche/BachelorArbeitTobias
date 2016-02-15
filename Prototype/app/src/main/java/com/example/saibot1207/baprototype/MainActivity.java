@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -95,6 +96,11 @@ public class MainActivity extends AppCompatActivity {
 
     private String userID;
 
+    SharedPreferences sharedpreferences;
+    public static final String MyPREFERENCES = "MyPrefs" ;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         res = getResources();
 
         userID = "not yet set";
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
         intentService = new Intent(this, NotificationService.class);
         startService(intentService);
@@ -563,6 +570,10 @@ public class MainActivity extends AppCompatActivity {
         Log.d("userID", userID);
         EditText mEdit   = (EditText)findViewById(R.id.editText);
         userID = mEdit.getText().toString();
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString("user", userID);
+        editor.commit();
+        Toast.makeText(MainActivity.this,"Name updated",Toast.LENGTH_SHORT).show();
         Log.d("userID", userID);
     }
 
@@ -612,6 +623,9 @@ public class MainActivity extends AppCompatActivity {
         {
             exportDir.mkdirs();
         }
+
+        SharedPreferences prefs = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        userID = prefs.getString("user", "notSet");
 
         File file1 = new File(exportDir, "csvname1_" + userID + ".csv");
         File file2 = new File(exportDir, "csvname2_" + userID + ".csv");

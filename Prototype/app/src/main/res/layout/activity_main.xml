@@ -219,6 +219,7 @@
                     android:paddingRight="8dp"
                     android:layout_alignRight="@id/fakeView"
                     android:layout_alignParentLeft="true"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
                     />
 
                 <Button
