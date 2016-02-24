@@ -1,0 +1,65 @@
+%% Titelseite
+%% Vorlage $Id: titelseite.tex 54 2009-12-10 12:23:58Z bless $
+
+\def\usesf{}
+\let\usesf\sffamily % diese Zeile auskommentieren für normalen TeX Font
+
+\newsavebox{\Erstgutachter}
+\savebox{\Erstgutachter}{\usesf\large Prof.~Dr.~?.~?????????}
+\newsavebox{\Zweitgutachter}
+\savebox{\Zweitgutachter}{\usesf\large Prof.~Dr.~?.~?????????}
+
+\begin{titlepage}
+\setlength{\unitlength}{1pt}
+
+\begin{picture}(0,0)(85,770)
+\includegraphics[width=\paperwidth]{logos/KIT_Deckblatt}
+\end{picture}
+
+% commented out until it is allowed again
+%\vspace*{-39pt}\hspace*{300pt}\includegraphics[width=.27\paperwidth]{logos/TECO_KIT}
+
+
+\vspace*{-39pt}\hspace*{260pt}\parbox[]{10cm}{\usesf Lehrstuhl Pervasive Computing Systems\\PCS/TECO\\Prof. Dr.-Ing. Michael Beigl}
+
+\thispagestyle{empty}
+
+%\begin{titlepage}
+%%\let\footnotesize\small \let\footnoterule\relax
+\begin{center}
+\hbox{}
+\vfill
+{\usesf\large
+{\huge\bfseries Hier steht der Titel der\\
+Master-/Bachelorarbeit \textbf{auf Deutsch}\par}
+%bzw. auf Englisch, wenn die Arbeit auf Englisch verfasst wurde
+\vskip 0.5cm
+{\Large \bfseries Hier steht der Titel der\\
+Master-/Bachelorarbeit \textbf{auf Englisch}\par}
+%bzw. auf Deutsch, wenn die Arbeit auf Englisch verfasst wurde
+\vskip 1.8cm
+{\large Masterarbeit/Bachelorarbeit\\von\\[2mm]}
+\vskip 1cm
+
+{\Large\bfseries Vorname Nachname\\}
+\vskip 1.2cm
+{\large an der Fakultät für Informatik\\}
+\vskip 3cm
+\begin{tabular}{p{5.5cm}l}
+Erstgutachter: & \usebox{\Erstgutachter} \\
+Zweitgutachter: & \usebox{\Zweitgutachter} \\
+Betreuender~Mitarbeiter: & Dipl.-Inform.~?.~????????? \\
+\end{tabular}
+\vskip 3cm
+Bearbeitungszeit:\qquad ??.~Monat~20?? -- ??.~Monat~20??
+}
+\end{center}
+\vfill
+\end{titlepage}
+%% Titelseite Ende
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "diplarb"
+%%% End: 
