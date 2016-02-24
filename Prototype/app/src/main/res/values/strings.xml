@@ -38,5 +38,7 @@
         <item>com.twitter.android</item>
         <item>com.klinker.android.twitter_l</item>
         <item>com.jv.materialfalcon</item>
+        <item>com.disa</item>
+        <item>eu.siacs.conversations</item>
     </string-array>
 </resources>

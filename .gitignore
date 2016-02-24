@@ -11,6 +11,7 @@
 #BA stuff
 /Aufgaben*
 /Propo*
+/wissdoc_teco/build/*
 
 # Generated files
 bin/
