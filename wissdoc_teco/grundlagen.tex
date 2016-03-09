@@ -76,6 +76,9 @@ Im Rahmen dieser Arbeit soll der Fokus vorallem auf der Geselligkeitsfacette lie
 %% ==============================
 \section{Smartphones}
 
+\label{ch:Grundlagen:sec:Abschnitt2}
+
+
 Als Smartphone wird allgemeinhin ein Mobiltelefon bezeichnet, das zusätzlich zu den herkömmlichten Funktionalitäten eines Mobiltelefons wie Anrufe und SMS Versand über verschiedene Features eines Personal Computers verfügt. 
 Ausschlaggebend für die Klassifikation ist unteranderem das Vorhandensein eines mobilen Betriebssystems.
 Typische Smartphonefeatures sind Internetfähigkeit, Touchscreen und die Möglichkeit ohne große Umstände Zusatzprogramme von Drittherstellern zu installieren.
@@ -95,6 +98,13 @@ Dahinter liegen weit abgeschlagen Microsoft's Windows und Blackberry mit 1.1\% u
 Dementsprechend wird sich dieser Arbeit Android als Standart angenommen.
 
 \ignore{todo: insert pdf graphic}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/statistic_id73662_marktanteile-der-smartphone-betriebssysteme-am-absatz-weltweit-bis-q4-2015.pdf}
+    \caption{Marktanteile der Smartphone Betriebssysteme am Absatz weltweit}
+    \label{fig:marktanteil}
+\end{figure}
+
 
 \subsection {Android NotificationManager}
 
@@ -102,6 +112,10 @@ Notifications ist die vom Android Betriebssystem vorgesehene Art und Weise,
 wie eine Applikation die Nutzerin über einen Vorfall aufmerksam macht, während die Applikation nicht im Vordergrund ist.
 Dies kann zum Beispiel im Falle der Signal Messenger App eine eingetroffene SMS sein,
 oder der erfolgreiche Abschluss eines Updates vom Google Play Store.
+Eine gepostete Notification taucht im Allgemeinen zunächst als kleines Pop-up am oberen Bildschirmrand auf und wird dann in die 
+Notification Area (siehe \ref{fig:notificationarea}) abgelegt.
+Durch das Öffnen des Notification Drawers (siehe \ref{fig:notificationdrawer}) kann eine detailiertere Ansicht aller ungelesenen Notifications geöffnet werden und gelesene beziehungsweise nicht relevante Notifications entfernt werden 
+\cite{androidnotification}.
 Die Nutzerin kann einstellen, welche Apps Notifications senden dürfen und welche nicht.
 So wird ein Spiel, dass konstant auf sich selbst aufmerksam zu machen versucht wahrscheinlich geblockt,
 während dem E-mail Client, der die Nutzerin auf neu angekommene E-mails aufmerksam macht, diese Berechtigung erteilt.
@@ -120,15 +134,33 @@ Dies beinhaltet unter anderem
 \end{itemize}
 Dies ist eine potenziell leicht zu missbrauchende und falls missbraucht potenziell katastrophale Berechtigung, weshalb die Permission nicht bei der Installation gegeben werden kann, sondern von Hand von der Nutzerin bestätigt werden muss. 
 
+\begin{figure}[h]
+    \centering
+    \includegraphics{images/notification_area.png}
+    \caption{Notification Area\cite{androidnotification}}
+    \label{fig:notificationarea}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/notification_drawer.png}
+    \caption{Notification Drawer\cite{androidnotification}}
+    \label{fig:notificationdrawer}
+\end{figure}
+
+
+
 \subsection {Android UsageStatManager}
 
+Der UsageStatManager ist eine Schnittstelle, die Zugang zu vom Betriebssystem gesammelten Daten
+und Statistiken bezüglich der Nutzungshistorie des Geräts gibt \cite{androidusagestat}.
+Die Methode \textbf{queryUsageStats(int intervalType, long beginTime, long endTime)} gibt eine Liste an UsageStats der verschiedenen Applikationen zurück.
+Für jedes Element der Liste erhält man mit der Methode \textbf{getTotalTimeInForeground ()} die Zeit in Millisekunden,
+die die App mit dem Package Namen aus \textbf{getPackageName ()} im Vordergrund war.
+\par
+Die UsageStatManager API benötigt die \textbf{android.permission.PACKAGE\_USAGE\_STATS} Permission.
+Diese ist ebenfalls eine priviligierte Berechtigung, die Applikationen zwar beantragen können, die aber nicht bei der Installation erteilt werden kann, sondern nur von der Nutzerin von Hand beantragt werden kann.
 
-
-
-%% ==============================
-\label{ch:Grundlagen:sec:Abschnitt2}
-
-Bla fasel\ldots
 
 %% ==============================
 \section{Verwandte Arbeiten}
