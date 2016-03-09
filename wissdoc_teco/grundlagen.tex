@@ -71,8 +71,60 @@ Die 6 Facetten des für diese Arbeit relevanten Extraversion Faktors sind:
   \item Positive Emotions (Frohsinn)
 \end{itemize}
 
+Im Rahmen dieser Arbeit soll der Fokus vorallem auf der Geselligkeitsfacette liegen.
+
 %% ==============================
-\section{Abschnitt 2}
+\section{Smartphones}
+
+Als Smartphone wird allgemeinhin ein Mobiltelefon bezeichnet, das zusätzlich zu den herkömmlichten Funktionalitäten eines Mobiltelefons wie Anrufe und SMS Versand über verschiedene Features eines Personal Computers verfügt. 
+Ausschlaggebend für die Klassifikation ist unteranderem das Vorhandensein eines mobilen Betriebssystems.
+Typische Smartphonefeatures sind Internetfähigkeit, Touchscreen und die Möglichkeit ohne große Umstände Zusatzprogramme von Drittherstellern zu installieren.
+Diese Zusatzprogramme werden im weiteren als Applikationen, oder kurz Apps, bezeichnet.
+\par
+
+Smartphones und mit ihnen das Mobile Web sind inzwischen ein wichtiger Faktor geworden:
+2015 besaßen 80\% der Internet Nutzer zwischen 16 und 64 ein Smartphone. 
+Damit ist das Smartphone das zweitrelevanteste Zugangsgerät hinter dem Desktop Computer, der mit 91\% an der Spitze steht. \cite{globalwebindex}
+\par
+
+Es gibt eine Vielzahl an verschiedenen Betriebsystemen mit einen Smartphone ausgestattet sein kann.
+Jedoch ist es momentan so, dass der Markt von nur zwei Firmen dominiert wird.
+Google's Android Betriebssystem, das mit 80.7\% Marktanteil von neu abgesetzten Geräten dominant an der Spitze steht
+und Apple's IOs, das mit 17.7\% noch knapp mehr als ein sechstel der Smartphone Verkäufe aufzuweisen hat.
+Dahinter liegen weit abgeschlagen Microsoft's Windows und Blackberry mit 1.1\% und 0.2\%\cite{smartphonemarktanteil}.
+Dementsprechend wird sich dieser Arbeit Android als Standart angenommen.
+
+\ignore{todo: insert pdf graphic}
+
+\subsection {Android NotificationManager}
+
+Notifications ist die vom Android Betriebssystem vorgesehene Art und Weise, 
+wie eine Applikation die Nutzerin über einen Vorfall aufmerksam macht, während die Applikation nicht im Vordergrund ist.
+Dies kann zum Beispiel im Falle der Signal Messenger App eine eingetroffene SMS sein,
+oder der erfolgreiche Abschluss eines Updates vom Google Play Store.
+Die Nutzerin kann einstellen, welche Apps Notifications senden dürfen und welche nicht.
+So wird ein Spiel, dass konstant auf sich selbst aufmerksam zu machen versucht wahrscheinlich geblockt,
+während dem E-mail Client, der die Nutzerin auf neu angekommene E-mails aufmerksam macht, diese Berechtigung erteilt.
+Dementsprechend ist es klar, dass die tatsächlich erhaltenen Notifications die Interessen der Nutzerin wiederspiegeln.
+\par
+
+Der NotificationManager ist die Stelle im Android Betriebssystem mit denen Applikationen Zugriff auf alle Notifications bekommen und mit ihnen interagieren können.
+Das beinhaltet beliebige Notifications zu erstellen oder gepostete Notifications zu löschen.
+An den NotificationManager gebunden werden, kann ein sogenannter NotificationListener, mit die Applikation alle an den NotificationManager geschickten Notifications lesen kann.
+Dies beinhaltet unter anderem
+\begin{itemize}
+    \item {Package} Applikation, die die Notification gepostet hat
+    \item {Notification Titel} Titel, oft der Absender der Nachricht
+    \item {ticker} Zusammenfassung der Notification für accessibility services
+    \item {text} Inhalt der Notification
+\end{itemize}
+Dies ist eine potenziell leicht zu missbrauchende und falls missbraucht potenziell katastrophale Berechtigung, weshalb die Permission nicht bei der Installation gegeben werden kann, sondern von Hand von der Nutzerin bestätigt werden muss. 
+
+\subsection {Android UsageStatManager}
+
+
+
+
 %% ==============================
 \label{ch:Grundlagen:sec:Abschnitt2}
 
