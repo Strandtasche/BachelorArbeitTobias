@@ -1,0 +1,62 @@
+hangouts: 
+number No: 16
+number conv: 2
+max Conv: 12
+relative not/conv: 8
+avg messLength: 79.0
+
+whatsapp: 
+number No: 0
+number conv: 0
+max Conv: 0
+relative not/conv: 0
+avg messLength: 0.0
+
+signal: 
+number No: 0
+number conv: 0
+max Conv: 0
+relative not/conv: 0
+avg messLength: 0.0
+
+telegram: 
+number No: 233
+number conv: 3
+max Conv: 121
+relative not/conv: 77
+avg messLength: 57.0
+
+skype: 
+number No: 257
+number conv: 7
+max Conv: 79
+relative not/conv: 36
+avg messLength: 45.0
+
+FBApp: 
+number No: 18
+number conv: 2
+max Conv: 17
+relative not/conv: 9
+avg messLength: 58.0
+
+FBMess: 
+number No: 0
+number conv: 0
+max Conv: 0
+relative not/conv: 0
+avg messLength: 0.0
+
+Twitter: 
+number No: 0
+number conv: 0
+max Conv: 0
+relative not/conv: 0
+avg messLength: 0.0
+
+Other: 
+number No: 2
+number conv: 2
+max Conv: 1
+relative not/conv: 1
+avg messLength: 6.0
