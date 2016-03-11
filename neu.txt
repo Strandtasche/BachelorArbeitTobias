@@ -1,0 +1,185 @@
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line0.txt
+Mean Herzlichkeit: 1.25
+Mean Geselligkeit: 0.75
+Mean Durchsetzungsvermgen: 1.75
+Mean Aktivitt: 1.875
+Mean Exaltiertheit/Erlebnishunger: 1.75
+Mean positive Gefhle: 1.5
+Mean gesamt: 1.5
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line1.txt
+Mean Herzlichkeit: 2.75
+Mean Geselligkeit: 2.625
+Mean Durchsetzungsvermgen: 2.0
+Mean Aktivitt: 2.375
+Mean Exaltiertheit/Erlebnishunger: 2.25
+Mean positive Gefhle: 2.25
+Mean gesamt: 2.375
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line10.txt
+Mean Herzlichkeit: 1.625
+Mean Geselligkeit: 0.5
+Mean Durchsetzungsvermgen: 2.25
+Mean Aktivitt: 1.875
+Mean Exaltiertheit/Erlebnishunger: 1.25
+Mean positive Gefhle: 1.75
+Mean gesamt: 1.5416666666666667
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line11.txt
+Mean Herzlichkeit: 2.75
+Mean Geselligkeit: 2.75
+Mean Durchsetzungsvermgen: 2.875
+Mean Aktivitt: 2.375
+Mean Exaltiertheit/Erlebnishunger: 2.5
+Mean positive Gefhle: 2.0
+Mean gesamt: 2.5416666666666665
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line12.txt
+Mean Herzlichkeit: 2.75
+Mean Geselligkeit: 2.375
+Mean Durchsetzungsvermgen: 1.75
+Mean Aktivitt: 1.375
+Mean Exaltiertheit/Erlebnishunger: 1.625
+Mean positive Gefhle: 2.75
+Mean gesamt: 2.0833333333333335
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line13.txt
+Mean Herzlichkeit: 1.625
+Mean Geselligkeit: 0.25
+Mean Durchsetzungsvermgen: 0.125
+Mean Aktivitt: 1.25
+Mean Exaltiertheit/Erlebnishunger: 0.0
+Mean positive Gefhle: 0.5
+Mean gesamt: 0.5625
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line14.txt
+Mean Herzlichkeit: 2.25
+Mean Geselligkeit: 2.125
+Mean Durchsetzungsvermgen: 2.375
+Mean Aktivitt: 2.25
+Mean Exaltiertheit/Erlebnishunger: 2.0
+Mean positive Gefhle: 2.5
+Mean gesamt: 2.2291666666666665
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line15.txt
+Mean Herzlichkeit: 2.75
+Mean Geselligkeit: 1.875
+Mean Durchsetzungsvermgen: 2.5
+Mean Aktivitt: 2.0
+Mean Exaltiertheit/Erlebnishunger: 2.125
+Mean positive Gefhle: 2.75
+Mean gesamt: 2.3333333333333335
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line16.txt
+Mean Herzlichkeit: 2.875
+Mean Geselligkeit: 1.75
+Mean Durchsetzungsvermgen: 1.375
+Mean Aktivitt: 2.0
+Mean Exaltiertheit/Erlebnishunger: 2.5
+Mean positive Gefhle: 2.25
+Mean gesamt: 2.125
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line17.txt
+Mean Herzlichkeit: 1.625
+Mean Geselligkeit: 0.625
+Mean Durchsetzungsvermgen: 2.25
+Mean Aktivitt: 2.0
+Mean Exaltiertheit/Erlebnishunger: 1.0
+Mean positive Gefhle: 2.0
+Mean gesamt: 1.5416666666666667
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line18.txt
+Mean Herzlichkeit: 2.625
+Mean Geselligkeit: 1.625
+Mean Durchsetzungsvermgen: 2.25
+Mean Aktivitt: 2.125
+Mean Exaltiertheit/Erlebnishunger: 1.75
+Mean positive Gefhle: 1.625
+Mean gesamt: 2.0
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line19.txt
+Mean Herzlichkeit: 1.75
+Mean Geselligkeit: 0.125
+Mean Durchsetzungsvermgen: 1.625
+Mean Aktivitt: 1.125
+Mean Exaltiertheit/Erlebnishunger: 0.625
+Mean positive Gefhle: 0.875
+Mean gesamt: 0.9791666666666666
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line2.txt
+Mean Herzlichkeit: 1.5
+Mean Geselligkeit: 0.25
+Mean Durchsetzungsvermgen: 1.375
+Mean Aktivitt: 0.875
+Mean Exaltiertheit/Erlebnishunger: 1.375
+Mean positive Gefhle: 2.0
+Mean gesamt: 1.2083333333333333
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line20.txt
+Mean Herzlichkeit: 1.0
+Mean Geselligkeit: 0.625
+Mean Durchsetzungsvermgen: 1.0
+Mean Aktivitt: 1.875
+Mean Exaltiertheit/Erlebnishunger: 0.875
+Mean positive Gefhle: 0.875
+Mean gesamt: 1.0625
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line21.txt
+Mean Herzlichkeit: 3.0
+Mean Geselligkeit: 1.75
+Mean Durchsetzungsvermgen: 0.625
+Mean Aktivitt: 1.625
+Mean Exaltiertheit/Erlebnishunger: 1.0
+Mean positive Gefhle: 1.625
+Mean gesamt: 1.5625
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line3.txt
+Mean Herzlichkeit: 2.0
+Mean Geselligkeit: 2.375
+Mean Durchsetzungsvermgen: 1.125
+Mean Aktivitt: 1.375
+Mean Exaltiertheit/Erlebnishunger: 1.5
+Mean positive Gefhle: 1.875
+Mean gesamt: 1.7083333333333333
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line4.txt
+Mean Herzlichkeit: 2.5
+Mean Geselligkeit: 1.75
+Mean Durchsetzungsvermgen: 2.625
+Mean Aktivitt: 2.25
+Mean Exaltiertheit/Erlebnishunger: 2.25
+Mean positive Gefhle: 2.625
+Mean gesamt: 2.3333333333333335
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line5.txt
+Mean Herzlichkeit: 2.75
+Mean Geselligkeit: 2.125
+Mean Durchsetzungsvermgen: 3.0
+Mean Aktivitt: 2.75
+Mean Exaltiertheit/Erlebnishunger: 1.375
+Mean positive Gefhle: 3.5
+Mean gesamt: 2.5625
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line6.txt
+Mean Herzlichkeit: 2.625
+Mean Geselligkeit: 2.375
+Mean Durchsetzungsvermgen: 2.5
+Mean Aktivitt: 1.875
+Mean Exaltiertheit/Erlebnishunger: 2.625
+Mean positive Gefhle: 2.0
+Mean gesamt: 2.3541666666666665
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line7.txt
+Mean Herzlichkeit: 3.25
+Mean Geselligkeit: 2.25
+Mean Durchsetzungsvermgen: 3.0
+Mean Aktivitt: 1.625
+Mean Exaltiertheit/Erlebnishunger: 2.125
+Mean positive Gefhle: 3.375
+Mean gesamt: 2.6041666666666665
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line8.txt
+Mean Herzlichkeit: 2.25
+Mean Geselligkeit: 2.0
+Mean Durchsetzungsvermgen: 1.5
+Mean Aktivitt: 1.25
+Mean Exaltiertheit/Erlebnishunger: 1.875
+Mean positive Gefhle: 1.875
+Mean gesamt: 1.8125
+Statistik fr /Users/saibot1207/Documents/BA/AusgabeAuswertung/Line9.txt
+Mean Herzlichkeit: 2.625
+Mean Geselligkeit: 2.625
+Mean Durchsetzungsvermgen: 2.0
+Mean Aktivitt: 1.875
+Mean Exaltiertheit/Erlebnishunger: 1.75
+Mean positive Gefhle: 1.375
+Mean gesamt: 2.0208333333333335
+
+Gesamt - Durschnitt:
+avgE1 - Herzlichkeit: 2.278409090909091
+avgE2 - Geselligkeit: 1.6136363636363635
+avgE3 - Durchsetzungsvermgen: 1.9034090909090908
+avgE4 - Aktivitt: 1.8181818181818181
+avgE5 - Exaltiertheit/Erlebnishunger suchend: 1.6420454545454546
+avgE6 - positive Gefhle: 1.9943181818181819
+avgNEOE - gesamt: 1.865530303030303
