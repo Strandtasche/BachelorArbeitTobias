@@ -12,12 +12,97 @@ Entwurfsentscheidungen dargelegt werden.
 
 Bla fasel\ldots
 
-%% ==============================
-\section{Abschnitt 1}
-%% ==============================
-\label{ch:Entwurf:sec:Abschnitt1}
+\section{Nutzungsverhalten}
 
-Bla fasel\ldots
+Das Nutzungsverhalten der Studienteilnehmerinnen soll mit einer Android Applikation aufgezeichnet werden.
+Die Applikation soll mit so wenig Nutzerinteraktion wie möglich auskommen.
+Als Aspekt der für das Aufzeichnen des Nutzerverhaltens betrachtet wird werden drei verschiedene Wege aufgezeigt.
+\par
+Zum ersten die konventionellen Kommunikationsmöglichkeiten eines normalen Mobiltelefons.
+Daten zu Anrufen und Kurznachrichten (SMS) lassen sich in Android mit Zugang zum Call Log und zum Message Log auslesen.
+Die Berechtigungen dafür können von der Nutzerin bei der Installation erteilt werden und müssen nicht nocheinmal bestätigt werden.
+Für das Sammeln dieser Daten muss nicht aktiv das Verhalten der Nutzerin geloggt werden und es muss auch keine Datenbank dazu angelegt werden,
+da das Android Betriebssystem dies bereits erledigt.
+Es genügt beim finalen Abgeben der Daten auf die Call und Message Logs zuzugreifen und die relevanten Daten auszulesen.
+Um ein aussagekräftiges Ergebniss zu erhalten ist die Wahl der relevanten Daten, die untersucht werden, von entscheidender Bedeutung. 
+Aus diesem Grund wurden für diese Arbeit verschiedene Ansätze der Wahl der Daten in Betracht gezogen. 
+Dabei verspricht der Ansatz aus \cite{chittaranjan2011s} für unsere Zwecke auf Grund seiner breiten Fächerung die besten Resultate.
+\par
+
+\subsection{Call Log}
+
+\begin{itemize}
+    \item Anzahl Anrufe gesamt
+    \begin{itemize}
+        \item Anzahl Anrufe ausgehend
+        \item Anzahl Anrufe eingehend
+        \item Anzahl Anrufe verpasst
+    \end{itemize}
+
+    \item Anrufdauer gesamt
+    \begin{itemize}
+        \item Dauer Anrufe ausgehend gesamt
+        \item Dauer Anrufe eingehend gesamt
+    \end{itemize}
+
+    \item Durschnittliche Dauer gesamt
+    \begin{itemize}
+        \item Durschnittliche Dauer Anrufe ausgehend
+        \item Durschnittliche Dauer Anrufe eingehend
+    \end{itemize}
+
+    \item Unique Anrufpartner
+    \item Maximale Anzahl Anrufe mit einem Partner
+
+\end{itemize}
+
+\subsection{Message Log}
+
+\begin{itemize}
+    \item Anzahl SMS gesamt
+    \begin{itemize}
+        \item Anzahl SMS gesendet
+        \item Anzahl SMS empfangen
+    \end{itemize}
+
+    \item SMS Zeichenanzahl gesamt
+    \begin{itemize}
+        \item SMS Zeichenanzahl gesendet gesamt
+        \item SMS Zeichenanzahl empfangen gesamt
+    \end{itemize}
+
+    \item Durchschnittliche SMS Zeichenanzahl gesamt
+    \begin{itemize}
+        \item Durchschnittliche SMS Zeichenanzahl gesendet
+        \item Durchschnittliche SMS Zeichenanzahl empfangen
+    \end{itemize}
+
+\end{itemize}
+
+
+\subsection{Notifications}
+
+
+\ignore{todo: refereces}
+Über den im Grundlagenkapitel bereits vorgestellten NotificationManager kann auf dem Device der Nutzerin eine SQLite Datenbank angelegt werden,
+in die alle während dem Studienzeitraum der Nutzerin gezeigten Notifications gespeichert werden.
+Die Spalten der SQLite Datenbank sind die Folgenden:
+\begin{itemize}
+    \item [\_id] fortlaufende Indentifikationsnummer
+    \item [notificationEntry] Package der Applikation von der die Notification gepostet wurde
+    \item [titleHashed] Gehashter Titel der Notification, Bei Nachrichten oft der Absender
+    \item [textLength] Anzahl Zeichen im Text der Notification
+    \item [date] Zeitpunkt, an dem die Notification gepostet wurde
+\end{itemize}
+
+Im Sinne des Schutzes der Privatssphäre beinhalten diese Einträge nicht exakt den Inhalt der Notification, sondern so anonymisiert, dass die für die Studie relevante Information erhalten bleibt.
+So wird der Titel der Notification mit dem SHA-1 Hash\cite{sha1def} gehasht.
+SHA-1 ist eine 1995 von US Amerikanischen Nachrichtendienst NSA veröffentlichte cryptographische Hashfunktion\cite{sha1proposal}.
+Dies führt dazu, dass für die Auswertung der Studie zwar zwischen zwei verschiedenen Absendern von Nachrichten unterschieden werden kann, diese aber nicht frei zu erkennen sind.
+Ebenso speichert die Applikation für die Studie nur die Länge der erhaltenen Nachrichten und nicht deren Inhalt, da dies ein sehr harter Eingriff in die Privatssphäre wäre.
+Der Zeitpunkt wird im Datenformat Millisekunden seit Epoch angegeben.
+
+
 
 %% ==============================
 \section{Abschnitt 2}
@@ -25,92 +110,6 @@ Bla fasel\ldots
 \label{ch:Entwurf:sec:Abschnitt2}
 
 Bla fasel\ldots
-
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
 
 %% ==============================
 \section{Zusammenfassung}

@@ -26,100 +26,55 @@ Dem gegenüberstehend wird ein Datensatz der Informationen über das Nutzungsver
 \subsection{Geselligkeit}
 
 Um die Geselligkeit der Studienteilnehmerinnen festzustellen wird, entsprechend des Big Five Persönlichkeitsmodells, ein von Psychologen entwickelter Selbstbewertungsfragebogen eingesetzt.
-Der NEO-Personality Inventory-Revised Fragebogen ist ein in wissen
+Der NEO-Personality Inventory-Revised Fragebogen ist ein in wissenschaftlichen Studien häufig
 
 jadajdajajdajdjajd.
 
-\subsection{Nutzungsverhalten}
+\subsection{Nutzungsdaten}
 
-Das Nutzungsverhalten der Studienteilnehmerinnen soll mit einer Android Applikation aufgezeichnet werden.
-Die Applikation soll mit so wenig Nutzerinteraktion wie möglich auskommen.
-Als Aspekt der für das Aufzeichnen des Nutzerverhaltens betrachtet wird werden drei verschiedene Wege aufgezeigt.
-\par
-Zum ersten die konventionellen Kommunikationsmöglichkeiten eines normalen Mobiltelefons.
-Daten zu Anrufen und Kurznachrichten (SMS) lassen sich in Android mit Zugang zum Call Log und zum Message Log auslesen.
-Die Berechtigungen dafür können von der Nutzerin bei der Installation erteilt werden und müssen nicht nocheinmal bestätigt werden.
-Für das Sammeln dieser Daten muss nicht aktiv das Verhalten der Nutzerin geloggt werden und es muss auch keine Datenbank dazu angelegt werden,
-da das Android Betriebssystem dies bereits erledigt.
-Es genügt beim finalen Abgeben der Daten auf die Call und Message Logs zuzugreifen und die relevanten Daten auszulesen.
-Um ein aussagekräftiges Ergebniss zu erhalten ist die Wahl der relevanten Daten, die untersucht werden, von entscheidender Bedeutung. 
-Aus diesem Grund wurden für diese Arbeit verschiedene Ansätze der Wahl der Daten in Betracht gezogen. 
-Dabei verspricht der Ansatz aus \cite{chittaranjan2011s} für unsere Zwecke auf Grund seiner breiten Fächerung die besten Resultate.
+Von besonderer Relevanz für das Sammeln der Nutzungsdaten ist es festzulegen welche Daten zur Verfügung stehen, welche relevant sind und welche potenziell trotzdem nicht gesammelt werden sollten.
+Für diese Arbeit werden keine Nutzerdaten von physische Sensoren in Betracht gezogen, sondern nur die Interaktion mit dem Smartphone als Kommunikationsgerät.
+Zu diesem Zweck interagiert die Applikation mit Schnittstellen des Android Betriebssystems.
+Dies vermeidet das potenzielle Problem von unterschiedlicher Hardware und sorgt dafür, dass die Nutzungsdaten von allen Testprobanden vergleichbar bleiben.
+Zudem vermeidet dies übermäßige Mehrbelastung der Akkuleistung der Smartphones, auf denen die Applikation installiert wird.
+Allgemein ist es wünschenswert die Belastung der Resourcen auf den Zielgeräten so gering wie möglich zu halten.
 \par
 
-\subsubsection{Call Log}
+Eine der stärksten Limitation für die Daten, die die Applikation sammeln kann, kommt von der Natur der zu betrachtenden Daten.
+Zum einen begrenzt das Android Betriebssystem selbst die Informationen zu denen eine Applikation, selbst eine die vom Nutzer mit potenziell jeder Berechtigung ausgestattet wurde, Zugang hat.
+Dies geschieht aus Datenschutz gründen, da manche Applikationen im Play Store mehr Berechtigungen einfordern als sie für ihr Funktionieren benötigen würden.
+Zum anderen sind die Kommunikationsapplikationen, die die Testprobandin nutzt von unabhängigen Drittentwicklern entworfen worden.
+Einige Wenige von diesen stellen in ganz speziellen Fällen, zum Beispiel Twitter\cite{twitterapi}, zwar eine API zur Verfügung, die meisten hüten ihre Daten aber.
+Folglich können nur Daten gesammelt werden, die entweder frei zugänglich sind, oder solche, zu denen die Nutzerin Applikationen Zugriff erlauben kann.
+Beispiele hierfür sind zum Beispiel die Call logs in denen Android, für alle Apps mit der \textbf{android.permission.READ\_CALL_LOG} Berechtigung, die vergangenen Anrufe abspeichert.
+\par
 
-\begin{itemize}
-    \item Anzahl Anrufe gesamt
-    \begin{itemize}
-        \item Anzahl Anrufe ausgehend
-        \item Anzahl Anrufe eingehend
-        \item Anzahl Anrufe verpasst
-    \end{itemize}
-
-    \item Anrufdauer gesamt
-    \begin{itemize}
-        \item Dauer Anrufe ausgehend gesamt
-        \item Dauer Anrufe eingehend gesamt
-    \end{itemize}
-
-    \item Durschnittliche Dauer gesamt
-    \begin{itemize}
-        \item Durschnittliche Dauer Anrufe ausgehend
-        \item Durschnittliche Dauer Anrufe eingehend
-    \end{itemize}
-
-    \item Unique Anrufpartner
-    \item Maximale Anzahl Anrufe mit einem Partner
-
-\end{itemize}
-
-\subsubsection{Message Log}
-
-\begin{itemize}
-    \item Anzahl SMS gesamt
-    \begin{itemize}
-        \item Anzahl SMS gesendet
-        \item Anzahl SMS empfangen
-    \end{itemize}
-
-    \item SMS Zeichenanzahl gesamt
-    \begin{itemize}
-        \item SMS Zeichenanzahl gesendet gesamt
-        \item SMS Zeichenanzahl empfangen gesamt
-    \end{itemize}
-
-    \item Durchschnittliche SMS Zeichenanzahl gesamt
-    \begin{itemize}
-        \item Durchschnittliche SMS Zeichenanzahl gesendet
-        \item Durchschnittliche SMS Zeichenanzahl empfangen
-    \end{itemize}
-
-\end{itemize}
+In diesem Kontext ist das Android API Ziellevel der Applikation von großer Bedeutung.
+Wie bei Smartphone Betriebssystemen üblich wird das Android Betriebssystem konstant weiterentwickelt und neue Versionen davon werden ausgeliefert.
+Potenzielle Änderungen an Systemschnittstellen werden dabei durch die verschiedenen API Levels dokumentiert, auf die sich installierte Applikationen berufen können.
+Die aktuellste Version von Android ist Android 6.0, oder auch Android Marshmallow.
+Diese wird representiert durch das API Level 23.
+Da nicht alle Geräte aber die steigenden Anforderungen der neueren Android Versionen erfüllen, 
+und manche Nutzer neu herauskommende Updates selbst dann nicht installieren, wenn ihr Gerät sie unterstützt, 
+sei es auf Grund von Faulheit, Unwissenheit oder Bequemlichkeit, sind auf vielen Smartphones ältere Android Versionen vertreten.
+Eine Übersicht über die Verteilung der Android Versionen sieht man in \ref{fig:androidplatformdistr}.
+Mit 36.1\% ist Android 5, beziehungsweise Android Lollipop die am weitesten verbreitetste Version,
+gefolgt von Android 4.4 (Kitkat) mit 34.3\% und Android 4.0-4.3 (Jellybean) mit 22.3\%\cite{androiddistr}.
+Für die Entwicklung der Applikation wird Android API level 21, entspricht Android 5.0, als Ziellevel bestimmt, da es einige relevante Schnittstellen hinzufügt die bei niedrigeren Leveln noch nicht existieren, aber auch eine breit genuge Userbasis hat, um ausreichend viele Probanden zu finden.
 
 
-\subsubsection{Notifications}
+\begin{figure}[h]
+    \centering
+    \includegraphics{images/chart.png}
+    \caption{Android Platform Distribution\cite{androiddistr}}
+    \label{fig:androidplatformdistr}
+\end{figure}
 
-
-\ignore{todo: refereces}
-Über den im Grundlagenkapitel bereits vorgestellten NotificationManager kann auf dem Device der Nutzerin eine SQLite Datenbank angelegt werden,
-in die alle während dem Studienzeitraum der Nutzerin gezeigten Notifications gespeichert werden.
-Die Spalten der SQLite Datenbank sind die Folgenden:
-\begin{requirements}
-    \req [\_id] fortlaufende Indentifikationsnummer
-    \req [notificationEntry] Package der Applikation von der die Notification gepostet wurde
-    \req [titleHashed] Gehashter Titel der Notification, Bei Nachrichten oft der Absender
-    \req [textLength] Anzahl Zeichen im Text der Notification
-    \req [date] Zeitpunkt, an dem die Notification gepostet wurde
-\end{requirements}
-
-Im Sinne des Schutzes der Privatssphäre beinhalten diese Einträge nicht exakt den Inhalt der Notification, sondern so anonymisiert, dass die für die Studie relevante Information erhalten bleibt.
-So wird der Titel der Notification mit dem SHA-1 Hash\cite{sha1def} gehasht.
-SHA-1 ist eine 1995 von US Amerikanischen Nachrichtendienst NSA veröffentlichte cryptographische Hashfunktion\cite{sha1proposal}.
-Dies führt dazu, dass für die Auswertung der Studie zwar zwischen zwei verschiedenen Absendern von Nachrichten unterschieden werden kann, diese aber nicht frei zu erkennen sind.
-Ebenso speichert die Applikation für die Studie nur die Länge der erhaltenen Nachrichten und nicht deren Inhalt, da dies ein sehr harter Eingriff in die Privatssphäre wäre.
-Der Zeitpunkt wird im Datenformat Millisekunden seit Epoch angegeben.
-
+Auch die Empfindungen potenzieller Testprobandinnen müssen in Betracht gezogen werden:
+Während die Anzahl an Anrufen in den vergangenen 14 Tagen von vielen als Unkritisch betrachtet werden würde, so gibt es sicher eine Menge Menschen, 
+die eine Liste von Telefongesprächen inklusive Zeitpunkt und Rufnummer des Partners als zu tiefen Eingriff wahrnehmen würden.
+Ziel muss es hier sein bezüglich der Geselligkeit aussagekräftige Datenpunkte zu wählen, 
+die aber dennoch nicht das grundlegende Bedürfnis nach Privatsphäre der Probandinnen verletzt.
 
 
 \subsection{Datenschutz}
@@ -127,7 +82,12 @@ Der Zeitpunkt wird im Datenformat Millisekunden seit Epoch angegeben.
 Die Daten mit denen im Rahmen dieser Studie gearbeitet werden sind sehr sensibler Natur.
 Dementsprechend muss sicher gestellt werden, dass sowohl die Anonymität der einzelnen Probandinnen gewahrt bleibt,
 als auch dass die Daten nicht den Rahmen der Studie verlassen.
-Zusätzlich wird, wie bei allen Studien dieser Art, die am TECO durchgeführt werden,
+Dazu werden die erhobenen Daten pseudonymisiert, das heißt zur Indenfikation der Zugehörigkeit von Fragebogen und erhobenen Daten wird nicht der Name der Versuchsteilnehmerin genutzt sondern ein frei gewähltes Pseudonym.
+Außerdem werden keinerlei persönlichkeitsbezogene Daten im Klartext gespeichert.
+Weder Telefonnummern, noch Absender oder Nachrichten Inhalte werden in Klartext geloggt.
+Stattdessen werden die relevanten Features der Daten in anderer Form abgespeichert:
+Unter anderem Anzahl verschiedener Telefonnummern, durch Hashen unkenntlich gemachte Nachrichtenabsender und Ersetzen der Nachrichtentexte durch die Anzahl der Zeichen in der Nachricht.
+Dennoch wird, wie bei allen Studien dieser Art, die am TECO durchgeführt werden,
 eine unterschriebene Einwilligungserklärung seitens der Probandin benötigt.
 In dieser wird das Einverständnis der Probandin bezüglich der Aufzeichnung, Speicherung und Verarbeitung zugesichert.
 \ignore{siehe Anhang, adde anhang?}
