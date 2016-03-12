@@ -5,18 +5,31 @@
 \chapter{Entwurf}
 \label{ch:Entwurf}
 %% ==============================
-In diesem Kapitel erfolgt die ausführliche Beschreibung des eigenen
-Lösungsansatzes. Dabei sollten Lösungsalternativen diskutiert und
-Entwurfsentscheidungen dargelegt werden.
+Die App zur Studie wurde für Geräte mit mindestens Android 5.0 "`Lollipop"', das entspricht dem API Level 21, entworfen.
+Das heißt, dass aufgrund der Rückwärtskompabilität auch alle neueren Geräte in der Lage sind die Applikation auszuführen.
+\par
+
+%%Die Entscheidung als Minimal API Level 21 zu wählen geht war notwendig, da mit diesem die UsageStatManager Schnittstelle für Applikationen zum Android Betriebssystem hinzugefügt wurde.
+%%Von anderen Aspekten der Applikation benötigte API Levels waren:
+
+Die Entwurfsentscheidung über das zu nutzende API Level ist immer eine Abwägung;
+Auf der einen Seite steht das niedrigere API Level, wie im Grundlagenkapitel beschrieben, 
+eine breitere Menge an potenziellen Testprobandinnen eröffnen.
+Andererseits haben höhere API Level oft viele Verbesserungen und neue Schnittstellen mit denen Entwickler mehr Funktionalität erreichen können.
+\par
+Die Entscheidung für das relativ aktuelle APi Level 21 ist motiviert davon, 
+dass der potenzielle Pool von Testprobandinnen im Umfeld der Informatik oft über aktuellere Smartphones und Android Versionen verfügt
+und dass mit Level 21 einige Neuerungen im Bereich der Aufzeichnung von Applikationsaktivität.
+
+Untermauert wird die von den bereits im vorangehenden Kapitel vorgestellten Statistiken von Google\cite{androiddistr}, 
+die Android 5.0 "`Lollipop"' mit 36.1\% als die meistgenutzte Version des Android Betriebssystems.
 
 
-Bla fasel\ldots
+\section{Datenquellen}
 
-\section{Nutzungsverhalten}
-
-Das Nutzungsverhalten der Studienteilnehmerinnen soll mit einer Android Applikation aufgezeichnet werden.
-Die Applikation soll mit so wenig Nutzerinteraktion wie möglich auskommen.
-Als Aspekt der für das Aufzeichnen des Nutzerverhaltens betrachtet wird werden drei verschiedene Wege aufgezeigt.
+%Das Nutzungsverhalten der Studienteilnehmerinnen soll mit einer Android Applikation aufgezeichnet werden.
+%Die Applikation soll mit so wenig Nutzerinteraktion wie möglich auskommen.
+Für das Aufzeichnen des Nutzerverhaltens werden drei beziehungsweise vier verschiedene Datenquellenbetrachtet.
 \par
 Zum ersten die konventionellen Kommunikationsmöglichkeiten eines normalen Mobiltelefons.
 Daten zu Anrufen und Kurznachrichten (SMS) lassen sich in Android mit Zugang zum Call Log und zum Message Log auslesen.
@@ -84,7 +97,7 @@ Dabei verspricht der Ansatz aus \cite{chittaranjan2011s} für unsere Zwecke auf 
 
 
 \ignore{todo: refereces}
-Über den im Grundlagenkapitel bereits vorgestellten NotificationManager kann auf dem Device der Nutzerin eine SQLite Datenbank angelegt werden,
+Über den im Grundlagenkapitel bereits vorgestellten NotificationManager beziehungsweise einen NotificationListenerService kann auf dem Device der Nutzerin eine SQLite Datenbank angelegt werden,
 in die alle während dem Studienzeitraum der Nutzerin gezeigten Notifications gespeichert werden.
 Die Spalten der SQLite Datenbank sind die Folgenden:
 \begin{itemize}
@@ -97,27 +110,84 @@ Die Spalten der SQLite Datenbank sind die Folgenden:
 
 Im Sinne des Schutzes der Privatssphäre beinhalten diese Einträge nicht exakt den Inhalt der Notification, sondern so anonymisiert, dass die für die Studie relevante Information erhalten bleibt.
 So wird der Titel der Notification mit dem SHA-1 Hash\cite{sha1def} gehasht.
-SHA-1 ist eine 1995 von US Amerikanischen Nachrichtendienst NSA veröffentlichte cryptographische Hashfunktion\cite{sha1proposal}.
+SHA-1 ist eine 1995 von US Amerikanischen Nachrichtendienst NSA veröffentlichte kryptographische Hashfunktion\cite{sha1proposal}.
 Dies führt dazu, dass für die Auswertung der Studie zwar zwischen zwei verschiedenen Absendern von Nachrichten unterschieden werden kann, diese aber nicht frei zu erkennen sind.
 Ebenso speichert die Applikation für die Studie nur die Länge der erhaltenen Nachrichten und nicht deren Inhalt, da dies ein sehr harter Eingriff in die Privatssphäre wäre.
 Der Zeitpunkt wird im Datenformat Millisekunden seit Epoch angegeben.
 
 
+\subsection{UsageStats}
+
+Über den im Android API Level 21 eingeführten UsageStatsManager ist es möglich 
+auf die vom Android Betriebssystem selbst gesammelten Daten bezüglich der Zeit aller Applikationen im Vordergrund zuzugreifen.
+
+
+TODO: MEhr UsageStats + Auswahl App + Statistik
 
 %% ==============================
-\section{Abschnitt 2}
+\section{Ablauf}
 %% ==============================
 \label{ch:Entwurf:sec:Abschnitt2}
 
-Bla fasel\ldots
+Nach dem fertigstellen der Entwicklung der Applikation wird zunächst über einen kurzen Zeitraum
+eine Vorstudie durchgeführt, die potenzielle Fehler in der Applikation, die trotz testens nicht entdeckt wurden, aufdecken soll.
+Dies soll verhindern, dass während der tatsächlichen Studie Daten verloren gehen oder verfälscht werden.
+Außerdem kann das potenzielle Feedback noch in die Applikation einfließen bevor die Hauptstudie beginnt.
+Im Rahmen der Vorstudie wird eine vorläufige Version der Datensammelapplikation bei drei bis vier Freiwilligen installiert,
+die darauf hin nach einige wenige Tage die gesammelten Daten auf ihre Validität prüfen sollen und Feedback geben.
+\par
+Nachdem diese Vorstudie abgeschlossen ist, und potenzielle kleine Änderungen an der Applikation durchgeführt wurden beginnt die Hauptstudie.
+In dieser werden zunächst die Testprobanden ans Teco eingeladen um dort den NEO-PI-R Fragebogen auszufüllen.
+Dazu werden circa drei bis vier Termine innerhalb einer Kalenderwoche angeboten, aus denen die Testprobanden wählen können.
+Dies geschieht aus mehreren Gründen. 
+Erstens verringert dies, das Risiko, das manche Studienteilnehmerinnen aufgrund von terminlichen Konflikten nicht teilnehmen können.
+Zweitens sollen die Daten über einen möglichst ähnlichen Zeitraum gesammelt werden.
+Zuletzt ist es so, dass durch das Aufteilen der Probandengruppe ist eine persönlichere Atmosphäre beim Auftakt der Studie möglich
+und potenzielle Fragen können im Zwigespräch besser geklärt werden als wenn alle Probandinnen gleichzeitig in die Studie einweist.
+\par
+Zu Beginn der Einführung wird den Probandinnen zunächst das Wesen, Bedeutung und potenzielle Tragweite der Studie erläutert.
+Potenzielle Risiken und Nutzen werden aufgeführt.
+Hier gibt es die Möglichkeit Fragen an den Studienleiter zu stellen.
+Nachdem dies geschehen ist, kommen die Probandinnen die beim Teco übliche Einwilligungserklärung in doppelter Ausführung vorgelegt.
+Eine davon ist für die Studienleiterin, in dem ihm das Einverständnis der Probandin bezüglich der Teilnahme zugesichert wird und die Speicherung und Nutzung der Daten für die Studie erlaubt wird.
+Die andere ist für die Probandin selbst, als von der Studienleiterin unterschriebenen Zusicherung, dass der Rücktritt von den Studie ohne Angabe von Gründen und ohne Nachteile für die Probandin zu jedem Zeitpunkt möglich ist.
+Sobald dies abgehandelt ist und jeweils eine der beiden Einverständniserklärungen eingesammelt wurde,
+können die Probandinnen beginnen den NEO-PI-R Persönlichkeitstest auszufüllen.
+Bevor dies geschieht sollen die Probanden ein selbstgewähltes Pseudonym auf die zweite Seite des Tests schreiben, sodass die gesammelten Daten zu den Tests zugeordnet werden kann ohne die Anonymität der Probandinnen einzuschränken.
+Das alles wird je nach Bearbeitungsgeschwindigkeit ungefähr 35 bis 45 Minuten einnehmen.
+Nachdem diese verstrichen sind, und alle Probandinnen ihren Test abgeschlossen haben, werden auch diese eingesammelt.
+Nun kann die Applikation auf den mitgebrachten Smartphones der Probandinnen installiert werden.
+Im Vorhinein ist die APK der Applikation so in der Cloud hinterlegt worden, dass sie per scannen eines QR Codes \ref{qrcode} heruntergeladen werden kann.
+Die Installation der Applikation von der APK läuft ab, wie jede andere Applikationsinstallation auf einem Android Gerät auch.
+Potenziell müssen hier jedoch kurzzeitig die Installation von Applikationen aus nicht verifizierten Quellen freigeschaltet werden, sollte dies nicht sowieso schon der Fall sein.
+Nach dem Bestätigen der Basis Berechtigungen ist die Applikation installiert.
+Um sie betriebbereit zu machen müssen die Nutzerinnen die erweiterten Berechtigungen von Hand erteilen.
+Nun sollte die Applikation betriebsbereit sein.
+Um die ordnungsgemäße Funktionstüchtigkeit zu gewährleisten sind in der Applikation Tests implementiert, die nun durchgeführt werden sollen.
+Sind diese erfolgreich durchgeführt worden, so beginnt der Datensammelungszeitraum der Studie.
+Dieser endet zwischen 10 und 20 Tagen später.
+Nachdem die von der Applikation gesammelten Daten exportiert und zurück bei der Studienleiterin angekommen sind, 
+ist die Studie beendet.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{images/qrcode.png}
+    \caption{QR Code}
+    \label{fig:qrcode}
+\end{figure}
+
 
 %% ==============================
 \section{Zusammenfassung}
 %% ==============================
 \label{ch:Entwurf:sec:zusammenfassung}
 
-Am Ende sollten ggf. die wichtigsten Ergebnisse nochmal in \emph{einem}
-kurzen Absatz zusammengefasst werden.
+Die Studie, die im Rahmen dieser Arbeit durchgeführt wird, untersucht zwei Datenpunkte.
+Zum einen die von der Applikation gesammelten Daten zum Nutzungsverhalten von zehn bestimmten Social Media und Instant Messaging Applikationen
+und zum anderen die zu der Nutzerin zugeordneten Extraversions- beziehungsweise Geselligkeitswerte aus einem Persönlichkeitstest.
+Dabei wird besonderes Augenmerk auf den Schutz der Privatssphäre der Nutzerin und deren Daten gelegt.
+Bis auf das Ausfüllen des Persönlichkeitstests, dem Aufsetzen der Applikation und dem Exportieren der Daten am Ende der Studie sollen die Nutzerinnen nicht behelligt werden.
+
 
 %%% Local Variables: 
 %%% mode: latex
