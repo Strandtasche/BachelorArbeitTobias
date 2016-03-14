@@ -48,6 +48,8 @@ public class NEO_PI_Extraversion {
 		}	
 		
 		String[] array = null;
+
+		System.out.println("Files: " + paths.size());
 		
 		for (String p : paths) {
 			String s = readStringFromFile(p);
