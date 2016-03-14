@@ -100,13 +100,13 @@ Dabei verspricht der Ansatz aus \cite{chittaranjan2011s} für unsere Zwecke auf 
 Über den im Grundlagenkapitel bereits vorgestellten NotificationManager beziehungsweise einen NotificationListenerService kann auf dem Device der Nutzerin eine SQLite Datenbank angelegt werden,
 in die alle während dem Studienzeitraum der Nutzerin gezeigten Notifications gespeichert werden.
 Die Spalten der SQLite Datenbank sind die Folgenden:
-\begin{itemize}
+\begin{description}
     \item [\_id] fortlaufende Indentifikationsnummer
     \item [notificationEntry] Package der Applikation von der die Notification gepostet wurde
     \item [titleHashed] Gehashter Titel der Notification, Bei Nachrichten oft der Absender
     \item [textLength] Anzahl Zeichen im Text der Notification
     \item [date] Zeitpunkt, an dem die Notification gepostet wurde
-\end{itemize}
+\end{description}
 
 Im Sinne des Schutzes der Privatssphäre beinhalten diese Einträge nicht exakt den Inhalt der Notification, sondern so anonymisiert, dass die für die Studie relevante Information erhalten bleibt.
 So wird der Titel der Notification mit dem SHA-1 Hash\cite{sha1def} gehasht.
@@ -123,6 +123,28 @@ auf die vom Android Betriebssystem selbst gesammelten Daten bezüglich der Zeit 
 
 
 TODO: MEhr UsageStats + Auswahl App + Statistik
+
+\subsection{Auswahl Applikationen}
+
+Um vom Umfang der Arbeit im Rahmen einer Bachelorarbeit zu bleiben, ist es notwendig, die Untersuchung auf eine bestimmte Menge von Applikationen zu begrenzen.
+Hierzu wurden folgende Applikationen ausgewählt.
+\begin{description}
+  \item [Google Hangouts] Crossplattform Kommunikationsdienst von Google. Auf aktuellen Android Smartphones vorinstalliert.
+  \item [Whatsapp] Crossplattform Instant Messaging Client. Mit über einer Milliarde Nutzer die meistgenutzte Messaging Application\cite{whatsappuser}.
+  \item [Facebook App] Mobile Applikation des größten und aktivsten Social Networks mit über einer Milliarde aktiver Nutzer pro Tag\cite{facebookuser}.
+  \item [Facebook Messenger] Dedizierte Messenger Applikation von Facebook.
+  \item [Skype] Dedizierte VoIP und Messaging Applikation zu Microsoft's Skype mit über 600 Millionen Nutzern\cite{skypeuser}.
+  \item [Telegram] Crossplattform Kommunikationsdienst, das sich durch verschiedene Sicherheitsoptionen von seiner Konkurrenz abhebt. Über 100 Millionen Nutzer\cite{telegramuser}.
+  \item [Twitter] Social Microblogging Service mit 300 Millionen aktiven Nutzern. Aufgrund der offenen API gibt es verschiedene Twitter Apps, von denen die größten betrachtet werden.
+  \begin{itemize}
+      \item Offizielle Twitter App
+      \item Carbon for Twitter
+      \item Plume for Twitter
+      \item Talon for Twitter
+  \end{itemize}
+\end{description}
+
+
 
 %% ==============================
 \section{Ablauf}
@@ -155,9 +177,10 @@ Sobald dies abgehandelt ist und jeweils eine der beiden Einverständniserklärun
 können die Probandinnen beginnen den NEO-PI-R Persönlichkeitstest auszufüllen.
 Bevor dies geschieht sollen die Probanden ein selbstgewähltes Pseudonym auf die zweite Seite des Tests schreiben, sodass die gesammelten Daten zu den Tests zugeordnet werden kann ohne die Anonymität der Probandinnen einzuschränken.
 Das alles wird je nach Bearbeitungsgeschwindigkeit ungefähr 35 bis 45 Minuten einnehmen.
+\par
 Nachdem diese verstrichen sind, und alle Probandinnen ihren Test abgeschlossen haben, werden auch diese eingesammelt.
 Nun kann die Applikation auf den mitgebrachten Smartphones der Probandinnen installiert werden.
-Im Vorhinein ist die APK der Applikation so in der Cloud hinterlegt worden, dass sie per scannen eines QR Codes \ref{qrcode} heruntergeladen werden kann.
+Im Vorhinein ist die APK der Applikation so in der Cloud hinterlegt worden, dass sie per scannen eines QR Codes (siehe Abbildung \ref{fig:qrcode}) heruntergeladen werden kann.
 Die Installation der Applikation von der APK läuft ab, wie jede andere Applikationsinstallation auf einem Android Gerät auch.
 Potenziell müssen hier jedoch kurzzeitig die Installation von Applikationen aus nicht verifizierten Quellen freigeschaltet werden, sollte dies nicht sowieso schon der Fall sein.
 Nach dem Bestätigen der Basis Berechtigungen ist die Applikation installiert.

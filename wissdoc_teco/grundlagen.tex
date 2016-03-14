@@ -5,13 +5,11 @@
 \chapter{Grundlagen}
 \label{ch:Grundlagen}
 %% ==============================
-Die Grundlagen müssen soweit beschrieben
-werden, dass ein Leser das Problem und
-die Problemlösung  versteht.Um nicht zuviel 
-zu beschreiben, kann man das auch erst gegen 
-Ende der Arbeit schreiben.
 
-Bla fasel\ldots
+In diesem Kapitel werden grundlegende Terminologien, die für das Verständnis der Arbeit relevant sind erläutert.
+Dazu werden zunächst psychologische Hintergründe der Geselligkeit betrachtet und
+dann Smartphones und Aspekte des Android Betriebssystems erklärt, die für die Betrachtung von Social Media und Instant Messaging relevant sind.
+Am Ende des Kapitels werden verwandte Arbeiten aufgezeigt.
 
 %% ==============================
 \section{Persönlichkeitspsychologie}
@@ -79,23 +77,23 @@ Im Rahmen dieser Arbeit soll der Fokus vorallem auf der Geselligkeitsfacette lie
 \label{ch:Grundlagen:sec:Abschnitt2}
 
 
-Als Smartphone wird allgemeinhin ein Mobiltelefon bezeichnet, das zusätzlich zu den herkömmlichten Funktionalitäten eines Mobiltelefons wie Anrufe und SMS Versand über verschiedene Features eines Personal Computers verfügt. 
+Als Smartphone wird allgemeinhin ein Mobiltelefon bezeichnet, das zusätzlich zu den herkömmlichten Funktionalitäten eines Mobiltelefons wie Anrufe und SMS-Versand über verschiedene Features eines Personal Computers verfügt. 
 Ausschlaggebend für die Klassifikation ist unteranderem das Vorhandensein eines mobilen Betriebssystems.
 Typische Smartphonefeatures sind Internetfähigkeit, Touchscreen und die Möglichkeit ohne große Umstände Zusatzprogramme von Drittherstellern zu installieren.
-Diese Zusatzprogramme werden im weiteren als Applikationen, oder kurz Apps, bezeichnet.
+Diese Zusatzprogramme werden im Weiteren als Applikationen, oder kurz Apps, bezeichnet.
 \par
 
 Smartphones und mit ihnen das Mobile Web sind inzwischen ein wichtiger Faktor geworden:
-2015 besaßen 80\% der Internet Nutzer zwischen 16 und 64 ein Smartphone. 
-Damit ist das Smartphone das zweitrelevanteste Zugangsgerät hinter dem Desktop Computer, der mit 91\% an der Spitze steht. \cite{globalwebindex}
+2015 besaßen 80\% der Internetnutzer zwischen 16 und 64 ein Smartphone. 
+Damit ist das Smartphone das zweitrelevanteste Zugangsgerät hinter den konventionellen Computern, also Laptops und Desktop Rechnern, die mit zusammen 91\% an der Spitze steht\cite{globalwebindex}.
 \par
 
 Es gibt eine Vielzahl an verschiedenen Betriebsystemen mit einen Smartphone ausgestattet sein kann.
-Jedoch ist der aktuelle Stand, dass der Markt von nur zwei Firmen dominiert wird.
-Google's Android Betriebssystem, das mit 80.7\% Marktanteil von neu abgesetzten Geräten dominant an der Spitze steht
-und Apple's IOs, das mit 17.7\% noch knapp mehr als ein sechstel der Smartphone Verkäufe aufzuweisen hat.
-Dahinter liegen auf den Plätzen drei und vier Microsoft's Windows und Blackberry mit 1.1\% und 0.2\%\cite{smartphonemarktanteil}.
-Dementsprechend wird sich dieser Arbeit Android als Standart angenommen.
+Jedoch ist der aktuelle Stand, wie in Abbildung \ref{fig:marktanteil} zu sehen, dass der Markt von nur zwei Firmen dominiert wird.
+Googles Android Betriebssystem, das mit 80.7\% Marktanteil von neu abgesetzten Geräten dominant an der Spitze steht
+und Apples iOS, das mit 17.7\% noch knapp mehr als ein sechstel der Smartphoneverkäufe aufzuweisen hat.
+Dahinter liegen auf den Plätzen drei und vier Microsofts Windows und Blackberry mit 1.1\% und 0.2\%\cite{smartphonemarktanteil}.
+Dementsprechend wird sich diese Arbeit auf das Android Betriebssystem fokussieren.
 
 \ignore{todo: insert pdf graphic}
 \begin{figure}[h]
@@ -113,41 +111,47 @@ wie eine Applikation die Nutzerin über einen Vorfall aufmerksam macht, während
 Dies kann zum Beispiel im Falle der Signal Messenger App eine eingetroffene SMS sein,
 oder der erfolgreiche Abschluss eines Updates vom Google Play Store.
 Eine gepostete Notification taucht im Allgemeinen zunächst als kleines Pop-up am oberen Bildschirmrand auf und wird dann in die 
-Notification Area (siehe \ref{fig:notificationarea}) abgelegt.
-Durch das Öffnen des Notification Drawers (siehe \ref{fig:notificationdrawer}) kann eine detailiertere Ansicht aller ungelesenen Notifications geöffnet werden und gelesene beziehungsweise nicht relevante Notifications entfernt werden 
+Notification Area (siehe Abbildung \ref{fig:notificationarea}) abgelegt.
+Durch das Öffnen des Notification Drawers (siehe Abbildung \ref{fig:notificationdrawer}) kann eine detailiertere Ansicht aller ungelesenen Notifications geöffnet werden und gelesene beziehungsweise nicht relevante Notifications entfernt werden 
 \cite{androidnotification}.
+
+
+\begin{figure}%[!htb]
+\begin{minipage}{\textwidth}
+\centering
+  \includegraphics[width=0.75\textwidth]{images/notification_area.png}
+  \subcaption{Notification Area\cite{androidnotification}}
+  \label{fig:notificationarea}
+\end{minipage}
+\vfill
+\begin{minipage}{\textwidth}
+\centering
+  \includegraphics[width=0.75\textwidth]{images/notification_drawer.png}
+  \subcaption{Notification Drawer\cite{androidnotification}}
+  \label{fig:notificationdrawer}
+\end{minipage}
+\vspace{-2mm}
+\caption{Notificationanzeige in Android}
+\label{fig:notAndroid}
+\end{figure}
+
 Die Nutzerin kann einstellen, welche Apps Notifications senden dürfen und welche nicht.
-So wird ein Spiel, dass konstant auf sich selbst aufmerksam zu machen versucht wahrscheinlich geblockt,
+So wird ein Spiel, dass konstant auf sich selbst aufmerksam zu machen versucht, wahrscheinlich geblockt,
 während dem E-mail Client, der die Nutzerin auf neu angekommene E-mails aufmerksam macht, diese Berechtigung erteilt.
-Dementsprechend ist anzunehmen, dass die tatsächlich erhaltenen Notifications die Interessen der Nutzerin wiederspiegeln.
+Dementsprechend ist anzunehmen, dass die tatsächlich erhaltenen Notifications die Interessen der Nutzerin widerspiegeln.
 \par
 
-Der NotificationManager ist die Stelle im Android Betriebssystem mit denen Applikationen Zugriff auf alle Notifications bekommen und mit ihnen interagieren können.
+Der NotificationManager ist die Stelle im Android Betriebssystem mit denen Apps Zugriff auf alle Notifications bekommen und mit ihnen interagieren können.
 Das beinhaltet beliebige Notifications zu erstellen oder gepostete Notifications zu löschen.
-An den NotificationManager gebunden werden, kann ein sogenannter NotificationListener, mit die Applikation alle an den NotificationManager geschickten Notifications lesen kann.
+An den NotificationManager gebunden werden kann ein sogenannter NotificationListener, mit die Applikation alle an den NotificationManager geschickten Notifications lesen kann.
 Dies beinhaltet unter anderem
-\begin{itemize}
+\begin{description}
     \item {Package} Applikation, die die Notification gepostet hat
     \item {Notification Titel} Titel, oft der Absender der Nachricht
-    \item {ticker} Zusammenfassung der Notification für accessibility services
-    \item {text} Inhalt der Notification
-\end{itemize}
+    \item {Ticker} Zusammenfassung der Notification für accessibility services
+    \item {Text} Inhalt der Notification
+\end{description}
 Dies ist eine potenziell leicht zu missbrauchende und falls missbraucht potenziell katastrophale Berechtigung, weshalb die Berechtigung nicht bei der Installation gegeben werden kann, sondern von Hand von der Nutzerin bestätigt werden muss. 
-
-\begin{figure}[h]
-    \centering
-    \includegraphics{images/notification_area.png}
-    \caption{Notification Area\cite{androidnotification}}
-    \label{fig:notificationarea}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{images/notification_drawer.png}
-    \caption{Notification Drawer\cite{androidnotification}}
-    \label{fig:notificationdrawer}
-\end{figure}
-
 
 
 \subsection {Android UsageStatManager}

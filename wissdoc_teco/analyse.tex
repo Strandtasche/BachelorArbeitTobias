@@ -18,17 +18,32 @@ Dazu werden auch bereits existierende Lösungsansätze betrachtet.
 
 %Anforderungen und Randbedingungen\index{Randbedingungen} \ldots
 
-Für die Untersuchung des Zusammenhanges werden zwei Datenpunkte benötigt.
+Für die Untersuchung des Zusammenhanges werden zwei Datensätze benötigt.
 Auf der einen Seite ein wie auch immer gearteter Wert für die Geselligkeit der Probandin. 
-Dem gegenüberstehend wird ein Datensatz der Informationen über das Nutzungsverhalten ebenjener Probandin enthält benötigt.
+Dem gegenüberstehend wird ein Datensatz, der Informationen über das Nutzungsverhalten ebenjener Probandin enthält, benötigt.
 \par
 
 \subsection{Geselligkeit}
 
-Um die Geselligkeit der Studienteilnehmerinnen festzustellen wird, entsprechend des Big Five Persönlichkeitsmodells, ein von Psychologen entwickelter Selbstbewertungsfragebogen eingesetzt.
-Der NEO-Personality Inventory-Revised Fragebogen ist ein in wissenschaftlichen Studien häufig
+Der Duden definiert Geselligkeit als Ungezwungenheit beim Umgang beziehungsweise dem Verkehr mit anderen Menschen und der Gesellschaft \cite{dudengesell}.
+Ein solch abstraktes Konzept kann für verschiedene Menschen sehr verschiedene Formen annehmen.
+Trotzdem muss für die wissenschaftliche Auseinandersetzung mit dem Thema dieses Konzept quantifiziert betrachtet werden.
+Eine valides Modell dieses Problem muss durch ein standartisiertes Verfahren einen im Optimalfall numerischen Wert für diese Ungezwungenheit liefern. 
+\par
 
-jadajdajajdajdjajd.
+Ein solches Modell, das zum Beispiel auf auch im Paper "`Who’s Who with Big-Five: Analyzing and Classifying Personality Traits with Smartphones"'\cite{chittaranjan2011s} genutzt wird, ist das Big Five Modell.
+Dort ist Geselligkeit eine Unterfacette der Extraversion.
+Eine oft genutzte Option um in diesem Modell numerische Werte für die verschieden Facetten und Unterfacetten zu erschließen ist eine Familie von Selbstbeurteilungsfragenbogen,
+die zum Beispiel auch in T. Correa's "`Who interacts on the Web?: The intersection of users’ personality and social media use"' \cite{butt2008personality} genutzt wird.
+Zu dieser Familie gehören unter anderem der ursprünglichen NEO-Inventory-  (1978), der NEO-Personality Inventory- (1985) und der NEO-Five Factory Inventory-Fragenbogen.
+Im Rahmen dieser Arbeit wird der auf dem NEO-PI basierende überarbeitete NEO-Personality Inventory-Revised-Fragebogen in der Version von 2003 benutzt\cite{neopir2003}
+um der Extraversion und der Geselligkeit der einzelnen Testprobandinnen einen numerischen Wert zuzuordnen.
+
+Die Entscheidung für den NEO-PI-R liegt nahe: 
+Er ist gemeinsaml mit dem NEO-FFI der aktuellste Fragebogen dieser Familie und liefert mit seinen insgesamt 241 Fragen, davon zumindest 48 Fragen auf Extraversion bezogen,
+einen nuancierterer Blick auf die Persönlichkeit der durchführenden Person als der NEO-FFI, der insgesamt nur 60 Fragen hat und dementsprechend nur mit 12 Fragen zur Extraversion aufwartet.
+
+
 
 \subsection{Nutzungsdaten}
 
@@ -46,18 +61,18 @@ Dies geschieht aus Datenschutz gründen, da manche Applikationen im Play Store m
 Zum anderen sind die Kommunikationsapplikationen, die die Testprobandin nutzt von unabhängigen Drittentwicklern entworfen worden.
 Einige Wenige von diesen stellen in ganz speziellen Fällen, zum Beispiel Twitter\cite{twitterapi}, zwar eine API zur Verfügung, die meisten hüten ihre Daten aber.
 Folglich können nur Daten gesammelt werden, die entweder frei zugänglich sind, oder solche, zu denen die Nutzerin Applikationen Zugriff erlauben kann.
-Beispiele hierfür sind zum Beispiel die Call logs in denen Android, für alle Apps mit der \textbf{android.permission.READ\_CALL\_LOG} Berechtigung, die vergangenen Anrufe abspeichert.
+Beispiele hierfür sind zum Beispiel die Call logs in denen Android, für alle Apps mit der Berechtigung \textbf{android.permission.READ\_CALL\_LOG}, die vergangenen Anrufe abspeichert.
 \par
 
 In diesem Kontext ist das Android API Ziellevel der Applikation von großer Bedeutung.
 Wie bei Smartphone Betriebssystemen üblich wird das Android Betriebssystem konstant weiterentwickelt und neue Versionen davon werden ausgeliefert.
 Potenzielle Änderungen an Systemschnittstellen werden dabei durch die verschiedenen API Levels dokumentiert, auf die sich installierte Applikationen berufen können.
 Die aktuellste Version von Android ist Android 6.0, oder auch Android Marshmallow.
-Diese wird representiert durch das API Level 23.
+Diese wird repräsentiert durch das API Level 23.
 Da nicht alle Geräte aber die steigenden Anforderungen der neueren Android Versionen erfüllen, 
 und manche Nutzer neu herauskommende Updates selbst dann nicht installieren, wenn ihr Gerät sie unterstützt, 
 sei es auf Grund von Faulheit, Unwissenheit oder Bequemlichkeit, sind auf vielen Smartphones ältere Android Versionen vertreten.
-Eine Übersicht über die Verteilung der Android Versionen sieht man in \ref{fig:androidplatformdistr}.
+Eine Übersicht über die Verteilung der Android Versionen sieht man im Diagramm \ref{fig:androidplatformdistr}.
 Mit 36.1\% ist Android 5, beziehungsweise Android Lollipop die am weitesten verbreitetste Version,
 gefolgt von Android 4.4 (Kitkat) mit 34.3\% und Android 4.0-4.3 (Jellybean) mit 22.3\%\cite{androiddistr}.
 Für die Entwicklung der Applikation wird Android API level 21, entspricht Android 5.0, als Ziellevel bestimmt, da es einige relevante Schnittstellen hinzufügt die bei niedrigeren Leveln noch nicht existieren, aber auch eine breit genuge Userbasis hat, um ausreichend viele Probanden zu finden.
@@ -84,7 +99,7 @@ Dementsprechend muss sicher gestellt werden, dass sowohl die Anonymität der ein
 als auch dass die Daten nicht den Rahmen der Studie verlassen.
 Dazu werden die erhobenen Daten pseudonymisiert, das heißt zur Indenfikation der Zugehörigkeit von Fragebogen und erhobenen Daten wird nicht der Name der Versuchsteilnehmerin genutzt sondern ein frei gewähltes Pseudonym.
 Außerdem werden keinerlei persönlichkeitsbezogene Daten im Klartext gespeichert.
-Weder Telefonnummern, noch Absender oder Nachrichten Inhalte werden in Klartext geloggt.
+Weder Telefonnummern, noch Absender oder Nachrichteninhalte werden in Klartext geloggt.
 Stattdessen werden die relevanten Features der Daten in anderer Form abgespeichert:
 Unter anderem Anzahl verschiedener Telefonnummern, durch Hashen unkenntlich gemachte Nachrichtenabsender und Ersetzen der Nachrichtentexte durch die Anzahl der Zeichen in der Nachricht.
 Dennoch wird, wie bei allen Studien dieser Art, die am TECO durchgeführt werden,
@@ -106,124 +121,15 @@ von "`Related Work"'.
 Bla fasel\ldots
 
 %% ==============================
-\section{Weiterer Abschnitt}
-%% ==============================
-\label{ch:Analyse:sec:Abschnitt}
-
-
-  \ignore{Bla fasel\ldots hat auch schon \cite{TB20} gesagt und
-\cite{TB98,JSAC96,qosr} sollte man mal gelesen haben.
-Abbildung~\ref{fig:test} auf S.~\pageref{fig:test} sollte man
-sich mal anschauen.}
-
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext\index{Blindtext} Blindtext Blindtext Blindtext Blindtext
-
-\begin{figure}[!htbp]
-  \centering
-  \fbox{\parbox{0.8\textwidth}{
-  Abbildungen sollten möglichst als EPS (Encapsulated Postscript) 
-  bzw. PDF eingebunden werden.
-  Zur Erzeugung sauberer EPS-Dateien empfiehlt sich das Tool \texttt{ps2eps}
-  zur Nachbearbeitung von Postscript-Dateien. Mit \texttt{epstopdf} kann
-  dann eine PDF-Datei zum Einbinden erzeugt werden.}}
-  \caption{Testabbildung}
-  \label{fig:test}
-\end{figure}
-
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext Blindtext
-%% ==============================
 \section{Zusammenfassung}
 %% ==============================
 \label{ch:Analyse:sec:zusammenfassung}
 
-Am Ende sollten ggf. die wichtigsten Ergebnisse nochmal in \emph{einem}
-kurzen Absatz zusammengefasst werden.
+Für diese Arbeit sind die Wahl eines sinnvollen Modells für die Messung der Geselligkeit eines Menschen 
+und die Auswahl von relevanten und verfügbaren Daten die Mittels der Android Applikation gesammelt werden sollen von zentraler Bedeutung.
+Für die Applikation ist außerdem wichtig, dass sie so leichtgewichtig wie möglich ist, 
+sowohl was die Bedienung durch die Probandinnen angeht, als auch den Stromverbrauch und die Belastung auf Speicher und Prozessor angeht.
+Alle erhobenen Daten müssen im Kontext von Datenschutz und Schutz der Privatssphäre betrachtet und überdacht werden.
 
 %%% Local Variables: 
 %%% mode: latex
