@@ -17,6 +17,7 @@
 %\usepackage{subfigure}
 \usepackage{subcaption}
 \usepackage{listings}
+\usepackage{color}
 % \usepackage{fancybox} % für schattierte,ovale Boxen etc.
 % \usepackage{tabularx} % automatische Spaltenbreite
 % \usepackage{supertab} % mehrseitige Tabellen
@@ -27,10 +28,10 @@
 
 %% Informationen für die PDF-Datei
 \hypersetup{
- pdfauthor={N.N.},
- pdftitle={Not set}
- pdfsubject={Not set},
- pdfkeywords={Not set}
+ pdfauthor={T.H.},
+ pdftitle={Zusammenhangs zwischen der Nutzung von Social Media, Instant Messaging und der Geselligkeit}
+ pdfsubject={Bachelorarbeit T.H.},
+ pdfkeywords={android, study}
 }
 
 % Macros, nicht unbedingt notwendig
@@ -38,6 +39,11 @@
 
 % Print URLs not in Typewriter Font
 \def\UrlFont{\rm}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\renewcommand{\lstlistingname}{Code}
 
 \newcommand{\blankpage}{% Leerseite ohne Seitennummer, nächste Seite rechts
  \clearpage{\pagestyle{empty}\cleardoublepage}
@@ -91,7 +97,22 @@ zusammenf  % Zusammenfassung der Ergebnisse und Ausblick
  \include{titelseite}
  \blankpage % Leerseite auf Titelrückseite
 }
-\lstset{language=Pascal}
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
 %
 
 %% zusammenfassung und abstract

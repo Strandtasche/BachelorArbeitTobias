@@ -5,6 +5,13 @@
 \chapter{Entwurf}
 \label{ch:Entwurf}
 %% ==============================
+
+Für das Aufzeichen der für die Studie relevanten Daten wird eine auf dem Smartphone der Probandin installierte Android Applikation benötigt. 
+Dieses Kapitel beschäftigt sich mit dem Entwurf dieses App und setzt sich mit dem Zugriff verschiedener Datenquellen auseinander.
+Der Entwurf soll darauf abzielen, dem Nutzerin möglichst wenig aufzufallen, um ihr Verhalten nicht zu beeinflussen.
+Das Ziel soll sein, keinerlei Interaktion abgesehen von der Installation und dem Export der Daten zu benötigen. 
+\par
+
 Die App zur Studie wurde für Geräte mit mindestens Android 5.0 "`Lollipop"', das entspricht dem API Level 21, entworfen.
 Das heißt, dass aufgrund der Rückwärtskompabilität auch alle neueren Geräte in der Lage sind die Applikation auszuführen.
 \par
@@ -31,18 +38,21 @@ die Android 5.0 "`Lollipop"' mit 36.1\% als die meistgenutzte Version des Androi
 %Die Applikation soll mit so wenig Nutzerinteraktion wie möglich auskommen.
 Für das Aufzeichnen des Nutzerverhaltens werden drei beziehungsweise vier verschiedene Datenquellenbetrachtet.
 \par
+
+\subsection{Call und Message Log}
 Zum ersten die konventionellen Kommunikationsmöglichkeiten eines normalen Mobiltelefons.
-Daten zu Anrufen und Kurznachrichten (SMS) lassen sich in Android mit Zugang zum Call Log und zum Message Log auslesen.
+Daten zu Anrufen und Kurznachrichten (SMS) lassen sich in Android mit Zugang zum \emph{Call Log} und zum \emph{Message Log} auslesen.
 Die Berechtigungen dafür können von der Nutzerin bei der Installation erteilt werden und müssen nicht nocheinmal bestätigt werden.
 Für das Sammeln dieser Daten muss nicht aktiv das Verhalten der Nutzerin geloggt werden und es muss auch keine Datenbank dazu angelegt werden,
 da das Android Betriebssystem dies bereits erledigt.
-Es genügt beim finalen Abgeben der Daten auf die Call und Message Logs zuzugreifen und die relevanten Daten auszulesen.
+Es genügt beim finalen Abgeben der Daten auf die Call und Message Logs zuzugreifen und die relevanten Daten auszulesen, da man den Abfragezeitraum beliebig wählen kann.
 Um ein aussagekräftiges Ergebniss zu erhalten ist die Wahl der relevanten Daten, die untersucht werden, von entscheidender Bedeutung. 
-Aus diesem Grund wurden für diese Arbeit verschiedene Ansätze der Wahl der Daten in Betracht gezogen. 
+Aus diesem Grund wurden für diese Arbeit verschiedene Ansätze der Wahl der zu betrachtenden Features in Betracht gezogen. 
 Dabei verspricht der Ansatz aus \cite{chittaranjan2011s} für unsere Zwecke auf Grund seiner breiten Fächerung die besten Resultate.
 \par
 
-\subsection{Call Log}
+%\subsection{Call Log}
+Dementsprechend wurden folgende für diese Arbeit interessanten Features aus dem Call Log extrahiert:
 
 \begin{itemize}
     \item Anzahl Anrufe gesamt
@@ -69,7 +79,8 @@ Dabei verspricht der Ansatz aus \cite{chittaranjan2011s} für unsere Zwecke auf 
 
 \end{itemize}
 
-\subsection{Message Log}
+%\subsection{Message Log}
+Analog zum Call Log wuerden folgende Features aus dem Message Log extrahiert:
 
 \begin{itemize}
     \item Anzahl SMS gesamt
@@ -101,11 +112,11 @@ Dabei verspricht der Ansatz aus \cite{chittaranjan2011s} für unsere Zwecke auf 
 in die alle während dem Studienzeitraum der Nutzerin gezeigten Notifications gespeichert werden.
 Die Spalten der SQLite Datenbank sind die Folgenden:
 \begin{description}
-    \item [\_id] fortlaufende Indentifikationsnummer
-    \item [notificationEntry] Package der Applikation von der die Notification gepostet wurde
-    \item [titleHashed] Gehashter Titel der Notification, Bei Nachrichten oft der Absender
-    \item [textLength] Anzahl Zeichen im Text der Notification
-    \item [date] Zeitpunkt, an dem die Notification gepostet wurde
+    \item ["`\_id"'] fortlaufende Indentifikationsnummer
+    \item ["`notificationEntry"'] Package der Applikation von der die Notification gepostet wurde
+    \item ["`titleHashed"'] Gehashter Titel der Notification, Bei Nachrichten oft der Absender
+    \item ["`textLength"'] Anzahl Zeichen im Text der Notification
+    \item ["`date"'] Zeitpunkt, an dem die Notification gepostet wurde
 \end{description}
 
 Im Sinne des Schutzes der Privatssphäre beinhalten diese Einträge nicht exakt den Inhalt der Notification, sondern so anonymisiert, dass die für die Studie relevante Information erhalten bleibt.
@@ -126,7 +137,9 @@ TODO: MEhr UsageStats + Auswahl App + Statistik
 
 \subsection{Auswahl Applikationen}
 
-Um vom Umfang der Arbeit im Rahmen einer Bachelorarbeit zu bleiben, ist es notwendig, die Untersuchung auf eine bestimmte Menge von Applikationen zu begrenzen.
+Um vom Umfang der Arbeit im Rahmen einer Bachelorarbeit zu bleiben und gleichzeitig nicht einen größeren Eingriff in die Privatssphäre der Probandin als nötig zu tätigen,
+ist es notwendig, sich auf eine bestimmte Menge von Applikationen zu begrenzen, deren Notifications und UsageStats gesammelt werden sollen.
+
 Hierzu wurden folgende Applikationen ausgewählt.
 \begin{description}
   \item [Google Hangouts] Crossplattform Kommunikationsdienst von Google. Auf aktuellen Android Smartphones vorinstalliert.
@@ -146,59 +159,6 @@ Hierzu wurden folgende Applikationen ausgewählt.
 
 
 
-%% ==============================
-\section{Ablauf}
-%% ==============================
-\label{ch:Entwurf:sec:Abschnitt2}
-
-Nach dem fertigstellen der Entwicklung der Applikation wird zunächst über einen kurzen Zeitraum
-eine Vorstudie durchgeführt, die potenzielle Fehler in der Applikation, die trotz testens nicht entdeckt wurden, aufdecken soll.
-Dies soll verhindern, dass während der tatsächlichen Studie Daten verloren gehen oder verfälscht werden.
-Außerdem kann das potenzielle Feedback noch in die Applikation einfließen bevor die Hauptstudie beginnt.
-Im Rahmen der Vorstudie wird eine vorläufige Version der Datensammelapplikation bei drei bis vier Freiwilligen installiert,
-die darauf hin nach einige wenige Tage die gesammelten Daten auf ihre Validität prüfen sollen und Feedback geben.
-\par
-Nachdem diese Vorstudie abgeschlossen ist, und potenzielle kleine Änderungen an der Applikation durchgeführt wurden beginnt die Hauptstudie.
-In dieser werden zunächst die Testprobanden ans Teco eingeladen um dort den NEO-PI-R Fragebogen auszufüllen.
-Dazu werden circa drei bis vier Termine innerhalb einer Kalenderwoche angeboten, aus denen die Testprobanden wählen können.
-Dies geschieht aus mehreren Gründen. 
-Erstens verringert dies, das Risiko, das manche Studienteilnehmerinnen aufgrund von terminlichen Konflikten nicht teilnehmen können.
-Zweitens sollen die Daten über einen möglichst ähnlichen Zeitraum gesammelt werden.
-Zuletzt ist es so, dass durch das Aufteilen der Probandengruppe ist eine persönlichere Atmosphäre beim Auftakt der Studie möglich
-und potenzielle Fragen können im Zwigespräch besser geklärt werden als wenn alle Probandinnen gleichzeitig in die Studie einweist.
-\par
-Zu Beginn der Einführung wird den Probandinnen zunächst das Wesen, Bedeutung und potenzielle Tragweite der Studie erläutert.
-Potenzielle Risiken und Nutzen werden aufgeführt.
-Hier gibt es die Möglichkeit Fragen an den Studienleiter zu stellen.
-Nachdem dies geschehen ist, kommen die Probandinnen die beim Teco übliche Einwilligungserklärung in doppelter Ausführung vorgelegt.
-Eine davon ist für die Studienleiterin, in dem ihm das Einverständnis der Probandin bezüglich der Teilnahme zugesichert wird und die Speicherung und Nutzung der Daten für die Studie erlaubt wird.
-Die andere ist für die Probandin selbst, als von der Studienleiterin unterschriebenen Zusicherung, dass der Rücktritt von den Studie ohne Angabe von Gründen und ohne Nachteile für die Probandin zu jedem Zeitpunkt möglich ist.
-Sobald dies abgehandelt ist und jeweils eine der beiden Einverständniserklärungen eingesammelt wurde,
-können die Probandinnen beginnen den NEO-PI-R Persönlichkeitstest auszufüllen.
-Bevor dies geschieht sollen die Probanden ein selbstgewähltes Pseudonym auf die zweite Seite des Tests schreiben, sodass die gesammelten Daten zu den Tests zugeordnet werden kann ohne die Anonymität der Probandinnen einzuschränken.
-Das alles wird je nach Bearbeitungsgeschwindigkeit ungefähr 35 bis 45 Minuten einnehmen.
-\par
-Nachdem diese verstrichen sind, und alle Probandinnen ihren Test abgeschlossen haben, werden auch diese eingesammelt.
-Nun kann die Applikation auf den mitgebrachten Smartphones der Probandinnen installiert werden.
-Im Vorhinein ist die APK der Applikation so in der Cloud hinterlegt worden, dass sie per scannen eines QR Codes (siehe Abbildung \ref{fig:qrcode}) heruntergeladen werden kann.
-Die Installation der Applikation von der APK läuft ab, wie jede andere Applikationsinstallation auf einem Android Gerät auch.
-Potenziell müssen hier jedoch kurzzeitig die Installation von Applikationen aus nicht verifizierten Quellen freigeschaltet werden, sollte dies nicht sowieso schon der Fall sein.
-Nach dem Bestätigen der Basis Berechtigungen ist die Applikation installiert.
-Um sie betriebbereit zu machen müssen die Nutzerinnen die erweiterten Berechtigungen von Hand erteilen.
-Nun sollte die Applikation betriebsbereit sein.
-Um die ordnungsgemäße Funktionstüchtigkeit zu gewährleisten sind in der Applikation Tests implementiert, die nun durchgeführt werden sollen.
-Sind diese erfolgreich durchgeführt worden, so beginnt der Datensammelungszeitraum der Studie.
-Dieser endet zwischen 10 und 20 Tagen später.
-Nachdem die von der Applikation gesammelten Daten exportiert und zurück bei der Studienleiterin angekommen sind, 
-ist die Studie beendet.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics{images/qrcode.png}
-    \caption{QR Code}
-    \label{fig:qrcode}
-\end{figure}
-
 
 %% ==============================
 \section{Zusammenfassung}
@@ -208,6 +168,9 @@ ist die Studie beendet.
 Die Studie, die im Rahmen dieser Arbeit durchgeführt wird, untersucht zwei Datenpunkte.
 Zum einen die von der Applikation gesammelten Daten zum Nutzungsverhalten von zehn bestimmten Social Media und Instant Messaging Applikationen
 und zum anderen die zu der Nutzerin zugeordneten Extraversions- beziehungsweise Geselligkeitswerte aus einem Persönlichkeitstest.
+Als für das Einschätzen des Nutzerverhaltens relevante Smartphonedaten wurde einerseits die Häufigkeit, Länge und Verteilung von  Anrufen und SMS bewertet,
+als auch die Notifications und UsageStat von zehn Kommunikations- und Social Media Applikationen.
+Zu 
 Dabei wird besonderes Augenmerk auf den Schutz der Privatssphäre der Nutzerin und deren Daten gelegt.
 Bis auf das Ausfüllen des Persönlichkeitstests, dem Aufsetzen der Applikation und dem Exportieren der Daten am Ende der Studie sollen die Nutzerinnen nicht behelligt werden.
 
