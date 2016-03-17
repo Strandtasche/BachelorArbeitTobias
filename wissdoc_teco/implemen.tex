@@ -80,8 +80,8 @@ Die Name der Datenbank, der Name der Tabelle in der Datenbank und die Namen der 
 
 \end{lstlisting}
 
-Wie zu sehen wird hier eine Tabelle namens "notificationEntries" angelegt, mit fünf Spalten.
-In de ersten Spalte, der Spalte des primären Schlüssels, steht eine eindeutige id, die mit weiteren hinzugefügten Zeilen selbstständig steigt.
+Wie zu sehen wird hier eine Tabelle namens "`notificationEntries"' angelegt, mit fünf Spalten.
+In de ersten Spalte, der Spalte des primären Schlüssels, steht eine eindeutige ID, die mit weiteren hinzugefügten Zeilen selbstständig steigt.
 In den restlichen Spalten stehen jeweils die relevanten Inhalte der Notifications, also absendende Applikation, der gehashte Titel und die Länge des Notificationtextes, als String und der Timestamp als Integer. 
 Hier wird schon bei der Datenbankerstellung festgelegt, dass all diese Werte nicht leer sein dürfen.
 
@@ -109,7 +109,7 @@ if (validPackages.contains(pack)) {
         }
 \end{lstlisting}
 
-Zum Exportieren der Tabelle reicht es eine allgemeine Query auszuführen, die alle Zeilen zurück gibt, wie in Code \ref{export}.
+Zum Exportieren der Tabelle reicht es eine allgemeine Query auszuführen, die alle Zeilen zurück gibt, wie in Code \ref{databaseexport}.
 
 \begin{lstlisting}[frame=single, caption = Einfügen in die Datenbank, label=databaseexport] 
   db.rawQuery("SELECT * FROM " + MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,null); 
@@ -158,9 +158,9 @@ Da nicht davon ausgegangen werden kann, dass alle Probandinnen über Smartphones
 Devices nicht merklich Resourcen verbrauchen.
  
 
-\section{Formative Studie}
+\section{Vorstudie}
 
-Gegen Ende der Implementierung, nach dem groben Testen aller zu implementierenden Funktionalitäten, wurde eine kleine formative Studie durchgeführt um potenzielle Probleme bei der Hauptstudie frühzeitig zu entdecken und zu beheben, bevor sie negativen Einfluss auf die eigentliche Studie nehmen können.
+Gegen Ende der Implementierung, nach dem groben Testen aller zu implementierenden Funktionalitäten, wurde eine kleine Vorstudie durchgeführt um potenzielle Probleme bei der Hauptstudie frühzeitig zu entdecken und zu beheben, bevor sie negativen Einfluss auf die eigentliche Studie nehmen können.
 Dazu wurde eine Vorabversion der entwickelten Applikation bei drei freiwilligen Testprobandinnen installiert.
 Sie sollten über fünf Tage die Applikation im Hintergrund laufen lassen, sie auf Fehlverhalten untersuchen und die von der Applikation gesammelten Daten validieren.
 Alle drei Freiwillige sind Informatikstudentinnen, zwischen 21 und 25 Jahren alt und erfahrene Smartphone User, mit mehreren aktiv benutzten Kommunikationsapplikationen.
@@ -173,7 +173,8 @@ Auch die Wahl der Twitterclients wurde als nicht representativ angemerkt:
 Der Twitterclient "`Falcon Pro"' solle berücksichtigt werden.
 Positiv wurde bemerkt, dass die Applikation nach dem Aufsetzen sehr resourcensparend sei und keinerlei zusätzliche Interaktion von der Nutzerin benötigt.
 Bei keiner der Freiwilligen kam es zu Abstürzen oder nicht vorgesehenem Verhalten. Auch nach mehrfachem Neustarten verrichtete die Applikation ihre Dienste wie beabsichtigt.
-Als Reaktion auf das Feedback aus der formativen Studie wurden folgende Dinge an der Applikation geändert.
+\par
+Als Reaktion auf das Feedback aus der Vorstudie wurden folgende Dinge an der Applikation geändert.
 Das Interface wurde überarbeitet und in einen übersichtlicheren, harmonischeren Zustand gebracht
 In diesem Rahmen wurden für das Aufsetzen relevante Buttons durch farbliches Hervorheben kenntlich gemacht.
 Die betrachteten Applikationen wurden um \emph{Falcon Pro}, einen weiteren Drittentwickler Twitterclient, und \emph{Signal}, einen allgemeine Kommunikationsapplikation mit starken Verschlüsselungs und Datenschutzfeatures, erweitert.
