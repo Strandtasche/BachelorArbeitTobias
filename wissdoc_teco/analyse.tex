@@ -28,15 +28,15 @@ Dem gegenüberstehend wird ein Datensatz, der Informationen über das Nutzungsve
 Der Duden definiert Geselligkeit als Ungezwungenheit beim Umgang beziehungsweise dem Verkehr mit anderen Menschen und der Gesellschaft \cite{dudengesell}.
 Ein solch abstraktes Konzept kann für verschiedene Menschen sehr verschiedene Formen annehmen.
 Trotzdem muss für die wissenschaftliche Auseinandersetzung mit dem Thema dieses Konzept quantifiziert betrachtet werden.
-Eine valides Modell dieses Problem muss durch ein standartisiertes Verfahren einen im Optimalfall numerischen Wert für diese Ungezwungenheit liefern. 
+Eine valides Modell dieses Problem muss durch ein standardisiertes Verfahren einen im Optimalfall numerischen Wert für diese Ungezwungenheit liefern. 
 \par
 
 Ein solches Modell, das zum Beispiel auf auch im Paper "`Who’s Who with Big-Five: Analyzing and Classifying Personality Traits with Smartphones"'\cite{chittaranjan2011s} genutzt wird, ist das Big Five Modell.
 Dort ist Geselligkeit eine Unterfacette der Extraversion.
 Eine oft genutzte Option um in diesem Modell numerische Werte für die verschieden Facetten und Unterfacetten zu erschließen ist eine Familie von Selbstbeurteilungsfragenbogen,
 die zum Beispiel auch in T. Correa's "`Who interacts on the Web?: The intersection of users’ personality and social media use"' \cite{butt2008personality} genutzt wird.
-Zu dieser Familie gehören unter anderem der ursprünglichen NEO-Inventory-  (1978), der NEO-Personality Inventory- (1985) und der NEO-Five Factory Inventory-Fragenbogen.
-Im Rahmen dieser Arbeit wird der auf dem NEO-PI basierende überarbeitete NEO-Personality Inventory-Revised-Fragebogen in der Version von 2003 benutzt\cite{neopir2003}
+Zu dieser Familie gehören unter anderem der ursprünglichen NEO-Inventory-  von 1978, der NEO-Personality Inventory- (NEO-PI) von 1985 und der NEO-Five Factor Inventory-Fragenbogen (NEO-FFI).
+Im Rahmen dieser Arbeit wird der auf dem NEO-PI basierende überarbeitete NEO-Personality Inventory-Revised-Fragebogen (NEO-PI-R) in der Version von 2003 benutzt\cite{neopir2003}
 um der Extraversion und der Geselligkeit der einzelnen Testprobandinnen einen numerischen Wert zuzuordnen.
 
 Die Entscheidung für den NEO-PI-R liegt nahe: 
@@ -52,7 +52,7 @@ Für diese Arbeit werden keine Nutzerdaten von physische Sensoren in Betracht ge
 Zu diesem Zweck interagiert die Applikation mit Schnittstellen des Android Betriebssystems.
 Dies vermeidet das potenzielle Problem von unterschiedlicher Hardware und sorgt dafür, dass die Nutzungsdaten von allen Testprobanden vergleichbar bleiben.
 Zudem vermeidet dies übermäßige Mehrbelastung der Akkuleistung der Smartphones, auf denen die Applikation installiert wird.
-Allgemein ist es wünschenswert die Belastung der Resourcen auf den Zielgeräten so gering wie möglich zu halten.
+Allgemein ist es wünschenswert die Belastung der Ressourcen auf den Zielgeräten so gering wie möglich zu halten.
 \par
 
 Eine der stärksten Limitation für die Daten, die die Applikation sammeln kann, kommt von der Natur der zu betrachtenden Daten.
@@ -115,10 +115,20 @@ In dieser wird das Einverständnis der Probandin bezüglich der Aufzeichnung, Sp
 %% ==============================
 \label{ch:Analyse:sec:RelatedWork}
 
-Hier kommt eine ausführliche Diskussion
-von "`Related Work"'.
+Die Auswahl der zu untersuchenden Smartphonedaten haben verschiedene bisher existierende Arbeiten verschieden gelöst.
+Ebenso gibt es in den Studien im Feld verschiedene Ansätze wie die Persönlichkeit von Testprobandinnen in vergleichbare Werte zu fassen ist.
 
-Bla fasel\ldots
+\subsection{Persönlichkeit}
+
+In der Familie der NEO Fragebögen gibt es verschiede Versionen und Iterationen, die für verschiedene Situationen benutzt werden können.
+Neben dem Urspünglichen NEO - Personality Inventory von 1978 sind heutzutage vorallem der NEO - PI - R und der NEO - FFI im Einsatz.
+Von den fünft im Kapitel \ref{ch:Grundlagen:sec:RelatedWork} vorgestellten Arbeiten benutzen drei den NEO-FFI Fragenbogen. 
+Dieser mit seinen 60 Fragen schön handlich und benötigt nicht zu viel Zeit um ausgefüllt zu werden.
+
+
+\par
+Im Rahmen dieser Arbeit eignet sich der NEO-PI-R besser als der in den verwandten Arbeiten häufig genutzte NEO-FFI, 
+da 
 
 %% ==============================
 \section{Zusammenfassung}
@@ -132,7 +142,7 @@ Die Android Applikation wird Daten bezüglich des Anruf und SMS Verhaltens der P
 eine Liste an Empfangenen Notifications anlegen und die UsageStat Schnittstelle des Android Betriebssystems nutzen.
 Für die Applikation ist außerdem wichtig, dass sie so leichtgewichtig wie möglich ist, 
 sowohl was die Bedienung durch die Probandinnen angeht, als auch den Stromverbrauch und die Belastung auf Speicher und Prozessor angeht.
-Alle erhobenen Daten müssen im Kontext von Datenschutz und Schutz der Privatssphäre betrachtet und überdacht werden, weshalb die Persönlichkeitsbezogenen Daten aus den Notifications entweder gehasht oder nur abstrahiert als numerischen Wert der Länge des Textes gespeichert werden.
+Alle erhobenen Daten müssen im Kontext von Datenschutz und Schutz der Privatsphäre betrachtet und überdacht werden, weshalb die Persönlichkeitsbezogenen Daten aus den Notifications entweder gehasht oder nur abstrahiert als numerischen Wert der Länge des Textes gespeichert werden.
 Anrufe und SMS werden überhaupt nur in bereits konzentrierter Form gespeichert und nicht nicht als Liste von Ereignissen.
 
 %%% Local Variables: 

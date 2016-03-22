@@ -36,13 +36,13 @@ von der Nutzerin beim Installationsvorgang bestätigt werden.
 \par
 Mit dem Android \emph{contentResolver} kann nun eine Query durchgeführt werden, mit der die Applikation random read access auf die zurückgegebenen Daten erhält (siehe Code \ref{calllogquery}).
 Über diese Daten kann nun iteriert werden und so die gewünschten Features extrahiert werden.
-Mit jedem weiteren Eintrag wird die gesamte Anzahl und Gesamtdauer inkrementiert und die spezialisierten Aspekte von INCOMING, OUTGOING und MISSED werden per \emph{switch case} im Falle, dass das aktuelle Item ein ausgehender, ankommender oder verpasser Anruf ist, ebenfalls angepasst.
+Mit jedem weiteren Eintrag wird die gesamte Anzahl und Gesamtdauer inkrementiert und die spezialisierten Aspekte von INCOMING, OUTGOING und MISSED werden per \emph{switch case} im Falle, dass das aktuelle Item ein ausgehender, ankommender oder verpasster Anruf ist, ebenfalls angepasst.
 Die Zählung von einzigartigen Anrufpartnern geschieht hier über eine \emph{HashMap}, die AnruferID auf einen Integerwert mappt, der bei jedem Auftauchen der AnruferID um eins erhöht wird.
 Nachdem so über alle Einträge iteriert wurde, werden die gesammelten Daten in einem \emph{CallData} Objekt gespeichert.
 \par
 
 Die Message Logs verhalten sich bis auf kleine Details identisch zu den Call Logs und können auf die selbe Weise ausgewertet werden.
-Ein Beispiel für ein solches Detail ist unter anderem, dass soetwas wie eine verpasste SMS nicht existiert und es nur SENT oder RECIEVED als Möglichkeiten gibt.
+Ein Beispiel für ein solches Detail ist unter anderem, das so etwas wie eine verpasste SMS nicht existiert und es nur SENT oder RECIEVED als Möglichkeiten gibt.
 Die so gewonnen Daten werden im selben Objekt wie die Daten des Call Logs und werden gemeinsam mit ihnen ausgegeben.
 
 \begin{lstlisting}[frame=single, caption = Call Log Query, label=calllogquery] 
@@ -169,9 +169,9 @@ Die verwendeten Smartphones waren jeweils ein OnePlus One, ein OnePlus Two und e
 Jede der drei Freiwilligen bestätigte, dass die von der Applikation aufgezeichneten Daten korrekt waren.
 Angemerkt wurde, jedoch das Userinterface relativ verworren sei und selbst mit Instruktionen, wie die Applikation aufzusetzen sei, dies, vorallem für weniger technologieaffine Probandinnen, relativ fehleranfällig sein wird.
 Eine der Probandinnen bemerkte, dass ein nicht zu vernachlässigender Teil ihrer Kommunikation, die über eine Applikation namens Signal laufe, nicht aufgezeichnet werde.
-Auch die Wahl der Twitterclients wurde als nicht representativ angemerkt:
+Auch die Wahl der Twitterclients wurde als nicht repräsentativ angemerkt:
 Der Twitterclient "`Falcon Pro"' solle berücksichtigt werden.
-Positiv wurde bemerkt, dass die Applikation nach dem Aufsetzen sehr resourcensparend sei und keinerlei zusätzliche Interaktion von der Nutzerin benötigt.
+Positiv wurde bemerkt, dass die Applikation nach dem Aufsetzen sehr ressourcensparend sei und keinerlei zusätzliche Interaktion von der Nutzerin benötigt.
 Bei keiner der Freiwilligen kam es zu Abstürzen oder nicht vorgesehenem Verhalten. Auch nach mehrfachem Neustarten verrichtete die Applikation ihre Dienste wie beabsichtigt.
 \par
 Als Reaktion auf das Feedback aus der Vorstudie wurden folgende Dinge an der Applikation geändert.

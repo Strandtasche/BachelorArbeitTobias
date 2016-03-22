@@ -17,11 +17,11 @@ Bla fasel\ldots
 
 Die Studie wurde begonnen mit 25 Probandinnen.
 Alle Probandinnen waren Studentinnen und zwischen 20 und 26 Jahren alt.
-Davon studerien 20 Probandinnen Informatik. 
+Davon studieren 20 Probandinnen Informatik. 
 Von den 25 Probandinnen waren 6 weiblich und 19 männlich.
 Die Smartphones von Drei Probandinnen verfügten über Android Marshmallow während die 22 verbleibenden Probandinnen über Android Lollipop verfügten.  
 Aufgrund von äußeren Umständen sind zwei Probandinnen von der Studie zurücktreten:
-Bei einer Probandin gab es einen von der Studie unabhängen kritischen Systemfehler auf ihrem Smartphone was dazu führte, dass dieses unbenutzbar wurde und sie auf ihr Ersatzsmartphone wechseln musste.
+Bei einer Probandin gab es einen von der Studie unabhängigen kritischen Systemfehler auf ihrem Smartphone was dazu führte, dass dieses unbenutzbar wurde und sie auf ihr Ersatzsmartphone wechseln musste.
 Dieses ist ein Windows Phone und dementsprechend konnte die Studie dort nicht fortgeführt werden.
 Die andere bemerkte zu spät, dass sie nur in einem zu kleinen Zeitfenster and der Studie teilnehmen könnte und trat nach dem ausfüllen des NEO-PI-R Fragebogens zurück.
 
@@ -38,7 +38,7 @@ Dies geschieht aus mehreren Gründen.
 Erstens verringert dies, das Risiko, das manche Studienteilnehmerinnen aufgrund von terminlichen Konflikten nicht teilnehmen können.
 Zweitens sollen die Daten über einen möglichst ähnlichen Zeitraum gesammelt werden.
 Zuletzt ist es so, dass durch das Aufteilen der Probandengruppe ist eine persönlichere Atmosphäre beim Auftakt der Studie möglich
-und potenzielle Fragen können im Zwigespräch besser geklärt werden als wenn alle Probandinnen gleichzeitig in die Studie einweist.
+und potenzielle Fragen können im Zwiegespräch besser geklärt werden als wenn alle Probandinnen gleichzeitig in die Studie einweist.
 \par
 Zu Beginn der Einführung wird den Probandinnen zunächst das Wesen, Bedeutung und potenzielle Tragweite der Studie erläutert.
 Potenzielle Risiken und Nutzen werden aufgeführt.
@@ -46,7 +46,7 @@ Hier gibt es die Möglichkeit Fragen an den Studienleiter zu stellen.
 Nachdem dies geschehen ist, werden die Probandinnen gebeten, sofern sie nach den Erläuterungen keine Fragen mehr haben und mit der Teilnahme einverstanden sind, eine Einverständniserklärung zu unterschreiben.
 Die andere ist für die Probandin selbst, als von der Studienleiterin unterschriebenen Zusicherung, dass der Rücktritt von den Studie ohne Angabe von Gründen und ohne Nachteile für die Probandin zu jedem Zeitpunkt möglich ist.
 Sobald dies abgehandelt ist können die Probandinnen beginnen den NEO-PI-R Persönlichkeitstest auszufüllen.
-Bevor dies geschieht sollen die Probanden ein selbstgewähltes Pseudonym auf die zweite Seite des TeDsts schreiben, sodass die gesammelten Daten zu den Tests zugeordnet werden kann ohne die Anonymität der Probandinnen einzuschränken.
+Bevor dies geschieht sollen die Probanden ein selbstgewähltes Pseudonym auf die zweite Seite des Tests schreiben, sodass die gesammelten Daten zu den Tests zugeordnet werden kann ohne die Anonymität der Probandinnen einzuschränken.
 Das alles wird je nach Bearbeitungsgeschwindigkeit ungefähr 35 bis 45 Minuten einnehmen.
 \par
 Nachdem diese verstrichen sind, und alle Probandinnen ihren Test abgeschlossen haben, werden auch diese eingesammelt.
@@ -55,7 +55,7 @@ Im Vorhinein ist die APK der Applikation so in der Cloud hinterlegt worden, dass
 Die Installation der Applikation von der APK läuft ab, wie jede andere Applikationsinstallation auf einem Android Gerät auch.
 Potenziell müssen hier jedoch kurzzeitig die Installation von Applikationen aus nicht verifizierten Quellen freigeschaltet werden, sollte dies nicht sowieso schon der Fall sein.
 Nach dem Bestätigen der Basis Berechtigungen ist die Applikation installiert.
-Um sie betriebbereit zu machen müssen die Nutzerinnen die erweiterten Berechtigungen von Hand erteilen.
+Um sie betriebsbereit zu machen müssen die Nutzerinnen die erweiterten Berechtigungen von Hand erteilen.
 Nun sollte die Applikation betriebsbereit sein.
 \par
 Um die ordnungsgemäße Funktionstüchtigkeit zu gewährleisten sind in der Applikation Tests implementiert, die nun durchgeführt werden sollen.
@@ -90,7 +90,7 @@ Nach Auflauf der geplanten Studienzeit bekamen alle Studienteilnehmer die Auffor
 In 20 von 23 Fällen funktionierte dies Perfekt.
 Jedoch gab es einen Fall in dem das bereits aufgefallene Problem \cite{androidbug} mit der Android Dateiübertragung auftrat.
 Dies konnte die Probandin nach einem Hinweis durch einen Neustart des Geräts behoben werden.
-Die anderen beiden Fälle wurden durch zerstreute Probandinnen und das System der Annonymisierung beziehungsweise Pseudonymisierung hervorgerufen.
+Die anderen beiden Fälle wurden durch zerstreute Probandinnen und das System der Anonymisierung beziehungsweise Pseudonymisierung hervorgerufen.
 Da der Studienleiterin nur die Pseudonyme der Probandinnen bekannt waren, gestaltete es sich unmöglich die beiden fehlenden Probandinnen direkt auf das Fehlen ihrer Datensätze hinzuweisen.
 Mit sieben Tagen Verspätung und nach etlichen Nachrichten an verschiedene Teilnehmerinnen waren die gesammelten Daten dann vollständig.
 
@@ -124,9 +124,66 @@ Für weitergehende Forschungen ist jedoch sicher viel Platz auf diesem Gebiet, u
 
 TODO: Freies Feedback, e.g. DER FRAGEBOGEN
 
-\section{Auswerten der Daten}
+\section{Auswertung der Daten}
 
-TODO: 
+Das Umsetzen der erhaltenen Daten in eine aussagekräftige Übersicht war für die gesammelten Call und Message Log Daten nicht notwendig, da sie bereits in einem solchen exportiert werden, für die Liste an Notifications ist dies jedoch dringend notwendig.
+Dafür wurde eine Java Command Line Applikation geschrieben, die Daten aus verschiedenen Dateien einließt und am Ende die aggregierten Daten in eine Datei schreibt.
+\par
+Es wird ein Pfad zu dem Ordner in dem sich die zu betrachtenden Dateien befinden angegeben.
+Über alle in sich diesem Ordner befindlichen Datein wird iteriert und für jede wird zunächst der gesamte Inhalt der Datei mit der Methode \emph{readStringFromFile()} in einen String geschrieben.
+Mit der \emph{split()} Methode und dem regulären Ausdruck  $(\backslash r?\backslash n)|,|(\backslash t)$ wird der String in die Comma Separated Values aufgeteilt.
+Da die ursprüngliche Tabelle 5 Spalten hatte sind nun die Attribute der i. Notification im Array in den Positionen $ [i * 5 + 0]$ bis $ [i * 5 + 4]$ gespeichert.
+Diese werden nun in Objekte \emph{Notification} mit den entsprechenden Attributen und einem Enum für die absendende Applikation geparst.
+Alle so erstellten Objekte werden dann in eine ArrayList geschrieben auf der weitergearbeitet wird.
+Zur einfacheren Werteberechnung für einzelne Applikationen wird nun für jede mögliche Applikation eine eigene ArrayListe angelegt, in die nur die Notifications hinzugefügt werden die die entsprechende Applikation als Absender haben.
+Für jede dieser ArrayListen werden nun folgende Werte berechnet:
+
+\begin{itemize}
+  \item Anzahl Notifications (Länge der ArrayList)
+  \item Anzahl Konversationen (Anzahl einzigartiger Titelhashes)
+  \item Größte Konversation (Maximum TextLength)
+  \item Durchschnittliche Konversationsgröße (Summe TextLength durch Anzahl Konversationen)
+  \item Durchschnittliche Nachrichtenlänge (Summe TextLength durch Anzahl Notifications)
+\end{itemize}
+
+Diese Berechnungen werden jeweils in einer Methode, ähnlich zum Beispiel \ref{maxconv} durchgeführt, die dann auf auf alle ArrayLists aufgerufen wird.
+
+
+\begin{lstlisting}[frame=single, caption =  calculateMaxConversationSize(), label=maxconv] 
+    public static int calculateMaxConversationSize(ArrayList<Notification> list) {
+        HashMap<String, Integer> hmap = new HashMap<>();
+        for (Notification noti : list) {
+            if (!hmap.containsKey(noti.getTitle())) {
+                hmap.put(noti.getTitle(), 1);
+            }
+            else {
+                hmap.put(noti.getTitle(), hmap.get(noti.getTitle())+ 1);
+            }
+        }
+        if (hmap.size() == 0){
+            return 0;
+        }
+        else {
+            return (Collections.max(hmap.values()));
+        }
+
+    }
+\end{lstlisting}
+
+
+Über alle Daten werden zusätzlich noch folgende Werte berechnet:
+
+\begin{itemize}
+  \item Anzahl Applikationen genutzt (Anzahl ArrayLists mit Size > 0)
+  \item Anzahl Notifications insgesamt
+  \item Anzahl Notifications pro Tag
+  \item Durchschnittliche Nachrichtenlänge gesamt
+  \item Meist genutzte Applikation
+  \item Applikation mit den meisten Konversationen
+  \item Applikation mit den durschnittlich längsten Nachrichten  
+\end{itemize}
+
+Die so aggregierten Daten werden dann in ein 
 
 \section{Ergebnisse}
 
