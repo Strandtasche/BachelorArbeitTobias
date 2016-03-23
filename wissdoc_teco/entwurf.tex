@@ -6,9 +6,9 @@
 \label{ch:Entwurf}
 %% ==============================
 
-Für das Aufzeichen der für die Studie relevanten Daten wird eine auf dem Smartphone der Probandin installierte Android Applikation benötigt. 
+Für das Aufzeichnen, der für die Studie relevanten Daten wird eine auf dem Smartphone der Probandin installierte Android Applikation benötigt. 
 Dieses Kapitel beschäftigt sich mit dem Entwurf dieses App und setzt sich mit dem Zugriff verschiedener Datenquellen auseinander.
-Der Entwurf soll darauf abzielen, dem Nutzerin möglichst wenig aufzufallen, um ihr Verhalten nicht zu beeinflussen.
+Der Entwurf soll darauf abzielen, der Nutzerin möglichst wenig aufzufallen, um ihr Verhalten nicht zu beeinflussen.
 Das Ziel soll sein, keinerlei Interaktion abgesehen von der Installation und dem Export der Daten zu benötigen. 
 \par
 
@@ -20,15 +20,15 @@ Das heißt, dass aufgrund der Rückwärtskompabilität auch alle neueren Geräte
 %%Von anderen Aspekten der Applikation benötigte API Levels waren:
 
 Die Entwurfsentscheidung über das zu nutzende API Level ist immer eine Abwägung;
-Auf der einen Seite steht das niedrigere API Level, wie im Grundlagenkapitel beschrieben, 
-eine breitere Menge an potenziellen Testprobandinnen eröffnen.
+Auf der einen Seite steht das niedrigere API Level, das wie im Grundlagenkapitel \ref{ch:Grundlagen} beschrieben, 
+eine breitere Menge an potenziellen Testprobandinnen eröffnet.
 Andererseits haben höhere API Level oft viele Verbesserungen und neue Schnittstellen mit denen Entwickler mehr Funktionalität erreichen können.
 \par
-Die Entscheidung für das relativ aktuelle APi Level 21 ist motiviert davon, 
+Die Entscheidung für das relativ aktuelle API Level 21 ist motiviert davon, 
 dass der potenzielle Pool von Testprobandinnen im Umfeld der Informatik oft über aktuellere Smartphones und Android Versionen verfügt
-und dass mit Level 21 einige Neuerungen im Bereich der Aufzeichnung von Applikationsaktivität.
+und dass mit Level 21 einige Neuerungen im Bereich der Aufzeichnung von Applikationsaktivität hinzugefügt wurden.
 
-Untermauert wird die von den bereits im vorangehenden Kapitel vorgestellten Statistiken von Google\cite{androiddistr}, 
+Untermauert wird dies von der bereits im vorangehenden Kapitel vorgestellten Statistik \ref{fig:androidplatformdistr}  von Google\cite{androiddistr}, 
 die Android 5.0 "`Lollipop"' mit 36.1\% als die meistgenutzte Version des Android Betriebssystems.
 
 \par
@@ -39,11 +39,11 @@ TODO: Systemskizze.
 
 %Das Nutzungsverhalten der Studienteilnehmerinnen soll mit einer Android Applikation aufgezeichnet werden.
 %Die Applikation soll mit so wenig Nutzerinteraktion wie möglich auskommen.
-Für das Aufzeichnen des Nutzerverhaltens werden drei beziehungsweise vier verschiedene Datenquellenbetrachtet.
+Für das Aufzeichnen des Nutzerverhaltens werden drei beziehungsweise vier verschiedene Datenquellen betrachtet.
 \par
 
 \subsection{Call und Message Log}
-Zum ersten die konventionellen Kommunikationsmöglichkeiten eines normalen Mobiltelefons.
+Zunächst werden die konventionellen Kommunikationsmöglichkeiten eines normalen Mobiltelefons betrachtet.
 Daten zu Anrufen und Kurznachrichten (SMS) lassen sich in Android mit Zugang zum \emph{Call Log} und zum \emph{Message Log} auslesen.
 Die Berechtigungen dafür können von der Nutzerin bei der Installation erteilt werden und müssen nicht nocheinmal bestätigt werden.
 Für das Sammeln dieser Daten muss nicht aktiv das Verhalten der Nutzerin geloggt werden und es muss auch keine Datenbank dazu angelegt werden,
@@ -111,7 +111,7 @@ Analog zum Call Log wurden folgende Features aus dem Message Log extrahiert:
 
 
 \ignore{todo: refereces}
-Über den im Grundlagenkapitel bereits vorgestellten NotificationManager beziehungsweise einen NotificationListenerService kann auf dem Device der Nutzerin eine SQLite Datenbank angelegt werden,
+Über den im Grundlagenkapitel bereits vorgestellten NotificationManager beziehungsweise einen NotificationListenerService kann auf dem Gerät der Nutzerin eine SQLite Datenbank angelegt werden,
 in die alle während dem Studienzeitraum der Nutzerin gezeigten Notifications gespeichert werden.
 Die Spalten der SQLite Datenbank sind die Folgenden:
 \begin{description}
@@ -143,7 +143,7 @@ TODO: MEhr UsageStats + Auswahl App + Statistik
 Um vom Umfang der Arbeit im Rahmen einer Bachelorarbeit zu bleiben und gleichzeitig nicht einen größeren Eingriff in die Privatsphäre der Probandin als nötig zu tätigen,
 ist es notwendig, sich auf eine bestimmte Menge von Applikationen zu begrenzen, deren Notifications und UsageStats gesammelt werden sollen.
 
-Hierzu wurden folgende Applikationen ausgewählt.
+Hierzu wurden folgende Applikationen ausgewählt:
 \begin{description}
   \item [Google Hangouts] Crossplattform Kommunikationsdienst von Google. Auf aktuellen Android Smartphones vorinstalliert.
   \item [Whatsapp] Crossplattform Instant Messaging Client. Mit über einer Milliarde Nutzer die meistgenutzte Messaging Application\cite{whatsappuser}.
@@ -151,7 +151,7 @@ Hierzu wurden folgende Applikationen ausgewählt.
   \item [Facebook Messenger] Dedizierte Messenger Applikation von Facebook.
   \item [Skype] Dedizierte VoIP und Messaging Applikation zu Microsofts Skype mit über 600 Millionen Nutzern\cite{skypeuser}.
   \item [Telegram] Crossplattform Kommunikationsdienst, das sich durch verschiedene Sicherheitsoptionen von seiner Konkurrenz abhebt. Über 100 Millionen Nutzer\cite{telegramuser}.
-  \item [Twitter] Social Microblogging Service mit 300 Millionen aktiven Nutzern. Aufgrund der offenen API gibt es verschiedene Twitter Apps, von denen die größten betrachtet werden.
+  \item [Twitter] Social Microblogging Service mit 300 Millionen aktiven Nutzern. Aufgrund der offenen API gibt es verschiedene Twitter Apps, von denen die größten betrachtet werden:
   \begin{itemize}
       \item Offizielle Twitter App
       \item Carbon for Twitter
@@ -170,10 +170,9 @@ Hierzu wurden folgende Applikationen ausgewählt.
 
 Die Studie, die im Rahmen dieser Arbeit durchgeführt wird, untersucht zwei Datenpunkte.
 Zum einen die von der Applikation gesammelten Daten zum Nutzungsverhalten von zehn bestimmten Social Media und Instant Messaging Applikationen
-und zum anderen die zu der Nutzerin zugeordneten Extraversions- beziehungsweise Geselligkeitswerte aus einem Persönlichkeitstest.
+und zum anderen die zu der Nutzerin zugeordneten Extraversions-, beziehungsweise Geselligkeitswerte aus einem Persönlichkeitstest.
 Als für das Einschätzen des Nutzerverhaltens relevante Smartphonedaten wurde einerseits die Häufigkeit, Länge und Verteilung von  Anrufen und SMS bewertet,
 als auch die Notifications und UsageStat von zehn Kommunikations- und Social Media Applikationen.
-Zu 
 Dabei wird besonderes Augenmerk auf den Schutz der Privatsphäre der Nutzerin und deren Daten gelegt.
 Bis auf das Ausfüllen des Persönlichkeitstests, dem Aufsetzen der Applikation und dem Exportieren der Daten am Ende der Studie sollen die Nutzerinnen nicht behelligt werden.
 

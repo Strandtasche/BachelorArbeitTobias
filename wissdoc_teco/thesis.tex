@@ -19,6 +19,9 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{csvsimple}
+\usepackage[toc,page]{appendix}
+\usepackage{pdfpages}
+\usepackage{lscape}
 % \usepackage{fancybox} % für schattierte,ovale Boxen etc.
 % \usepackage{tabularx} % automatische Spaltenbreite
 % \usepackage{supertab} % mehrseitige Tabellen
@@ -166,8 +169,40 @@ zusammenf  % Zusammenfassung der Ergebnisse und Ausblick
 %% Anhang
 %% ++++++++++++++++++++++++++++++++++++++++++
 
+\cleardoublepage
+\phantomsection
+
+
 \appendix
-\include{anhang_a}
+\begin{appendices}
+\includepdf[pages={1}]{images/BA_Auswertung_Personality.pdf}
+%\begin{landscape}
+\includepdf[pages={1}]{images/BA_Auswertung_CallLog.pdf}
+\includepdf[pages={1}]{images/BA_Auswertung_MessageLog.pdf}
+\includepdf[pages={1}]{images/BA_Auswertung_AppTotal.pdf}
+\end{appendices}
+%\end{landscape}
+
+
+
+%\begin{appendices}
+
+%\csvautotabular{personality.csv}
+
+%\csvreader[tabular=|l|l|l|l|l|l|l|l,
+%    table head=\hline Proband Nummer & Herzlichkeit & Geselligkeit & Durchsetzungsvermögen & Aktivität & Erlebnishunger & Frohsinn & Extraversion \\\hline,
+%    late after line=\\\hline]%
+%{personality.csv}{Proband=\probN,Herzlichkeit=\herz,Geselligkeit=\ges, Durchsetzungsvermögen=\durch, Aktivität=\akt, Erlebnishunger=\erl, positiv. Gefühle=\fro,Extraversion=\ext}%
+%{\thecsvrow & \probN & \herz & \ges}%
+
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics{images/BA_Auswertung_Personality}
+%    \caption{Ergebnisse NEO-PI-R}
+%    \label{Anhang1}
+%\end{figure}
+
+%\end{appendices}
 %\include{anhang_b}
 
 %% ++++++++++++++++++++++++++++++++++++++++++

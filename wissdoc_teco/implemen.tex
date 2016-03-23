@@ -6,15 +6,15 @@
 \label{ch:Implementierung}
 %% ==============================
 Die Android Applikation, die im Rahmen dieser Arbeit die Daten auf den Smartphones der Probandinnen sammelt, wurde für Android 5.0 "`Lollipop"' implementiert.
-Sie kann grob in vier Komponenten eingeteilt werden, von denen drei jeweils den entsprechenden zu Sammelnden Daten zugeordnet werden können und das vierte sich mit dem Export der gesammelten Daten beschäftigt.
+Sie kann grob in vier Komponenten eingeteilt werden, von denen drei jeweils den entsprechenden zu sammelnden Daten zugeordnet werden können und das vierte sich mit dem Export der gesammelten Daten beschäftigt.
 
 Da die Applikation darauf ausgelegt ist, nur minimale Interaktion mit der Nutzerin zu haben,
 ist das User Interface bewusst minimalistisch gewählt (vergleiche Abbildung \ref{fig:uiscreen}).
 Relevant für die Nutzerin sind bei korrekter Ausführung nur die farblich markierten Buttons und das Textfeld am unteren Bildschirmrand.
 
-Die erste Reihe an Buttons dient dazu auch ohne die Möglichkeit Debuglogs zu lesen sicherstellen zu können, dass die Datenbank in der die Applikation die Notifications aufzeichnet nach dem Aufsetzen korrekt arbeitet.
-Die Buttons in der zweiten Zeile sind für Verteilen der nichttrivialen Berechtigung, die die Applikation benötigt, durch die Nutzerin bestimmt.
-Der große grüne Knopf mit der Aufschrift "`DB Export"' wird von der Nutzerin benutzt sobald die Studie abgeschlossen ist um die gesammelten Daten zu exportieren.
+Die erste Reihe an Buttons dient dazu auch ohne die Möglichkeit Debuglogs zu lesen, sicherstellen zu können, dass die Datenbank in der die Applikation die Notifications aufzeichnet nach dem Aufsetzen korrekt arbeitet.
+Die Buttons in der zweiten Zeile ermöglichen das Erteilen der nichttrivialen Berechtigung, die die Applikation benötigt, durch die Nutzerin.
+Der große grüne Knopf mit der Aufschrift "`DB Export"' wird von der Nutzerin benutzt, sobald die Studie abgeschlossen ist, um die gesammelten Daten zu exportieren.
 Die Buttons in den Reihen vier und sechs sind wie schon die in der ersten Reihe dafür konzipiert, die korrekte Funktionsweise der Applikation zu gewährleisten.
 Der mit dem Wort "`Info"' beschriftete Button in der fünften Zeile öffnet das Impressum der Applikation in einem AlertDialog.
 Die siebte und unterste Reihe beinhaltet ein Textfeld und einen diesem zugehörigen "`Set Name"' Button.
@@ -29,9 +29,9 @@ Mit diesem kann die Nutzerin das von ihr gewählte und auf dem NEO-PI-R Fragebog
 
 \section{Call und Message Logs}
 
-Um mit der eigenen Applikation auf die vom Android Betriebssystem gesammelten Logs zu Anrufen und SMS zugreifen zu dürfen müssen die Berechtigungen 
+Um mit der eigenen Applikation auf die vom Android Betriebssystem gesammelten Logs zu Anrufen und SMS zugreifen zu dürfen, müssen die Berechtigungen 
 \textbf{android.permission.READ\_CALL\_LOG} und \textbf{android.permission.READ\_SMS} erteilt werden.
-Diese können vom Programmierer in der AndroidManifest.xml Datei beantragt werden und da können, da sie keine besonderen Permissions sind,
+Diese können vom Programmierer in der AndroidManifest.xml Datei beantragt werden und können, da sie keine besonderen Permissions sind,
 von der Nutzerin beim Installationsvorgang bestätigt werden.
 \par
 Mit dem Android \emph{contentResolver} kann nun eine Query durchgeführt werden, mit der die Applikation random read access auf die zurückgegebenen Daten erhält (siehe Code \ref{calllogquery}).
@@ -56,7 +56,7 @@ Die so gewonnen Daten werden im selben Objekt wie die Daten des Call Logs und we
 \section{Datenbank}
 
 Die Datenbank in der die von der Applikation gelesenen Notifications gespeichert werden ist eine SQLite Datenbank.
-Dies ist naheliegend, da Android vollständigen Support für SQLite Datenbanken anbietet und wird von Haus aus SQLite Version 3.4 ausgeliefert.
+Dies ist naheliegend, da Android vollständigen Support für SQLite Datenbanken anbietet und wird standardmässig mit SQLite Version 3.4 ausgeliefert.
 Die Erstellung der Datenbank wird von \emph{MySQLiteHelper}, einer Subklasse von SQLiteOpenHelper in der \emph{onCreate()} Methode durchgeführt.
 An diesem Ort wird auch das Layout der Datenbank ausgewählt:
 
@@ -71,7 +71,7 @@ An diesem Ort wird auch das Layout der Datenbank ausgewählt:
 \end{lstlisting}
 
 Hier werden die für das Anlegen der Datenbank relevanten Strings angelegt:
-Die Name der Datenbank, der Name der Tabelle in der Datenbank und die Namen der Spalten werden daraufhin daraufhin genutzt um den SQL Befehl zum Anlegen der Datenbank zusammenzusetzen.
+Der Name der Datenbank, der Name der Tabelle in der Datenbank und die Namen der Spalten werden daraufhin daraufhin genutzt, um den SQL Befehl zum Anlegen der Datenbank zusammenzusetzen.
 
 \begin{lstlisting}[frame=single, caption = Datenbank Creation String, label=databasecreation] 
     private static final String DATABASE_CREATE = "create table "
@@ -80,12 +80,12 @@ Die Name der Datenbank, der Name der Tabelle in der Datenbank und die Namen der 
 
 \end{lstlisting}
 
-Wie zu sehen wird hier eine Tabelle namens "`notificationEntries"' angelegt, mit fünf Spalten.
-In de ersten Spalte, der Spalte des primären Schlüssels, steht eine eindeutige ID, die mit weiteren hinzugefügten Zeilen selbstständig steigt.
-In den restlichen Spalten stehen jeweils die relevanten Inhalte der Notifications, also absendende Applikation, der gehashte Titel und die Länge des Notificationtextes, als String und der Timestamp als Integer. 
-Hier wird schon bei der Datenbankerstellung festgelegt, dass all diese Werte nicht leer sein dürfen.
+Wie zu sehen, wird hier eine Tabelle namens "`notificationEntries"' angelegt, mit fünf Spalten.
+In der ersten Spalte, der Spalte des primären Schlüssels, steht eine eindeutige ID, die mit weiteren hinzugefügten Zeilen selbstständig steigt.
+In den restlichen Spalten stehen jeweils die relevanten Inhalte der Notifications also absendende Applikation, der gehashte Titel und die Länge des Notificationtextes, als String und der Timestamp als Integer. 
+Hier wird schon bei der Datenbankerstellung festgelegt, dass alle diese Werte nicht leer sein dürfen.
 
-die überschriebene \emph{onCreate()} Methode führt dann nur noch den hier festgelegten Tabellenerstellungsbefehl auf der Datenbank aus.
+Die überschriebene \emph{onCreate()} Methode führt dann nur noch den hier festgelegten Tabellenerstellungsbefehl auf der Datenbank aus.
 
 \begin{lstlisting}[frame=single, caption = onCreate Methode, label=databaseoncreate] 
   public void onCreate(SQLiteDatabase database) {
@@ -93,7 +93,7 @@ die überschriebene \emph{onCreate()} Methode führt dann nur noch den hier fest
     } 
 \end{lstlisting}
 
-Neue Zeilen in der Tabelle können angelegt werden, indem ein ein \emph{ContentValues} Object gefüllt 
+Neue Zeilen in der Tabelle können angelegt werden, indem ein \emph{ContentValues} Object gefüllt 
 mit Tupeln aus den Spaltennamen und dem einzutragenden Wert angelegt wird und dieses dann mit der Methode \emph{insert} in die Datenbank eingesetzt wird.
 
 \begin{lstlisting}[frame=single, caption = Einfügen in die Datenbank, label=databaseinsert] 
@@ -121,7 +121,7 @@ Zum Exportieren der Tabelle reicht es eine allgemeine Query auszuführen, die al
 
 Für den Export der gesammelten Daten wird im AndroidManifest.xml die Berechtigung \textbf{android.permission.WRITE\_EXTERNAL\_STORAGE}
 benötigt. 
-Diese ist keine außergewöhnliche Berechtigung und kann wie die zum Zugang zu Call und Message Log bei der Installation der Applikation beantragt werden.
+Diese ist keine außergewöhnliche Berechtigung und kann, wie die zum Zugang zu Call und Message Log, bei der Installation der Applikation beantragt werden.
 \par
 Die gesammelten Daten werden in drei Dateien in einem eigenen Ordner im \emph{ExternalStorageDirectory} des Smartphones gespeichert werden.
 Sie werden als Comma Separated Values (csv) gespeichert.
@@ -139,8 +139,8 @@ Dies geschieht um um das potenziell automatisierte Auswerten im Rahmen der Evalu
 
 Mit Hilfe von OpenCSV, einer einfachen Library zum Lesen und Schreiben von CSV Dateien \cite{opencsv},
 wird zunächst die gesamte SQL Tabelle \textbf{TABLE\_NOTIFICATIONENTRIES} wie in Code \ref{databaseexport} angefragt und dann zeilenweise in eine Datei geschrieben.
-Der Inhalt des callData Objekts wird als String entgegen genommen und nachdem es in einen StringArray gesplittet wurde, spaltenweise in die zweite Datei geschrieben.
-In die dritte Datei werden die UsageStat Daten Spaltenweise unter die zugehörigen Package Namen geschrieben.
+Der Inhalt des callData Objekts wird als String entgegengenommen und nachdem es in einen StringArray gesplittet wurde, spaltenweise in die zweite Datei geschrieben.
+In die dritte Datei werden die UsageStat Daten spaltenweise unter die zugehörigen Package Namen geschrieben.
 \par
 An alle Dateinamen wird die UserID der Nutzerin, aus der SharedPreference in der sie gespeichert wird, als Suffix angehängt um eine Zuordnung der Daten zu den Auswertungsergebnissen der Fragebögen zu ermöglichen.
 
@@ -148,43 +148,44 @@ An alle Dateinamen wird die UserID der Nutzerin, aus der SharedPreference in der
 
 \section{Geräte Tests}
 
-Die Applikation wurde auf zwei Geräten getestet.
-Einerseits dem eigenen OnePlus One Smartphone, als primäres Entwicklungsgerät und andererseits einem Motorola E (2nd Generation) als Leihgerät des TECOs
+Die Applikation wurde auf zwei Geräten getestet:
+Einerseits auf dem eigenen OnePlus One Smartphone, als primäres Entwicklungsgerät und andererseits einem Motorola E (2nd Generation) als Leihgerät des Tecos.
 Wichtig waren hierbei die verschiedenen Spezifikationen:
 Das OnePlus One ein Oberklasse Smartphone mit einem aktuellen 2.5GHz Quad-Core CPU, 3GB RAM und einem 5,5 Zoll 1920x1080 Pixel Display \cite{oneplusone}
 während das deutlich preisgünstigere Moto E (2nd Gen) nur einen 1.2GHz Quad-Core CPU, 1GB RAM und ein 4,5 Zoll 540x960 Pixel Display hat \cite{motoe}.
 Auch in der Kapazität des Akkus spiegelt sich dieser Klassenunterschied wieder.
-Da nicht davon ausgegangen werden kann, dass alle Probandinnen über Smartphones mit ähnlicher oder höherer Leistung verglichen mit dem OnePlus One haben, muss die Applikation auch auf weniger starken Geräten einwandfrei funktionieren.
-Dies ist unabwendbar um den komplikationsfreie Ablauf der Studie zu gewährleisten und mögliche Verluste von gesammelten Daten zu vermeiden.
+Da nicht davon ausgegangen werden kann, dass alle Probandinnen über Smartphones mit ähnlicher oder höherer Leistung verglichen mit dem OnePlus One verfügen, muss die Applikation auch auf weniger starken Geräten einwandfrei funktionieren.
+Dies ist notwendig, um den komplikationsfreien Ablauf der Studie zu gewährleisten und mögliche Verluste von gesammelten Daten zu vermeiden.
  
 
 \section{Vorstudie}
 
-Gegen Ende der Implementierung, nach dem groben Testen aller zu implementierenden Funktionalitäten, wurde eine kleine Vorstudie durchgeführt um potenzielle Probleme bei der Hauptstudie frühzeitig zu entdecken und zu beheben, bevor sie negativen Einfluss auf die eigentliche Studie nehmen können.
+Gegen Ende der Implementierung, nach dem groben Testen aller zu implementierenden Funktionalitäten, wurde eine kleine Vorstudie durchgeführt.
+Dies geschah um potenzielle Probleme bei der Hauptstudie frühzeitig zu entdecken und zu beheben, bevor sie negativen Einfluss auf die eigentliche Studie nehmen können.
 Dazu wurde eine Vorabversion der entwickelten Applikation bei drei freiwilligen Testprobandinnen installiert.
 Sie sollten über fünf Tage die Applikation im Hintergrund laufen lassen, sie auf Fehlverhalten untersuchen und die von der Applikation gesammelten Daten validieren.
 Alle drei Freiwillige sind Informatikstudentinnen, zwischen 21 und 25 Jahren alt und erfahrene Smartphone User, mit mehreren aktiv benutzten Kommunikationsapplikationen.
 Die verwendeten Smartphones waren jeweils ein OnePlus One, ein OnePlus Two und ein Google Nexus 5.
 \par
 Jede der drei Freiwilligen bestätigte, dass die von der Applikation aufgezeichneten Daten korrekt waren.
-Angemerkt wurde, jedoch das Userinterface relativ verworren sei und selbst mit Instruktionen, wie die Applikation aufzusetzen sei, dies, vorallem für weniger technologieaffine Probandinnen, relativ fehleranfällig sein wird.
+Angemerkt wurde jedoch, dass das Userinterface relativ verworren sei und selbst mit Instruktionen, wie die Applikation aufzusetzen sei, dies, vorallem für weniger technologieaffine Probandinnen, relativ fehleranfällig sein wird.
 Eine der Probandinnen bemerkte, dass ein nicht zu vernachlässigender Teil ihrer Kommunikation, die über eine Applikation namens Signal laufe, nicht aufgezeichnet werde.
 Auch die Wahl der Twitterclients wurde als nicht repräsentativ angemerkt:
 Der Twitterclient "`Falcon Pro"' solle berücksichtigt werden.
 Positiv wurde bemerkt, dass die Applikation nach dem Aufsetzen sehr ressourcensparend sei und keinerlei zusätzliche Interaktion von der Nutzerin benötigt.
 Bei keiner der Freiwilligen kam es zu Abstürzen oder nicht vorgesehenem Verhalten. Auch nach mehrfachem Neustarten verrichtete die Applikation ihre Dienste wie beabsichtigt.
 \par
-Als Reaktion auf das Feedback aus der Vorstudie wurden folgende Dinge an der Applikation geändert.
+Als Reaktion auf das Feedback aus der Vorstudie wurden folgende Dinge an der Applikation geändert:
 Das Interface wurde überarbeitet und in einen übersichtlicheren, harmonischeren Zustand gebracht
 In diesem Rahmen wurden für das Aufsetzen relevante Buttons durch farbliches Hervorheben kenntlich gemacht.
 Die betrachteten Applikationen wurden um \emph{Falcon Pro}, einen weiteren Drittentwickler Twitterclient, und \emph{Signal}, einen allgemeine Kommunikationsapplikation mit starken Verschlüsselungs und Datenschutzfeatures, erweitert.
-Die Auswahl der zu betrachtenden Applikationen ist bereits mit dem Gedanken im Hinterkopf implementiert worden, das man potenziell später nocheinmal etwas hinzufügen oder entfernen will und ist dementsprechend modular.
+Die Auswahl der zu betrachtenden Applikationen ist bereits so implementiert worden, dass man potenziell später ohne größere Probleme noch etwas hinzufügen oder entfernen kann.
 Ansonsten wurde auf die Existenz des Android Features "`Privacy Guard"' hingewiesen, bei dem von der Testprobandin vermutet wurde, es könne mit dem Datensammeln interferieren.
 Dies war jedoch nicht der Fall.
 \par
-Beim Versuch des Übertragens der Daten auf einen Computer kam ein Konflikt mit einem älteren Bug des Android Betriebssystems, der von Google im Oktober 2012 anerkannt wurde, jedoch bis heute nicht gefixt wurde
+Beim Versuch des Übertragens der Daten auf einen Computer kam ein Konflikt mit einem älteren Bug des Android Betriebssystems auf, der von Google im Oktober 2012 anerkannt wurde, jedoch bis heute nicht gefixt wurde
 \cite{androidbug}.
-Während dieser Bug der eigentlichen App keine Probleme bereitet so ist erspart Kenntnis dieses Umstandes potenziellen Testprobandinnen eventuelle Unannehmlichkeiten und damit verbundene Frustration beim Ausliefern der gesammelten Daten.
+Während dieser Bug der eigentlichen App keine Probleme bereitet, erspart Kenntnis dieses Umstandes potenziellen Testprobandinnen eventuelle Unannehmlichkeiten und damit verbundene Frustration beim zurückführen der gesammelten Daten.
 
 
 %%% Local Variables: 
