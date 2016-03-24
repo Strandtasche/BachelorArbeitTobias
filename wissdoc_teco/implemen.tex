@@ -49,13 +49,30 @@ Die so gewonnen Daten werden im selben Objekt wie die Daten des Call Logs und we
   getContentResolver().query(CallLog.Calls.CONTENT_URI, new String[] { CallLog.Calls.NUMBER, CallLog.Calls.DATE, CallLog.Calls.DURATION, CallLog.Calls.TYPE }, CallLog.Calls.DATE + ">?", new String[] { String.valueOf(resetDate.getTime())}, null);
 \end{lstlisting}
 
-\section{Notification}
-
-TODO: Ausarbeiten mit Analyse/Entwurf
-
 \section{NotificationListenerService}
 
-TODO: Ausarbeiten mit Analyse/Entwurf
+In der \emph{onCreate()} Methode der MainActivity wird der Service, wie in Code \ref{oncreateService} dargestellt, gestartet.
+Entsprechend dem Wesen eines Service bei Android läuft dieser nun im Hintergrund weiter, selbst wenn die Applikation, die ihn gestartet hat, stirbt.
+Sobald die Nutzerin die entsprechende Berechtigung erteilt, wird bei jeder eingehenden Notification die \emph{onNotificationPosted(StatusBarNotification sbn)} Methode mit der entsprechenden Notification als Argument aufgerufen.
+Der NotificationService, der gestartet wurde, ist eine Subklasse des NotificationListenerService, in dem die  \emph{onNotificationPosted()} Methode so überladen wurde,
+dass sie zusätzlich so ihrer normalen Funktion noch überprüft ob die absendende Applikation eine der zu betrachtenden Applikationen ist und falls dem der Fall ist, einen neuen Eintrag in der Datenbank anlegt.
+Dies geschieht wie in Code \ref{validpackage} veranschaulicht durch einen Zugriff auf das im Resourcen System abgelegte Array, das die relevanten Applikationen enthält. 
+Das Android Resource System verwaltet alle Nicht-Code Assets der Applikation.
+Das so erhaltene Array wird in ein HashSet übertragen, sodass mit dem Aufruf der \emph{contains()} Methode effizient überprüft werden kann ob sich die absendende Applikation unter den relevanten befindet.
+
+
+\begin{lstlisting}[frame=single, caption = startService(), label=oncreateService] 
+  private Intent intentService;
+  //...
+  intentService = new Intent(this, NotificationService.class);
+  startService(intentService);
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single, caption = Package Überprüfung, label=validpackage] 
+String[] temp = context.getResources().getStringArray(R.array.package_array);
+        validPackages = new HashSet<>(Arrays.asList(temp));
+\end{lstlisting}
+
 
 
 \section{Datenbank}
