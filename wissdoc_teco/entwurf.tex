@@ -21,13 +21,13 @@ Das heißt, dass aufgrund der Rückwärtskompabilität auch alle neueren Geräte
 %%Von anderen Aspekten der Applikation benötigte API Levels waren:
 
 Die Entwurfsentscheidung über das zu nutzende API Level ist immer eine Abwägung;
-Auf der einen Seite steht das niedrigere API Level, das wie im Grundlagenkapitel \ref{ch:Grundlagen} beschrieben, 
+Auf der einen Seite steht das niedrigere API Level, das wie im Kapitel \ref{ch:Grundlagen} beschrieben, 
 eine breitere Menge an potenziellen Testprobandinnen eröffnet.
 Andererseits haben höhere API Level oft viele Verbesserungen und neue Schnittstellen mit denen Entwickler mehr Funktionalität erreichen können.
 \par
-Die Entscheidung für das relativ aktuelle API Level 21 ist motiviert davon, 
-dass der potenzielle Pool von Testprobandinnen im Umfeld der Informatik oft über aktuellere Smartphones und Android Versionen verfügt
-und dass mit Level 21 einige Neuerungen im Bereich der Aufzeichnung von Applikationsaktivität hinzugefügt wurden.
+Die Entscheidung für das relativ aktuelle API Level 21 ist auch davon motiviert , 
+% dass der potenzielle Pool von Testprobandinnen im Umfeld der Informatik oft über aktuellere Smartphones und Android Versionen verfügt
+dass mit Level 21 einige Neuerungen im Bereich der Aufzeichnung von Applikationsaktivität hinzugefügt wurden.
 
 Untermauert wird dies von der bereits im vorangehenden Kapitel vorgestellten Statistik \ref{fig:androidplatformdistr}  von Google\cite{androiddistr}, 
 die Android 5.0 "`Lollipop"' mit 36.1\% als die meistgenutzte Version des Android Betriebssystems.
@@ -119,7 +119,7 @@ Analog zum Call Log wurden folgende Features aus dem Message Log extrahiert:
 
 
 \ignore{todo: refereces}
-Über den im Grundlagenkapitel bereits vorgestellten NotificationManager beziehungsweise einen NotificationListenerService kann auf dem Gerät der Nutzerin eine SQLite Datenbank angelegt werden,
+Über den im Grundlagenkapitel bereits vorgestellten NotificationManager, beziehungsweise einen NotificationListenerService, kann auf dem Gerät der Nutzerin eine SQLite Datenbank angelegt werden,
 in die alle während dem Studienzeitraum der Nutzerin gezeigten Notifications gespeichert werden.
 Die Spalten der SQLite Datenbank sind die Folgenden:
 \begin{description}
@@ -134,7 +134,7 @@ Im Sinne des Schutzes der Privatsphäre beinhalten diese Einträge nicht exakt d
 So wird der Titel der Notification mit dem SHA-1 Hash\cite{sha1def} gehasht.
 SHA-1 ist eine 1995 von US Amerikanischen Nachrichtendienst NSA veröffentlichte kryptographische Hashfunktion\cite{sha1proposal}.
 Dies führt dazu, dass für die Auswertung der Studie zwar zwischen zwei verschiedenen Absendern von Nachrichten unterschieden werden kann, diese aber nicht frei zu erkennen sind.
-Ebenso speichert die Applikation für die Studie nur die Länge der erhaltenen Nachrichten und nicht deren Inhalt, da dies ein sehr harter Eingriff in die Privatssphäre wäre.
+Ebenso speichert die Applikation für die Studie nur die Länge der erhaltenen Nachrichten und nicht deren Inhalt, da dies ein sehr schwerwiegender Eingriff in die Privatssphäre wäre.
 Der Zeitpunkt wird im Datenformat Millisekunden seit Epoch angegeben.
 
 
@@ -148,8 +148,11 @@ TODO: MEhr UsageStats + Auswahl App + Statistik
 
 \subsection{Auswahl Applikationen}
 
-Um vom Umfang der Arbeit im Rahmen einer Bachelorarbeit zu bleiben und gleichzeitig nicht einen größeren Eingriff in die Privatsphäre der Probandin als nötig zu tätigen,
-ist es notwendig, sich auf eine bestimmte Menge von Applikationen zu begrenzen, deren Notifications und UsageStats gesammelt werden sollen.
+Alle verwendeten Apps aller Probandinnen zu betrachten und im Hinblick auf ihre Signifikanz bezüglich der Geselligkeit festzustellen würde den Rahmen einer Bachelorarbeit überschreiten.
+Außerdem wäre dies ein größerer Eingriff in die Privatsphäre der Probandin als notwendig.
+Deshalb wurde sich auf eine bestimmte Menge von Applikationen begrenzt, deren Notifications und UsageStats gesammelt werden sollen.
+
+%Um vom Umfang der Arbeit im Rahmen einer Bachelorarbeit zu bleiben und gleichzeitig nicht einen größeren Eingriff in die Privatsphäre der Probandin als nötig zu tätigen,
 
 Hierzu wurden folgende Applikationen ausgewählt:
 \begin{description}
@@ -182,7 +185,7 @@ und zum anderen die zu der Nutzerin zugeordneten Extraversions-, beziehungsweise
 Als für das Einschätzen des Nutzerverhaltens relevante Smartphonedaten wurde einerseits die Häufigkeit, Länge und Verteilung von  Anrufen und SMS bewertet,
 als auch die Notifications und UsageStat von zehn Kommunikations- und Social Media Applikationen.
 Dabei wird besonderes Augenmerk auf den Schutz der Privatsphäre der Nutzerin und deren Daten gelegt.
-Bis auf das Ausfüllen des Persönlichkeitstests, dem Aufsetzen der Applikation und dem Exportieren der Daten am Ende der Studie sollen die Nutzerinnen nicht behelligt werden.
+Bis auf das Ausfüllen des Persönlichkeitstests, dem Aufsetzen der Applikation und dem Exportieren der Daten am Ende der Studie sollen die Nutzerinnen nicht weiter belastet werden.
 
 
 %%% Local Variables: 

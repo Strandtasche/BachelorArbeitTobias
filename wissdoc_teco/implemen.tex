@@ -55,7 +55,7 @@ In der \emph{onCreate()} Methode der MainActivity wird der Service, wie in Code 
 Entsprechend dem Wesen eines Service bei Android läuft dieser nun im Hintergrund weiter, selbst wenn die Applikation, die ihn gestartet hat, stirbt.
 Sobald die Nutzerin die entsprechende Berechtigung erteilt, wird bei jeder eingehenden Notification die \emph{onNotificationPosted(StatusBarNotification sbn)} Methode mit der entsprechenden Notification als Argument aufgerufen.
 Der NotificationService, der gestartet wurde, ist eine Subklasse des NotificationListenerService, in dem die  \emph{onNotificationPosted()} Methode so überladen wurde,
-dass sie zusätzlich so ihrer normalen Funktion noch überprüft ob die absendende Applikation eine der zu betrachtenden Applikationen ist und falls dem der Fall ist, einen neuen Eintrag in der Datenbank anlegt.
+dass sie zusätzlich so ihrer normalen Funktion noch überprüft ob die absendende Applikation eine der zu betrachtenden Applikationen ist und falls dem der Fall ist, wie in Sektion \ref{ch:Implementierung:sec:Datenbank} beschrieben, einen neuen Eintrag in der Datenbank anlegt.
 Dies geschieht wie in Code \ref{validpackage} veranschaulicht durch einen Zugriff auf das im Resourcen System abgelegte Array, das die relevanten Applikationen enthält. 
 Das Android Resource System verwaltet alle Nicht-Code Assets der Applikation.
 Das so erhaltene Array wird in ein HashSet übertragen, sodass mit dem Aufruf der \emph{contains()} Methode effizient überprüft werden kann ob sich die absendende Applikation unter den relevanten befindet.
@@ -76,6 +76,8 @@ String[] temp = context.getResources().getStringArray(R.array.package_array);
 
 
 \section{Datenbank}
+\label{ch:Implementierung:sec:Datenbank}
+
 
 Die Datenbank in der die von der Applikation gelesenen Notifications gespeichert werden ist eine SQLite Datenbank.
 Dies ist naheliegend, da Android vollständigen Support für SQLite Datenbanken anbietet und wird standardmässig mit SQLite Version 3.4 ausgeliefert.
@@ -131,7 +133,8 @@ if (validPackages.contains(pack)) {
         }
 \end{lstlisting}
 
-Zum Exportieren der Tabelle reicht es eine allgemeine Query auszuführen, die alle Zeilen zurück gibt, wie in Code \ref{databaseexport}.
+Zum Exportieren der Tabelle reicht es eine allgemeine Query auszuführen, die alle Zeilen zurück gibt, wie in Code 
+\ref{databaseexport}.
 
 \begin{lstlisting}[frame=single, caption = Einfügen in die Datenbank, label=databaseexport] 
   db.rawQuery("SELECT * FROM " + MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,null); 
@@ -156,7 +159,7 @@ Die Daten werden in die drei Dateien getrennt:
 \end{enumerate}
 %nach Notification Daten, Anruf beziehungsweise SMS Daten und UsageStat Daten,
 
-Dies geschieht um um das potenziell automatisierte Auswerten im Rahmen der Evaluation zu vereinfachen.
+Dies geschieht um das potenziell automatisierte Auswerten im Rahmen der Evaluation zu vereinfachen.
 \par
 
 Mit Hilfe von OpenCSV, einer einfachen Library zum Lesen und Schreiben von CSV Dateien \cite{opencsv},
@@ -169,15 +172,18 @@ An alle Dateinamen wird die UserID der Nutzerin, aus der SharedPreference in der
 
 \section{Geräte Tests}
 
-Die Applikation wurde auf zwei Geräten getestet:
-Einerseits auf dem eigenen OnePlus One Smartphone, als primäres Entwicklungsgerät und andererseits einem Motorola E (2nd Generation) als Leihgerät des Tecos.
-Wichtig waren hierbei die verschiedenen Spezifikationen:
-Das OnePlus One ein Oberklasse Smartphone mit einem aktuellen 2.5GHz Quad-Core CPU, 3GB RAM und einem 5,5 Zoll 1920x1080 Pixel Display \cite{oneplusone}
-während das deutlich preisgünstigere Moto E (2nd Gen) nur einen 1.2GHz Quad-Core CPU, 1GB RAM und ein 4,5 Zoll 540x960 Pixel Display hat \cite{motoe}.
-Auch in der Kapazität des Akkus spiegelt sich dieser Klassenunterschied wieder.
-Da nicht davon ausgegangen werden kann, dass alle Probandinnen über Smartphones mit ähnlicher oder höherer Leistung verglichen mit dem OnePlus One verfügen, muss die Applikation auch auf weniger starken Geräten einwandfrei funktionieren.
+Da nicht davon ausgegangen werden kann, dass alle Probandinnen über Smartphones mit vergleichbarer Leistung verfügen, muss die Applikation auch auf weniger leistungsstarken Geräten einwandfrei funktionieren.
 Dies ist notwendig, um den komplikationsfreien Ablauf der Studie zu gewährleisten und mögliche Verluste von gesammelten Daten zu vermeiden.
- 
+Um dies zu sicher zu stellen wurde die Applikation auf zwei Geräten an verschiedenen Enden des Leistungsspektrums getestet:
+Einerseits auf dem OnePlus One Smartphone, als primäres Entwicklungsgerät und Vertreter der leistungsstärkeren Smartphones und andererseits einem Motorola E (2nd Generation) als Vertreter für weniger leistungsstarke Smartphones eingesetzt wurde.
+Wichtig waren hierbei die verschiedenen Spezifikationen:
+Das OnePlus One ein Smartphone mit einem aktuellen 2.5GHz Quad-Core CPU, 3GB RAM und einem 5,5 Zoll 1920x1080 Pixel Display \cite{oneplusone}
+während das Moto E (2nd Gen) als Vertreter der unteren Mittelklasse einen 1.2GHz Quad-Core CPU, 1GB RAM und ein 4,5 Zoll 540x960 Pixel Display hat \cite{motoe}.
+Ebenso ist verfügt das OnePlus Ones mit einem Akku mit 3100mAh über mehr Energiereserven als das Moto E, dessen Akku über nur 2390mAh verfügt.
+\par
+Die Gerätetests waren erfolgreich, das Ausführen der Applikation beanspruchte auch auf dem signifikant schwächeren Gerät keine bemerkbaren Mengen an Ressourcen.
+
+
 
 \section{Vorstudie}
 
@@ -185,11 +191,11 @@ Gegen Ende der Implementierung, nach dem groben Testen aller zu implementierende
 Dies geschah um potenzielle Probleme bei der Hauptstudie frühzeitig zu entdecken und zu beheben, bevor sie negativen Einfluss auf die eigentliche Studie nehmen können.
 Dazu wurde eine Vorabversion der entwickelten Applikation bei drei freiwilligen Testprobandinnen installiert.
 Sie sollten über fünf Tage die Applikation im Hintergrund laufen lassen, sie auf Fehlverhalten untersuchen und die von der Applikation gesammelten Daten validieren.
-Alle drei Freiwillige sind Informatikstudentinnen, zwischen 21 und 25 Jahren alt und erfahrene Smartphone User, mit mehreren aktiv benutzten Kommunikationsapplikationen.
+Alle drei Freiwillige sind Informatikstudentinnen, zwischen 21 und 25 Jahren alt und regelmässige Smartphone User, mit jeweils mehreren aktiv benutzten Kommunikationsapplikationen.
 Die verwendeten Smartphones waren jeweils ein OnePlus One, ein OnePlus Two und ein Google Nexus 5.
 \par
 Jede der drei Freiwilligen bestätigte, dass die von der Applikation aufgezeichneten Daten korrekt waren.
-Angemerkt wurde jedoch, dass das Userinterface relativ verworren sei und selbst mit Instruktionen, wie die Applikation aufzusetzen sei, dies, vorallem für weniger technologieaffine Probandinnen, relativ fehleranfällig sein wird.
+Angemerkt wurde jedoch, dass das Userinterface relativ unübersichtlich sei und selbst mit Instruktionen, wie die Applikation aufzusetzen sei, dies, vorallem für weniger technologieaffine Probandinnen, relativ fehleranfällig sein könnte.
 Eine der Probandinnen bemerkte, dass ein nicht zu vernachlässigender Teil ihrer Kommunikation, die über eine Applikation namens Signal laufe, nicht aufgezeichnet werde.
 Auch die Wahl der Twitterclients wurde als nicht repräsentativ angemerkt:
 Der Twitterclient "`Falcon Pro"' solle berücksichtigt werden.
@@ -200,7 +206,8 @@ Als Reaktion auf das Feedback aus der Vorstudie wurden folgende Dinge an der App
 Das Interface wurde überarbeitet und in einen übersichtlicheren, harmonischeren Zustand gebracht
 In diesem Rahmen wurden für das Aufsetzen relevante Buttons durch farbliches Hervorheben kenntlich gemacht.
 Die betrachteten Applikationen wurden um \emph{Falcon Pro}, einen weiteren Drittentwickler Twitterclient, und \emph{Signal}, einen allgemeine Kommunikationsapplikation mit starken Verschlüsselungs und Datenschutzfeatures, erweitert.
-Die Auswahl der zu betrachtenden Applikationen ist bereits so implementiert worden, dass man potenziell später ohne größere Probleme noch etwas hinzufügen oder entfernen kann.
+%Die Auswahl der zu betrachtenden Applikationen ist bereits so implementiert worden, dass man potenziell später ohne größere Probleme noch etwas hinzufügen oder entfernen kann.
+Schon bei dem Entwurf der Applikation wurde darauf geachtet das Hinzufügen und Entfernen von betrachteten Applicationen einfach zu gestalten.
 Ansonsten wurde auf die Existenz des Android Features "`Privacy Guard"' hingewiesen, bei dem von der Testprobandin vermutet wurde, es könne mit dem Datensammeln interferieren.
 Dies war jedoch nicht der Fall.
 \par
