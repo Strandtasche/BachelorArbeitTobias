@@ -1,0 +1,11 @@
+,SummenwerteGeselligkeit,AmountCalls,AverageDuration,UniqueCaller,maxNoCall,MessagesAmount,AverageMessageLength,AmountAppsUsed,NotificationProTag,DurchschnittlicheNachrichtenLaengeGesamt
+SummenwerteGeselligkeit,1.00,-0.07,0.46,0.06,-0.04,-0.06,0.11,-0.22,-0.32,-0.24
+AmountCalls,-0.07,1.00,0.58,0.84,0.92,0.63,-0.18,-0.31,0.25,0.30
+AverageDuration,0.46,0.58,1.00,0.48,0.60,0.23,0.09,-0.28,-0.09,0.20
+UniqueCaller,0.06,0.84,0.48,1.00,0.60,0.43,-0.31,-0.25,0.53,0.21
+maxNoCall,-0.04,0.92,0.60,0.60,1.00,0.60,-0.10,-0.38,-0.02,0.36
+MessagesAmount,-0.06,0.63,0.23,0.43,0.60,1.00,-0.09,-0.05,-0.15,0.07
+AverageMessageLength,0.11,-0.18,0.09,-0.31,-0.10,-0.09,1.00,0.00,-0.21,-0.36
+AmountAppsUsed,-0.22,-0.31,-0.28,-0.25,-0.38,-0.05,0.00,1.00,-0.07,0.21
+NotificationProTag,-0.32,0.25,-0.09,0.53,-0.02,-0.15,-0.21,-0.07,1.00,0.24
+DurchschnittlicheNachrichtenLaengeGesamt,-0.24,0.30,0.20,0.21,0.36,0.07,-0.36,0.21,0.24,1.00
