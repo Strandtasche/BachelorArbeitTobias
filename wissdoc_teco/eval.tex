@@ -4,11 +4,8 @@
 \chapter{Evaluierung}
 \label{ch:Evaluierung}
 %% ==============================
-Hier kommt der Nachweis, dass das in Kapitel~\ref{ch:Entwurf}
-entworfene Konzept auch funktioniert. Leistungsmessungen einer
-Implementierung werden auch immer gerne gesehen.
 
-Bla fasel\ldots
+\ignore{hier ein einleitungssatz?}
 
 %% ==============================
 \section{Probandinnen}
@@ -97,6 +94,7 @@ Da der Studienleiterin nur die Pseudonyme der Probandinnen bekannt waren, gestal
 Mit sieben Tagen Verspätung und nach etlichen Nachrichten an verschiedene Teilnehmerinnen waren die gesammelten Daten dann vollständig.
 
 \section{Feedback}
+\label{feedback}
 
 Nach Abschluss der Studie wurden die Probandinnen dazu aufgefordert einen kurzen Feedback Fragebogen auszufüllen.
 Die gestellten Fragen "`Hat sich die Nutzung Ihres Smartphones während der Studie/durch die App verändert? Wie?"', "`Welche Kommunikations- oder Social Media-Apps verwendest du noch, welche nicht mitgeloggt wurden?"' und "`Freies Feedback: Gibt es noch etwas, dass ihr mir sagen möchtet?"' waren alle drei als Freitext Fragen gestellt.
@@ -124,7 +122,14 @@ Während dies unzweifelhalt wahr ist, so ist der Anspruch über Deutschland hina
 Für weitergehende Forschungen ist jedoch sicher viel Platz auf diesem Gebiet, unter anderem vielleicht dem Unterschied zwischen Applikationsverhalten in Europa, Nord- beziehungsweise Süd-Amerika und Asien. 
 \par
 
-TODO: Freies Feedback, e.g. DER FRAGEBOGEN
+%TODO: Freies Feedback, e.g. DER FRAGEBOGEN
+Im Feld für das freie Feedback wurde primär für Glückwünsche und humoristische Kommentare benutzt. 
+Jedoch wurden auch zwei Themen angesprochen, die für die Auswertung der Bachelorarbeit potenziell von Bedeutung sein können:
+Erstens, automatisierte SMS vom Telefonprovider werden nicht gefiltert und bedenken wurden geäußert, dass dies die Ergebnisse verfälscht, da solche SMS unabhängig vom Sozialverhalten erhalten werden.
+Dagegen spricht, dass eine oder zwei SMS mehr oder weniger bei durchschnittlich 30 SMS pro Teilnehmer nicht signifikant ins Gewicht fällt.
+Zweitens äußerten sich eine Vielzahl an Probandinnen abfällig über die Aussagekraft des Persönlichkeitstest und einige sagten sogar explizit, dass die vom Fragebogen in diese Richtung gestellten fragen nicht in der Lage seien eine gehaltvolle Aussage zu finden.
+Angeführt wurde missverständliche oder mehrdeutige Fragen und Fälle in denen Fragen mehrere Aspekte vermischen sodass eine differenzierte Aussage nicht möglich ist. 
+Auch bemerkt wurde, dass die Unterscheidung zwischen Verhalten im Freundeskreis und Verhalten in der Öffentlichkeit nicht getroffen wurde und so manche Fragen unterdefiniert sind.
 
 \section{Auswertung der Daten}
 
@@ -240,30 +245,33 @@ Nimmt man die durchschnittliche Dauert aller Telefonanrufe so ist deren p-Wert $
   summary(fit)
 \end{lstlisting}
 
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[]
+\centering
+\caption{p-Werte}
+\label{pvalues}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Geselligkeit $\sim$ X                     & p-Wert \\ \midrule
+Anzahl Anrufe                             & 0.7631 \\
+Anzahl ausgehender Anrufe                 & 0.4822 \\
+Durchschnittliche Anrufdauer              & 0.0256 \\
+Durchschnittliche ausgehende Anrufdauer   & 0.4806 \\
+Anzahl SMS                                & 0.8011 \\
+Notifications pro Tag                     & 0.1380 \\
+Durchschnittliche Notification Text Länge & 0.2675 \\ \bottomrule
+\end{tabular}
+\end{table}
+
 Die Korrelationsmatrix nach Pearson \ref{cormatrixpearson} zeigt, in der ersten Zeile, beziehungsweise ersten Spalte, für die zur Verfügung stehenden Daten, die Korrelation zwischen der Geselligkeit entsprechend dem NEO-PI-R Test und den Aspekten der Kommunikation.
 Die durchschnittliche Länge von Telefongesprächen ist der einzige der Werte, der mit $0.46$ größer als $0.4$ ist.
-In der Korrelationsmatrix nach Spearman \ref{cormatrixspearman} ist dies ebenfalls so: Hier ist die durchschnittliche Länge von Anrufen mit $0.59$ ebenfalls der mit Abstand größte Wert.
+In der Korrelationsmatrix nach Spearman \ref{cormatrixspearman} ist dies ebenfalls so: Hier ist die durchschnittliche Länge von Anrufen mit $0.59$ beinah um den Faktor zwei größer als alle anderen Werte.
 
-%\begin{landscape}
-%\begin{table}[]
-%\centering
-%\caption{verkleinerte Korrelationsmatrix nach Pearson}
-%\label{cormatrixpearson}
-%\begin{tabular}{@{}l|llllllllll@{}}
-%\cmidrule(l){2-11}
-%                                                               & \multicolumn{1}{l|}{SummenwerteGeselligkeit} & \multicolumn{1}{l|}{AmountCalls}                     & \multicolumn{1}{l|}{AverageDuration} & \multicolumn{1}{l|}{UniqueCaller}                   & \multicolumn{1}{l|}{maxNoCall} & \multicolumn{1}{l|}{MessagesAmount} & \multicolumn{1}{l|}{AverageMessageLength} & \multicolumn{1}{l|}{AmountAppsUsed} & \multicolumn{1}{l|}{NotificationProTag} & \multicolumn{1}{l|}{DurchschnittlicheNachrichtenLaengeGesamt} \\ \midrule
-%\multicolumn{1}{|l|}{SummenwerteGeselligkeit}                  & 1.00                                         & \cellcolor[HTML]{4FD22F}{\color[HTML]{333333} -0.07} & \cellcolor[HTML]{4FD22F}0.46         & \cellcolor[HTML]{4FD22F}{\color[HTML]{333333} 0.06} & \cellcolor[HTML]{4FD22F}-0.04  & \cellcolor[HTML]{4FD22F}-0.06       & \cellcolor[HTML]{4FD22F}0.11              & \cellcolor[HTML]{4FD22F}-0.22       & \cellcolor[HTML]{4FD22F}-0.32           & \cellcolor[HTML]{4FD22F}-0.24                                 \\ \cmidrule(r){1-1}
-%\multicolumn{1}{|l|}{AmountCalls}                              & \cellcolor[HTML]{4FD22F}-0.07                & 1.00                                                 & 0.58                                 & 0.84                                                & 0.92                           & 0.63                                & -0.18                                     & -0.31                               & 0.25                                    & 0.30                                                          \\ \cmidrule(r){1-1}
-%\multicolumn{1}{|l|}{AverageDuration}                          & \cellcolor[HTML]{4FD22F}0.46                 & 0.58                                                 & 1.00                                 & 0.48                                                & 0.60                           & 0.23                                & 0.09                                      & -0.28                               & -0.09                                   & 0.20                                                          \\ \cmidrule(r){1-1}
-%\multicolumn{1}{|l|}{UniqueCaller}                             & \cellcolor[HTML]{4FD22F}0.06                 & 0.84                                                 & 0.48                                 & 1.00                                                & 0.60                           & 0.43                                & -0.31                                     & -0.25                               & 0.53                                    & 0.21                                                          \\ \cmidrule(r){1-1}
-%\multicolumn{1}{|l|}{maxNoCall}                                & \cellcolor[HTML]{4FD22F}-0.04                & 0.92                                                 & 0.60                                 & 0.60                                                & 1.00                           & 0.60                                & -0.10                                     & -0.38                               & -0.02                                   & 0.36                                                          \\ \cmidrule(r){1-1}
-%\multicolumn{1}{|l|}{MessagesAmount}                           & \cellcolor[HTML]{4FD22F}-0.06                & 0.63                                                 & 0.23                                 & 0.43                                                & 0.60                           & 1.00                                & -0.09                                     & -0.05                               & -0.15                                   & 0.07                                                          \\ \cmidrule(r){1-1}
-%\multicolumn{1}{|l|}{AverageMessageLength}                     & \cellcolor[HTML]{4FD22F}0.11                 & -0.18                                                & 0.09                                 & -0.31                                               & -0.10                          & -0.09                               & 1.00                                      & 0.00                                & -0.21                                   & -0.36                                                         \\ \cmidrule(r){1-1}
-%\multicolumn{1}{|l|}{AmountAppsUsed}                           & \cellcolor[HTML]{4FD22F}-0.22                & -0.31                                                & -0.28                                & -0.25                                               & -0.38                          & -0.05                               & 0.00                                      & 1.00                                & -0.07                                   & 0.21                                                          \\ \cmidrule(r){1-1}
-%\multicolumn{1}{|l|}{NotificationProTag}                       & \cellcolor[HTML]{4FD22F}-0.32                & 0.25                                                 & -0.09                                & 0.53                                                & -0.02                          & -0.15                               & -0.21                                     & -0.07                               & 1.00                                    & 0.24                                                          \\ \cmidrule(r){1-1}
-%\multicolumn{1}{|l|}{DurchschnittlicheNachrichtenLaengeGesamt} & \cellcolor[HTML]{4FD22F}-0.24                & 0.30                                                 & 0.20                                 & 0.21                                                & 0.36                           & 0.07                                & -0.36                                     & 0.21                                & 0.24                                    & 1.00                                                          \\ \bottomrule
-%\end{tabular}
-%\end{table}
+\par
+Es scheint so als wäre es für die im Rahmen dieser Studie gesammelten Daten nicht möglich einen direkten Zusammenhang zwischen der Nutzung von Social Media und Instant Messaging und der Geselligkeit der Nutzer herzustellen.
+%TODO: Abschlussthese
+%TODO: Diskussion
 
 \begin{landscape}
 \begin{table}[]
@@ -287,26 +295,6 @@ In der Korrelationsmatrix nach Spearman \ref{cormatrixspearman} ist dies ebenfal
 \end{tabular}%
 }
 \end{table}
-
-%\begin{table}[]
-%\centering
-%\caption{verkleinerte Korrelationsmatrix nach Spearman}
-%\label{cormatrixspearman}
-%\begin{tabular}{lllllllllll}
-%                                         & SummenwerteGeselligkeit       & AmountCalls                  & AverageDuration              & UniqueCaller                 & maxNoCall                    & MessagesAmount               & AverageMessageLength         & AmountAppsUsed                & NotificationProTag            & DurchschnittlicheNachrichtenLaengeGesamt \\
-%SummenwerteGeselligkeit                  & 1.00                          & \cellcolor[HTML]{4FD22F}0.32 & \cellcolor[HTML]{4FD22F}0.59 & \cellcolor[HTML]{4FD22F}0.33 & \cellcolor[HTML]{4FD22F}0.34 & \cellcolor[HTML]{4FD22F}0.04 & \cellcolor[HTML]{4FD22F}0.04 & \cellcolor[HTML]{4FD22F}-0.25 & \cellcolor[HTML]{4FD22F}-0.11 & \cellcolor[HTML]{4FD22F}-0.22            \\
-%AmountCalls                              & \cellcolor[HTML]{4FD22F}0.32  & 1.00                         & 0.63                         & 0.95                         & 0.91                         & 0.29                         & -0.26                        & -0.33                         & 0.11                          & 0.02                                     \\
-%AverageDuration                          & \cellcolor[HTML]{4FD22F}0.59  & 0.63                         & 1.00                         & 0.63                         & 0.62                         & 0.29                         & 0.03                         & -0.26                         & 0.06                          & 0.06                                     \\
-%UniqueCaller                             & \cellcolor[HTML]{4FD22F}0.33  & 0.95                         & 0.63                         & 1.00                         & 0.77                         & 0.13                         & -0.31                        & -0.25                         & 0.22                          & 0.04                                     \\
-%maxNoCall                                & \cellcolor[HTML]{4FD22F}0.34  & 0.91                         & 0.62                         & 0.77                         & 1.00                         & 0.44                         & -0.21                        & -0.44                         & -0.03                         & 0.05                                     \\
-%MessagesAmount                           & \cellcolor[HTML]{4FD22F}0.04  & 0.29                         & 0.29                         & 0.13                         & 0.44                         & 1.00                         & 0.30                         & -0.08                         & -0.16                         & 0.01                                     \\
-%AverageMessageLength                     & \cellcolor[HTML]{4FD22F}0.04  & -0.26                        & 0.03                         & -0.31                        & -0.21                        & 0.30                         & 1.00                         & -0.05                         & 0.13                          & -0.29                                    \\
-%AmountAppsUsed                           & \cellcolor[HTML]{4FD22F}-0.25 & -0.33                        & -0.26                        & -0.25                        & -0.44                        & -0.08                        & -0.05                        & 1.00                          & 0.38                          & 0.18                                     \\
-%NotificationProTag                       & \cellcolor[HTML]{4FD22F}-0.11 & 0.11                         & 0.06                         & 0.22                         & -0.03                        & -0.16                        & 0.13                         & 0.38                          & 1.00                          & 0.17                                     \\
-%DurchschnittlicheNachrichtenLaengeGesamt & \cellcolor[HTML]{4FD22F}-0.22 & 0.02                         & 0.06                         & 0.04                         & 0.05                         & 0.01                         & -0.29                        & 0.18                          & 0.17                          & 1.00                                    
-%\end{tabular}
-%\end{table}
-%\end{landscape}
 
 \begin{table}[]
 \centering
@@ -332,12 +320,26 @@ In der Korrelationsmatrix nach Spearman \ref{cormatrixspearman} ist dies ebenfal
 \end{landscape}
 
 %% ==============================
-\section{Zusammenfassung}
+\section{Zusammenfassung und Fazit}
 %% ==============================
 \label{ch:Evaluierung:sec:zusammenfassung}
 
-Am Ende sollten ggf. die wichtigsten Ergebnisse nochmal in \emph{einem}
-kurzen Absatz zusammengefasst werden.
+Sowohl die Ergebnisse der Persönlichkeitsfragebögen als auch die auf den mobilen Endgeräten gesammelten Daten konnten erfolgreich gesammelt und aggregiert werden.
+Diese sind im Anhang aufgeführt.
+Dass kein Zusammenhang zwischen der Geselligkeit und den gesammelten Daten bezüglich Social Media und Instant Messaging festgestellt werden konnte kann eine Reihe an Gründen haben.
+Viele der Probandinnen waren als Informatikstudentinnen teil einer Bevölkerungsgruppe bei der anzunehmen ist, dass sie eine natürliche Disposition zu neuen, digitalen Technologien hat.
+Eine alternative Hypothese ist, dass es deshalb keinen Zusammenhang gibt, da gesellige und nicht gesellige Menschen aus unterschiedlichen Gründen beide zu beziehungsweise abgeneigt von Kommunikation per Smartphone sind.
+Gesellige Menschen nutzten das Smartphone um mehr mit den Menschen zu kommunizieren, weil sie eben jene Kommunikation positiv wahrnehmen,
+während die ungeselligen beziehungsweise introvertierten Menschen ihr Smartphone möglicherweise benutzen um Treffen von Angesicht zu Angesicht zu vermeiden und dementsprechend mehr auf diesem Wege kommunizieren.
+Ein Faktor ist sicher auch die relativ kurze Dauer der Studie, die in Mitten der Klausurphase von vielen Studenten lag.
+Wenn man die andere Seite betrachtet so scheinen vielleicht auch die numerischen Werte für die Geselligkeit nicht unbedingt eine adequate Repräsentation für diesen Persönlichkeitsaspekt der Probandinnen.
+Wie im Abschnitt \ref{feedback} beschrieben gaben mehrere Probandinnen an, sich nicht vom Fragebogen repräsentiert zu fühlen.
+Angeführte Gründe sind hier die fehlende Differenzierung zwischen dem Verhalten im Freundeskreis und bezüglich der allgemeinen Gesellschaft und veraltete oder unklare Fragestellungen.
+Natürlich ist es auch möglich, dass es tatsächlich keinen Zusammenhang gibt.
+Weiterführende Studien auf diesem Feld sollten in der Lage sein, dies festzustellen.
+
+
+
 
 %%% Local Variables: 
 %%% mode: latex
