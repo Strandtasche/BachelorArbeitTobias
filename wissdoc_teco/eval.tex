@@ -30,10 +30,10 @@ Die andere bemerkte zu spät, dass sie nur in einem zu kleinen Zeitfenster and d
 \label{ch:Entwurf:sec:Abschnitt2}
 
 Nachdem die Vorstudie, wie im vorangegangenen Kapitel beschrieben, abgeschlossen ist, und potenzielle kleine Änderungen an der Applikation durchgeführt wurden, beginnt die Hauptstudie.
-In dieser werden zunächst die Testprobandinnen ans Institut eingeladen, um dort den NEO-PI-R Fragebogen auszufüllen.
-Dazu werden circa drei bis vier Termine innerhalb einer Kalenderwoche angeboten, aus denen die Testprobandinnen wählen können.
+In dieser werden zunächst Probandinnen ans Institut eingeladen, um dort den NEO-PI-R Fragebogen auszufüllen.
+Dazu werden circa drei bis vier Termine innerhalb einer Kalenderwoche angeboten, aus denen die Probandinnen wählen können.
 Dies geschieht aus mehreren Gründen. 
-Erstens verringert dies, das Risiko, das manche Studienteilnehmerinnen aufgrund von terminlichen Konflikten nicht teilnehmen können.
+Erstens verringert dies das Risiko, dass manche Studienteilnehmerinnen aufgrund von terminlichen Konflikten nicht teilnehmen können.
 Zweitens sollen die Daten über einen möglichst ähnlichen Zeitraum gesammelt werden.
 Zuletzt ist es so, dass durch das Aufteilen der Probandengruppe eine persönlichere Atmosphäre beim Auftakt der Studie möglich ist
 und potenzielle Fragen im Zwiegespräch besser geklärt werden können.
@@ -45,7 +45,7 @@ Nachdem dies geschehen ist, werden die Probandinnen gebeten, sofern sie nach den
 Ein zweites Exemplar ist für die Probandin selbst, als von der Studienleiterin unterschriebenen Zusicherung, dass der Rücktritt von den Studie ohne Angabe von Gründen und ohne Nachteile für die Probandin zu jedem Zeitpunkt möglich ist.
 Sobald dies abgehandelt ist, können die Probandinnen beginnen den NEO-PI-R Persönlichkeitstest auszufüllen.
 Bevor dies geschieht, sollen die Probanden ein selbstgewähltes Pseudonym auf die zweite Seite des Tests schreiben, sodass die gesammelten Daten zu den Tests zugeordnet werden kann, ohne die Anonymität der Probandinnen einzuschränken.
-Das alles wird je nach Bearbeitungsgeschwindigkeit ungefähr 35 bis 45 Minuten einnehmen.
+Das alles nimmt je nach Bearbeitungsgeschwindigkeit ungefähr 35 bis 45 Minuten ein.
 \par
 Nachdem diese verstrichen sind, und alle Probandinnen ihren Test abgeschlossen haben, werden auch diese eingesammelt.
 Nun kann die Applikation auf den mitgebrachten Smartphones der Probandinnen installiert werden.
@@ -71,7 +71,7 @@ ist die Studie beendet.
 
 
 %% ==============================
-\section{Probleme während dem Studienablauf}
+\section{Probleme während des Studienablauf}
 %% ==============================
 
 Gleich zu Beginn der Studie, bei der Installation der Applikation, gab es bei einer Probandin Probleme mit der Android Version:
@@ -123,8 +123,7 @@ Für weitergehende Forschungen ist jedoch sicherlich viel Platz auf diesem Gebie
 \par
 
 %TODO: Freies Feedback, e.g. DER FRAGEBOGEN
-Das Feld für freies Feedback wurde primär für Glückwünsche und humoristische Kommentare benutzt. 
-Jedoch wurden auch zwei Themen angesprochen, die für die Auswertung der Bachelorarbeit potenziell von Bedeutung sein können:
+Im Feld für freies Feedback wurden zwei Themen angesprochen, die für die Auswertung der Bachelorarbeit potenziell von Bedeutung sein können:
 Erstens, automatisierte SMS vom Telefonprovider werden nicht gefiltert und bedenken wurden geäußert, dass dies die Ergebnisse verfälscht, da solche SMS unabhängig vom Sozialverhalten erhalten werden.
 Dagegen spricht, dass eine oder zwei SMS mehr oder weniger bei durchschnittlich 30 SMS pro Teilnehmer nicht signifikant ins Gewicht fallen.
 Zweitens äußerten sich eine Vielzahl an Probandinnen abfällig über die Aussagekraft des Persönlichkeitstest und einige sagten sogar explizit, dass die vom Fragebogen in diese Richtung gestellten Fragen nicht in der Lage seien eine gehaltvolle Aussage zu finden.
@@ -134,9 +133,9 @@ Auch bemerkt wurde, dass die Unterscheidung zwischen Verhalten im Freundeskreis 
 \section{Auswertung der Daten}
 
 Das Umsetzen der erhaltenen Daten in eine aussagekräftige Übersicht war für die gesammelten Call und Message Log Daten nicht notwendig, da sie bereits in einem solchen exportiert werden, für die Liste an Notifications ist dies jedoch dringend notwendig.
-Dafür wurde eine Java Command Line Applikation geschrieben, die Daten aus verschiedenen Dateien einließt und am Ende die aggregierten Daten in eine Datei schreibt.
+Dafür wurde eine Java Command Line Applikation geschrieben, die Daten aus verschiedenen Dateien einliest und am Ende die aggregierten Daten in eine Datei schreibt.
 \par
-Es wird ein Pfad zu dem Ordner in dem sich die zu betrachtenden Dateien befinden angegeben.
+Es wird ein Pfad zu dem Ordner, in dem sich die zu betrachtenden Dateien befinden, angegeben.
 Über alle in sich diesem Ordner befindlichen Datein wird iteriert und für jede wird zunächst der gesamte Inhalt der Datei mit der Methode \emph{readStringFromFile()} in einen String geschrieben.
 Mit der \emph{split()} Methode und dem regulären Ausdruck  $(\backslash r?\backslash n)|,|(\backslash t)$ wird der String in die Comma Separated Values aufgeteilt.
 Da die ursprüngliche Tabelle 5 Spalten hatte, sind nun die Attribute der i. Notification im Array in den Positionen $ [i * 5 + 0]$ bis $ [i * 5 + 4]$ gespeichert.
@@ -194,13 +193,13 @@ Die so aggregierten Daten werden dann in eine Datei geschrieben, von der sie dar
 
 \section{Ergebnisse}
 
-Die Auswertung der NEO-PI-R Fragebögen ergab, dass von den 23 Probanden, die letztendlich betrachtet wurden, drei eine hohe, elf eine durchschnittliche, eine eine niedrige und acht eine im Gesamtgesellschaftlichen Kontext sehr niedrige Geselligkeit hatten.
+Die Auswertung der NEO-PI-R Fragebögen ergab, dass von den 23 Probanden, die letztendlich betrachtet wurden, drei eine hohe, elf eine durchschnittliche, eine eine niedrige und acht eine sehr niedrige Geselligkeit hatten.
 Die Grenzen für diese Abstufungen wurden entsprechend des von Paul T. Costa und Robert R. McCrae verfassten "`NEO-PI-R Professional Manual"' gewählt \cite{costa1992neo}, das 2004 von Alois Angleitner und Fritz Ostendorf ins Deutsche übertragen wurde\cite{lin1973}.
 Auf der Skala von 0 bis 4 lag der Durchschnitt bei ungefähr $1.6$ mit einer Standardabweichung von $0.9$ und zwischen dem Minimum von $0.125$ 
 und dem Maximum von $2.75$.
 Im Vergleich dazu Werte der Extraversion:
 Im Durchschnitt $1.88$ mit Standardabweichung von $0.57$, dem Minimum bei $0.56$ und dem Maximum bei $2.6$.
-Die Verteilung der Ergebnisse ist in Diagramm \ref{fig:neoergebnisse} veranschaulicht.
+Die Verteilung der Ergebnisse ist in Abbildung \ref{fig:neoergebnisse} veranschaulicht.
 
 \begin{figure}[h]
     \centering
@@ -239,7 +238,18 @@ Die Verteilung der meistgenutzten Applikationen jeder Teilnehmerin sind in Diagr
 
 Der Signifikanztest mittels Linearer Regression zwischen der Geselligkeit und den einzelnen Datenspalten, der mittels RStudio - wie in Code \ref{linreg} dargestellt - durchgeführt wurde, ergab, 
 dass nur eine einzige Datenspalte nicht insignifikant ist.
-Nimmt man die durchschnittliche Dauer aller Telefongespräche so ist deren p-Wert $0.02558$ und damit als einziges unter der $0.05$ Schranke.
+Dabei entspricht SummenwerteGeselligkeit dem Summenwert der Antworten zur Geselligkeit aus dem NEO-PI-R entspricht und X einem der Smartphoneattribute.
+Nimmt man die durchschnittliche Dauer aller Telefongespräche so ist deren p-Wert $0.02558$ und damit als einziges, wie in Tabelle \ref{pvalues} zu sehen, unter der $0.05$ Schranke.
+Das hat potenziell damit zu tun, dass die Daten der Probanden in diesem Bereich stark verteilt waren. 
+Dies kann an den ANOVA Ergebnissen aus Tabelle \ref{anova} abgelesen werden, wo AverageDuration die größten Varianzen zeigt.
+
+\par
+Die in Tabelle \ref{pvalues} zu sehenden Zeilen sind nur eine Auswahl der gesammelten Features.
+Es wurden sowohl die nicht normierten Features, das heißt Features, die direkt abhängig von der an der Studie teilgenommenen Zeit sind, sowie die einzelne Applikationen betrachtenden Features entfernt.
+Von den speziell einzelne Applikationen betrachtenden Features erreicht keines die Signifikanzschranke.
+Problem hier bei ist, dass, da nicht jede Probandin jede Applikation nutzt, bei jeder eine größere Zahl von Nullzeilen auftritt.
+Dies ist angesichts der Teilnehmerzahl die ohnehin am unteren Ende des erwünschten Intervalls liegt, besonders schwerwiegend.
+
 
 \begin{lstlisting}[frame=single, caption = Lineare Regression, label=linreg] 
   fit <- lm(SummenwerteGeselligkeit ~ X, data=testNumeric)
@@ -250,7 +260,7 @@ Nimmt man die durchschnittliche Dauer aller Telefongespräche so ist deren p-Wer
 % \usepackage{booktabs}
 \begin{table}[]
 \centering
-\caption{p-Werte}
+\caption{Ausgewählte p-Werte}
 \label{pvalues}
 \begin{tabular}{@{}ll@{}}
 \toprule
@@ -265,82 +275,134 @@ Durchschnittliche Notification Text Länge & 0.2675 \\ \bottomrule
 \end{tabular}
 \end{table}
 
-Die Korrelationsmatrix nach Pearson \ref{cormatrixpearson} zeigt in der ersten Zeile, beziehungsweise ersten Spalte, für die zur Verfügung stehenden Daten die Korrelation zwischen der Geselligkeit entsprechend dem NEO-PI-R Test und den Aspekten der Kommunikation.
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[]
+\centering
+\caption{ANOVA (Analysis of variance)}
+\label{anova}
+\begin{tabular}{@{}llll@{}}
+\toprule
+                             & Df & Sum Sq & Mean Sq \\ \midrule
+AmountCalls                  & 1  & 4.72   & 4.72    \\
+AmountIncoming               & 1  & 8.6    & 8.6     \\
+AmountOutgoing               & 1  & 196.86 & 196.86  \\
+TotalDuration                & 1  & 77.92  & 77.92   \\
+AverageDuration              & 1  & 314.54 & 314.54  \\
+IncomingDuration             & 1  & 23.11  & 23.11   \\
+AverageIncomingDuration      & 1  & 171.46 & 171.46  \\
+AverageOutgoingDuration      & 1  & 8.74   & 8.74    \\
+UniqueCaller                 & 1  & 0.06   & 0.06    \\
+maxNoCall                    & 1  & 9.62   & 9.62    \\
+MessagesAmount               & 1  & 1.74   & 1.74    \\
+MessagesSent                 & 1  & 13.87  & 13.87   \\
+MessagesReceived             & 1  & 0.24   & 0.24    \\
+TotalMessageLength           & 1  & 3.88   & 3.88    \\
+SentMessageLength            & 1  & 11.92  & 11.92   \\
+AverageMessageLength         & 1  & 86.59  & 86.59   \\
+AverageSentMessageLength     & 1  & 61.7   & 61.7    \\
+AverageReceivedMessageLength & 1  & 55.17  & 55.17   \\
+Days                         & 1  & 0.01   & 0.01    \\
+AmountAppsUsed               & 1  & 1.42   & 1.42    \\
+AmountNotificationTotal      & 1  & 13     & 13      \\
+NotificationProTag           & 1  & 2.48   & 2.48    \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Die Korrelationsmatrix nach Pearson in Tabelle \ref{cormatrix} zeigt in der ersten Spalte, für die zur Verfügung stehenden Daten, die Korrelation zwischen der Geselligkeit entsprechend dem NEO-PI-R Test und den Aspekten der Kommunikation.
 Die durchschnittliche Länge von Telefongesprächen ist der einzige der Werte, der mit $0.46$ größer als $0.4$ ist.
-In der Korrelationsmatrix nach Spearman \ref{cormatrixspearman} ist dies ebenfalls so: Hier ist die durchschnittliche Länge von Anrufen mit $0.59$ beinah um den Faktor zwei größer als alle anderen Werte.
+In der Korrelationsmatrix nach Spearman , Tabelle \ref{cormatrix} in der zweiten Spalte,  ist dies ebenfalls so: Hier ist die durchschnittliche Länge von Anrufen mit $0.59$ beinah um den Faktor zwei größer als alle anderen Werte.
 
 \par
 Es scheint so, als wäre es für die im Rahmen dieser Studie gesammelten Daten nicht möglich einen direkten Zusammenhang zwischen der Nutzung von Social Media und Instant Messaging und der Geselligkeit der Nutzer herzustellen.
 %TODO: Abschlussthese
 %TODO: Diskussion
 
-\begin{landscape}
 \begin{table}[]
 \centering
-\caption{verkleinerte Korrelationsmatrix nach Pearson}
-\label{cormatrixpearson}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}l|rrrrrrrrrr@{}}
-\cmidrule(l){2-11}
-                                        & \multicolumn{1}{l|}{SumGes}   & \multicolumn{1}{l|}{No.Calls} & \multicolumn{1}{l|}{AvgDuration} & \multicolumn{1}{l|}{UniqueCaller} & \multicolumn{1}{l|}{maxNoCall} & \multicolumn{1}{l|}{No.Sms}   & \multicolumn{1}{l|}{AvgSmsLen} & \multicolumn{1}{l|}{No.AppsUsed} & \multicolumn{1}{l|}{NotiPerDay} & \multicolumn{1}{l|}{AvgNotiMessageLen} \\ \midrule
-\multicolumn{1}{|l|}{SumGes}            & 1.00                          & \cellcolor[HTML]{4FD22F}-0.07 & \cellcolor[HTML]{4FD22F}0.46     & \cellcolor[HTML]{4FD22F}0.06      & \cellcolor[HTML]{4FD22F}-0.04  & \cellcolor[HTML]{4FD22F}-0.06 & \cellcolor[HTML]{4FD22F}0.11   & \cellcolor[HTML]{4FD22F}-0.22    & \cellcolor[HTML]{4FD22F}-0.32   & \cellcolor[HTML]{4FD22F}-0.24          \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{No.Calls}          & \cellcolor[HTML]{4FD22F}-0.07 & 1.00                          & 0.58                             & 0.84                              & 0.92                           & 0.63                          & -0.18                          & -0.31                            & 0.25                            & 0.30                                   \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{AvgDuration}       & \cellcolor[HTML]{4FD22F}0.46  & 0.58                          & 1.00                             & 0.48                              & 0.60                           & 0.23                          & 0.09                           & -0.28                            & -0.09                           & 0.20                                   \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{UniqueCaller}      & \cellcolor[HTML]{4FD22F}0.06  & 0.84                          & 0.48                             & 1.00                              & 0.60                           & 0.43                          & -0.31                          & -0.25                            & 0.53                            & 0.21                                   \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{maxNoCall}         & \cellcolor[HTML]{4FD22F}-0.04 & 0.92                          & 0.60                             & 0.60                              & 1.00                           & 0.60                          & -0.10                          & -0.38                            & -0.02                           & 0.36                                   \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{No.Sms}            & \cellcolor[HTML]{4FD22F}-0.06 & 0.63                          & 0.23                             & 0.43                              & 0.60                           & 1.00                          & -0.09                          & -0.05                            & -0.15                           & 0.07                                   \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{AvgSmsLen}         & \cellcolor[HTML]{4FD22F}0.11  & -0.18                         & 0.09                             & -0.31                             & -0.10                          & -0.09                         & 1.00                           & 0.00                             & -0.21                           & -0.36                                  \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{No.AppsUsed}       & \cellcolor[HTML]{4FD22F}-0.22 & -0.31                         & -0.28                            & -0.25                             & -0.38                          & -0.05                         & 0.00                           & 1.00                             & -0.07                           & 0.21                                   \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{NotiPerDay}        & \cellcolor[HTML]{4FD22F}-0.32 & 0.25                          & -0.09                            & 0.53                              & -0.02                          & -0.15                         & -0.21                          & -0.07                            & 1.00                            & 0.24                                   \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{AvgNotiMessageLen} & \cellcolor[HTML]{4FD22F}-0.24 & 0.30                          & 0.20                             & 0.21                              & 0.36                           & 0.07                          & -0.36                          & 0.21                             & 0.24                            & 1.00                                   \\ \bottomrule
-\end{tabular}%
-}
+\caption{Korrelation nach Pearson und Spearman}
+\label{cormatrix}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+                                         & \multicolumn{1}{l}{Pearson} & \multicolumn{1}{l}{Spearman} \\ \midrule
+SummenwerteGeselligkeit                  & 1.00                        & 1.00                         \\
+AmountCalls                              & -0.07                       & 0.32                         \\
+AverageDuration                          & 0.46                        & 0.59                         \\
+UniqueCaller                             & 0.06                        & 0.33                         \\
+maxNoCall                                & -0.04                       & 0.34                         \\
+MessagesAmount                           & -0.06                       & 0.04                         \\
+AverageMessageLength                     & 0.11                        & 0.04                         \\
+AmountAppsUsed                           & -0.22                       & -0.25                        \\
+NotificationProTag                       & -0.32                       & -0.11                        \\
+DurchschnittlicheNachrichtenLaengeGesamt & -0.24                       & -0.22                        \\ \bottomrule
+\end{tabular}
 \end{table}
 
-\begin{table}[]
-\centering
-\caption{verkleinerte Korrelationsmatrix nach Spearman}
-\label{cormatrixspearman}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}l|rrrrrrrrrr@{}}
-\cmidrule(l){2-11}
-                                              & \multicolumn{1}{l|}{SumGes}   & \multicolumn{1}{l|}{No.Calls} & \multicolumn{1}{l|}{AvgDuration} & \multicolumn{1}{l|}{UniqueCaller} & \multicolumn{1}{l|}{maxNoCall} & \multicolumn{1}{l|}{No.Sms}  & \multicolumn{1}{l|}{AvgSmsLen} & \multicolumn{1}{l|}{No.AppsUsed} & \multicolumn{1}{l|}{NotiPerDay} & \multicolumn{1}{l|}{AvgNotiMessageLen} \\ \midrule
-\multicolumn{1}{|l|}{SumGes}                  & 1.00                          & \cellcolor[HTML]{4FD22F}0.32  & \cellcolor[HTML]{4FD22F}0.59     & \cellcolor[HTML]{4FD22F}0.33      & \cellcolor[HTML]{4FD22F}0.34   & \cellcolor[HTML]{4FD22F}0.04 & \cellcolor[HTML]{4FD22F}0.04   & \cellcolor[HTML]{4FD22F}-0.25    & \cellcolor[HTML]{4FD22F}-0.11   & \cellcolor[HTML]{4FD22F}-0.22          \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{No.Calls}                & \cellcolor[HTML]{4FD22F}0.32  & 1.00                          & 0.63                             & 0.95                              & 0.91                           & 0.29                         & -0.26                          & -0.33                            & 0.11                            & 0.02                                   \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{AvgDuration}             & \cellcolor[HTML]{4FD22F}0.59  & 0.63                          & 1.00                             & 0.63                              & 0.62                           & 0.29                         & 0.03                           & -0.26                            & 0.06                            & 0.06                                   \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{UniqueCaller}            & \cellcolor[HTML]{4FD22F}0.33  & 0.95                          & 0.63                             & 1.00                              & 0.77                           & 0.13                         & -0.31                          & -0.25                            & 0.22                            & 0.04                                   \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{maxNoCall}               & \cellcolor[HTML]{4FD22F}0.34  & 0.91                          & 0.62                             & 0.77                              & 1.00                           & 0.44                         & -0.21                          & -0.44                            & -0.03                           & 0.05                                   \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{No.Sms}                  & \cellcolor[HTML]{4FD22F}0.04  & 0.29                          & 0.29                             & 0.13                              & 0.44                           & 1.00                         & 0.30                           & -0.08                            & -0.16                           & 0.01                                   \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{AvgSmsLen}               & \cellcolor[HTML]{4FD22F}0.04  & -0.26                         & 0.03                             & -0.31                             & -0.21                          & 0.30                         & 1.00                           & -0.05                            & 0.13                            & -0.29                                  \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{No.AppsUsed}             & \cellcolor[HTML]{4FD22F}-0.25 & -0.33                         & -0.26                            & -0.25                             & -0.44                          & -0.08                        & -0.05                          & 1.00                             & 0.38                            & 0.18                                   \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{NotiPerDay}              & \cellcolor[HTML]{4FD22F}-0.11 & 0.11                          & 0.06                             & 0.22                              & -0.03                          & -0.16                        & 0.13                           & 0.38                             & 1.00                            & 0.17                                   \\ \cmidrule(r){1-1}
-\multicolumn{1}{|l|}{AvgNotiMessageLen}       & \cellcolor[HTML]{4FD22F}-0.22 & 0.02                          & 0.06                             & 0.04                              & 0.05                           & 0.01                         & -0.29                          & 0.18                             & 0.17                            & 1.00                                   \\ \bottomrule
-\end{tabular}%
-}
-\end{table}
-\end{landscape}
+%\begin{landscape}
+%\begin{table}[]
+%\centering
+%\caption{verkleinerte Korrelationsmatrix nach Pearson}
+%\label{cormatrixpearson}
+%\resizebox{\textwidth}{!}{%
+%\begin{tabular}{@{}l|rrrrrrrrrr@{}}
+%\cmidrule(l){2-11}
+%                                        & \multicolumn{1}{l|}{SumGes}   & \multicolumn{1}{l|}{No.Calls} & \multicolumn{1}{l|}{AvgDuration} & \multicolumn{1}{l|}{UniqueCaller} & \multicolumn{1}{l|}{maxNoCall} & \multicolumn{1}{l|}{No.Sms}   & \multicolumn{1}{l|}{AvgSmsLen} & \multicolumn{1}{l|}{No.AppsUsed} & \multicolumn{1}{l|}{NotiPerDay} & \multicolumn{1}{l|}{AvgNotiMessageLen} \\ \midrule
+%\multicolumn{1}{|l|}{SumGes}            & 1.00                          & \cellcolor[HTML]{4FD22F}-0.07 & \cellcolor[HTML]{4FD22F}0.46     & \cellcolor[HTML]{4FD22F}0.06      & \cellcolor[HTML]{4FD22F}-0.04  & \cellcolor[HTML]{4FD22F}-0.06 & \cellcolor[HTML]{4FD22F}0.11   & \cellcolor[HTML]{4FD22F}-0.22    & \cellcolor[HTML]{4FD22F}-0.32   & \cellcolor[HTML]{4FD22F}-0.24          \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{No.Calls}          & \cellcolor[HTML]{4FD22F}-0.07 & 1.00                          & 0.58                             & 0.84                              & 0.92                           & 0.63                          & -0.18                          & -0.31                            & 0.25                            & 0.30                                   \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{AvgDuration}       & \cellcolor[HTML]{4FD22F}0.46  & 0.58                          & 1.00                             & 0.48                              & 0.60                           & 0.23                          & 0.09                           & -0.28                            & -0.09                           & 0.20                                   \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{UniqueCaller}      & \cellcolor[HTML]{4FD22F}0.06  & 0.84                          & 0.48                             & 1.00                              & 0.60                           & 0.43                          & -0.31                          & -0.25                            & 0.53                            & 0.21                                   \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{maxNoCall}         & \cellcolor[HTML]{4FD22F}-0.04 & 0.92                          & 0.60                             & 0.60                              & 1.00                           & 0.60                          & -0.10                          & -0.38                            & -0.02                           & 0.36                                   \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{No.Sms}            & \cellcolor[HTML]{4FD22F}-0.06 & 0.63                          & 0.23                             & 0.43                              & 0.60                           & 1.00                          & -0.09                          & -0.05                            & -0.15                           & 0.07                                   \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{AvgSmsLen}         & \cellcolor[HTML]{4FD22F}0.11  & -0.18                         & 0.09                             & -0.31                             & -0.10                          & -0.09                         & 1.00                           & 0.00                             & -0.21                           & -0.36                                  \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{No.AppsUsed}       & \cellcolor[HTML]{4FD22F}-0.22 & -0.31                         & -0.28                            & -0.25                             & -0.38                          & -0.05                         & 0.00                           & 1.00                             & -0.07                           & 0.21                                   \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{NotiPerDay}        & \cellcolor[HTML]{4FD22F}-0.32 & 0.25                          & -0.09                            & 0.53                              & -0.02                          & -0.15                         & -0.21                          & -0.07                            & 1.00                            & 0.24                                   \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{AvgNotiMessageLen} & \cellcolor[HTML]{4FD22F}-0.24 & 0.30                          & 0.20                             & 0.21                              & 0.36                           & 0.07                          & -0.36                          & 0.21                             & 0.24                            & 1.00                                   \\ \bottomrule
+%\end{tabular}%
+%}
+%\end{table}
+%
+%\begin{table}[]
+%\centering
+%\caption{verkleinerte Korrelationsmatrix nach Spearman}
+%\label{cormatrixspearman}
+%\resizebox{\textwidth}{!}{%
+%\begin{tabular}{@{}l|rrrrrrrrrr@{}}
+%\cmidrule(l){2-11}
+%                                              & \multicolumn{1}{l|}{SumGes}   & \multicolumn{1}{l|}{No.Calls} & \multicolumn{1}{l|}{AvgDuration} & \multicolumn{1}{l|}{UniqueCaller} & \multicolumn{1}{l|}{maxNoCall} & \multicolumn{1}{l|}{No.Sms}  & \multicolumn{1}{l|}{AvgSmsLen} & \multicolumn{1}{l|}{No.AppsUsed} & \multicolumn{1}{l|}{NotiPerDay} & \multicolumn{1}{l|}{AvgNotiMessageLen} \\ \midrule
+%\multicolumn{1}{|l|}{SumGes}                  & 1.00                          & \cellcolor[HTML]{4FD22F}0.32  & \cellcolor[HTML]{4FD22F}0.59     & \cellcolor[HTML]{4FD22F}0.33      & \cellcolor[HTML]{4FD22F}0.34   & \cellcolor[HTML]{4FD22F}0.04 & \cellcolor[HTML]{4FD22F}0.04   & \cellcolor[HTML]{4FD22F}-0.25    & \cellcolor[HTML]{4FD22F}-0.11   & \cellcolor[HTML]{4FD22F}-0.22          \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{No.Calls}                & \cellcolor[HTML]{4FD22F}0.32  & 1.00                          & 0.63                             & 0.95                              & 0.91                           & 0.29                         & -0.26                          & -0.33                            & 0.11                            & 0.02                                   \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{AvgDuration}             & \cellcolor[HTML]{4FD22F}0.59  & 0.63                          & 1.00                             & 0.63                              & 0.62                           & 0.29                         & 0.03                           & -0.26                            & 0.06                            & 0.06                                   \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{UniqueCaller}            & \cellcolor[HTML]{4FD22F}0.33  & 0.95                          & 0.63                             & 1.00                              & 0.77                           & 0.13                         & -0.31                          & -0.25                            & 0.22                            & 0.04                                   \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{maxNoCall}               & \cellcolor[HTML]{4FD22F}0.34  & 0.91                          & 0.62                             & 0.77                              & 1.00                           & 0.44                         & -0.21                          & -0.44                            & -0.03                           & 0.05                                   \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{No.Sms}                  & \cellcolor[HTML]{4FD22F}0.04  & 0.29                          & 0.29                             & 0.13                              & 0.44                           & 1.00                         & 0.30                           & -0.08                            & -0.16                           & 0.01                                   \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{AvgSmsLen}               & \cellcolor[HTML]{4FD22F}0.04  & -0.26                         & 0.03                             & -0.31                             & -0.21                          & 0.30                         & 1.00                           & -0.05                            & 0.13                            & -0.29                                  \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{No.AppsUsed}             & \cellcolor[HTML]{4FD22F}-0.25 & -0.33                         & -0.26                            & -0.25                             & -0.44                          & -0.08                        & -0.05                          & 1.00                             & 0.38                            & 0.18                                   \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{NotiPerDay}              & \cellcolor[HTML]{4FD22F}-0.11 & 0.11                          & 0.06                             & 0.22                              & -0.03                          & -0.16                        & 0.13                           & 0.38                             & 1.00                            & 0.17                                   \\ \cmidrule(r){1-1}
+%\multicolumn{1}{|l|}{AvgNotiMessageLen}       & \cellcolor[HTML]{4FD22F}-0.22 & 0.02                          & 0.06                             & 0.04                              & 0.05                           & 0.01                         & -0.29                          & 0.18                             & 0.17                            & 1.00                                   \\ \bottomrule
+%\end{tabular}%
+%}
+%\end{table}
+%\end{landscape}
 
 %% ==============================
-\section{Zusammenfassung und Fazit}
+\section{Zusammenfassung und Diskussion}
 %% ==============================
 \label{ch:Evaluierung:sec:zusammenfassung}
 
 Sowohl die Ergebnisse der Persönlichkeitsfragebögen als auch die auf den mobilen Endgeräten gesammelten Daten konnten erfolgreich gesammelt und aggregiert werden.
-Diese sind im Anhang aufgeführt.
-Dass kein Zusammenhang zwischen der Geselligkeit und den gesammelten Daten bezüglich Social Media und Instant Messaging festgestellt werden konnte, kann eine Reihe an Gründen haben.
+Diese sind im Anhang \ref{ch:Anhang} aufgeführt.
+Dass, entgegen der ursprünglichen Vermutung und teilweise der Ergebnisse der verwandten Studien, kein Zusammenhang zwischen der Geselligkeit und den gesammelten Daten bezüglich Social Media und Instant Messaging festgestellt werden konnte, kann eine Reihe an Gründen haben.
 Viele der Probandinnen waren als Informatikstudentinnen Teil einer Bevölkerungsgruppe, bei der anzunehmen ist, dass sie eine natürliche Disposition zu neuen, digitalen Technologien hat.
 Eine alternative Hypothese ist, dass es deshalb keinen Zusammenhang gibt, da gesellige und nicht gesellige Menschen aus unterschiedlichen Gründen beide zu- beziehungsweise ab-geneigt von Kommunikation per Smartphone sind.
 Gesellige Menschen nutzten das Smartphone, um mehr mit den Menschen zu kommunizieren, weil sie eben jene Kommunikation positiv wahrnehmen,
 während die ungeselligen beziehungsweise introvertierten Menschen ihr Smartphone möglicherweise benutzen, um Treffen von Angesicht zu Angesicht zu vermeiden und dementsprechend mehr auf diesem Wege kommunizieren.
-Ein Faktor ist sicher auch die relativ kurze Dauer der Studie, die in Mitten der Klausurphase von vielen Studenten lag.
+Ein Faktor ist sicher auch die relativ kurze Dauer der Studie, die in Mitten der Klausurphase von vielen Studentinnen lag.
+Erschwert wurde das Finden eines Zusammenhanges sicher auch davon, dass die Probandinnen die sich für diese Studie gemeldet haben nicht, wie das wünschenswert wäre, schön normalverteilt was Geselligkeit angeht sondern relativ ungesellig.
 Wenn man die andere Seite betrachtet, so scheinen vielleicht auch die numerischen Werte für die Geselligkeit nicht unbedingt eine adequate Repräsentation für diesen Persönlichkeitsaspekt der Probandinnen.
 Wie im Abschnitt \ref{feedback} beschrieben gaben mehrere Probandinnen an, sich nicht vom Fragebogen repräsentiert zu fühlen.
 Angeführte Gründe sind hier die fehlende Differenzierung zwischen dem Verhalten im Freundeskreis und bezüglich der allgemeinen Gesellschaft und veraltete oder unklare Fragestellungen.
 Natürlich ist es auch möglich, dass es tatsächlich keinen Zusammenhang gibt.
 Weiterführende Studien auf diesem Feld sollten in der Lage sein, dies festzustellen.
-
-
-
 
 %%% Local Variables: 
 %%% mode: latex
