@@ -141,15 +141,13 @@ Zum Exportieren der Tabelle reicht es eine allgemeine Query auszuführen, die al
   db.rawQuery("SELECT * FROM " + MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,null); 
 \end{lstlisting}
 
-\section{UsageStats}
-
 \section{Export}
 
 Für den Export der gesammelten Daten wird im AndroidManifest.xml die Berechtigung \textbf{android.permission.WRITE\_EXTERNAL\_STORAGE}
 benötigt. 
 Diese ist keine außergewöhnliche Berechtigung und kann, wie die zum Zugang zu Call und Message Log, bei der Installation der Applikation beantragt werden.
 \par
-Die gesammelten Daten werden in drei Dateien in einem eigenen Ordner im \emph{ExternalStorageDirectory} des Smartphones gespeichert werden.
+Die gesammelten Daten werden in drei Dateien in einem eigenen Ordner im \emph{ExternalStorageDirectory} des Smartphones gespeichert.
 Sie werden als Comma Separated Values (csv) gespeichert.
 Die Daten werden in die drei Dateien getrennt:
 
@@ -165,7 +163,7 @@ Dies geschieht, um das potenziell automatisierte Auswerten im Rahmen der Evaluat
 
 Mit Hilfe von OpenCSV, einer einfachen Library zum Lesen und Schreiben von CSV Dateien \cite{opencsv},
 wird zunächst die gesamte \\SQL Tabelle \textbf{TABLE\_NOTIFICATIONENTRIES} wie in Code \ref{databaseexport} angefragt und dann zeilenweise in eine Datei geschrieben.
-Der Inhalt des callData Objekts wird als String entgegengenommen und nachdem es in einen StringArray gesplittet wurde, spaltenweise in die zweite Datei geschrieben.
+Der Inhalt des callData Objekts wird als String entgegengenommen und, nachdem es in einen StringArray gesplittet wurde, spaltenweise in die zweite Datei geschrieben.
 In die dritte Datei werden die UsageStat Daten spaltenweise unter die zugehörigen Package Namen geschrieben.
 \par
 An alle Dateinamen wird die UserID der Nutzerin, aus der SharedPreference in der sie gespeichert wird, als Suffix angehängt um eine Zuordnung der Daten zu den Auswertungsergebnissen der Fragebögen zu ermöglichen.
@@ -175,8 +173,8 @@ An alle Dateinamen wird die UserID der Nutzerin, aus der SharedPreference in der
 
 Da nicht davon ausgegangen werden kann, dass alle Probandinnen über Smartphones mit vergleichbarer Leistung verfügen, muss die Applikation auch auf weniger leistungsstarken Geräten einwandfrei funktionieren.
 Dies ist notwendig, um den komplikationsfreien Ablauf der Studie zu gewährleisten und mögliche Verluste von gesammelten Daten zu vermeiden.
-Um dies zu sicher zu stellen wurde die Applikation auf zwei Geräten an verschiedenen Enden des Leistungsspektrums getestet:
-Einerseits auf dem OnePlus One Smartphone, als primäres Entwicklungsgerät und Vertreter der leistungsstärkeren Smartphones und andererseits einem Motorola E (2nd Generation) als Vertreter für weniger leistungsstarke Smartphones eingesetzt wurde.
+Um dies sicher zu stellen, wurde die Applikation auf zwei Geräten an verschiedenen Enden des Leistungsspektrums getestet:
+Einerseits auf dem OnePlus One Smartphone, als primäres Entwicklungsgerät und Vertreter der leistungsstärkeren Smartphones, und andererseits einem Motorola E (2nd Generation) als Vertreter für weniger leistungsstarke Smartphones.
 Wichtig waren hierbei die verschiedenen Spezifikationen:
 Das OnePlus One ist ein Smartphone mit einem aktuellen 2.5GHz Quad-Core CPU, 3GB RAM und einem 5,5 Zoll 1920x1080 Pixel Display \cite{oneplusone}
 während das Moto E (2nd Gen) als Vertreter der unteren Mittelklasse einen 1.2GHz Quad-Core CPU, 1GB RAM und ein 4,5 Zoll 540x960 Pixel Display hat \cite{motoe}.
@@ -192,7 +190,7 @@ Gegen Ende der Implementierung, nach dem groben Testen aller zu implementierende
 Dies geschah, um potenzielle Probleme bei der Hauptstudie frühzeitig zu entdecken und zu beheben, bevor sie negativen Einfluss auf die eigentliche Studie nehmen können.
 Dazu wurde eine Vorabversion der entwickelten Applikation bei drei freiwilligen Testprobandinnen installiert.
 Sie sollten über fünf Tage die Applikation im Hintergrund laufen lassen, sie auf Fehlverhalten untersuchen und die von der Applikation gesammelten Daten validieren.
-Alle drei Freiwillige sind Informatikstudentinnen, zwischen 21 und 25 Jahren alt und regelmäßige Smartphone User, mit jeweils mehreren aktiv benutzten Kommunikationsapplikationen.
+Alle drei Freiwilligen sind Informatikstudentinnen, zwischen 21 und 25 Jahren alt und regelmäßige Smartphone User, mit jeweils mehreren aktiv benutzten Kommunikationsapplikationen.
 Die verwendeten Smartphones waren jeweils ein OnePlus One, ein OnePlus Two und ein Google Nexus 5.
 \par
 Jede der drei Freiwilligen bestätigte, dass die von der Applikation aufgezeichneten Daten korrekt waren.
@@ -200,19 +198,19 @@ Angemerkt wurde jedoch, dass das Userinterface relativ unübersichtlich sei und 
 Eine der Probandinnen bemerkte, dass ein nicht zu vernachlässigender Teil ihrer Kommunikation, die über eine Applikation namens Signal laufe, nicht aufgezeichnet werde.
 Auch die Wahl der Twitterclients wurde als nicht repräsentativ angemerkt:
 Der Twitterclient "`Falcon Pro"' solle berücksichtigt werden.
-Positiv wurde bemerkt, dass die Applikation nach dem Aufsetzen sehr ressourcensparend sei und keinerlei zusätzliche Interaktion von der Nutzerin benötigt.
+Positiv wurde bemerkt, dass die Applikation nach dem Aufsetzen sehr ressourcensparend sei und keinerlei zusätzliche Interaktion von der Nutzerin benötige.
 Bei keiner der Freiwilligen kam es zu Abstürzen oder nicht vorgesehenem Verhalten. Auch nach mehrfachem Neustarten verrichtete die Applikation ihre Dienste wie beabsichtigt.
 \par
 Als Reaktion auf das Feedback aus der Vorstudie wurden folgende Dinge an der Applikation geändert:
 Das Interface wurde überarbeitet und in einen übersichtlicheren, harmonischeren Zustand gebracht
 In diesem Rahmen wurden für das Aufsetzen relevante Buttons durch farbliches Hervorheben kenntlich gemacht.
-Die betrachteten Applikationen wurden um \emph{Falcon Pro}, einen weiteren Drittentwickler Twitterclient, und \emph{Signal}, einen allgemeine Kommunikationsapplikation mit starken Verschlüsselungs und Datenschutzfeatures, erweitert.
+Die betrachteten Applikationen wurden um \emph{Falcon Pro}, einen weiteren Drittentwickler Twitterclient, und \emph{Signal}, eine allgemeine Kommunikationsapplikation mit starken Verschlüsselungs- und Datenschutzfeatures, erweitert.
 %Die Auswahl der zu betrachtenden Applikationen ist bereits so implementiert worden, dass man potenziell später ohne größere Probleme noch etwas hinzufügen oder entfernen kann.
-Schon bei dem Entwurf der Applikation wurde darauf geachtet, das Hinzufügen und Entfernen von betrachteten Applicationen einfach zu gestalten.
+Schon bei dem Entwurf der Applikation wurde darauf geachtet, das Hinzufügen und Entfernen von betrachteten Applikationen einfach zu gestalten.
 Ansonsten wurde auf die Existenz des Android Features "`Privacy Guard"' hingewiesen, bei dem von der Testprobandin vermutet wurde, es könne mit dem Datensammeln interferieren.
 Dies war jedoch nicht der Fall.
 \par
-Beim Versuch des Übertragens der Daten auf einen Computer kam ein Konflikt mit einem älteren Bug des Android Betriebssystems auf, der von Google im Oktober 2012 anerkannt wurde, jedoch bis heute nicht gefixt wurde
+Beim Versuch des Übertragens der Daten auf einen Computer kam ein Konflikt mit einem älteren Bug des Android Betriebssystems auf, der von Google im Oktober 2012 anerkannt wurde, jedoch bis heute nicht behoben wurde
 \cite{androidbug}.
 Während dieser Bug der eigentlichen App keine Probleme bereitet, erspart Kenntnis dieses Umstandes potenziellen Testprobandinnen eventuelle Unannehmlichkeiten und damit verbundene Frustration beim Zurückführen der gesammelten Daten.
 
