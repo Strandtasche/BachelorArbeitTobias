@@ -1,0 +1,1336 @@
+
+\chapter*{Kurzfassung}
+\label{ch:GermanAbstract}
+
+Die Geselligkeit einer Person beeinflusst stark die Art und Weise, wie sie mit ihrer Umwelt und Mitmenschen interagiert. 
+Mit dem Smartphone als zunehmend wichtiger werdendem Bestandteil unseres Alltags und als omnipräsentem Kommunikationsutensil ist 
+die Betrachtung unseres mobilen Kommunikationsverhaltens einfacher denn je. 
+\par
+In dieser Arbeit wird daher eine Studie in Analyse, Entwurf und Durchführung beschrieben, die die Zusammenhänge zwischen Geselligkeit als Unterfacette der Extraversion und Kommunikationsdaten, die auf modernen Smartphones verfügbar sind, erforschen soll. 
+Hierfür werden sowohl konventionelle Kommunikationswege wie Anrufe und SMS als auch Kommunikation über Social Media und Messaging Applikationen auf Korrelation mit der Geselligkeit des Nutzers untersucht.
+Auf dem Smartphone der Studienteilnehmerinnen wird dazu eine im Rahmen dieser Arbeit entwickelte Android Applikation installiert.
+Diese Applikation betrachtet die eingehenden Notifications als valide Repräsentation relevanter eingehender Nachrichten.
+\par
+Die durchgeführte Studie führt für 23 Probandinnen die Ergebnisse des 240 Fragen umfassenden NEO-PI-R Fragebogens mit den per Android Applikation über einen Zeitraum von 10 bis 20 Tagen gesammelten Smartphonedaten zusammen.
+Die so gesammelten Daten ermöglichen es nicht einen Zusammenhang zwischen Geselligkeit und der Nutzung von Social Media und Instant Messaging herzustellen.
+\par 
+
+
+
+\chapter{Einleitung}
+\label{ch:Einleitung}
+
+Die regelmäßige Benutzung von Smartphones ist nicht mehr nur auf die junge, technologiebegeisterte Generation begrenzt
+sondern hat inzwischen auch die Mitte der Gesellschaft erreicht\cite{smartphonealter}.
+Smartphones werden benutzt um im Web zu surfen, Nachrichten mit Individuen und Gruppen auszutauschen, Social Media zu konsumieren, beziehungsweise zu produzieren oder um einen Anruf zu tätigen.
+Sie haben sich zu einem Grundpfeiler in unserem Kommunikationsverhalten entwickelt.
+
+\par
+
+TODO: Ausschmücken.
+
+
+\section{Motivation}
+
+Seit jeher sind Wissenschaftler daran interessiert, möglichst präzise, objektive Daten zu sammeln.
+Psychologen sind dabei keine Ausnahme.
+Besonders im Rahmen der Persönlichkeitspsychologie war es in der Vergangenheit schwer, diese objektiven Daten zu erlangen:
+Entweder mussten die Testprobanden von unabhängigen Wissenschaftlern beobachtet werden,
+was einerseits viele Ressourcen verbraucht und andererseits, je nach Themengebiet,
+einen tiefen Eingriff in die Privatsphäre darstellt. Alternativ waren die Forscher gezwungen,
+sich auf durch die Probanden getätigte Selbsteinschätzungen zu verlassen,
+die sowohl subjektiv sind, als auch viel Arbeit für die Probanden bedeuten. %als auch als Mühsal empfunden werden können.
+\par
+Mit dem Aufkommen von Smartphones als sensorengespikte Taschencomputer, die in jedem Aspekt des täglichen Lebens Einzug finden,
+eröffnen sich ganz neue Möglichkeiten für Psychologen, wie Geoffrey Miller in seinem Paper \textbf{„The Smartphone Psychology Manifesto”} \cite{miller2012smartphone}
+darlegt. In dieser Arbeit soll von diesen neuen Möglichkeiten Gebrauch gemacht werden.\par
+
+
+
+
+\section{Zielsetzung der Arbeit}
+\label{ch:Einleitung:sec:Zielsetzung}
+
+Diese Arbeit soll den Zusammenhang zwischen der Nutzung von Social Media, Instant Messaging und der Geselligkeit des Nutzers erforschen.
+Die Geselligkeit eines Nutzers wird dabei entsprechend des "`Big Five"' Persönlichkeitsmodells, neben Herzlichkeit, Durchsetzungsvermögen, Aktivität, Erlebnishunger und Frohsinn, als eine der sechs Unterfacetten der Extraversion interpretiert und betrachtet\cite{john1999big}.
+
+
+Dafür wird eine Studie durchgeführt, die sich aus zwei Teilen zusammensetzt:
+Dem Feststellen der Geselligkeit der einzelnen Testprobanden und dem Sammeln von Daten bezüglich deren Nutzungsverhalten von Social Media und Instant Messaging. 
+Festgestellt wird die Geselligkeit eines Probanden durch den NEO-PI-R Persönlichkeitstest.
+Dies ist ein von Paul Costa und Robert McCrae entworfener und in der Persönlichkeitspsychologie breit akzeptierten Fragebogen, der das Big Five Persönlichkeitsmodell nutzt \cite{costa1992neo}.
+Das Sammeln von Daten geschieht über eine Android Applikation, die auf dem Smartphone der Teilnehmer installiert wird und dort über einen Zeitraum von 10 bis 20 Tagen Daten sammelt.
+Besonderes Augenmerk wird dabei auf die Notifications gelegt, die dem User angezeigt werden.
+Denn diese können von der Android Nutzerin so konfiguriert werden, dass sie nur die für die Nutzerin relevanten Informationen angezeigen.
+Zusätzlich dazu werden Daten vom Call Log und Message Log des Android Betriebssystems hinzugezogen.
+Vervollständigt werden sollen diese Daten durch Benutzungsdaten, der im Kapitel \ref{ch:Entwurf} als relevant klassifizierten Applikationen.
+
+\ignore{todo: Entscheiden ob da die Usagestats rein sollen}
+
+\section{Gliederung der Arbeit}
+\label{ch:Einleitung:sec:Gliederung}
+
+Im ersten Kapitel der Arbeit ist das Thema sowie die Zielsetzung der Arbeit festgehalten worden, sowie eine kurze Gliederung der restlichen Arbeit.
+\par
+
+Im darauf folgenden Kapitel wird zunächst einmal die Grundlage für die weiteren Kapitel gelegt, das heißt
+es werden für das Verständnis der Arbeit relevante Begriffe erklärt, 
+\par
+
+\ignore{todo}
+
+Anschließend wird im dritten Kapitel ein Blick auf den wissenschaftlichen Hintergrund der Thematik geworfen, mit der sich diese Arbeit befasst.
+Bereits existierende Arbeiten werden begutachtet und bewertet, sodass die Anforderungen an die eigene Arbeit ausgearbeitet werden können.
+Zudem soll festgestellt werden kann was der Erkenntnisgewinn dieser Arbeit sein soll.
+\par
+
+Das vierte Kapitel befasst sich mit der Planung und Vorbereitung der Studie.
+Dies beinhaltet sowohl die praktische Herangehensweise an den Persönlichkeitstest als auch das Design, beziehungsweise Implementierung der Applikation,
+die dann auf den Smartphones der Probanden installiert wird und dort Daten sammelt. 
+
+Das fünfte Kapitel beschreibt die Durchführung der Studie, Probleme die dabei auftraten und die implementierten Lösungen.
+
+Die Auswertung der während der Studie gewonnenen Daten wird im sechsten Kapitel beschrieben.
+
+Im letzten Kapitel wird eine übergreifende Zusammenfassung der Erkenntnisse, die im Rahmen der Arbeit erhalten wurden, gegeben.
+Hinzu kommen Schlussfolgerungen und ein Ausblick auf die Zukunft der Forschung in diesem Feld.
+
+
+
+\chapter{Grundlagen}
+\label{ch:Grundlagen}
+
+In diesem Kapitel werden grundlegende Terminologien, die für das Verständnis der Arbeit relevant sind, erläutert.
+Dazu werden zunächst psychologische Hintergründe der Geselligkeit betrachtet und
+dann Smartphones und Aspekte des Android Betriebssystems erklärt, die für die Betrachtung von Social Media und Instant Messaging von Bedeutung sind.
+Am Ende des Kapitels werden verwandte Arbeiten beschrieben.
+
+\section{Persönlichkeitspsychologie}
+\label{ch:Grundlagen:sec:Abschnitt1}
+
+Zentral für diese Arbeit ist die Geselligkeit eines Menschen.
+Wissenschaftlich fällt das Betrachten dieser Eigenschaft von Individuen in den Bereich der Persönlichkeitspsychologie,
+oft auch Differenzielle Psychologie genannt. 
+Dieser Zweig der Psychologie beschäftigt sich mit den Unterschieden zwischen verschiedenen Personen, 
+basierend auf Funktionen, Fähigkeiten und Verhalten, deren Ursprünge und Konsequenzen \cite{amelang2006differentielle}.
+Sie bildet eine Grundlage für praktische Anwendung unter anderem im klinischen oder pädagogischen Kontext.
+\par
+
+Historisch begründet hat das Fachgebiet mit der Intelligenzforschung und Quantifizierung, 
+die auch heute noch ein wichtiger Grundpfeiler der Differenziellen Psychologie ist.
+Im Laufe der Zeit kamen weitere Thematiken hinzu, wie Temperamenteigenschaften, Einstellungen und, für diese Arbeit entscheident, Sozialverhalten.
+\par
+
+Bisher konnte sich keine allgemeine, allumfassende Persönlichkeitstheorie durchsetzten, sondern es gibt eine große Zahl an verschiedenen Ansätzen und Menschenbildern, die von verschiedenen Theoretikern unterstützt werden.
+\ignore{ Beispiel Sigmund Freund?}
+Im Rahmen dieser Arbeit wird mit dem "`Big Five"' Persönlichkeitsmodell gearbeitet, das im deutschsprachigen Raum auch manchmal das "`Fünf Faktoren Modell"' genannt wird.
+Es ist, neben dem Myers-Briggs Type Indicator \cite{briggs1980gifts}, eines der bekanntesten, meistgenutzten Modelle und wird in der Forschung weitgehend anerkannt.
+Das Big Five Modell bietet sich speziell für diese Arbeit an, da es bei diesem Modell möglich ist, präzise die Geselligkeitsunterfacette und direkt zusammenhängende Aspekte zu betrachten.
+
+\subsection{Big Five Modell}
+
+Nach dem Big Five Modell existieren fünf Hauptdimensionen, die die Grundlage für die Persönlichkeit eines Menschen bilden.
+Jeder Mensch lässt sich demnach auf 5 Skalen einordnen, je nachdem wie sehr die folgenden Eigenschaften bei ihr ausgeprägt sind \cite{john1999big}.
+
+\begin{itemize}
+  \item Openness to Experience (Offenheit für Erfahrungen)
+  \item Neuroticism (Neurotizismus)
+  \item Conscientiousness (Gewissenhaftigkeit)
+  \item Agreeableness (Verträglichkeit)
+  \item Extraversion
+\end{itemize}
+
+Das Big Five Modell verfolgt hierbei einen lexikalischen Ansatz: 
+Persönlichkeitsmerkmale schlagen sich in der Sprache der kommunizierenden Person nieder.
+Eine Faktorenanalyse über eine Liste von 18.000 Begriffen ergab die fünf oben stehenden Dimensionen.
+Diese bleiben über die Lebensspanne stabil und können in den verschiedensten Kulturen beobachtet werden.
+
+\subsection{NEO-PI-R}
+
+Der "`NEO - Personality Inventory - Revised"' (NEO-PI-R) ist ein Persönlichkeitstest, der das Big Five Modell implementiert.
+Der NEO-PI-R ist eine 1990 erstmals veröffentlichte überarbeitete Version des NEO - Personality Inventory's (NEO-PI) von 1978 und wurde seitdem mehrere Aktualisierungen unterzogen. Die aktuellste Version ist von 2010.
+Basierend auf 241 Aussagen, zu denen die Probandin mit 5 Abstufungen von "`Starke Ablehnung"' bis "`Starke Zustimmung"' ihre Meinung darlegt, legt der Test die 5 Hauptfaktoren plus jeweils 6 Unterfacetten dar.
+Diese 6 Facetten des für diese Arbeit relevanten Faktors Extraversion sind:
+
+\begin{itemize}
+  \item Warmth (Herzlichkeit)
+  \item Gregariousness (Geselligkeit)
+  \item Assertiveness (Durchsetzungsfähigkeit)
+  \item Activity (Aktivität)
+  \item Excitement-Seeking (Erlebnishunger)
+  \item Positive Emotions (Frohsinn)
+\end{itemize}
+
+Im Rahmen dieser Arbeit soll der Fokus auf der Geselligkeitsfacette liegen.
+
+\section{Smartphones}
+
+\label{ch:Grundlagen:sec:Abschnitt2}
+
+
+Als Smartphone wird allgemeinhin ein Mobiltelefon bezeichnet, das zusätzlich zu den herkömmlichen Funktionalitäten eines Mobiltelefons wie Anrufe und SMS-Versand über verschiedene Features eines Personal Computers verfügt. 
+Ausschlaggebend für die Klassifikation ist unter anderem das Vorhandensein eines mobilen Betriebssystems.
+Typische Smartphonefeatures sind Internetfähigkeit, Touchscreen und die Möglichkeit Zusatzprogramme von Drittherstellern zu installieren.
+Diese Zusatzprogramme werden im Weiteren als Applikationen, oder kurz Apps, bezeichnet.
+\par
+
+Smartphones und mit ihnen das Mobile Internet sind inzwischen ein wichtiger Faktor geworden:
+2015 besaßen 80\% der Internetnutzer zwischen 16 und 64 ein Smartphone. 
+Damit ist das Smartphone das zweitrelevanteste Zugangsgerät hinter den konventionellen Computern, also Laptops und Desktop Rechnern, die mit zusammen 91\% an der Spitze steht\cite{globalwebindex}.
+\par
+
+Es gibt eine Vielzahl an verschiedenen Betriebssystemen mit denen ein Smartphone ausgestattet sein kann.
+Jedoch ist der aktuelle Stand, wie in Abbildung \ref{fig:marktanteil} zu sehen, dass der Markt von nur zwei Firmen dominiert wird.
+Googles Android Betriebssystem, das mit 80.7\% Marktanteil von neu abgesetzten Geräten dominant an der Spitze steht
+und Apples iOS, das mit 17.7\% noch knapp mehr als ein Sechstel der Smartphoneverkäufe aufzuweisen hat.
+Dahinter liegen auf den Plätzen drei und vier Microsofts Windows und Blackberry mit 1.1\% und 0.2\%\cite{smartphonemarktanteil}.
+Aufgrund seines großen Marktanteil wird sich diese Arbeit auf das Android Betriebssystem fokussieren.
+
+\ignore{todo: insert pdf graphic}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/statistic_id73662_marktanteile-der-smartphone-betriebssysteme-am-absatz-weltweit-bis-q4-2015.pdf}
+    \caption{Marktanteile der Smartphone Betriebssysteme am Absatz weltweit\cite{smartphonemarktanteil}}
+    \label{fig:marktanteil}
+\end{figure}
+
+
+\subsection {Android NotificationManager}
+
+Notifications sind die vom Android Betriebssystem vorgesehene Art und Weise, 
+wie eine Applikation die Nutzerin über einen Vorfall aufmerksam macht, während die Applikation nicht im Vordergrund ist.
+Dies kann zum Beispiel im Falle der Signal Messenger App eine eingetroffene SMS sein,
+oder der erfolgreiche Abschluss eines Updates vom Google Play Store.
+Eine gepostete Notification taucht im Allgemeinen zunächst als kleines Pop-up am oberen Bildschirmrand auf und wird dann in die 
+Notification Area (siehe Abbildung \ref{fig:notificationarea}) abgelegt.
+Durch das Öffnen des Notification Drawers (siehe Abbildung \ref{fig:notificationdrawer}) kann eine detailliertere Ansicht aller ungelesenen Notifications geöffnet werden und gelesene, beziehungsweise nicht relevante Notifications entfernt werden 
+\cite{androidnotification}.
+
+
+\begin{figure}%[!htb]
+\begin{minipage}{\textwidth}
+\centering
+  \includegraphics[width=0.75\textwidth]{images/Screenshot_2016-03-25-14-34-00.png}
+  \subcaption{Notification Area\cite{androidnotification}}
+  \label{fig:notificationarea}
+\end{minipage}
+\vfill
+\begin{minipage}{\textwidth}
+\centering
+  \includegraphics[width=0.5\textwidth]{images/notification_drawer.png}
+  \subcaption{Notification Drawer\cite{androidnotification}}
+  \label{fig:notificationdrawer}
+\end{minipage}
+\vspace{-2mm}
+\caption{Notificationanzeige in Android}
+\label{fig:notAndroid}
+\end{figure}
+
+Die Nutzerin kann einstellen, welche Apps Notifications senden dürfen und welche nicht.
+So wird ein Spiel, das konstant auf sich selbst aufmerksam zu machen versucht, wahrscheinlich geblockt,
+während dem E-Mail Client, der die Nutzerin auf neu angekommene E-Mails aufmerksam macht, diese Berechtigung erteilt wird.
+Dementsprechend ist anzunehmen, dass die tatsächlich erhaltenen Notifications die Interessen der Nutzerin widerspiegeln.
+\par
+
+Der NotificationManager ist die Stelle im Android Betriebssystem an der der Zugriff auf alle Notifications verwaltet wird an der man mit ihnen interagieren kann.
+Das beinhaltet beliebige Notifications zu erstellen oder gepostete Notifications zu löschen.
+An den NotificationManager gebunden werden kann ein sogenannter NotificationListener, mit die Applikation alle an den NotificationManager geschickten Notifications lesen kann.
+Dies beinhaltet unter anderem
+
+\begin{description}
+    \item [Package] Applikation, die die Notification gepostet hat
+    \item [Notification Titel] Titel, oft der Absender der Nachricht
+    \item [Ticker] Zusammenfassung der Notification für accessibility services
+    \item [Text] Inhalt der Notification
+\end{description}
+
+Dies ist eine potenziell leicht zu missbrauchende und, falls missbraucht, katastrophale Berechtigung.
+Zum Schutz des Smartphones kann deshalb die Berechtigung nicht bei der Installation gegeben werden, sondern muss von Hand von der Nutzerin bestätigt werden. 
+
+
+\subsection {Android UsageStatManager}
+
+Der UsageStatManager ist eine Schnittstelle, die Zugang zu vom Betriebssystem gesammelten Daten
+und Statistiken bezüglich der Nutzungshistorie des Geräts gibt \cite{androidusagestat}.
+Die Methode \textbf{queryUsageStats(int intervalType, long beginTime, long endTime)} gibt eine Liste an UsageStats der verschiedenen Applikationen zurück.
+Für jedes Element der Liste erhält man mit der Methode \textbf{getTotalTimeInForeground ()} die Zeit in Millisekunden,
+die die App mit dem Package Namen aus \textbf{getPackageName ()} im Vordergrund war.
+\par
+Die \textbf{android.permission.PACKAGE\_USAGE\_STATS} Permission wird von der UsageStatManager API benötigt .
+Diese ist ebenfalls eine missbrauchsanfällige privilegierte Berechtigung, die Applikationen zwar beantragen können, die aber nicht bei der Installation erteilt werden kann.
+Sie muss von der Nutzerin von Hand bestätigt werden.
+
+
+\section{Verwandte Arbeiten}
+\label{ch:Grundlagen:sec:RelatedWork}
+
+Auf dem Gebiet der Persönlichkeitsforschung wurden bereits einige Paper und Studien publiziert,
+die das Feld thematisch mit Smartphonenutzungsdaten verknüpfen. 
+Verschiedene Arbeiten verfolgen verschiedene Ansätze mit verschiedenen Persönlichkeitsmodellen und betrachten verschiedene Smartphone Features.
+In diesem Kapitel sollen einige dieser Arbeiten betrachtet werden und Vor- und Nachteile der verwendeten Methodik betrachtet werden.
+
+\section*{Personality and Self-Esteem as Predictors of Young People’s Technology Use}
+
+In A. Ehrenbergs 2008 im "`CyberPsychology \& Behavior"' Journal erschienenen Artikel "'Personality and Self-Esteem as Predictors of Young People’s Technology Use"' \cite{ehrenberg2008personality}
+wird das Ergebnis einer an 200 Universitätsstudentinnen, davon 146 weiblich und 54  männlich, durchgeführte Studie vorgestellt.
+Die Probandinnen füllten sowohl einen 60 Fragen umfassenden NEO-FFI Fragebogen aus als auch einen 25 Fragen umfassenden Fragebogen zur Bewertung des Selbstwertgefühls.
+Dazu hinzu kam eine Liste an von der Nutzerin selbst geschätzten Zeitwerten, dafür wie viele Minuten sie jeweils pro Tag mit (a) Telefonaten, (b) SMS und (c) Instant Messaging verbringen.
+Abschließend sollten die Probandinnen Aussagen auf ihre Zustimmung hin bewerten, um einzuschätzen wie viel Suchtpotenzial von Technologien für sie ausgeht.
+Die Studie fand einen starken Zusammenhang zwischen der Menge an Zeit die mit diesen Technologien verbracht wird und dem persönlichen Suchtpotenzial, Persönlichkeit und Selbstbewusstsein wurden als relativ schwache Indikatoren für die aufgewendeten Zeiten identifiziert.
+\par
+Die Wahl von Studentinnen als Zielgruppe macht aufgrund ihrer Rolle als Innovators und Early Adopters von neuen Technologien bei einer solchen Studie sehr zielführend.
+Auch der Einsatz des Big Five Persönlichkeitsmodells als etablierter Standard, implementiert durch den NEO-FFI Fragebogen, ergänzt mit dem Wert für das Selbstwertgefühl sind gut gewählt um eine Ground Truth zu bestimmen.
+Im Gegensatz dazu steht die Wahl der Methodik zum Sammeln der Informationen bezüglich der Technologienutzung.
+Einschätzungen von Nutzerinnen über das eigene Verhalten sind notorisch unpräzise und voreingenommen.
+Auch die Wahl von "`Minuten mit X verbracht"' als (einziger) Messwert für Telefonanrufe, SMS und Instant Messaging ist fragwürdig und, bis auf für Telefonate, kein guter Indikator für die Intensität der Nutzung dieser Kommunikationswege.
+
+
+\section*{Personality and Self reported Mobile Phone Use}
+
+Sarah Butts Artikel "`Personality and self reported mobile phone use"', der im Jahr 2008 im "`Computers in Human Behavior"' Journal veröffentlicht wurde,
+behandelt eine Studie, die versucht basierend auf den fünf Persönlichkeitsfacetten des Big Five Modells die Menge und Art der Mobiltelefonnutzung vorauszusagen.
+Dazu berichteten 112 Versuchsprobandinnen, davon 78 weiblich und 54 männlich, zwischen 18 und 59 Jahren ihr persönliches Verhalten bezüglich Mobiltelefonen.
+Außerdem füllten diese Versuchsprobandinnen den NEO-FFI Persönlichkeitsfragebogen und das Copperfield Self-Esteem Inventory aus.
+Der Bericht der Mobiltelefonnutzung beinhaltete folgende Fragen: Zeit aufgewendet für Anrufe, für SMS, für Spiele auf dem Mobiltelefon und für das Ändern von Klingelton beziehungsweise Wallpaper.
+Außerdem eine Schätzung wie viele Anrufe getätigt und empfangen wurden, wie viele der ausgehenden Anrufe persönlicher und wie viele geschäftlicher Natur waren und wie viele der eingehenden Anrufe als erwünscht oder unerwünscht eingeschätzt werden.
+Zusätzlich wurde erfragt ob SMS oder Anrufe präferiert werden, wie viel Interesse an neuen Features von Mobiltelefonen besteht und wie lange die Probandin bereits ein Mobiltelefon besitzt.
+Die Studie ergab, dass extrovertierte Individuen tendenziell mehr Zeit mit Anrufen und dem Ändern von Klingelton und Wallpaper verbringen.
+\par
+Wie schon bei der vorangehenden Studie benutzt auch diese Studie den NEO-FFI Fragebogen und ergänzt diesen mit einem Wert für das Selbstwertgefühl der Probandin, was für die Validität dieses Verfahrens spricht.
+Die erhobenen Daten sind bedeutend besser gewählt als in der vorangehenden Studie, da sie nicht nur die verbrachte Zeit sondern auch die Anzahl, den Willen der Probandin und deren Präferenz bezüglich SMS oder Anruf erfragt.
+Jedoch verlässt sich diese Studie ebenfalls auf Selbsteinschätzungen, was bei Fragen wie zum Beispiel nach der Präferenz zwischen Anruf und SMS sicher sinnvoll ist, aber bei Werten wie Anrufdauer oder Anzahl der Anrufe notorisch unpräzise ist.
+Ebenfalls bemerkenswert ist, dass eine Studie, die im Jahr 2008 durchgeführt wurde, also zwei Jahre nach dem Release des ersten Apple iPhones und während des bereits beginnenden Siegeszug der Smartphones, die Features, die Smartphones ausmachen, nicht mit in Betracht zieht.
+
+\section*{The Impact of Personality Traits on Smartphone Ownership and Use}
+
+Die von W. Lane et al 2011 veröffentliche Studie "`The Impact of Personality Traits on Smartphone Ownership and Use"' untersucht den Effekt der Ausprägung der verschiedenen Big Five Persönlichkeitsfacetten.
+Von 312 Teilnehmern, davon 60\% weiblich und 40\% männlich, im Alter zwischen 17 und 88 Jahren wurden Werte für die verschiedenen Persönlichkeitsfacetten des Big Five Modells ermittelt und sie sollten sechs Funktionen von Smartphones auf einer Skala von 1 bis 5 bezüglich ihrer Wichtigkeit bewerten.
+Diese sechs Funktionen waren Anrufe, SMS, Internet, E-Mail, Musik und Spiele.
+Zur Bestimmung der Facettenwerte wurde John's (1991) Big Five Personality Inventory aufgrund seiner geringen Komplexität und schnellen Durchführbarkeit gewählt.
+Die Studie ergab, dass Probanden die höher auf der Extraversionsskala lagen, eher Smartphones besaßen und benutzen und relativ viel wert auf die SMS Funktion des Smartphones legen. 
+\par
+Positiv bei Lanes Studie ist die große Anzahl und die breite Altersspanne der Testprobandinnen anzumerken.
+Kritisch zu sehen ist die Wahl der Methode zum Bestimmen der Persönlichkeit der einzelnen Probandinnen und die sehr geringe Tiefe der Fragen zur Benutzung des Smartphones.
+
+
+\section*{Who’s Who with Big-Five: Analyzing and Classifying Personality Traits with Smartphones}
+
+G. Chittaranjan et al stellen in ihrem Paper "`Who’s Who with Big-Five: Analyzing and Classifying Personality Traits with Smartphones"' ihre acht-monatige Studie an 83 Individuen vor.
+Im Laufe dieser acht Monate werden auf den Nokia N95 Smartphones \ref{nokia} der Probanden eine breite Menge an Daten bezüglich Anrufen, SMS, Applikationen und Bluetooth gesammelt, 
+die dann mit den per NEO-FFI festgestellten Facettenwerten verglichen werden.
+Basierend darauf haben die Autoren eine automatisierte Methode entwickelt, die den Persönlichkeitstyp anhand von Smartphone Daten erkennt.
+Diese Methode erzielt eine Genauigkeit von 75,9\%.
+\par
+Die hier vorgestellte Studie überzeugt durch ihren großen Umfang, sowohl was die Studiendauer angeht als auch die breite Palette an direkt vom Smartphone gesammelten Daten.
+Dadurch, dass die Daten direkt auf dem Gerät gesammelt werden sind diese verlässlicher und präziser als die der bisher aufgeführten Arbeiten.
+Die Wahl des NEO-FFI Fragebogens ist solide.
+Die Auswahl der gesammelten Daten bezüglich der Applikationsnutzung ist potenziell fraglich, da nur die Anzahl an Nutzungen und nicht die Länge oder Intensität in Betracht gezogen werden.
+Aus heutiger Sicht entsprechen die Eigenschaften des Nokia N95 nicht mehr dem, was von einem gängigen Smartphone erwartet wird.
+Es verfügt weder über einen Touchscreen noch über Multitasking.
+
+
+\section*{StudentLife: Assessing Mental Health, Academic Performance and Behavioral Trends of College Students using Smartphones}
+
+Die von R. Wang et al durchgeführte Studie "`StudentLife: Assessing Mental Health, Academic Performance and Behavioral Trends of College Students using Smartphones"'
+betrachtet den Einfluss von Arbeitsbelastung auf Stress, Schlaf, Aktivitäten, Laune, Geselligkeit, mentale Gesundheit und akademische Leistung.
+Dies geschieht anhand von 38 männlichen und 10 weiblichen Computer Science Studentinnen einer Klasse am Dartmouth College in den Vereinigten Staaten über den Verlauf eines Terms (10 Wochen).
+Dazu werden auf dem Smartphone gesammelte Daten mit vor und nach dem Term ausgefüllten gesundheitlichen und psychologischen Gutachten und den akademischen Ergebnissen der Studentinnen zusammen ausgewertet.
+Die auf den Smartphones der Studentinnen installierte Applikation klassifiziert Aktivität, fordert die Studentinnen auf kurze Assessments ihrer aktuellen Situation zu geben und überprüft durch Aufzeichnen der Umgebungsgeräusche und Analyse auf Konversationsaktivität die Geselligkeit der Nutzerin.
+Das Ergebnis der Studie ist die Indentifikation eines Dartmouth Lebenszyklus, wonach das Stresslevel und Arbeitsbelastung mit fortschreitender Zeit im Term steigt und Schlaf, Geselligkeit und Aktivitäten dafür nachlassen.
+\par
+Wangs Studie zeugt von beeindruckendem Aufwand in vielen Aspekten. 
+Die gesammelten Daten enthalten eine große Reichweite an Informationen, die unter anderem auch nur durch sehr exklusive Zugriffe, wie zum Beispiel intime Kenntnisse der Dartmouth Campus W-LAN Infrastruktur oder Zugang zu den Noten der Studienteilnehmerinnen, zu erreichen sind.
+Auch positiv ist, dass viele dieser Daten tatsächlich objektive sind und nicht durch Selbsteinschätzung der Probandinnen generiert wurden.
+Die komplette Auflösung der Privatsphäre der teilnehmenden Studentinnen, unter anderem durch das konstante Mitschneiden von Ton, ist für eine Studie im Rahmen einer Bachelorarbeit nicht denkbar. 
+Auch sind viele der betrachteten Aspekte nicht mit den Resourcen einer Bachelorarbeit nicht auszuwerten.
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/N95_Front-slide-open}
+    \caption{Nokia N95\cite{nokiaPhone}}
+    \label{nokia}
+\end{figure}
+
+\ignore{ Notizen: \\
+
+Work 1: "`StudentLife: Assessing Mental Health, Academic Performance and Behavioral Trends of College Students using Smartphones"'
+48 Computer science students. 10 Wochen (ein Term)
+Betrachtet Workload -> Stress, sleep, mood, \textbf{sociability}, activity, mental wellbeing und academic preformance.
+Benutzt android.
+Backup über wifi jedes mal wenn das handy geladen wird
+"`During the collection phase, students were asked to respond to various EMA questions as they use their phones"'
+Students werden per email benachrichtigt wenn die Daten ausbleiben.
+The StudentLife app automatically infers activity (stationary, walking, running, driving, cycling), sleep duration, and sociability (i.e., the number of independent conservations and their durations). The app also collects accelerometer, proximity, audio, light sensor readings, location, colocation, and application usage.
+Das handy schneidet ton mit und detectet conversationen.
+A series of entry health and psycholog- ical baseline surveys are administered 
+During the exit stage, we administered an exit survey, interview and the same set of be- havioral and health surveys
+2014
+\par
+
+Work 2: "`Who’s Who with Big-Five: Analyzing and Classifying Personality Traits with Smartphones"'
+83 french speaking switzerlanders over 8 months
+Shown: aggregated features obtained from smartphone usage data can be indicators of the Big-Five personality traits
+automatic method to infer the personality type of a user based on cellphone usage
+75.9\% accuracy
+Nokia n95 phone (bild!)
+NEO FFI
+gesammelte Features: calls (Call Logs), SMS (SMS Logs), bluetooth scans (BT Logs ), and application usage (App Logs ) (Nur Anzahl von öffnen, nicht zeit).
+2011
+
+\par
+work 3: "`The Impact of Personality Traits on Smartphone Ownership and Use"'
+312 participants
+This study directly tests the effect of the "Big Five" personality traits on smartphone ownership and use.
+We found that extraverted individuals were more likely to own a smartphone. Also, extraverts reported a greater importance on the texting function of smartphones
+Age ranged from 18 to 77 years with a median age of 41 and a mean age of 40.
+Respondents who owned a smartphone were then asked to rate on a five-point scale (1, not important at all, to 5, very important) the importance of six smartphone functions: phone calls, texting, internet, e-mail, music, and games. 
+We measured personality with John’s (1991) Big Five Personality Inventory
+2011
+
+\par
+Work 4: "`Personality and Self-Esteem as Predictors of Young People’s Technology Use"'
+Participants were 200 university students (146 females, 54males)
+Personality: The 60-item NEO FFI Personality Inventory + The 25-item Coopersmith Self-Esteem Inventory Adult Form
+Self report: Time Spend on calls, sms and IM, and addictive tendencies towards those. 
+2008
+
+\par
+work 5: "`Personality and self reported mobile phone use"'
+112 participants in this study (78 females, 34 males). Age ranged from 18 to 59 years.
+The Coopersmith self-esteem inventory
+NEO-FF
+selfreport- Mobile phone use survey}
+
+
+
+
+\chapter{Analyse}
+\label{ch:Analyse}
+
+Nach der Klarstellung der grundlegenden Begrifflichkeiten im vorhergehenden Kapitel
+sollen nun die Anforderungen und Limitationen der Studie festgestellt werden, die den
+Zusammenhang zwischen der Nutzung von Social Media, Instant Messaging und der Geselligkeit
+von Nutzern untersuchen soll. 
+Dazu werden auch bereits existierende Lösungsansätze betrachtet. 
+
+\section{Anforderungen}
+\label{ch:Analyse:sec:Anforderungen}
+
+
+Für die Untersuchung des Zusammenhanges werden zwei Datensätze benötigt.
+Zum einen muss die Geselligkeit der Probandin quantitativ festgehalten werden. 
+Dem gegenüberstehend wird ein Datensatz, der Informationen über das Nutzungsverhalten ebenjener Probandin enthält, benötigt.
+\par
+
+\subsection{Geselligkeit}
+
+Der Duden definiert Geselligkeit als Ungezwungenheit beim Umgang beziehungsweise dem Verkehr mit anderen Menschen und der Gesellschaft \cite{dudengesell}.
+Ein solch abstraktes Konzept kann für verschiedene Menschen sehr verschiedene Formen annehmen.
+Trotzdem muss für die wissenschaftliche Auseinandersetzung mit dem Thema dieses Konzept quantifiziert betrachtet werden.
+Eine valides Modell dieses Problems muss durch ein standardisiertes Verfahren einen im Optimalfall numerischen Wert für diese Ungezwungenheit liefern. 
+\par
+
+Ein solches Modell, das zum Beispiel auf auch im Paper "`Who’s Who with Big-Five: Analyzing and Classifying Personality Traits with Smartphones"'\cite{chittaranjan2011s} genutzt wird, ist das Big Five Modell.
+Dort ist Geselligkeit eine Unterfacette der Extraversion.
+Eine oft genutzte Option um in diesem Modell numerische Werte für die verschieden Facetten und Unterfacetten zu erschließen ist eine Familie von Selbstbeurteilungsfragenbogen,
+die zum Beispiel auch in T. Correa's "`Who interacts on the Web?: The intersection of users’ personality and social media use"' \cite{butt2008personality} genutzt wird.
+Zu dieser Familie gehören unter anderem der ursprünglichen NEO-Inventory-  von 1978, der NEO-Personality Inventory- (NEO-PI) von 1985 und der NEO-Five Factor Inventory-Fragenbogen (NEO-FFI).
+Im Rahmen dieser Arbeit wird der auf dem NEO-PI basierende überarbeitete NEO-Personality Inventory-Revised-Fragebogen (NEO-PI-R) in der Version von 2003 benutzt\cite{neopir2003}
+um der Extraversion und der Geselligkeit der einzelnen Testprobandinnen einen numerischen Wert zuzuordnen.
+
+Die Entscheidung für den NEO-PI-R liegt nahe: 
+Er ist gemeinsam mit dem NEO-FFI der aktuellste Fragebogen dieser Familie und liefert mit seinen insgesamt 241 Fragen, davon zumindest 48 Fragen auf Extraversion bezogen,
+einen nuancierterer Blick auf die Persönlichkeit der durchführenden Person als der NEO-FFI, der insgesamt nur 60 Fragen hat und dementsprechend nur mit 12 Fragen zur Extraversion aufwartet.
+
+
+
+\subsection{Nutzungsdaten}
+
+Von besonderer Relevanz für das Sammeln der Nutzungsdaten ist es festzulegen welche Daten zur Verfügung stehen, welche relevant sind und welche potenziell trotzdem nicht gesammelt werden sollten.
+Für diese Arbeit werden keine Nutzerdaten von physische Sensoren in Betracht gezogen, sondern nur die Interaktion mit dem Smartphone als Kommunikationsgerät.
+Zu diesem Zweck interagiert die Applikation mit Schnittstellen des Android Betriebssystems.
+Dies vermeidet das potenzielle Problem von unterschiedlicher Hardware und sorgt dafür, dass die Nutzungsdaten von allen Testprobanden vergleichbar bleiben.
+Zudem vermeidet dies übermäßige Mehrbelastung der Akkuleistung der Smartphones, auf denen die Applikation installiert wird.
+Allgemein ist es wünschenswert die Belastung der Ressourcen auf den Zielgeräten so gering wie möglich zu halten.
+\par
+
+Eine der stärksten Limitation für die Daten, die die Applikation sammeln kann, kommt von der persönlichen Natur der zu betrachtenden Daten.
+Zum einen begrenzt das Android Betriebssystem selbst die Informationen zu denen eine Applikation, selbst eine die vom Nutzer mit potenziell jeder Berechtigung ausgestattet wurde, Zugang hat.
+Dies geschieht aus Datenschutzgründen, da manche Applikationen im Play Store mehr Berechtigungen einfordern als sie für ihre Funktionstüchtigkeit benötigen würden.
+Zum anderen sind die Kommunikationsapplikationen, die die Testprobandin nutzt von unabhängigen Drittentwicklern entworfen worden.
+Einige Wenige von diesen stellen in ganz speziellen Fällen, zum Beispiel Twitter\cite{twitterapi}, zwar eine API zur Verfügung, die meisten hüten ihre Daten aber.
+Folglich können nur Daten gesammelt werden, die entweder frei zugänglich sind, oder solche, zu denen die Nutzerin Applikationen Zugriff erlauben kann.
+Beispiele hierfür sind zum Beispiel die Call logs in denen Android, für alle Apps mit der Berechtigung \textbf{android.permission.READ\_CALL\_LOG}, die vergangenen Anrufe abspeichert.
+\par
+
+In diesem Kontext ist das Android API Ziellevel der Applikation von großer Bedeutung.
+Wie bei Smartphone Betriebssystemen üblich wird das Android Betriebssystem konstant weiterentwickelt und neue Versionen davon werden ausgeliefert.
+Potenzielle Änderungen an Systemschnittstellen werden dabei durch die verschiedenen API Levels dokumentiert, auf die sich installierte Applikationen berufen können.
+Die aktuellste Version von Android ist Android 6.0, oder auch Android Marshmallow.
+Diese wird repräsentiert durch das API Level 23.
+Da nicht alle Geräte die steigenden Anforderungen aktuellerer Android Versionen erfüllen, 
+und manche Nutzer neu herauskommende Updates selbst dann nicht installieren, wenn ihr Gerät sie unterstützt, 
+sind auf vielen Smartphones ältere Android Versionen vertreten.
+Eine Übersicht über die Verteilung der Android Versionen ist in Diagramm \ref{fig:androidplatformdistr} zu sehen.
+Mit 36.1\% ist Android 5, beziehungsweise Android Lollipop die am weitesten verbreitetste Version,
+gefolgt von Android 4.4 (Kitkat) mit 34.3\% und Android 4.0-4.3 (Jellybean) mit 22.3\%\cite{androiddistr}.
+Für die Entwicklung der Applikation wird Android API level 21, entspricht Android 5.0, als Ziellevel bestimmt, da es einige relevante Schnittstellen hinzufügt die bei niedrigeren Leveln noch nicht existieren, aber auch eine breit genuge Userbasis hat, um ausreichend viele Probandinnen zu finden.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{images/chart.pdf}
+    \caption{Android Platform Distribution\cite{androiddistr}}
+    \label{fig:androidplatformdistr}
+\end{figure}
+
+Auch die Sensibilitäten potenzieller Testprobandinnen müssen in Betracht gezogen werden:
+Während die Anzahl an Anrufen in den vergangenen 14 Tagen von vielen als unkritisch betrachtet werden würde, so gibt es sicher eine Menge Menschen, 
+die eine Liste von Telefongesprächen inklusive Zeitpunkt und Rufnummer des Partners als zu tiefen Eingriff in ihre Privatsphäre wahrnehmen würden.
+Ziel muss es hier sein bezüglich der Geselligkeit aussagekräftige Datenpunkte zu wählen, 
+die aber dennoch nicht das grundlegende Bedürfnis nach Privatsphäre der Probandinnen verletzt.
+
+
+\subsection{Datenschutz}
+
+Die Daten mit denen im Rahmen dieser Studie gearbeitet werden sind sehr sensibler Natur.
+Dementsprechend muss sicher gestellt werden, dass sowohl die Anonymität der einzelnen Probandinnen gewahrt bleibt,
+als auch, dass die Daten nicht den Rahmen der Studie verlassen.
+Dazu werden die erhobenen Daten pseudonymisiert, das heißt zur Idenfikation der Zugehörigkeit von Fragebogen und erhobenen Daten wird nicht der Name der Versuchsteilnehmerin genutzt, sondern ein frei gewähltes Pseudonym.
+Außerdem werden keinerlei persönlichkeitsbezogene Daten im Klartext gespeichert.
+Weder Telefonnummern, noch Absender oder Nachrichteninhalte werden in Klartext geloggt.
+Stattdessen werden die relevanten Features der Daten in anderer Form abgespeichert:
+Unter anderem Anzahl verschiedener Telefonnummern, durch Hashen unkenntlich gemachte Nachrichtenabsender und Ersetzen der Nachrichtentexte durch die Anzahl der Zeichen in der Nachricht.
+Dennoch wird, wie bei allen Studien dieser Art, die am TECO durchgeführt werden,
+eine unterschriebene Einwilligungserklärung seitens der Probandin benötigt.
+In dieser wird das Einverständnis der Probandin bezüglich der Aufzeichnung, Speicherung und Verarbeitung ihrer Daten zugesichert.
+\ignore{siehe Anhang, adde anhang?}
+\par
+
+
+
+\section{Existierende Lösungsansätze}
+\label{ch:Analyse:sec:RelatedWork}
+
+Die Auswahl der zu untersuchenden Smartphonedaten haben verschiedene bisher existierende Arbeiten unterschiedlich gelöst.
+Ebenso gibt es in den Studien im Feld verschiedene Ansätze wie die Persönlichkeit von Testprobandinnen in vergleichbare Werte zu fassen ist.
+
+\subsection{Persönlichkeit}
+
+In der Familie der NEO Fragebögen gibt es verschiede Versionen und Iterationen, die für verschiedene Situationen benutzt werden können.
+Neben dem Urspünglichen NEO - Personality Inventory von 1978 sind heutzutage vorallem der NEO - PI - R und der NEO - FFI im Einsatz.
+Von den fünft im Kapitel \ref{ch:Grundlagen:sec:RelatedWork} vorgestellten Arbeiten benutzen drei den NEO-FFI Fragenbogen. 
+Dieser mit seinen 60 Fragen gering im Umfang, nicht zu komplex und benötigt nicht zu viel Zeit um ausgefüllt zu werden.
+
+\par
+TODO: Aussschmücken, vll noch was zum Selbstwertgefühl inventar?
+
+\par
+Im Rahmen dieser Arbeit eignet sich der NEO-PI-R besser als der in den verwandten Arbeiten häufig genutzte NEO-FFI, 
+da um die geringere Menge an Probandinnen auszugleichen eine detailliertere Betrachung wünschenswert ist und 
+er zudem nicht nur Extraversion allgemein betrachtet sondern auch dessen Unterfacetten, unter denen sich die Geselligkeit befindet.
+
+\subsection{Smartphone Daten}
+
+\ignore{se}
+Anstatt der weithin gängigen Praxis, die unter anderem auch in den Arbeiten von Butt \cite{butt2008personality} und Lane \cite{lane2011impact}
+eingesetzt wird, sich auf Selbsteinschätzungen der Probandinnen zu verlassen sollen aussagekräftige Daten direkt vom Smartphone gesammelt werden, 
+wie es Chittaranjan \cite{chittaranjan2011s} und Wang \cite{wang2014istudentlife} in ihren Arbeiten tun.
+\par
+Die von Chattaranjan gesammelten Datenpunkte sind zumindest für SMS und Anrufe sinnvoll und können größtenteils übernommen werden.
+Der Sprung von Nokias Symbian Betriebssystem zu Googles Android ist hier unproblematisch da beide Applikationen die Möglichkeit geben können
+vergangene Anrufe und SMS zu betrachten.
+Kritischer zu betrachten sind die bezüglich Applikationen gesammelten Daten.
+Die Studie betrachtet ausschließlich Anzahl der Nutzungen von Applikationen der folgenden Kategorien:
+Office, Internet, Video/Audio/Musik, Maps, Mail, Youtube, Calender, Camera, Chat, SMS, Games.
+Weder die Nutzungsdauer, noch Interaktionen durch die Applikationen werden betrachtet. 
+Dadurch ist die Studie, obwohl sie nur 5 Jahre in der Vergangenheit liegt, zumindest bezüglich der Applikationsnutzung nicht mehr relevant.
+Wie die Statistik \ref{smsvswhatsapp} nahelegt vollzieht sich in den letzten Jahren eine Verschiebung der Kommunikationsgewohnheiten hin zu Messengern und weg von konventionelleren Kommunikationswegen wie SMS.
+Dementsprechend soll im Rahmen dieser Studie ein größerer Fokus auf die Applikationen gelegt werden.
+\par
+In dieser Arbeit ist es leider nicht möglich so weit zu gehen wie Wang.
+In seiner Arbeit werden Ressourcen benutzt, wie die Echtzeitanalyse der mitgeschnittenen Tonspuren und die akademischen Ergebnisse der Probandinnen, die weit jenseits der Möglichkeiten einer Bachelorarbeit liegen.
+Außerdem ist das mehrfache EMA ausfüllen pro Tag ein sehr invasiv in den Alltag der Probanden, was potenziell auch deren Verhalten beeinflusst.
+Im Rahmen dieser Arbeit soll so wenig wie möglich in den Alltag der einzelnen Probandin eingegriffen werden, sodass diese so wenig wie möglich von der Studie beeinflusst wird.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/statistic_id3624_anzahl-gesendeter-sms-nachrichten-pro-tag-in-deutschland-bis-2015}
+    \caption{Vergleich versendete SMS und Whatsapp-Nachrichten pro Jahr\cite{whatsappVergleichSMS}}
+    \label{smsvswhatsapp}
+\end{figure}
+
+
+\section{Zusammenfassung}
+\label{ch:Analyse:sec:zusammenfassung}
+
+Für diese Arbeit sind die Wahl eines sinnvollen Modells für die Messung der Geselligkeit eines Menschen 
+und die Auswahl von relevanten und verfügbaren Daten, die mittels der Android Applikation gesammelt werden sollen, von zentraler Bedeutung.
+Zur Messung der Geselligkeit wird der NEO-PI-R Fragebogen eingesetzt werden.
+Die Android Applikation wird Daten bezüglich des Anruf und SMS Verhaltens der Probandinnen sammeln,
+sowie eine Liste an empfangenen Notifications anlegen und die UsageStat Schnittstelle des Android Betriebssystems nutzen.
+Für die Applikation ist außerdem wichtig, dass sie so leichtgewichtig wie möglich ist, 
+sowohl was die Bedienung durch die Probandinnen angeht, als auch den Stromverbrauch und die Belastung auf Speicher und Prozessor.
+Alle erhobenen Daten müssen im Kontext von Datenschutz und Schutz der Privatsphäre betrachtet und überdacht werden, weshalb die persönlichkeitsbezogenen Daten aus den Notifications entweder gehasht oder nur abstrahiert als numerischen Wert der Länge des Textes gespeichert werden.
+Anrufe und SMS werden nur in bereits konzentrierter Form gespeichert und nicht nicht als Liste von Ereignissen.
+
+
+\chapter{Entwurf}
+\label{ch:Entwurf}
+
+Für das Aufzeichnen, der für die Studie relevanten Daten wird eine auf dem Smartphone der Probandin installierte Android Applikation benötigt. 
+Dieses Kapitel beschäftigt sich mit dem Entwurf dieses App und setzt sich mit dem Zugriff verschiedener Datenquellen auseinander.
+Eine grobe Skizze des Systems ist in Abbildung \ref{skizze} zu sehen.
+Der Entwurf soll darauf abzielen, der Nutzerin möglichst wenig aufzufallen, um ihr Verhalten nicht zu beeinflussen.
+Das Ziel soll sein, abgesehen von der Installation und dem Export der Daten keinerlei Interaktion zu benötigen. 
+\par
+
+Die App zur Studie wurde für Geräte mit mindestens Android 5.0 "`Lollipop"', das entspricht dem API Level 21, entworfen.
+Das heißt, dass aufgrund der Rückwärtskompabilität auch alle neueren Geräte in der Lage sind die Applikation auszuführen.
+\par
+
+
+Die Entwurfsentscheidung über das zu nutzende API Level ist immer eine Abwägung;
+Auf der einen Seite steht das niedrigere API Level, das wie im Kapitel \ref{ch:Grundlagen} beschrieben, 
+eine breitere Menge an potenziellen Testprobandinnen eröffnet.
+Andererseits haben höhere API Level oft viele Verbesserungen und neue Schnittstellen mit denen Entwickler mehr Funktionalität erreichen können.
+\par
+Die Entscheidung für das relativ aktuelle API Level 21 ist auch davon motiviert , 
+dass mit Level 21 einige Neuerungen im Bereich der Aufzeichnung von Applikationsaktivität hinzugefügt wurden.
+
+Untermauert wird dies von der bereits im vorangehenden Kapitel vorgestellten Statistik \ref{fig:androidplatformdistr}  von Google\cite{androiddistr}, 
+die Android 5.0 "`Lollipop"' mit 36.1\% als die meistgenutzte Version des Android Betriebssystems.
+
+\par
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/skizze.pdf}
+    \caption{Systemskizze}
+    \label{skizze}
+\end{figure}
+
+
+\section{Datenquellen}
+
+Für das Aufzeichnen des Nutzerverhaltens werden vier verschiedene Datenquellen betrachtet.
+\par
+
+\subsection{Call und Message Log}
+Zunächst werden die konventionellen Kommunikationsmöglichkeiten eines normalen Mobiltelefons betrachtet.
+Daten zu Anrufen und Kurznachrichten (SMS) lassen sich in Android mit Zugang zum \emph{Call Log} und zum \emph{Message Log} auslesen.
+Die Berechtigungen dafür können von der Nutzerin bei der Installation erteilt werden und müssen nicht nocheinmal bestätigt werden.
+Für das Sammeln dieser Daten muss nicht aktiv das Verhalten der Nutzerin geloggt werden und es muss auch keine Datenbank dazu angelegt werden,
+da das Android Betriebssystem dies bereits erledigt.
+Es genügt beim finalen Abgeben der Daten auf die Call und Message Logs zuzugreifen und die relevanten Daten auszulesen, da man den Abfragezeitraum beliebig wählen kann.
+Um ein aussagekräftiges Ergebniss zu erhalten ist die Wahl der relevanten Daten, die untersucht werden, von entscheidender Bedeutung. 
+Aus diesem Grund wurden für diese Arbeit verschiedene Ansätze der Wahl der zu betrachtenden Features in Betracht gezogen. 
+Dabei verspricht der Ansatz aus \cite{chittaranjan2011s} für unsere Zwecke auf Grund seiner breiten Fächerung die besten Resultate.
+\par
+
+Dementsprechend wurden folgende für diese Arbeit interessanten Features aus dem Call Log extrahiert:
+
+\begin{itemize}
+    \item Anzahl Anrufe gesamt
+    \begin{itemize}
+        \item Anzahl Anrufe ausgehend
+        \item Anzahl Anrufe eingehend
+        \item Anzahl Anrufe verpasst
+    \end{itemize}
+
+    \item Anrufdauer gesamt
+    \begin{itemize}
+        \item Dauer Anrufe ausgehend gesamt
+        \item Dauer Anrufe eingehend gesamt
+    \end{itemize}
+
+    \item Durschnittliche Dauer gesamt
+    \begin{itemize}
+        \item Durchnittliche Dauer Anrufe ausgehend
+        \item Durchnittliche Dauer Anrufe eingehend
+    \end{itemize}
+
+    \item Unique Anrufpartner
+    \item Maximale Anzahl Anrufe mit einem Partner
+
+\end{itemize}
+
+Analog zum Call Log wurden folgende Features aus dem Message Log extrahiert:
+
+\begin{itemize}
+    \item Anzahl SMS gesamt
+    \begin{itemize}
+        \item Anzahl SMS gesendet
+        \item Anzahl SMS empfangen
+    \end{itemize}
+
+    \item SMS Zeichenanzahl gesamt
+    \begin{itemize}
+        \item SMS Zeichenanzahl gesendet gesamt
+        \item SMS Zeichenanzahl empfangen gesamt
+    \end{itemize}
+
+    \item Durchschnittliche SMS Zeichenanzahl gesamt
+    \begin{itemize}
+        \item Durchschnittliche SMS Zeichenanzahl gesendet
+        \item Durchschnittliche SMS Zeichenanzahl empfangen
+    \end{itemize}
+
+\end{itemize}
+
+
+\subsection{Notifications}
+
+
+\ignore{todo: refereces}
+Über den im Grundlagenkapitel bereits vorgestellten NotificationManager, beziehungsweise einen NotificationListenerService, kann auf dem Gerät der Nutzerin eine SQLite Datenbank angelegt werden,
+in die alle während dem Studienzeitraum der Nutzerin gezeigten Notifications gespeichert werden.
+Die Spalten der SQLite Datenbank sind die Folgenden:
+\begin{description}
+    \item ["`\_id"'] fortlaufende Indentifikationsnummer
+    \item ["`notificationEntry"'] Package der Applikation von der die Notification gepostet wurde
+    \item ["`titleHashed"'] Gehashter Titel der Notification, Bei Nachrichten oft der Absender
+    \item ["`textLength"'] Anzahl Zeichen im Text der Notification
+    \item ["`date"'] Zeitpunkt, an dem die Notification gepostet wurde
+\end{description}
+
+Im Sinne des Schutzes der Privatsphäre beinhalten diese Einträge nicht exakt den Inhalt der Notification, sondern so anonymisiert, dass die für die Studie relevante Information erhalten bleibt.
+So wird der Titel der Notification mit dem SHA-1 Hash\cite{sha1def} gehasht.
+SHA-1 ist eine 1995 von US Amerikanischen Nachrichtendienst NSA veröffentlichte kryptographische Hashfunktion\cite{sha1proposal}.
+Dies führt dazu, dass für die Auswertung der Studie zwar zwischen zwei verschiedenen Absendern von Nachrichten unterschieden werden kann, diese aber nicht frei zu erkennen sind.
+Ebenso speichert die Applikation für die Studie nur die Länge der erhaltenen Nachrichten und nicht deren Inhalt, da dies ein sehr schwerwiegender Eingriff in die Privatssphäre wäre.
+Der Zeitpunkt wird im Datenformat Millisekunden seit Epoch angegeben.
+
+
+\subsection{UsageStats}
+
+Über den im Android API Level 21 eingeführten UsageStatsManager ist es möglich 
+auf die vom Android Betriebssystem selbst gesammelten Daten bezüglich der Zeit aller Applikationen im Vordergrund zuzugreifen.
+
+
+TODO: MEhr UsageStats + Auswahl App + Statistik
+
+\subsection{Auswahl Applikationen}
+
+Alle verwendeten Apps aller Probandinnen zu betrachten und im Hinblick auf ihre Signifikanz bezüglich der Geselligkeit festzustellen würde den Rahmen einer Bachelorarbeit überschreiten.
+Außerdem wäre dies ein größerer Eingriff in die Privatsphäre der Probandin als notwendig.
+Deshalb wurde sich auf eine bestimmte Menge von Applikationen begrenzt, deren Notifications und UsageStats gesammelt werden sollen.
+
+
+Hierzu wurden folgende Applikationen ausgewählt:
+\begin{description}
+  \item [Google Hangouts] Crossplattform Kommunikationsdienst von Google. Auf aktuellen Android Smartphones vorinstalliert.
+  \item [Whatsapp] Crossplattform Instant Messaging Client. Mit über einer Milliarde Nutzer die meistgenutzte Messaging Application\cite{whatsappuser}.
+  \item [Facebook App] Mobile Applikation des größten und aktivsten Social Networks mit über einer Milliarde aktiver Nutzer pro Tag\cite{facebookuser}.
+  \item [Facebook Messenger] Dedizierte Messenger Applikation von Facebook.
+  \item [Skype] Dedizierte VoIP und Messaging Applikation zu Microsofts Skype mit über 600 Millionen Nutzern\cite{skypeuser}.
+  \item [Telegram] Crossplattform Kommunikationsdienst, das sich durch verschiedene Sicherheitsoptionen von seiner Konkurrenz abhebt. Über 100 Millionen Nutzer\cite{telegramuser}.
+  \item [Twitter] Social Microblogging Service mit 300 Millionen aktiven Nutzern. Aufgrund der offenen API gibt es verschiedene Twitter Apps, von denen die größten betrachtet werden:
+  \begin{itemize}
+      \item Offizielle Twitter App
+      \item Carbon for Twitter
+      \item Plume for Twitter
+      \item Talon for Twitter
+  \end{itemize}
+\end{description}
+
+
+
+
+\section{Zusammenfassung}
+\label{ch:Entwurf:sec:zusammenfassung}
+
+Die Studie, die im Rahmen dieser Arbeit durchgeführt wird, untersucht zwei Datenpunkte.
+Zum einen die von der Applikation gesammelten Daten zum Nutzungsverhalten von zehn bestimmten Social Media und Instant Messaging Applikationen
+und zum anderen die zu der Nutzerin zugeordneten Extraversions-, beziehungsweise Geselligkeitswerte aus einem Persönlichkeitstest.
+Als für das Einschätzen des Nutzerverhaltens relevante Smartphonedaten wurde einerseits die Häufigkeit, Länge und Verteilung von  Anrufen und SMS bewertet,
+als auch die Notifications und UsageStat von zehn Kommunikations- und Social Media Applikationen.
+Dabei wird besonderes Augenmerk auf den Schutz der Privatsphäre der Nutzerin und deren Daten gelegt.
+Bis auf das Ausfüllen des Persönlichkeitstests, dem Aufsetzen der Applikation und dem Exportieren der Daten am Ende der Studie sollen die Nutzerinnen nicht weiter belastet werden.
+
+
+
+\chapter{Implementierung}
+\label{ch:Implementierung}
+Die Android Applikation, die im Rahmen dieser Arbeit die Daten auf den Smartphones der Probandinnen sammelt, wurde für Android 5.0 "`Lollipop"' implementiert.
+Sie kann grob in vier Komponenten eingeteilt werden, von denen drei jeweils den entsprechenden zu sammelnden Daten zugeordnet werden können und das vierte sich mit dem Export der gesammelten Daten beschäftigt.
+
+Da die Applikation darauf ausgelegt ist, nur minimale Interaktion mit der Nutzerin zu haben,
+ist das User Interface bewusst minimalistisch gewählt (vergleiche Abbildung \ref{fig:uiscreen}).
+Relevant für die Nutzerin sind bei korrekter Ausführung nur die farblich markierten Buttons und das Textfeld am unteren Bildschirmrand.
+
+
+Die erste Reihe an Buttons ermöglicht es Debuglogs lesen zu können sicherzustellen , dass die Datenbank in der die Applikation die Notifications aufzeichnet nach dem Aufsetzen korrekt arbeitet.
+Die Buttons in der zweiten Zeile ermöglichen das Erteilen der nichttrivialen Berechtigung, die die Applikation benötigt, durch die Nutzerin.
+Der große grüne Knopf mit der Aufschrift "`DB Export"' wird von der Nutzerin benutzt, sobald die Studie abgeschlossen ist, um die gesammelten Daten zu exportieren.
+Die Buttons in den Reihen vier und sechs sind wie schon die in der ersten Reihe dafür konzipiert, die korrekte Funktionsweise der Applikation zu gewährleisten.
+Der mit dem Wort "`Info"' beschriftete Button in der fünften Zeile öffnet das Impressum der Applikation in einem AlertDialog.
+Die siebte und unterste Reihe beinhaltet ein Textfeld und einen diesem zugehörigen "`Set Name"' Button.
+Mit diesem kann die Nutzerin das von ihr gewählte und auf dem NEO-PI-R Fragebogen aufgeschriebene Pseudonym eintragen und mit dem Button bestätigen um die Zuordnung von Fragenbogen zu Datensatz zu ermöglichen.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/screenshot1.png}
+    \caption{User Interface der Applikation}
+    \label{fig:uiscreen}
+\end{figure}
+
+\section{Call und Message Logs}
+
+Um mit der eigenen Applikation auf die vom Android Betriebssystem gesammelten Logs zu Anrufen und SMS zugreifen zu dürfen, müssen die Berechtigungen 
+\textbf{android.permission.READ\_CALL\_LOG} und \textbf{android.permission.READ\_SMS} erteilt werden.
+Diese können vom Programmierer in der AndroidManifest.xml Datei beantragt werden und können, da sie keine besonderen Permissions sind,
+von der Nutzerin beim Installationsvorgang bestätigt werden.
+\par
+Mit dem Android \emph{contentResolver} kann nun eine Query durchgeführt werden, mit der die Applikation random read access auf die zurückgegebenen Daten erhält (siehe Code \ref{calllogquery}).
+Über diese Daten kann nun iteriert werden und so die gewünschten Features extrahiert werden.
+Mit jedem weiteren Eintrag wird die gesamte Anzahl und Gesamtdauer inkrementiert und die spezialisierten Aspekte von INCOMING, OUTGOING und MISSED werden per \emph{switch case} im Falle, dass das aktuelle Item ein ausgehender, ankommender oder verpasster Anruf ist, ebenfalls angepasst.
+Die Zählung von einzigartigen Anrufpartnern geschieht hier über eine \emph{HashMap}, die AnruferID auf einen Integerwert mappt, der bei jedem Auftauchen der AnruferID um eins erhöht wird.
+Nachdem so über alle Einträge iteriert wurde, werden die gesammelten Daten in einem \emph{CallData} Objekt gespeichert.
+\par
+
+Die Message Logs verhalten sich bis auf kleine Details identisch zu den Call Logs und können auf die selbe Weise ausgewertet werden.
+Ein Beispiel für ein solches Detail ist unter anderem, das so etwas wie eine verpasste SMS nicht existiert und es nur SENT oder RECIEVED als Möglichkeiten gibt.
+Die so gewonnen Daten werden im selben Objekt wie die Daten des Call Logs und werden gemeinsam mit ihnen ausgegeben.
+
+\begin{lstlisting}[frame=single, caption = Call Log Query, label=calllogquery] 
+  getContentResolver().query(CallLog.Calls.CONTENT_URI, new String[] { CallLog.Calls.NUMBER, CallLog.Calls.DATE, CallLog.Calls.DURATION, CallLog.Calls.TYPE }, CallLog.Calls.DATE + ">?", new String[] { String.valueOf(resetDate.getTime())}, null);
+\end{lstlisting}
+
+\section{NotificationListenerService}
+
+In der \emph{onCreate()} Methode der MainActivity wird der Service, wie in Code \ref{oncreateService} dargestellt, gestartet.
+Entsprechend dem Wesen eines Service bei Android läuft dieser nun im Hintergrund weiter, selbst wenn die Applikation, die ihn gestartet hat, stirbt.
+Sobald die Nutzerin die entsprechende Berechtigung erteilt, wird bei jeder eingehenden Notification die \emph{onNotificationPosted(StatusBarNotification sbn)} Methode mit der entsprechenden Notification als Argument aufgerufen.
+Der NotificationService, der gestartet wurde, ist eine Subklasse des NotificationListenerService, in dem die  \emph{onNotificationPosted()} Methode so überladen wurde,
+dass sie zusätzlich so ihrer normalen Funktion noch überprüft ob die absendende Applikation eine der zu betrachtenden Applikationen ist und falls dem der Fall ist, wie in Sektion \ref{ch:Implementierung:sec:Datenbank} beschrieben, einen neuen Eintrag in der Datenbank anlegt.
+Dies geschieht wie in Code \ref{validpackage} veranschaulicht durch einen Zugriff auf das im Resourcen System abgelegte Array, das die relevanten Applikationen enthält. 
+Das Android Resource System verwaltet alle Nicht-Code Assets der Applikation.
+Das so erhaltene Array wird in ein HashSet übertragen, sodass mit dem Aufruf der \emph{contains()} Methode effizient überprüft werden kann ob sich die absendende Applikation unter den relevanten befindet.
+
+
+\begin{lstlisting}[frame=single, caption = startService(), label=oncreateService] 
+  private Intent intentService;
+  //...
+  intentService = new Intent(this, NotificationService.class);
+  startService(intentService);
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single, caption = Package Überprüfung, label=validpackage] 
+String[] temp = context.getResources().getStringArray(R.array.package_array);
+        validPackages = new HashSet<>(Arrays.asList(temp));
+\end{lstlisting}
+
+
+
+\section{Datenbank}
+\label{ch:Implementierung:sec:Datenbank}
+
+
+Die Datenbank in der die von der Applikation gelesenen Notifications gespeichert werden ist eine SQLite Datenbank.
+Dies ist naheliegend, da Android vollständigen Support für SQLite Datenbanken anbietet und wird standardmässig mit SQLite Version 3.4 ausgeliefert.
+Die Erstellung der Datenbank wird von \emph{MySQLiteHelper}, einer Subklasse von SQLiteOpenHelper in der \emph{onCreate()} Methode durchgeführt.
+An diesem Ort wird auch das Layout der Datenbank ausgewählt:
+
+\begin{lstlisting}[frame=single, caption = Datenbank Strings, label=databasestrings] 
+    private static final String DATABASE_NAME = "notificationEntries.db";
+    public static final String TABLE_NOTIFICATIONENTRIES = "notificationEntries"; 
+    public static final String COLUMN_ID = "_id";
+    public static final String COLUMN_NOTIFICATIONENTRY = "notificationEntry";
+    public static final String COLUMN_TITLEHASHED = "titelHashed";
+    public static final String COLUMN_TEXTLENGTH = "textLength";
+    public static final String COLUMN_DATE = "date";
+\end{lstlisting}
+
+Hier werden die für das Anlegen der Datenbank relevanten Strings angelegt:
+Der Name der Datenbank, der Name der Tabelle in der Datenbank und die Namen der Spalten werden daraufhin daraufhin genutzt, um den SQL Befehl zum Anlegen der Datenbank zusammenzusetzen.
+
+\begin{lstlisting}[frame=single, caption = Datenbank Creation String, label=databasecreation] 
+    private static final String DATABASE_CREATE = "create table "
+            + TABLE_NOTIFICATIONENTRIES + "(" + COLUMN_ID
+            + " integer primary key autoincrement, " + COLUMN_NOTIFICATIONENTRY + " text not null, " + COLUMN_TITLEHASHED + " text not null, " + COLUMN_TEXTLENGTH + " text not null," + COLUMN_DATE + " integer not null);";
+
+\end{lstlisting}
+
+Wie zu sehen, wird hier eine Tabelle namens "`notificationEntries"' angelegt, mit fünf Spalten.
+In der ersten Spalte, der Spalte des primären Schlüssels, steht eine eindeutige ID, die mit weiteren hinzugefügten Zeilen selbstständig steigt.
+In den restlichen Spalten stehen jeweils die relevanten Inhalte der Notifications also absendende Applikation, der gehashte Titel und die Länge des Notificationtextes, als String und der Timestamp als Integer. 
+Hier wird schon bei der Datenbankerstellung festgelegt, dass alle diese Werte nicht leer sein dürfen.
+
+Die überschriebene \emph{onCreate()} Methode führt dann nur noch den hier festgelegten Tabellenerstellungsbefehl auf der Datenbank aus.
+
+\begin{lstlisting}[frame=single, caption = onCreate Methode, label=databaseoncreate] 
+  public void onCreate(SQLiteDatabase database) {
+        database.execSQL(DATABASE_CREATE);
+    } 
+\end{lstlisting}
+
+Neue Zeilen in der Tabelle können angelegt werden, indem ein \emph{ContentValues} Object gefüllt 
+mit Tupeln aus den Spaltennamen und dem einzutragenden Wert angelegt wird und dieses dann mit der Methode \emph{insert} in die Datenbank eingesetzt wird.
+
+\begin{lstlisting}[frame=single, caption = Einfügen in die Datenbank, label=databaseinsert] 
+if (validPackages.contains(pack)) {
+            ContentValues values = new ContentValues();
+            values.put(MySQLiteHelper.COLUMN_NOTIFICATIONENTRY, pack);
+            values.put(MySQLiteHelper.COLUMN_TITLEHASHED, hashedTitle);
+            values.put(MySQLiteHelper.COLUMN_TEXTLENGTH, Integer.toString(textSize));
+            values.put(MySQLiteHelper.COLUMN_DATE, System.currentTimeMillis());
+            database.insert(MySQLiteHelper.TABLE_NOTIFICATIONENTRIES, null,
+                    values);
+            Log.d("db not", "Updated database");
+        }
+\end{lstlisting}
+
+Zum Exportieren der Tabelle reicht es eine allgemeine Query auszuführen, die alle Zeilen zurück gibt, wie in Code 
+\ref{databaseexport}.
+
+\begin{lstlisting}[frame=single, caption = Einfügen in die Datenbank, label=databaseexport] 
+  db.rawQuery("SELECT * FROM " + MySQLiteHelper.TABLE_NOTIFICATIONENTRIES,null); 
+\end{lstlisting}
+
+\section{UsageStats}
+
+\section{Export}
+
+Für den Export der gesammelten Daten wird im AndroidManifest.xml die Berechtigung \textbf{android.permission.WRITE\_EXTERNAL\_STORAGE}
+benötigt. 
+Diese ist keine außergewöhnliche Berechtigung und kann, wie die zum Zugang zu Call und Message Log, bei der Installation der Applikation beantragt werden.
+\par
+Die gesammelten Daten werden in drei Dateien in einem eigenen Ordner im \emph{ExternalStorageDirectory} des Smartphones gespeichert werden.
+Sie werden als Comma Separated Values (csv) gespeichert.
+Die Daten werden in die drei Dateien getrennt:
+
+\begin{enumerate}
+  \item Die Liste der erhaltenen Notifications
+  \item Ergebnisse der Auswertung von Call Log und Message Log
+  \item UsageStat Daten
+\end{enumerate}
+
+Dies geschieht um das potenziell automatisierte Auswerten im Rahmen der Evaluation zu vereinfachen.
+\par
+
+Mit Hilfe von OpenCSV, einer einfachen Library zum Lesen und Schreiben von CSV Dateien \cite{opencsv},
+wird zunächst die gesamte \\SQL Tabelle \textbf{TABLE\_NOTIFICATIONENTRIES} wie in Code \ref{databaseexport} angefragt und dann zeilenweise in eine Datei geschrieben.
+Der Inhalt des callData Objekts wird als String entgegengenommen und nachdem es in einen StringArray gesplittet wurde, spaltenweise in die zweite Datei geschrieben.
+In die dritte Datei werden die UsageStat Daten spaltenweise unter die zugehörigen Package Namen geschrieben.
+\par
+An alle Dateinamen wird die UserID der Nutzerin, aus der SharedPreference in der sie gespeichert wird, als Suffix angehängt um eine Zuordnung der Daten zu den Auswertungsergebnissen der Fragebögen zu ermöglichen.
+
+
+\section{Geräte Tests}
+
+Da nicht davon ausgegangen werden kann, dass alle Probandinnen über Smartphones mit vergleichbarer Leistung verfügen, muss die Applikation auch auf weniger leistungsstarken Geräten einwandfrei funktionieren.
+Dies ist notwendig, um den komplikationsfreien Ablauf der Studie zu gewährleisten und mögliche Verluste von gesammelten Daten zu vermeiden.
+Um dies zu sicher zu stellen wurde die Applikation auf zwei Geräten an verschiedenen Enden des Leistungsspektrums getestet:
+Einerseits auf dem OnePlus One Smartphone, als primäres Entwicklungsgerät und Vertreter der leistungsstärkeren Smartphones und andererseits einem Motorola E (2nd Generation) als Vertreter für weniger leistungsstarke Smartphones eingesetzt wurde.
+Wichtig waren hierbei die verschiedenen Spezifikationen:
+Das OnePlus One ein Smartphone mit einem aktuellen 2.5GHz Quad-Core CPU, 3GB RAM und einem 5,5 Zoll 1920x1080 Pixel Display \cite{oneplusone}
+während das Moto E (2nd Gen) als Vertreter der unteren Mittelklasse einen 1.2GHz Quad-Core CPU, 1GB RAM und ein 4,5 Zoll 540x960 Pixel Display hat \cite{motoe}.
+Ebenso ist verfügt das OnePlus Ones mit einem Akku mit 3100mAh über mehr Energiereserven als das Moto E, dessen Akku über nur 2390mAh verfügt.
+\par
+Die Gerätetests waren erfolgreich, das Ausführen der Applikation beanspruchte auch auf dem signifikant schwächeren Gerät keine bemerkbaren Mengen an Ressourcen.
+
+
+
+\section{Vorstudie}
+
+Gegen Ende der Implementierung, nach dem groben Testen aller zu implementierenden Funktionalitäten, wurde eine kleine Vorstudie durchgeführt.
+Dies geschah um potenzielle Probleme bei der Hauptstudie frühzeitig zu entdecken und zu beheben, bevor sie negativen Einfluss auf die eigentliche Studie nehmen können.
+Dazu wurde eine Vorabversion der entwickelten Applikation bei drei freiwilligen Testprobandinnen installiert.
+Sie sollten über fünf Tage die Applikation im Hintergrund laufen lassen, sie auf Fehlverhalten untersuchen und die von der Applikation gesammelten Daten validieren.
+Alle drei Freiwillige sind Informatikstudentinnen, zwischen 21 und 25 Jahren alt und regelmässige Smartphone User, mit jeweils mehreren aktiv benutzten Kommunikationsapplikationen.
+Die verwendeten Smartphones waren jeweils ein OnePlus One, ein OnePlus Two und ein Google Nexus 5.
+\par
+Jede der drei Freiwilligen bestätigte, dass die von der Applikation aufgezeichneten Daten korrekt waren.
+Angemerkt wurde jedoch, dass das Userinterface relativ unübersichtlich sei und selbst mit Instruktionen, wie die Applikation aufzusetzen sei, dies, vor allem für weniger technologieaffine Probandinnen, relativ fehleranfällig sein könnte.
+Eine der Probandinnen bemerkte, dass ein nicht zu vernachlässigender Teil ihrer Kommunikation, die über eine Applikation namens Signal laufe, nicht aufgezeichnet werde.
+Auch die Wahl der Twitterclients wurde als nicht repräsentativ angemerkt:
+Der Twitterclient "`Falcon Pro"' solle berücksichtigt werden.
+Positiv wurde bemerkt, dass die Applikation nach dem Aufsetzen sehr ressourcensparend sei und keinerlei zusätzliche Interaktion von der Nutzerin benötigt.
+Bei keiner der Freiwilligen kam es zu Abstürzen oder nicht vorgesehenem Verhalten. Auch nach mehrfachem Neustarten verrichtete die Applikation ihre Dienste wie beabsichtigt.
+\par
+Als Reaktion auf das Feedback aus der Vorstudie wurden folgende Dinge an der Applikation geändert:
+Das Interface wurde überarbeitet und in einen übersichtlicheren, harmonischeren Zustand gebracht
+In diesem Rahmen wurden für das Aufsetzen relevante Buttons durch farbliches Hervorheben kenntlich gemacht.
+Die betrachteten Applikationen wurden um \emph{Falcon Pro}, einen weiteren Drittentwickler Twitterclient, und \emph{Signal}, einen allgemeine Kommunikationsapplikation mit starken Verschlüsselungs und Datenschutzfeatures, erweitert.
+Schon bei dem Entwurf der Applikation wurde darauf geachtet das Hinzufügen und Entfernen von betrachteten Applicationen einfach zu gestalten.
+Ansonsten wurde auf die Existenz des Android Features "`Privacy Guard"' hingewiesen, bei dem von der Testprobandin vermutet wurde, es könne mit dem Datensammeln interferieren.
+Dies war jedoch nicht der Fall.
+\par
+Beim Versuch des Übertragens der Daten auf einen Computer kam ein Konflikt mit einem älteren Bug des Android Betriebssystems auf, der von Google im Oktober 2012 anerkannt wurde, jedoch bis heute nicht gefixt wurde
+\cite{androidbug}.
+Während dieser Bug der eigentlichen App keine Probleme bereitet, erspart Kenntnis dieses Umstandes potenziellen Testprobandinnen eventuelle Unannehmlichkeiten und damit verbundene Frustration beim zurückführen der gesammelten Daten.
+
+
+
+\chapter{Evaluierung}
+\label{ch:Evaluierung}
+
+\ignore{hier ein einleitungssatz?}
+
+\section{Probandinnen}
+\label{ch:Evaluierung:sec:Abschnitt1}
+
+Die Studie wurde begonnen mit 25 Probandinnen.
+Alle Probandinnen waren Studentinnen und zwischen 20 und 26 Jahren alt.
+Davon studieren 20 Probandinnen Informatik. 
+Von den 25 Probandinnen waren 6 weiblich und 19 männlich.
+Die Smartphones von drei Probandinnen verfügten über Android Marshmallow, während die 22 verbleibenden Probandinnen über Android Lollipop verfügten.  
+Aufgrund von äußeren Umständen sind zwei Probandinnen von der Studie zurücktreten:
+Bei einer Probandin gab es einen, von der Studie unabhängigen, kritischen Systemfehler auf ihrem Smartphone, was dazu führte, dass dieses unbenutzbar wurde sie die Studie nicht fortgeführen konnte.
+Die andere bemerkte zu spät, dass sie nur in einem zu kleinen Zeitfenster and der Studie teilnehmen könnte und trat nach dem Ausfüllen des NEO-PI-R Fragebogens zurück.
+
+
+\section{Ablauf}
+\label{ch:Entwurf:sec:Abschnitt2}
+
+Nachdem die Vorstudie, wie im vorangegangenen Kapitel beschrieben, abgeschlossen ist, und potenzielle kleine Änderungen an der Applikation durchgeführt wurden, beginnt die Hauptstudie.
+In dieser werden zunächst die Testprobanden ans Teco eingeladen, um dort den NEO-PI-R Fragebogen auszufüllen.
+Dazu werden circa drei bis vier Termine innerhalb einer Kalenderwoche angeboten, aus denen die Testprobanden wählen können.
+Dies geschieht aus mehreren Gründen. 
+Erstens verringert dies, das Risiko, das manche Studienteilnehmerinnen aufgrund von terminlichen Konflikten nicht teilnehmen können.
+Zweitens sollen die Daten über einen möglichst ähnlichen Zeitraum gesammelt werden.
+Zuletzt ist es so, dass durch das Aufteilen der Probandengruppe eine persönlichere Atmosphäre beim Auftakt der Studie möglich ist
+und potenzielle Fragen im Zwiegespräch besser geklärt werden können.
+\par
+Zu Beginn der Einführung wird den Probandinnen zunächst das Wesen, Bedeutung und potenzielle Tragweite der Studie erläutert.
+Potenzielle Risiken und Nutzen werden aufgeführt.
+Hier gibt es die Möglichkeit Fragen an die Studienleiterin zu stellen.
+Nachdem dies geschehen ist, werden die Probandinnen gebeten, sofern sie nach den Erläuterungen keine Fragen mehr haben und mit der Teilnahme einverstanden sind, eine Einverständniserklärung zu unterschreiben.
+Ein zweites Exemplar ist für die Probandin selbst, als von der Studienleiterin unterschriebenen Zusicherung, dass der Rücktritt von den Studie ohne Angabe von Gründen und ohne Nachteile für die Probandin zu jedem Zeitpunkt möglich ist.
+Sobald dies abgehandelt ist, können die Probandinnen beginnen den NEO-PI-R Persönlichkeitstest auszufüllen.
+Bevor dies geschieht, sollen die Probanden ein selbstgewähltes Pseudonym auf die zweite Seite des Tests schreiben, sodass die gesammelten Daten zu den Tests zugeordnet werden kann, ohne die Anonymität der Probandinnen einzuschränken.
+Das alles wird je nach Bearbeitungsgeschwindigkeit ungefähr 35 bis 45 Minuten einnehmen.
+\par
+Nachdem diese verstrichen sind, und alle Probandinnen ihren Test abgeschlossen haben, werden auch diese eingesammelt.
+Nun kann die Applikation auf den mitgebrachten Smartphones der Probandinnen installiert werden.
+Im Vorhinein ist die APK der Applikation so in der Cloud hinterlegt worden, dass sie per Scannen eines QR Codes (siehe Abbildung \ref{fig:qrcode}) heruntergeladen werden kann.
+Die Installation der Applikation von der APK läuft ab, wie jede andere Applikationsinstallation auf einem Android Gerät auch.
+Potenziell muss hier jedoch kurzzeitig die Installation von Applikationen aus nicht verifizierten Quellen freigeschaltet werden, sollte dies nicht sowieso schon der Fall sein.
+Nach dem Bestätigen der Basis Berechtigungen ist die Applikation installiert.
+Um sie betriebsbereit zu machen müssen die Nutzerinnen die erweiterten Berechtigungen von Hand erteilen.
+Dadurch sollte die Applikation betriebsbereit sein.
+\par
+Um die ordnungsgemäße Funktionstüchtigkeit zu gewährleisten sind in der Applikation Tests implementiert, die nun durchgeführt werden sollen.
+Sind diese erfolgreich durchgeführt worden, so beginnt der Datensammelungszeitraum der Studie.
+Dieser endet zwischen 10 und 20 Tagen später.
+Nachdem die von der Applikation gesammelten Daten exportiert und zurück bei der Studienleiterin angekommen sind, 
+ist die Studie beendet.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{images/qrcode.png}
+    \caption{QR Code}
+    \label{fig:qrcode}
+\end{figure}
+
+
+\section{Probleme während dem Studienablauf}
+
+Gleich zu Beginn der Studie, bei der Installation der Applikation gab es bei einer Probandin Probleme mit der Android Version:
+Der Optionspunkt in der einer Applikation der Zugang zu den UsageStat Daten ermöglicht, wurde vom Hersteller auf dem LG Gerät zumindest in der Default ROM ersatzlos entfernt.
+Dies führt dazu, dass die Datensammelapplikation der Studie nicht auf alle Daten Zugriff bekommt, auf die sie Zugriff benötigt.
+Die Probandin, selbst eine Android Programmiererin, die mehrere aktuelle Android Smartphones besitzt, bot daraufhin an für die Dauer der Studie auf ein anderes Gerät umzusteigen.
+Ein einfaches Überführen der SIM Karte in das Zeitgerät umgeht das Problem.
+\par
+Im Verlauf der Studie beobachteten mehrere Probandinnen,  dass die von der App erhaltenen Werte für die Vordergrundzeit verschiedener Applikationen ungenau oder zu gering seien.
+Dies scheint unabhängig von der sammelnden Applikation zu sein, sondern ein unerwartetes Verhalten des Android Betriebssystems selbst, dass falsche Daten aus der Schnittstelle ausgibt.
+Aufgrund der Unzugänglichkeit der Problematik und Zeitbedenken wurden, nach Rücksprache mit der betreuenden Mitarbeiterin, die gesammelten UsageStat Daten für unzuverlässig erklärt.
+Dementsprechend werden diese Daten in der Evaluation nicht mehr berücksichtigt.
+\par
+Nach Ablauf der geplanten Studienzeit bekamen alle Studienteilnehmer die Aufforderung die gesammelten Daten zu exportieren und der Studienleiterin zukommen zu lassen. 
+In 20 von 23 Fällen funktionierte dies perfekt.
+Jedoch gab es einen Fall, in dem das bereits aufgefallene Problem \cite{androidbug} mit der Android Dateiübertragung auftrat.
+Dies konnte die Probandin nach einem Hinweis durch einen Neustart des Geräts beheben.
+Die anderen beiden Fälle wurden durch zerstreute Probandinnen und das System der Anonymisierung beziehungsweise Pseudonymisierung hervorgerufen.
+Da der Studienleiterin nur die Pseudonyme der Probandinnen bekannt waren, gestaltete es sich unmöglich die beiden fehlenden Probandinnen direkt auf das Fehlen ihrer Datensätze hinzuweisen.
+Mit sieben Tagen Verspätung und nach etlichen Nachrichten an verschiedene Teilnehmerinnen waren die gesammelten Daten dann vollständig.
+
+\section{Feedback}
+\label{feedback}
+
+Nach Abschluss der Studie wurden die Probandinnen dazu aufgefordert einen kurzen Feedback Fragebogen auszufüllen.
+Die gestellten Fragen "`Hat sich die Nutzung Ihres Smartphones während der Studie/durch die App verändert? Wie?"', "`Welche Kommunikations- oder Social Media-Apps verwendest du noch, welche nicht mitgeloggt wurden?"' und "`Freies Feedback: Gibt es noch etwas, dass ihr mir sagen möchtet?"' waren alle drei als Freitext Fragen gestellt.
+\par
+Die Antworten bezüglich der ersten Frage waren ausnahmslos verneinend.
+Der Grund hierfür ist vermutlich bei der Abwesenheit von Interaktion mit der Applikation zu finden.
+Die Abwesenheit von Interaktion wurde sogar beim freien Feedback einmal explizit als positiv hervorgehoben und die Applikation wurde als "`nicht bemerkbar"' beschrieben.
+\par
+Antworten auf die zweite Frage waren dann schon weniger homogen:
+Mehrere Probandinnen wiesen hier auf "`Conversations"' hin. 
+Das ist ein Android Jabber / XMPP Client, mit dem verschiedene Dienste, die das XMPP Übertragungsformat nutzen, in einer App bündeln kann.
+Viele Einstellungsmöglichkeiten, wie zum Beispiel die Verschlüsselung über OTR oder OpenPGP, machen diese Applikation für den Normalnutzer eher unhandlich, für Informatikstudentinnen aber umso attraktiver.
+Angesichts der am Ende doch sehr Informatik lastigen Probandinnen wäre die Aufnahme dieser App in die Liste der zu betrachtenden Apps durchaus zu rechtfertigen gewesen.
+Einige obskure Twitterclients wurden noch angeführt.
+Aufgrund der schieren Masse an verschiedenen Twitter Applikationen ist es schwerlich möglich diese alle von Entwicklerseite abzudecken. 
+Im Nachhinein wäre eine denkbare Lösung für dieses Problem, dass der Nutzer selbst eintragen kann, wie das Package des Twitter Clients seiner Wahl heißt.
+Da das Ändern von Resource Daten durch Userinput nicht möglich ist, müsste man zwar das Konzept ändern mit dem die relevanten Packagenamen gespeichert werden, doch dies scheint ein lösbares Problem zu sein.
+\par
+Eine andere Antwort umfasst sowohl die Frage nach nicht mitgeloggten Applikationen, als auch das freie Feedback-Feld:
+Eine der teilnehmenden Probandinnen ist in Asien geboren und hat noch immer regen kontakt mit Freunden beziehungsweise Familie von dort, 
+die selbstverständlich nicht die in Deutschland, beziehungsweise der westlichen Welt herkömmlich benutzten Applikationen benutzen, sondern die Asiatischen.
+Beispiele die angeführt wurden waren QQ, WeChat oder Ren Ren.
+Demensprechend bemerkte sie, dass insgesamt die Auswahl der betrachteten Applikationen sehr "`westlich"' war.
+Während dies unzweifelhalt wahr ist, so ist der Anspruch über Deutschland hinaus solche Muster zu untersuchen sicher etwas außerhalb des Rahmens einer Bachelorarbeit.
+Für weitergehende Forschungen ist jedoch sicher viel Platz auf diesem Gebiet, unter anderem vielleicht dem Unterschied zwischen Applikationsverhalten in Europa, Nord- beziehungsweise Süd-Amerika und Asien. 
+\par
+
+Im Feld für das freie Feedback wurde primär für Glückwünsche und humoristische Kommentare benutzt. 
+Jedoch wurden auch zwei Themen angesprochen, die für die Auswertung der Bachelorarbeit potenziell von Bedeutung sein können:
+Erstens, automatisierte SMS vom Telefonprovider werden nicht gefiltert und bedenken wurden geäußert, dass dies die Ergebnisse verfälscht, da solche SMS unabhängig vom Sozialverhalten erhalten werden.
+Dagegen spricht, dass eine oder zwei SMS mehr oder weniger bei durchschnittlich 30 SMS pro Teilnehmer nicht signifikant ins Gewicht fällt.
+Zweitens äußerten sich eine Vielzahl an Probandinnen abfällig über die Aussagekraft des Persönlichkeitstest und einige sagten sogar explizit, dass die vom Fragebogen in diese Richtung gestellten fragen nicht in der Lage seien eine gehaltvolle Aussage zu finden.
+Angeführt wurde missverständliche oder mehrdeutige Fragen und Fälle in denen Fragen mehrere Aspekte vermischen sodass eine differenzierte Aussage nicht möglich ist. 
+Auch bemerkt wurde, dass die Unterscheidung zwischen Verhalten im Freundeskreis und Verhalten in der Öffentlichkeit nicht getroffen wurde und so manche Fragen unterdefiniert sind.
+
+\section{Auswertung der Daten}
+
+Das Umsetzen der erhaltenen Daten in eine aussagekräftige Übersicht war für die gesammelten Call und Message Log Daten nicht notwendig, da sie bereits in einem solchen exportiert werden, für die Liste an Notifications ist dies jedoch dringend notwendig.
+Dafür wurde eine Java Command Line Applikation geschrieben, die Daten aus verschiedenen Dateien einließt und am Ende die aggregierten Daten in eine Datei schreibt.
+\par
+Es wird ein Pfad zu dem Ordner in dem sich die zu betrachtenden Dateien befinden angegeben.
+Über alle in sich diesem Ordner befindlichen Datein wird iteriert und für jede wird zunächst der gesamte Inhalt der Datei mit der Methode \emph{readStringFromFile()} in einen String geschrieben.
+Mit der \emph{split()} Methode und dem regulären Ausdruck  $(\backslash r?\backslash n)|,|(\backslash t)$ wird der String in die Comma Separated Values aufgeteilt.
+Da die ursprüngliche Tabelle 5 Spalten hatte sind nun die Attribute der i. Notification im Array in den Positionen $ [i * 5 + 0]$ bis $ [i * 5 + 4]$ gespeichert.
+Diese werden nun in Objekte \emph{Notification} mit den entsprechenden Attributen und einem Enum für die absendende Applikation geparst.
+Alle so erstellten Objekte werden dann in eine ArrayList geschrieben auf der weitergearbeitet wird.
+Zur einfacheren Werteberechnung für einzelne Applikationen wird nun für jede mögliche Applikation eine eigene ArrayListe angelegt, in die nur die Notifications hinzugefügt werden die die entsprechende Applikation als Absender haben.
+Für jede dieser ArrayListen werden nun folgende Werte berechnet:
+
+\begin{itemize}
+  \item Anzahl Notifications (Länge der ArrayList)
+  \item Anzahl Konversationen (Anzahl einzigartiger Titelhashes)
+  \item Größte Konversation (Maximum TextLength)
+  \item Durchschnittliche Konversationsgröße (Summe TextLength durch Anzahl Konversationen)
+  \item Durchschnittliche Nachrichtenlänge (Summe TextLength durch Anzahl Notifications)
+\end{itemize}
+
+Diese Berechnungen werden jeweils in einer Methode, ähnlich zum Beispiel \ref{maxconv} durchgeführt, die dann auf auf alle ArrayLists aufgerufen wird.
+
+
+\begin{lstlisting}[frame=single, caption =  calculateMaxConversationSize(), label=maxconv] 
+    public static int calculateMaxConversationSize(ArrayList<Notification> list) {
+        HashMap<String, Integer> hmap = new HashMap<>();
+        for (Notification noti : list) {
+            if (!hmap.containsKey(noti.getTitle())) {
+                hmap.put(noti.getTitle(), 1);
+            }
+            else {
+                hmap.put(noti.getTitle(), hmap.get(noti.getTitle())+ 1);
+            }
+        }
+        if (hmap.size() == 0){
+            return 0;
+        }
+        else {
+            return (Collections.max(hmap.values()));
+        }
+
+    }
+\end{lstlisting}
+
+
+Über alle Daten werden zusätzlich noch folgende Werte berechnet:
+
+\begin{itemize}
+  \item Anzahl Applikationen genutzt (Anzahl ArrayLists mit Size > 0)
+  \item Anzahl Notifications insgesamt
+  \item Anzahl Notifications pro Tag
+  \item Durchschnittliche Nachrichtenlänge gesamt
+  \item Meist genutzte Applikation
+  \item Applikation mit den meisten Konversationen
+  \item Applikation mit den durschnittlich längsten Nachrichten  
+\end{itemize}
+
+Die so aggregierten Daten werden dann in eine Datei geschrieben von der sie dann an relevante Stellen übertragen werden können.
+
+\section{Ergebnisse}
+
+Die Auswertung der NEO-PI-R Fragebögen ergab, dass von den 23 Probanden, die letztendlich betrachtet wurden, drei eine hohe, elf eine durchschnittliche, eine eine niedrige, und acht eine im Gesamtgesellschaftlichen Kontext sehr niedrige Geselligkeit hatten.
+Auf der Skala von 0 bis 4 lag der Durchschnitt bei ungefähr $1.6$ mit einer Standardabweichung von $0.9$ und zwischen dem Minimum von $0.125$ 
+und dem Maximum von $2.75$.
+Im Vergleich dazu Werte der Extraversion:
+Im Durchschnitt $1.88$ mit Standardabweichung von $0.57$, dem Minimum bei $0.56$ und dem Maximum bei $2.6$.
+Die Verteilung der Ergebnisse ist in Diagramm \ref{fig:neoergebnisse} veranschaulicht.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{images/NeoErgebnisse.pdf}
+    \caption{Verteilung der Geselligkeit und Extraversion der Probandinnen}
+    \label{fig:neoergebnisse}
+\end{figure}
+
+Durchschnittlich führten die Probandinnen $0.66$ Telefongespräche pro Tag bei einer Standartabweichung von $0.89$.
+Drei Probandinnen führten überhaupt keine Telefongespräche und die Probandin mit der höchsten Telefonnutzung tätigte $4.03$ Anrufe pro Tag.
+Das ist eine höhere Nutzung als die von SMS, was im Durchschnitt nur $0.38$ Nachrichten pro Tag bei einer Standardabweichung von $0.6$ war.
+SMS wurde von vier Probandinnen überhaupt nicht genutzt und das Maximum lag bei $1.86$ Nachrichten pro Tag.
+Die Verteilung von Anrufen und Nachrichten ist in Diagramm \ref{fig:callmessagesdistr} dargestellt.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{images/callsMessagesDistr.pdf}
+    \caption{Verteilung der Anrufe und Nachrichten der Probandinnen}
+    \label{fig:callmessagesdistr}
+\end{figure}
+
+
+Bei den gesammelten Notifications wurden durchschnittlich $157.29$ Notifications pro Tag bei einer Standardabweichung von $378.60$ empfangen.
+Dies ist einem extremen Ausreißer geschuldet, der über 17 Tage 31716 Notifications erhalten hat. 
+Das sind fast $8.5$ mal mehr als der zweithöchste Wert, mit 3755 Notifications.
+Entfernt man diesen Wert aus dem Datenpool reduziert sich der Durchschnitt auf $79.63$ Notifications pro Tag mit einer Standartabweichung von $69.79$
+\par
+Die Verteilung der meistgenutzten Applikationen jeder Teilnehmerin sind in Diagramm \ref{fig:mostusedapp} dargestellt.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{images/MostUsedApp.pdf}
+    \caption{Verteilung der meistgenutzten Applikationen}
+    \label{fig:mostusedapp}
+\end{figure}
+
+Der Signifikanztest mittels Linearer Regression, zwischen der Geselligkeit und den einzelnen Datenspalten, der mittels RStudio wie in Code \ref{linreg} durchgeführt wurde, ergab 
+dass nur eine einzige Datenspalte nicht insignifikant ist.
+Nimmt man die durchschnittliche Dauert aller Telefonanrufe so ist deren p-Wert $0.02558$ und damit als einziges unter der $0.05$ Schranke.
+
+\begin{lstlisting}[frame=single, caption = Lineare Regression, label=linreg] 
+  fit <- lm(SummenwerteGeselligkeit ~ X, data=testNumeric)
+  summary(fit)
+\end{lstlisting}
+
+\begin{table}[]
+\centering
+\caption{p-Werte}
+\label{pvalues}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Geselligkeit $\sim$ X                     & p-Wert \\ \midrule
+Anzahl Anrufe                             & 0.7631 \\
+Anzahl ausgehender Anrufe                 & 0.4822 \\
+Durchschnittliche Anrufdauer              & 0.0256 \\
+Durchschnittliche ausgehende Anrufdauer   & 0.4806 \\
+Anzahl SMS                                & 0.8011 \\
+Notifications pro Tag                     & 0.1380 \\
+Durchschnittliche Notification Text Länge & 0.2675 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Die Korrelationsmatrix nach Pearson \ref{cormatrixpearson} zeigt, in der ersten Zeile, beziehungsweise ersten Spalte, für die zur Verfügung stehenden Daten, die Korrelation zwischen der Geselligkeit entsprechend dem NEO-PI-R Test und den Aspekten der Kommunikation.
+Die durchschnittliche Länge von Telefongesprächen ist der einzige der Werte, der mit $0.46$ größer als $0.4$ ist.
+In der Korrelationsmatrix nach Spearman \ref{cormatrixspearman} ist dies ebenfalls so: Hier ist die durchschnittliche Länge von Anrufen mit $0.59$ beinah um den Faktor zwei größer als alle anderen Werte.
+
+\par
+Es scheint so als wäre es für die im Rahmen dieser Studie gesammelten Daten nicht möglich einen direkten Zusammenhang zwischen der Nutzung von Social Media und Instant Messaging und der Geselligkeit der Nutzer herzustellen.
+
+\begin{landscape}
+\begin{table}[]
+\centering
+\caption{verkleinerte Korrelationsmatrix nach Pearson}
+\label{cormatrixpearson}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l|rrrrrrrrrr@{}}
+\cmidrule(l){2-11}
+                                        & \multicolumn{1}{l|}{SumGes}   & \multicolumn{1}{l|}{No.Calls} & \multicolumn{1}{l|}{AvgDuration} & \multicolumn{1}{l|}{UniqueCaller} & \multicolumn{1}{l|}{maxNoCall} & \multicolumn{1}{l|}{No.Sms}   & \multicolumn{1}{l|}{AvgSmsLen} & \multicolumn{1}{l|}{No.AppsUsed} & \multicolumn{1}{l|}{NotiPerDay} & \multicolumn{1}{l|}{AvgNotiMessageLen} \\ \midrule
+\multicolumn{1}{|l|}{SumGes}            & 1.00                          & \cellcolor[HTML]{4FD22F}-0.07 & \cellcolor[HTML]{4FD22F}0.46     & \cellcolor[HTML]{4FD22F}0.06      & \cellcolor[HTML]{4FD22F}-0.04  & \cellcolor[HTML]{4FD22F}-0.06 & \cellcolor[HTML]{4FD22F}0.11   & \cellcolor[HTML]{4FD22F}-0.22    & \cellcolor[HTML]{4FD22F}-0.32   & \cellcolor[HTML]{4FD22F}-0.24          \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{No.Calls}          & \cellcolor[HTML]{4FD22F}-0.07 & 1.00                          & 0.58                             & 0.84                              & 0.92                           & 0.63                          & -0.18                          & -0.31                            & 0.25                            & 0.30                                   \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{AvgDuration}       & \cellcolor[HTML]{4FD22F}0.46  & 0.58                          & 1.00                             & 0.48                              & 0.60                           & 0.23                          & 0.09                           & -0.28                            & -0.09                           & 0.20                                   \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{UniqueCaller}      & \cellcolor[HTML]{4FD22F}0.06  & 0.84                          & 0.48                             & 1.00                              & 0.60                           & 0.43                          & -0.31                          & -0.25                            & 0.53                            & 0.21                                   \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{maxNoCall}         & \cellcolor[HTML]{4FD22F}-0.04 & 0.92                          & 0.60                             & 0.60                              & 1.00                           & 0.60                          & -0.10                          & -0.38                            & -0.02                           & 0.36                                   \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{No.Sms}            & \cellcolor[HTML]{4FD22F}-0.06 & 0.63                          & 0.23                             & 0.43                              & 0.60                           & 1.00                          & -0.09                          & -0.05                            & -0.15                           & 0.07                                   \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{AvgSmsLen}         & \cellcolor[HTML]{4FD22F}0.11  & -0.18                         & 0.09                             & -0.31                             & -0.10                          & -0.09                         & 1.00                           & 0.00                             & -0.21                           & -0.36                                  \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{No.AppsUsed}       & \cellcolor[HTML]{4FD22F}-0.22 & -0.31                         & -0.28                            & -0.25                             & -0.38                          & -0.05                         & 0.00                           & 1.00                             & -0.07                           & 0.21                                   \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{NotiPerDay}        & \cellcolor[HTML]{4FD22F}-0.32 & 0.25                          & -0.09                            & 0.53                              & -0.02                          & -0.15                         & -0.21                          & -0.07                            & 1.00                            & 0.24                                   \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{AvgNotiMessageLen} & \cellcolor[HTML]{4FD22F}-0.24 & 0.30                          & 0.20                             & 0.21                              & 0.36                           & 0.07                          & -0.36                          & 0.21                             & 0.24                            & 1.00                                   \\ \bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{verkleinerte Korrelationsmatrix nach Spearman}
+\label{cormatrixspearman}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l|rrrrrrrrrr@{}}
+\cmidrule(l){2-11}
+                                              & \multicolumn{1}{l|}{SumGes}   & \multicolumn{1}{l|}{No.Calls} & \multicolumn{1}{l|}{AvgDuration} & \multicolumn{1}{l|}{UniqueCaller} & \multicolumn{1}{l|}{maxNoCall} & \multicolumn{1}{l|}{No.Sms}  & \multicolumn{1}{l|}{AvgSmsLen} & \multicolumn{1}{l|}{No.AppsUsed} & \multicolumn{1}{l|}{NotiPerDay} & \multicolumn{1}{l|}{AvgNotiMessageLen} \\ \midrule
+\multicolumn{1}{|l|}{SumGes}                  & 1.00                          & \cellcolor[HTML]{4FD22F}0.32  & \cellcolor[HTML]{4FD22F}0.59     & \cellcolor[HTML]{4FD22F}0.33      & \cellcolor[HTML]{4FD22F}0.34   & \cellcolor[HTML]{4FD22F}0.04 & \cellcolor[HTML]{4FD22F}0.04   & \cellcolor[HTML]{4FD22F}-0.25    & \cellcolor[HTML]{4FD22F}-0.11   & \cellcolor[HTML]{4FD22F}-0.22          \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{No.Calls}                & \cellcolor[HTML]{4FD22F}0.32  & 1.00                          & 0.63                             & 0.95                              & 0.91                           & 0.29                         & -0.26                          & -0.33                            & 0.11                            & 0.02                                   \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{AvgDuration}             & \cellcolor[HTML]{4FD22F}0.59  & 0.63                          & 1.00                             & 0.63                              & 0.62                           & 0.29                         & 0.03                           & -0.26                            & 0.06                            & 0.06                                   \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{UniqueCaller}            & \cellcolor[HTML]{4FD22F}0.33  & 0.95                          & 0.63                             & 1.00                              & 0.77                           & 0.13                         & -0.31                          & -0.25                            & 0.22                            & 0.04                                   \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{maxNoCall}               & \cellcolor[HTML]{4FD22F}0.34  & 0.91                          & 0.62                             & 0.77                              & 1.00                           & 0.44                         & -0.21                          & -0.44                            & -0.03                           & 0.05                                   \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{No.Sms}                  & \cellcolor[HTML]{4FD22F}0.04  & 0.29                          & 0.29                             & 0.13                              & 0.44                           & 1.00                         & 0.30                           & -0.08                            & -0.16                           & 0.01                                   \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{AvgSmsLen}               & \cellcolor[HTML]{4FD22F}0.04  & -0.26                         & 0.03                             & -0.31                             & -0.21                          & 0.30                         & 1.00                           & -0.05                            & 0.13                            & -0.29                                  \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{No.AppsUsed}             & \cellcolor[HTML]{4FD22F}-0.25 & -0.33                         & -0.26                            & -0.25                             & -0.44                          & -0.08                        & -0.05                          & 1.00                             & 0.38                            & 0.18                                   \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{NotiPerDay}              & \cellcolor[HTML]{4FD22F}-0.11 & 0.11                          & 0.06                             & 0.22                              & -0.03                          & -0.16                        & 0.13                           & 0.38                             & 1.00                            & 0.17                                   \\ \cmidrule(r){1-1}
+\multicolumn{1}{|l|}{AvgNotiMessageLen}       & \cellcolor[HTML]{4FD22F}-0.22 & 0.02                          & 0.06                             & 0.04                              & 0.05                           & 0.01                         & -0.29                          & 0.18                             & 0.17                            & 1.00                                   \\ \bottomrule
+\end{tabular}%
+}
+\end{table}
+\end{landscape}
+
+\section{Zusammenfassung und Fazit}
+\label{ch:Evaluierung:sec:zusammenfassung}
+
+Sowohl die Ergebnisse der Persönlichkeitsfragebögen als auch die auf den mobilen Endgeräten gesammelten Daten konnten erfolgreich gesammelt und aggregiert werden.
+Diese sind im Anhang aufgeführt.
+Dass kein Zusammenhang zwischen der Geselligkeit und den gesammelten Daten bezüglich Social Media und Instant Messaging festgestellt werden konnte kann eine Reihe an Gründen haben.
+Viele der Probandinnen waren als Informatikstudentinnen teil einer Bevölkerungsgruppe bei der anzunehmen ist, dass sie eine natürliche Disposition zu neuen, digitalen Technologien hat.
+Eine alternative Hypothese ist, dass es deshalb keinen Zusammenhang gibt, da gesellige und nicht gesellige Menschen aus unterschiedlichen Gründen beide zu beziehungsweise abgeneigt von Kommunikation per Smartphone sind.
+Gesellige Menschen nutzten das Smartphone um mehr mit den Menschen zu kommunizieren, weil sie eben jene Kommunikation positiv wahrnehmen,
+während die ungeselligen beziehungsweise introvertierten Menschen ihr Smartphone möglicherweise benutzen um Treffen von Angesicht zu Angesicht zu vermeiden und dementsprechend mehr auf diesem Wege kommunizieren.
+Ein Faktor ist sicher auch die relativ kurze Dauer der Studie, die in Mitten der Klausurphase von vielen Studenten lag.
+Wenn man die andere Seite betrachtet so scheinen vielleicht auch die numerischen Werte für die Geselligkeit nicht unbedingt eine adequate Repräsentation für diesen Persönlichkeitsaspekt der Probandinnen.
+Wie im Abschnitt \ref{feedback} beschrieben gaben mehrere Probandinnen an, sich nicht vom Fragebogen repräsentiert zu fühlen.
+Angeführte Gründe sind hier die fehlende Differenzierung zwischen dem Verhalten im Freundeskreis und bezüglich der allgemeinen Gesellschaft und veraltete oder unklare Fragestellungen.
+Natürlich ist es auch möglich, dass es tatsächlich keinen Zusammenhang gibt.
+Weiterführende Studien auf diesem Feld sollten in der Lage sein, dies festzustellen.
+
+
+
+
+
+\chapter{Zusammenfassung und Ausblick}
+\label{ch:Zusammenfassung}
+
+
+In dieser Arbeit wurde der Zusammenhang zwischen der Geselligkeits- beziehungsweise Extraversions-Facette
+einer Persönlichkeit und der Smartphone Nutzung im Kontext von Social Media und Kommunikation untersucht.
+Es wurden verwandte Arbeiten vorgestellt und bewertet. 
+Diese Arbeiten nutzten verschieden geeignete Methoden um die Persönlichkeit ihrer Probandinnen zu quantifizieren und ihre Nutzung von Smartphones zu festzuhalten.
+Der Einsatz von Persönlichkeitsfragebögen aus der NEO Familie ist geeignet um die Ausprägung der 5 Dimensionen des Big Five Modells zu messen.
+Vom Smartphone selbst gesammelte Daten sind denen aus Befragungen der Probandin vorzuziehen.
+Als Bachelorarbeit existiert eine Grenze wie viel Zeit und Aufwand in eine Studie investiert werden kann. 
+\par
+Googles Androidbetriebssystem stellt eine Reihe an Schnittstellen und Möglichkeiten zur Verfügung, wie eine mit den entsprechenden Berechtigungen ausgestattete Applikation
+Daten bezüglich der Smartphone Nutzung sammeln kann.
+Es wurden nach Abwägungen bezüglich Zugänglichkeit, Aussagekraft und Schutz der Privatsphäre Notifications und UsageStat als Repräsentation für die Interaktion mit Applikationen gewählt.
+Ergänzt werden diese von aggregierten Daten aus Anrufen und SMS als Vertreter der konventionellen Nutzung von Mobiltelefonen.
+\par
+Daraufhin wurde eine Studie entworfen und nach der Durchführung einer kleineren Vorstudie durchgeführt, die anhand 25 Testprobandinnen Daten, aus einem durchgeführten Selbstbeurteilungsfragebogen und
+ mittels einer dazu entwickelten Android Applikation, bezüglich dieses Zusammenhangs sammelt.
+
+Folgend darauf wurde das Durchführen der Studie sowie die aufgekommenen Problemen beschrieben und durchgeführte Lösungsansätze diskutiert.
+Vor Beginn des Datensammelns füllten die 25 Probandinnen die 240 Fragen des NEO-PI-R Fragebogens aus, aus denen dann jeweils ein numerischer Wert für die Extraversion und die Geselligkeit berechnet wurde.
+Danach ließen sie für zwischen 12 und 28 Tagen die Applikation im Hintergrund laufen, sodass während dieser Zeit Daten aufzeichnet werden könnten.
+
+\par
+In den so gesammelten Daten konnte keine Korrelation zwischen der Nutzung von Applikationen und der Geselligkeit der Nutzerin festgestellt werden. 
+Die einzige findbare Korrelation war bei den konventionellen Mobiltelefonfeatures zu finden.
+Zwischen der Länge der Telefonanrufe und der Geselligkeit zeigte sich ein signifikanter ($p < 0.05$) Zusammenhang.
+\par
+Dass im Rahmen dieser Arbeit kein signifikanter Zusammenhang zwischen Social Media- beziehungsweise Instantmessaging-Nutzung gefunden werden konnte bedeutet aber keinesfalls,
+dass diese Richtung der Forschung nicht weiter getrieben werden sollte.
+Die hier durchgeführte Studie litt unter den Limitationen, die ihr auferlegt waren und dem wegfallen der UsageStat Daten.
+Eine Studie mit einer größeren, heterogeneren und ausgeglicherenen Probandengruppe, die über einen längere Laufzeit verfügt könnte einen tieferen Einblick in das Thema geben.
+Als zusätzlich zu erhebende Daten wäre es sehr interessant tatsächlich ausgehende Nachrichten zu betrachten.
+Alternativ ist auch eine Erweiterung der Fragestellung auf andere Unterfacetten der Extraversion oder auf andere Dimensionen des Big Five erweitern um andere Aspekte der Kommunikation mit dem Smartphone zu betrachten.
+\par
+Abschließend kann man sagen, dass die große Menge an personenbezogenen Daten,
+die jeden Tag durch das persönliche Smartphone fließt, dieses zu einem sehr attraktiven Werkzeug zur Betrachtung der Persönlichkeit seiner Benutzerin macht.
+Dies begrenzt sich nicht nur auf die Geselligkeit oder die Extraversion: Die Aspekte die nicht so betrachtet werden können sind verschwindend wenige.
+Dies ist ein interessantes Forschungsthema, mit viel Potenzial in der Zukunft, jedoch muss Acht gegeben werden.
+Diese Forschung kann leicht den Vorteil der Nutzerin aus den Augen verlieren und missbraucht werden. 
+
+

@@ -1,0 +1,23 @@
+,Df,Sum Sq,Mean Sq
+AmountCalls,1,4.72,4.72
+AmountIncoming,1,8.6,8.6
+AmountOutgoing ,1,196.86,196.86
+TotalDuration,1,77.92,77.92
+AverageDuration,1,314.54,314.54
+IncomingDuration,1,23.11,23.11
+AverageIncomingDuration,1,171.46,171.46
+AverageOutgoingDuration,1,8.74,8.74
+UniqueCaller,1,0.06,0.06
+maxNoCall,1,9.62,9.62
+MessagesAmount,1,1.74,1.74
+MessagesSent,1,13.87,13.87
+MessagesReceived,1,0.24,0.24
+TotalMessageLength,1,3.88,3.88
+SentMessageLength,1,11.92,11.92
+AverageMessageLength,1,86.59,86.59
+AverageSentMessageLength,1,61.7,61.7
+AverageReceivedMessageLength,1,55.17,55.17
+Days,1,0.01,0.01
+AmountAppsUsed,1,1.42,1.42
+AmountNotificationTotal,1,13,13
+NotificationProTag,1,2.48,2.48

@@ -154,16 +154,20 @@ public class Main {
                 it.remove(); // avoids a ConcurrentModificationException
             }
 
-            Notification.appPackage maximumNoti = total.get(0).get(0).getApp();
-            Notification.appPackage maximumTextLength = total.get(0).get(0).getApp();
-            Notification.appPackage maximumCon = total.get(0).get(0).getApp();
+            Notification.appPackage maximumNoti = total.get(8).get(0).getApp();
+            Notification.appPackage maximumTextLength = total.get(8).get(0).getApp();
+            Notification.appPackage maximumCon = total.get(8).get(0).getApp();
             int maximumNotiVal = 0;
             double maximumTextLengthVal = 0;
             int maximumConVal = 0;
             String tempOutput = "";
+            int appsused = 0;
 
             for(ArrayList<Notification> it2 : total ){
                 tempOutput += getDataString(it2);
+                if (it2.size() > 0) {
+                    appsused++;
+                }
                 if (it2.size() > maximumNotiVal) {
                     maximumNoti = it2.get(0).getApp();
                     maximumNotiVal = it2.size();
@@ -183,20 +187,24 @@ public class Main {
 
             String output = p + "\n";
 
-            output += hmapsize + "\t" + hmapsize/((double)timeDiff / (3600000 * 24) ) + "\t" + calculateAvgLength(valuesList) + "\t" + maximumNoti + "\t" + maximumCon + "\t" + maximumTextLength + "\t";
+            output += appsused + "\t" + hmapsize + "\t" + hmapsize/(timeDiff / (3600000 * 24.f) ) + "\t" + calculateAvgLength(valuesList) + "\t" + maximumNoti + "\t" + maximumCon + "\t" + maximumTextLength + "\t";
             output += tempOutput;
 
 
-//            int dist = 0;
-//
-//            try {
-//                PrintWriter out = new PrintWriter("/Users/saibot1207/Documents/BA/AusgabeNutzerDaten/Line" + dist + ".txt");
-//                //out.println(saveToFile);
-//                out.close();
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//            dist++;
+
+
+            int dist = 0;
+
+
+            try {
+                PrintWriter out = new PrintWriter("/Users/saibot1207/Documents/BA/Ergebnisse/Line" + dist + ".txt");
+                out.println(output);
+                System.out.println(timeDiff /(3600000 * 24.f));
+                out.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            dist++;
 
 
 
